@@ -1,6 +1,7 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { FEED_ITEM_LIMIT, ITEM_MAX_AGE_HOURS } from "@/lib/config";
+import { pageImage } from "@/lib/image";
 
 export type DigestItem = {
   id: string;
@@ -169,5 +170,13 @@ export async function buildDigest(): Promise<Digest> {
   });
 
   items.sort((a, b) => itemTime(b) - itemTime(a));
-  return { items, failedFeeds };
+
+  const filled = await Promise.all(
+    items.map(async (item) => {
+      if (item.image) return item;
+      return { ...item, image: await pageImage(item.link) };
+    }),
+  );
+
+  return { items: filled, failedFeeds };
 }
