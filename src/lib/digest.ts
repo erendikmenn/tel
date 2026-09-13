@@ -7,7 +7,6 @@ export type DigestItem = {
   title: string;
   link: string;
   source: string;
-  sourceId: string;
   isoDate?: string;
   summary?: string;
   image?: string;
@@ -28,15 +27,7 @@ type ParsedItem = Parser.Item & {
   "content:encoded"?: string;
 };
 
-export type DigestGroup = {
-  source: string;
-  sourceId: string;
-  items: DigestItem[];
-};
-
 export type Digest = {
-  generatedAt: string;
-  groups: DigestGroup[];
   items: DigestItem[];
   failedFeeds: string[];
 };
@@ -155,7 +146,6 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
           title,
           link: parsed.link!,
           source: feed.name,
-          sourceId: feed.id,
           isoDate: parsed.isoDate ?? parsed.pubDate,
           summary: itemSummary(parsed, title),
           image: itemImage(parsed),
@@ -167,31 +157,17 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
 
 export async function buildDigest(): Promise<Digest> {
   const results = await Promise.allSettled(FEEDS.map((feed) => fetchFeed(feed)));
-  const groups: DigestGroup[] = [];
+  const items: DigestItem[] = [];
   const failedFeeds: string[] = [];
 
   results.forEach((result, index) => {
-    const feed = FEEDS[index];
     if (result.status === "rejected") {
-      failedFeeds.push(feed.name);
+      failedFeeds.push(FEEDS[index].name);
       return;
     }
-    if (result.value.length === 0) return;
-    groups.push({
-      source: feed.name,
-      sourceId: feed.id,
-      items: result.value,
-    });
+    items.push(...result.value);
   });
 
-  const items = groups
-    .flatMap((group) => group.items)
-    .sort((a, b) => itemTime(b) - itemTime(a));
-
-  return {
-    generatedAt: new Date().toISOString(),
-    groups,
-    items,
-    failedFeeds,
-  };
+  items.sort((a, b) => itemTime(b) - itemTime(a));
+  return { items, failedFeeds };
 }
