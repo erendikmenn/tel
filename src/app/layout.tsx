@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Source_Sans_3, Syne } from "next/font/google";
 import { APP_NAME } from "@/lib/config";
 import "./globals.css";
@@ -20,6 +20,11 @@ const mono = IBM_Plex_Mono({
   weight: ["400", "500"],
   variable: "--font-plex-mono",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {

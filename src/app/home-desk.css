@@ -1,0 +1,180 @@
+/* 1920x1080 birincil hedef. */
+
+.tel-shell {
+  width: min(1680px, calc(100vw - 80px));
+  margin-inline: auto;
+}
+
+.tel-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 0 48px;
+  align-items: start;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.tel-lead-story {
+  display: grid;
+  grid-template-columns: minmax(380px, 42%) minmax(0, 1fr);
+  gap: 32px;
+  align-items: stretch;
+  text-decoration: none;
+}
+
+.tel-lead-photo {
+  position: relative;
+  min-height: 280px;
+  height: 100%;
+  overflow: hidden;
+  background: #d8dde4;
+}
+
+.tel-lead-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.tel-lead-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tel-lead-copy h2 {
+  margin: 0;
+  font-family: var(--font-syne), Syne, sans-serif;
+  font-size: clamp(2rem, 2.1vw, 2.7rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+
+.tel-lead-dek {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tel-rail {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-left: 1px solid var(--ink);
+  padding-left: 28px;
+}
+
+.tel-rail-link {
+  display: block;
+  padding: 14px 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.tel-rail-link:first-child {
+  padding-top: 0;
+}
+
+.tel-rail-link:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.tel-rail-meta {
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--stamp);
+  margin: 0 0 6px;
+}
+
+.tel-rail-title {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  font-weight: 600;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (max-width: 1280px) {
+  .tel-shell {
+    width: min(1120px, calc(100vw - 48px));
+  }
+
+  .tel-lead {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 0 32px;
+  }
+
+  .tel-lead-story {
+    grid-template-columns: minmax(300px, 38%) minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .tel-lead-copy h2 {
+    font-size: 2.1rem;
+  }
+
+  .tel-rail {
+    padding-left: 20px;
+  }
+
+  .tel-rail-title {
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .tel-lead,
+  .tel-lead-story {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .tel-lead-photo {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .tel-lead-copy h2 {
+    font-size: 1.7rem;
+  }
+
+  .tel-rail {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--ink);
+    padding-top: 12px;
+  }
+
+  .tel-rail-link:first-child {
+    padding-top: 12px;
+  }
+
+  .tel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

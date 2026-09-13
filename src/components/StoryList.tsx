@@ -1,14 +1,12 @@
 import { istanbulStamp } from "@/lib/config";
-import type { Digest } from "@/lib/digest";
+import type { DigestItem } from "@/lib/digest";
 
-export function StoryList({ digest }: { digest: Digest }) {
-  if (digest.items.length === 0) {
-    return <p className="note">Kaynaklar şu an sessiz. Birazdan yenilenir.</p>;
-  }
+export function StoryList({ items }: { items: DigestItem[] }) {
+  if (items.length === 0) return null;
 
   return (
-    <div className="story-grid">
-      {digest.items.map((item) => {
+    <div className="tel-grid">
+      {items.map((item) => {
         const stamp = istanbulStamp(item.isoDate);
         return (
           <article key={item.id} className="story-card">

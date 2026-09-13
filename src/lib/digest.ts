@@ -1,7 +1,7 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { FEED_ITEM_LIMIT, ITEM_MAX_AGE_HOURS } from "@/lib/config";
-import { pageImage } from "@/lib/image";
+import { enlargeImage, pageImage } from "@/lib/image";
 
 export type DigestItem = {
   id: string;
@@ -94,11 +94,11 @@ function mediaUrl(node?: MediaNode) {
 function itemImage(item: ParsedItem) {
   const enclosure = item.enclosure;
   if (enclosure?.url && (!enclosure.type || enclosure.type.startsWith("image/"))) {
-    return enclosure.url;
+    return enlargeImage(enclosure.url);
   }
 
   const thumb = mediaUrl(item.mediaThumbnail);
-  if (thumb) return thumb;
+  if (thumb) return enlargeImage(thumb);
 
   const contents = Array.isArray(item.mediaContent)
     ? item.mediaContent
@@ -109,10 +109,10 @@ function itemImage(item: ParsedItem) {
     .map((node) => ({ url: mediaUrl(node), width: Number(node.$?.width || 0) }))
     .filter((node): node is { url: string; width: number } => Boolean(node.url))
     .sort((a, b) => b.width - a.width);
-  if (ranked[0]) return ranked[0].url;
+  if (ranked[0]) return enlargeImage(ranked[0].url);
 
   const html = item.content || item["content:encoded"] || "";
-  return html.match(/<img[^>]+src=["']([^"']+)/i)?.[1];
+  return enlargeImage(html.match(/<img[^>]+src=["']([^"']+)/i)?.[1]);
 }
 
 function itemTime(item: DigestItem) {

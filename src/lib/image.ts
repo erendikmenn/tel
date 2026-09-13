@@ -1,3 +1,8 @@
+export function enlargeImage(url?: string) {
+  if (!url) return url;
+  return url.replace(/\/ace\/standard\/\d+\//, "/ace/standard/976/");
+}
+
 const HEADERS = {
   "User-Agent": "Mozilla/5.0 (compatible; Tel/0.1; +https://github.com/erendikmenn/tel)",
   Accept: "text/html",
@@ -29,7 +34,7 @@ export async function pageImage(url: string) {
     const html = (await response.text()).slice(0, 120_000);
     const found = metaImage(html);
     if (!found) return undefined;
-    return new URL(found, url).href;
+    return enlargeImage(new URL(found, url).href);
   } catch {
     return undefined;
   }
