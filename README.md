@@ -83,6 +83,27 @@ npm start
 
 Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 
+## Sürümler
+
+[SemVer](https://semver.org/lang/tr/): `MAJOR.MINOR.PATCH` (`package.json` + git etiketi `vX.Y.Z`).
+
+`0.x` iken ürün henüz 1.0 değil; **minor** yeni katman (MCP, mail, Postgres), **patch** bozulanı düzeltme, **major** (1.0) “bu sözleşme duruyor” dediğin an. `0.1.0` = kamu anasayfa (5 kaynak, dış link, 30 dk).
+
+Yeni sürüm:
+
+1. `package.json` içindeki `version` alanını yükselt
+2. Bu listedeki bir satırı güncelle
+3. Commit et, `git tag -a vX.Y.Z -m "…"`, `git push && git push --tags`
+4. GitHub’da Release aç (`gh release create vX.Y.Z`)
+
+| Sürüm | Ne |
+| --- | --- |
+| **0.1.0** | Anasayfa: 5 RSS, 36 saat, manşet + sütun + ızgara, tık kaynağa |
+| 0.1.x | Aynı ürün, hata / küçük UI |
+| 0.2 | MCP (digest sorgusu) |
+| 0.3 | Postgres + tasnif |
+| 0.4 | Mail (ilgi alanı, onay, çıkış) |
+
 ## Lisans
 
 [MIT](LICENSE)
