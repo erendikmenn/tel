@@ -1,6 +1,10 @@
+const BBC_ACE = /\/ace\/(standard|ws)\/\d+\//;
+
 export function enlargeImage(url?: string) {
   if (!url) return url;
-  return url.replace(/\/ace\/standard\/\d+\//, "/ace/standard/976/");
+  return url.replace(BBC_ACE, (_match, kind: string) =>
+    kind === "ws" ? "/ace/ws/800/" : "/ace/standard/976/",
+  );
 }
 
 const HEADERS = {

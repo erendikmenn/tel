@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -36,6 +37,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-source-sans), "Source Sans 3", sans-serif;
+  overflow-x: clip;
 }
 
 a {
@@ -256,9 +258,13 @@ a {
 }
 
 .story-thumb img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 280ms ease;
 }
@@ -292,9 +298,8 @@ a {
   font-size: 0.98rem;
   line-height: 1.3;
   font-weight: 600;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  display: block;
+  max-height: 3.9em;
   overflow: hidden;
 }
 
@@ -303,9 +308,8 @@ a {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+  display: block;
+  max-height: 4.2em;
   overflow: hidden;
 }
 

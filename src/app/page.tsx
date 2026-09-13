@@ -5,7 +5,7 @@ import { StoryRail } from "@/components/StoryRail";
 import { istanbulDate, istanbulWeekday } from "@/lib/config";
 import { buildDigest } from "@/lib/digest";
 import { splitHome } from "@/lib/home";
-import "./home-desk.css";
+import "./pack.css";
 
 export const revalidate = 1800;
 

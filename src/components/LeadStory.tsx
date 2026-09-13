@@ -5,7 +5,7 @@ export function LeadStory({ item }: { item: DigestItem }) {
   const stamp = istanbulStamp(item.isoDate);
 
   return (
-    <article>
+    <article className="tel-lead-main">
       <a href={item.link} rel="noreferrer" className="tel-lead-story">
         {item.image ? (
           <div className="tel-lead-photo">

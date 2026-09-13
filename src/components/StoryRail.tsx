@@ -14,7 +14,20 @@ export function StoryRail({ items }: { items: DigestItem[] }) {
               {item.source}
               {stamp ? ` · ${stamp}` : ""}
             </p>
-            <h3 className="tel-rail-title">{item.title}</h3>
+            <h3
+              className="tel-rail-title"
+              style={{
+                display: "block",
+                height: 40,
+                overflow: "hidden",
+                lineHeight: "20px",
+                fontSize: 15,
+                letterSpacing: "normal",
+                wordSpacing: "normal",
+              }}
+            >
+              {item.title}
+            </h3>
           </a>
         );
       })}

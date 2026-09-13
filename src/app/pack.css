@@ -1,17 +1,23 @@
-/* 1920x1080 birincil hedef. */
+/* 1920x1080 birincil hedef. 100vw kullanma — scrollbar taşıması yapar. */
 
 .tel-shell {
-  width: min(1680px, calc(100vw - 80px));
+  width: 100%;
+  max-width: 1680px;
   margin-inline: auto;
+  padding-inline: 40px;
 }
 
 .tel-lead {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 0 48px;
-  align-items: start;
+  align-items: stretch;
   padding-bottom: 32px;
   border-bottom: 1px solid var(--ink);
+}
+
+.tel-lead-main {
+  min-width: 0;
 }
 
 .tel-lead-story {
@@ -19,6 +25,7 @@
   grid-template-columns: minmax(380px, 42%) minmax(0, 1fr);
   gap: 32px;
   align-items: stretch;
+  height: 100%;
   text-decoration: none;
 }
 
@@ -62,15 +69,14 @@
   color: var(--muted);
   font-size: 1.08rem;
   line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  max-height: 2.8em;
   overflow: hidden;
 }
 
 .tel-rail {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   min-width: 0;
   border-left: 1px solid var(--ink);
   padding-left: 28px;
@@ -78,7 +84,7 @@
 
 .tel-rail-link {
   display: block;
-  padding: 14px 0;
+  padding: 12px 0;
   text-decoration: none;
   border-bottom: 1px solid var(--line);
 }
@@ -101,16 +107,21 @@
   margin: 0 0 6px;
 }
 
+/* -webkit-box kullanma: Chrome boşlukları yiyor, satır kesilmiyor. */
 .tel-rail-title {
+  display: block;
   margin: 0;
-  font-size: 1.02rem;
-  line-height: 1.35;
-  font-weight: 600;
-  overflow-wrap: break-word;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  font-size: 15px;
+  line-height: 20px;
+  height: 40px;
   overflow: hidden;
+  font-weight: 600;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+  letter-spacing: normal;
+  word-spacing: normal;
+  hyphens: none;
 }
 
 .tel-grid {
@@ -121,7 +132,8 @@
 
 @media (max-width: 1280px) {
   .tel-shell {
-    width: min(1120px, calc(100vw - 48px));
+    max-width: 1120px;
+    padding-inline: 24px;
   }
 
   .tel-lead {
@@ -143,27 +155,47 @@
   }
 
   .tel-rail-title {
-    font-size: 0.92rem;
+    font-size: 14px;
+    line-height: 18px;
+    height: 36px;
+  }
+
+  .tel-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
+  .tel-shell {
+    padding-inline: 16px;
+  }
+
   .tel-lead,
   .tel-lead-story {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
+  .tel-lead-copy {
+    order: -1;
+  }
+
   .tel-lead-photo {
-    height: 200px;
-    min-height: 200px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .tel-lead-copy h2 {
-    font-size: 1.7rem;
+    font-size: clamp(1.45rem, 6.4vw, 1.75rem);
+  }
+
+  .tel-lead-dek {
+    font-size: 1rem;
   }
 
   .tel-rail {
+    justify-content: flex-start;
     border-left: 0;
     padding-left: 0;
     border-top: 1px solid var(--ink);
@@ -176,5 +208,15 @@
 
   .tel-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .tel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tel-lead-copy h2 {
+    font-size: 1.5rem;
   }
 }
