@@ -121,10 +121,6 @@ a {
   line-height: 1.4;
 }
 
-.note-error {
-  color: var(--stamp);
-}
-
 .story-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
