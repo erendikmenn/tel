@@ -2,6 +2,7 @@ import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { FEED_ITEM_LIMIT, ITEM_MAX_AGE_HOURS } from "@/lib/config";
 import { enlargeImage, pageImage } from "@/lib/image";
+import { normalizeText } from "@/lib/text";
 
 export type DigestItem = {
   id: string;
@@ -47,14 +48,6 @@ const parser = new Parser({
   },
 });
 
-function normalizeTitle(title: string) {
-  return title
-    .toLocaleLowerCase("tr-TR")
-    .replace(/[^\p{L}\p{N}\s]/gu, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 function stripHtml(value: string) {
   return value
     .replace(/<[^>]+>/g, " ")
@@ -77,7 +70,7 @@ function itemSummary(item: ParsedItem, title: string) {
   const raw = item.contentSnippet || item.summary || item.content || item["content:encoded"] || "";
   const text = stripHtml(raw);
   if (!text) return undefined;
-  if (normalizeTitle(text) === normalizeTitle(title)) return undefined;
+  if (normalizeText(text) === normalizeText(title)) return undefined;
   return clip(text);
 }
 
@@ -138,7 +131,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
     .flatMap((item) => {
       const parsed = item as ParsedItem;
       const title = stripHtml(parsed.title!);
-      const key = normalizeTitle(title);
+      const key = normalizeText(title);
       if (!key || seen.has(key)) return [];
       seen.add(key);
       return [
