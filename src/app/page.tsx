@@ -1,4 +1,5 @@
 import { LeadStory } from "@/components/LeadStory";
+import { RefreshCountdown } from "@/components/RefreshCountdown";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 import { StoryList } from "@/components/StoryList";
 import { StoryRail } from "@/components/StoryRail";
@@ -7,30 +8,33 @@ import { buildDigest } from "@/lib/digest";
 import { splitHome } from "@/lib/home";
 import "./pack.css";
 
+// Tek doğruluk kaynağı: intro'daki geri sayım da bu değeri kullanır.
+// Next.js bu değeri derleme anında okuyabilmek için düz bir sabit ister.
 export const revalidate = 1800;
 
 export default async function Home() {
   const digest = await buildDigest();
   const { lead, rail, rest } = splitHome(digest.items);
+  // Bu sürümün üretildiği an; geri sayımın çıkış noktası.
+  const generatedAt = new Date().toISOString();
 
   return (
     <div className="tel-shell">
       <SiteHeader />
 
       <section className="intro">
-        <div>
+        <div className="intro-copy">
           <h1>Günün haberleri</h1>
           <p className="kicker">
             {istanbulWeekday().toLocaleUpperCase("tr-TR")} · {istanbulDate()}
           </p>
         </div>
-        <p className="lede">
-          En yeni üstte. {digest.items.length} haber
-          {digest.failedFeeds.length > 0
-            ? ` · ulaşılamayan: ${digest.failedFeeds.join(", ")}`
-            : ""}
-          .
-        </p>
+        <div className="intro-meta">
+          <RefreshCountdown intervalSeconds={revalidate} generatedAt={generatedAt} />
+          {digest.failedFeeds.length > 0 ? (
+            <p className="lede">Ulaşılamayan: {digest.failedFeeds.join(", ")}.</p>
+          ) : null}
+        </div>
       </section>
 
       {lead ? (

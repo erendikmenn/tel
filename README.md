@@ -20,13 +20,13 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 
 ## Ne sıklıkla yenilenir
 
-- Anasayfa **30 dakikada bir** yeniden üretilir (`revalidate = 1800` saniye, `src/app/page.tsx`).
+- Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
 - Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
 - Alınan kalemler **son 36 saat** ile sınırlıdır (`ITEM_MAX_AGE_HOURS` — `src/lib/config.ts`).
 - Kaynak başına en fazla **12** kalem alınır (`FEED_ITEM_LIMIT`).
 - Aynı başlık (Türkçe normalize) bir kez gösterilir.
 
-Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı en fazla yarım saatte bir baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
+Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate` dolunca baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
 
 ## Sayfa nasıl kurulur
 
@@ -87,7 +87,7 @@ Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 
 [SemVer](https://semver.org/lang/tr/): `MAJOR.MINOR.PATCH` (`package.json` + git etiketi `vX.Y.Z`).
 
-`0.x` iken ürün henüz 1.0 değil; **minor** yeni katman (MCP, mail, Postgres), **patch** bozulanı düzeltme, **major** (1.0) “bu sözleşme duruyor” dediğin an. `0.1.0` = kamu anasayfa (5 kaynak, dış link, 30 dk).
+`0.x` iken ürün henüz 1.0 değil; **minor** yeni katman (MCP, mail, Postgres), **patch** bozulanı düzeltme, **major** (1.0) “bu sözleşme duruyor” dediğin an. `0.1.0` = kamu anasayfa (5 kaynak, dış link, varsayılan 30 dk).
 
 Yeni sürüm:
 

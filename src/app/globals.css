@@ -91,6 +91,10 @@ a {
   margin-bottom: 18px;
 }
 
+.intro-copy {
+  min-width: 0;
+}
+
 .intro h1 {
   font-family: var(--font-syne), Syne, sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
@@ -114,6 +118,36 @@ a {
   margin: 0;
   color: var(--muted);
   font-size: 0.98rem;
+}
+
+.intro-meta {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+/* Sağda duran, sayfanın revalidate penceresine bağlı geri sayım. */
+.refresh-count {
+  margin: 0;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+.refresh-every {
+  color: var(--muted);
+}
+
+.refresh-count time {
+  display: block;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
 }
 
 .note {
@@ -333,6 +367,14 @@ a {
   .intro {
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .intro-meta {
+    justify-items: start;
+  }
+
+  .refresh-count {
+    text-align: left;
   }
 
   .lead-pack,
