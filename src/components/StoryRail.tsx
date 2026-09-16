@@ -1,7 +1,7 @@
 import { istanbulStamp } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 
-export function StoryRail({ items }: { items: DigestItem[] }) {
+export function StoryRail({ items, readIds }: { items: DigestItem[]; readIds?: Set<string> }) {
   if (items.length === 0) return null;
 
   return (
@@ -9,7 +9,12 @@ export function StoryRail({ items }: { items: DigestItem[] }) {
       {items.map((item) => {
         const stamp = istanbulStamp(item.isoDate);
         return (
-          <a key={item.id} href={item.link} rel="noreferrer" className="tel-rail-link">
+          <a
+            key={item.id}
+            href={item.link}
+            rel="noreferrer"
+            className={"tel-rail-link" + (readIds?.has(item.id) ? " is-read" : "")}
+          >
             <p className="tel-rail-meta">
               {item.source}
               {stamp ? ` · ${stamp}` : ""}

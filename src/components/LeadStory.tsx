@@ -1,11 +1,12 @@
 import { istanbulStamp } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 
-export function LeadStory({ item }: { item: DigestItem }) {
+export function LeadStory({ item, readIds }: { item: DigestItem; readIds?: Set<string> }) {
   const stamp = istanbulStamp(item.isoDate);
+  const read = readIds?.has(item.id) ?? false;
 
   return (
-    <article className="tel-lead-main">
+    <article className={"tel-lead-main" + (read ? " is-read" : "")}>
       <a href={item.link} rel="noreferrer" className="tel-lead-story">
         {item.image ? (
           <div className="tel-lead-photo">

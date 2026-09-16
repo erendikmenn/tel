@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type MouseEvent } from "react";
 import { LeadStory } from "@/components/LeadStory";
 import { StoryList } from "@/components/StoryList";
 import { StoryRail } from "@/components/StoryRail";
@@ -17,6 +17,16 @@ import { countOptions } from "@/lib/counts";
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
+import {
+  READ_STORAGE_KEY,
+  countRead,
+  countUnread,
+  loadReads,
+  markRead,
+  saveReads,
+  type ReadMap,
+  type StorageLike,
+} from "@/lib/reads";
 import { TOPICS, TOPIC_ALL, topicLabel } from "@/lib/topics";
 
 type ExplorerState = {
@@ -25,6 +35,8 @@ type ExplorerState = {
   categories: string[];
   hours: number;
   perSource: number;
+  /** true ise yalnızca okunmamışlar gösterilir. */
+  onlyNew: boolean;
 };
 
 const DEFAULTS: ExplorerState = {
@@ -33,6 +45,7 @@ const DEFAULTS: ExplorerState = {
   categories: [],
   hours: DEFAULT_WINDOW_HOURS,
   perSource: DEFAULT_PER_SOURCE,
+  onlyNew: false,
 };
 
 const STORAGE_KEY = "tel:view";
@@ -82,7 +95,18 @@ function readInitialState(): ExplorerState {
       pickOption(params.get("kaynakbasi"), PER_SOURCE_OPTIONS) ??
       storedPerSource ??
       DEFAULTS.perSource,
+    onlyNew: params.get("yeni") === "1",
   };
+}
+
+/** localStorage'a güvenli erişim (kapalıysa null). */
+function storage(): StorageLike | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return window.localStorage;
+  } catch {
+    return null;
+  }
 }
 
 function persist(state: ExplorerState) {
@@ -92,6 +116,7 @@ function persist(state: ExplorerState) {
   if (state.categories.length > 0) params.set("kategori", state.categories.join(","));
   if (state.hours !== DEFAULTS.hours) params.set("zaman", String(state.hours));
   if (state.perSource !== DEFAULTS.perSource) params.set("kaynakbasi", String(state.perSource));
+  if (state.onlyNew) params.set("yeni", "1");
 
   const search = params.toString();
   const url = search ? window.location.pathname + "?" + search : window.location.pathname;
@@ -111,12 +136,34 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
   // Sunucuyla aynı ilk boya: varsayılan pencere + kaynak başına varsayılan.
   const [state, setState] = useState<ExplorerState>(DEFAULTS);
   const [open, setOpen] = useState(false);
+  const [reads, setReads] = useState<ReadMap>({});
 
   useEffect(() => {
-    // URL/localStorage ile bir kerelik senkron (paylaşılan bağlantı + kalıcı tercih).
-    const sync = () => setState(readInitialState());
+    // URL/localStorage ile bir kerelik senkron (paylaşılan bağlantı + kalıcı tercih + okuma durumu).
+    const sync = () => {
+      setState(readInitialState());
+      setReads(loadReads(storage()));
+    };
     sync();
   }, []);
+
+  /** Okundu işaretle: localStorage'a hemen yazılır (tıklama sekmeyi değiştirse bile kaybolmaz). */
+  const markIds = (ids: string[]) => {
+    if (ids.length === 0) return;
+    const next = markRead(reads, ids);
+    saveReads(storage(), next);
+    setReads(next);
+  };
+
+  const resetReads = () => {
+    saveReads(storage(), {});
+    try {
+      storage()?.removeItem?.(READ_STORAGE_KEY);
+    } catch {
+      // yoksay
+    }
+    setReads({});
+  };
 
   const update = (patch: Partial<ExplorerState>) => {
     const next = { ...state, ...patch };
@@ -138,11 +185,25 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       // "Tümü" = zaman süzgeci yok
       sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
       perSource: state.perSource,
+      reads,
+      onlyNew: state.onlyNew,
     }),
-    [state.q, state.sources, state.categories, state.hours, state.perSource],
+    [state.q, state.sources, state.categories, state.hours, state.perSource, state.onlyNew, reads],
   );
 
   const filtered = useMemo(() => viewItems(items, baseView), [items, baseView]);
+
+  // "N yeni": "Sadece yeni" kapalıyken de doğru olsun diye okuma süzgeci olmadan sayılır.
+  const newCount = useMemo(
+    () => countUnread(reads, viewItems(items, { ...baseView, onlyNew: false })),
+    [items, baseView, reads],
+  );
+  const readIds = useMemo(() => new Set(Object.keys(reads)), [reads]);
+  const linkIds = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const item of items) map.set(item.link, item.id);
+    return map;
+  }, [items]);
 
   // Canlı sayaçlar: her seçeneğin yanında, diğer gruplar sabitken kaç sonuç geleceği.
   const sourceCounts = useMemo(
@@ -175,7 +236,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     state.sources.length +
     state.categories.length +
     (state.hours !== DEFAULTS.hours ? 1 : 0) +
-    (state.perSource !== DEFAULTS.perSource ? 1 : 0);
+    (state.perSource !== DEFAULTS.perSource ? 1 : 0) +
+    (state.onlyNew ? 1 : 0);
   const hasAny = state.q.trim().length > 0 || filterCount > 0;
 
   const toggleSource = (name: string) => {
@@ -199,7 +261,17 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       categories: [],
       hours: DEFAULTS.hours,
       perSource: DEFAULTS.perSource,
+      onlyNew: false,
     });
+
+  /** Bir habere tıklamak onu okundu işaretler (kartlar tek tek dinleyici taşımasın diye burada). */
+  const handleContentClick = (event: MouseEvent<HTMLDivElement>) => {
+    const anchor = (event.target as HTMLElement).closest("a");
+    const href = anchor?.getAttribute("href");
+    if (!href) return;
+    const id = linkIds.get(href);
+    if (id) markIds([id]);
+  };
 
   const renderWindowOption = (hours: number) => {
     const count = windowCounts.get(hours) ?? 0;
@@ -329,7 +401,34 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       ) : null}
 
       <div className="explorer-active">
-        <span className="explorer-count">{filtered.length} haber</span>
+        <span className="explorer-count">
+          {state.onlyNew
+            ? filtered.length + " yeni haber"
+            : filtered.length + " haber" + (newCount > 0 ? " · " + newCount + " yeni" : "")}
+        </span>
+        <button
+          type="button"
+          className={"explorer-mode" + (state.onlyNew ? " is-on" : "")}
+          aria-pressed={state.onlyNew}
+          onClick={() => update({ onlyNew: !state.onlyNew })}
+        >
+          Sadece yeni
+        </button>
+        {filtered.length > 0 ? (
+          <button
+            type="button"
+            className="explorer-mode"
+            title="Görünen haberleri okundu olarak işaretle"
+            onClick={() => markIds(filtered.map((item) => item.id))}
+          >
+            Okundu say
+          </button>
+        ) : null}
+        {countRead(reads) > 0 ? (
+          <button type="button" className="explorer-mode is-muted" onClick={resetReads}>
+            Okumaları sıfırla
+          </button>
+        ) : null}
         {state.sources.map((name) => (
           <button
             key={name}
@@ -376,21 +475,23 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
         ) : null}
       </div>
 
-      {lead ? (
-        <section className="tel-lead">
-          <LeadStory item={lead} />
-          <StoryRail items={rail} />
-        </section>
-      ) : (
-        <p className="note">Bu aramada haber yok. Filtreleri temizleyip yeniden dene.</p>
-      )}
+      <div onClick={handleContentClick}>
+        {lead ? (
+          <section className="tel-lead">
+            <LeadStory item={lead} readIds={readIds} />
+            <StoryRail items={rail} readIds={readIds} />
+          </section>
+        ) : (
+          <p className="note">Bu aramada haber yok. Filtreleri temizleyip yeniden dene.</p>
+        )}
 
-      {rest.length > 0 ? (
-        <section className="block">
-          <h2>Son haberler</h2>
-          <StoryList items={rest} />
-        </section>
-      ) : null}
+        {rest.length > 0 ? (
+          <section className="block">
+            <h2>Son haberler</h2>
+            <StoryList items={rest} readIds={readIds} />
+          </section>
+        ) : null}
+      </div>
     </div>
   );
 }

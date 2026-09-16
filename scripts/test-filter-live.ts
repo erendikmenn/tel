@@ -1,5 +1,6 @@
 import { fetchRealItems } from "./support/real-feed";
 import { checkFilterRules, printExamples, printTopicReport } from "./support/filter-checks";
+import { checkReadRules } from "./support/read-checks";
 
 async function main() {
   const items = await fetchRealItems();
@@ -19,6 +20,7 @@ async function main() {
   }
 
   checkFilterRules(items, assert);
+  checkReadRules(items, assert);
 
   if (failed) {
     console.error("\ncanlı feed kontrolleri başarısız");

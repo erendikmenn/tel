@@ -1,5 +1,6 @@
 import { REAL_ITEMS } from "./fixtures/real-items";
 import { checkFilterRules, printExamples, printTopicReport } from "./support/filter-checks";
+import { checkReadRules } from "./support/read-checks";
 
 let failed = false;
 
@@ -17,6 +18,7 @@ console.log("");
 printTopicReport(REAL_ITEMS);
 printExamples(REAL_ITEMS);
 checkFilterRules(REAL_ITEMS, assert);
+checkReadRules(REAL_ITEMS, assert);
 
 if (failed) {
   console.error("\nfilter checks failed");

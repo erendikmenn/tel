@@ -1,7 +1,7 @@
 import { istanbulStamp } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 
-export function StoryList({ items }: { items: DigestItem[] }) {
+export function StoryList({ items, readIds }: { items: DigestItem[]; readIds?: Set<string> }) {
   if (items.length === 0) return null;
 
   return (
@@ -9,7 +9,10 @@ export function StoryList({ items }: { items: DigestItem[] }) {
       {items.map((item) => {
         const stamp = istanbulStamp(item.isoDate);
         return (
-          <article key={item.id} className="story-card">
+          <article
+            key={item.id}
+            className={"story-card" + (readIds?.has(item.id) ? " is-read" : "")}
+          >
             <a href={item.link} rel="noreferrer" className="story-link">
               <div className="story-thumb">
                 {item.image ? (

@@ -1,5 +1,6 @@
 import type { DigestItem } from "./digest";
 import { FEEDS } from "./feeds";
+import { filterUnread, type ReadMap } from "./reads";
 import { normalizeText } from "./text";
 import { TOPIC_ALL } from "./topics";
 
@@ -163,13 +164,23 @@ export function takePerSource(items: DigestItem[], perSource: number) {
   });
 }
 
-/** Ekrandaki görünüm: filtre + kaynak başına cap (+ offset/limit). UI ve testler aynı yolu kullanır. */
-export type DigestView = DigestFilter & { perSource?: number };
+/** Ekrandaki görünüm: filtre + kaynak başına cap + okuma durumu (+ offset/limit). UI ve testler aynı yolu kullanır. */
+export type DigestView = DigestFilter & {
+  perSource?: number;
+  /** Okuma durumu haritası; yalnızca `onlyNew` ile kullanılır. */
+  reads?: ReadMap;
+  /** true ise okunmuş kalemler listeden düşer. */
+  onlyNew?: boolean;
+};
 
 export function viewItems(items: DigestItem[], view: DigestView = {}) {
   const matched = items.filter((item) => matchesFilter(item, view));
+  // Sıra önemli: ÖNCE kaynak başına sınır, SONRA okuma süzgeci. Tersi olsaydı
+  // okunan haber listeden düşerken yerine havuzdan yenisi gelir ve "sadece yeni"
+  // görünümü hiç değişmemiş gibi görünürdü (ölçüldü).
   const capped = takePerSource(matched, view.perSource ?? 0);
+  const fresh = view.onlyNew ? filterUnread(view.reads ?? {}, capped) : capped;
   const offset = normalizeLimit(view.offset) ?? 0;
   const limit = normalizeLimit(view.limit);
-  return limit === undefined ? capped.slice(offset) : capped.slice(offset, offset + limit);
+  return limit === undefined ? fresh.slice(offset) : fresh.slice(offset, offset + limit);
 }
