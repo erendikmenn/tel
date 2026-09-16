@@ -163,6 +163,17 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   const econ = items.find((i) => /inflation|interest rates/i.test(i.title));
   assert("ekonomi haberi -> ekonomi", !econ || (econ.topics ?? []).includes("ekonomi"));
 
+  // Kategori + pencere birlikte: dar pencere alt küme olmalı ve pencereye uymalı.
+  const econAll = viewItems(items, { category: "ekonomi", sinceHours: maxWindow });
+  const econ6 = viewItems(items, { category: "ekonomi", sinceHours: 6 });
+  const econIds = new Set(econAll.map((i) => i.id));
+  assert("kategori=ekonomi + pencere=6 alt küme", econ6.every((i) => econIds.has(i.id)));
+  assert(
+    "kategori=ekonomi + pencere=6 hepsi 6 saat içinde",
+    econ6.every((i) => !i.isoDate || Date.now() - Date.parse(i.isoDate) <= 6 * 3600_000),
+  );
+  assert("pencere daralınca sonuç büyümez", econ6.length <= econAll.length);
+
   // RSS <category> sinyali (yayıncının kendi etiketi)
   assert(
     "feed=Business -> ekonomi",
