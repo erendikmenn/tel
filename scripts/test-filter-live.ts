@@ -1,10 +1,11 @@
 import { fetchRealItems } from "./support/real-feed";
-import { checkFilterRules } from "./support/filter-checks";
+import { checkFilterRules, printExamples } from "./support/filter-checks";
 
 async function main() {
   const items = await fetchRealItems();
   console.log("Kaynak: canlı 5 RSS (" + items.length + " haber)");
   console.log("");
+  printExamples(items);
 
   let failed = false;
   function assert(name: string, ok: boolean, detail?: string) {

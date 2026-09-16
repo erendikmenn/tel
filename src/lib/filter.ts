@@ -146,3 +146,14 @@ export function takePerSource(items: DigestItem[], perSource: number) {
     return true;
   });
 }
+
+/** Ekrandaki görünüm: filtre + kaynak başına cap (+ offset/limit). UI ve testler aynı yolu kullanır. */
+export type DigestView = DigestFilter & { perSource?: number };
+
+export function viewItems(items: DigestItem[], view: DigestView = {}) {
+  const matched = items.filter((item) => matchesFilter(item, view));
+  const capped = takePerSource(matched, view.perSource ?? 0);
+  const offset = normalizeLimit(view.offset) ?? 0;
+  const limit = normalizeLimit(view.limit);
+  return limit === undefined ? capped.slice(offset) : capped.slice(offset, offset + limit);
+}

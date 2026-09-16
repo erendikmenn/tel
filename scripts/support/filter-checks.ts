@@ -1,5 +1,18 @@
+import {
+  DEFAULT_PER_SOURCE,
+  DEFAULT_WINDOW_HOURS,
+  PER_SOURCE_OPTIONS,
+  WINDOW_OPTIONS,
+} from "../../src/lib/config";
 import type { DigestItem } from "../../src/lib/digest";
-import { countMatches, filterItems, matchesFilter, takePerSource } from "../../src/lib/filter";
+import {
+  countMatches,
+  filterItems,
+  matchesFilter,
+  takePerSource,
+  viewItems,
+  type DigestView,
+} from "../../src/lib/filter";
 import { normalizeText } from "../../src/lib/text";
 
 export type Assert = (name: string, ok: boolean, detail?: string) => void;
@@ -66,4 +79,88 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   }
   assert("takePerSource(2): kaynak başına <= 2 ve en yeniler", perSourceOk);
   assert("takePerSource sırayı korur", capped[0]?.id === items[0]?.id);
+
+  // --- Görünüm (pencere + kaynak başına), gerçek veri üzerinde ---
+  const maxWindow = Math.max(...WINDOW_OPTIONS);
+  const maxPerSource = Math.max(...PER_SOURCE_OPTIONS);
+  const sources = [...new Set(items.map((i) => i.source))];
+
+  // Pencere monoton: dar küme, geniş kümenin alt kümesi olmalı.
+  const windowIds = WINDOW_OPTIONS.map((hours) =>
+    viewItems(items, { sinceHours: hours }).map((i) => i.id),
+  );
+  let windowMonotonic = true;
+  for (let i = 1; i < windowIds.length; i += 1) {
+    const bigger = new Set(windowIds[i]);
+    for (const id of windowIds[i - 1]) if (!bigger.has(id)) windowMonotonic = false;
+  }
+  assert("pencere monoton (dar ⊆ geniş)", windowMonotonic);
+
+  // Kaynak başına monoton.
+  const capIds = PER_SOURCE_OPTIONS.map((perSource) =>
+    viewItems(items, { sinceHours: maxWindow, perSource }).map((i) => i.id),
+  );
+  let capMonotonic = true;
+  for (let i = 1; i < capIds.length; i += 1) {
+    const bigger = new Set(capIds[i]);
+    for (const id of capIds[i - 1]) if (!bigger.has(id)) capMonotonic = false;
+  }
+  assert("kaynak-başına monoton (az ⊆ çok)", capMonotonic);
+
+  // Her N için tam olarak o kaynağın en yeni N'i kalmalı.
+  let capExact = true;
+  for (const perSource of PER_SOURCE_OPTIONS) {
+    const view = viewItems(items, { sinceHours: maxWindow, perSource });
+    for (const source of sources) {
+      const kept = view.filter((i) => i.source === source).map((i) => i.id).join(",");
+      const expected = items.filter((i) => i.source === source).slice(0, perSource).map((i) => i.id).join(",");
+      if (kept !== expected) capExact = false;
+    }
+  }
+  assert("kaynak-başına: tam olarak en yeni N", capExact);
+
+  // Varsayılan görünüm üst kümenin alt kümesi.
+  const defaults = viewItems(items, { sinceHours: DEFAULT_WINDOW_HOURS, perSource: DEFAULT_PER_SOURCE });
+  const defaultsIds = new Set(defaults.map((i) => i.id));
+  const maxView = viewItems(items, { sinceHours: maxWindow, perSource: maxPerSource });
+  const maxIds = new Set(maxView.map((i) => i.id));
+  assert("varsayılan ⊆ üst küme", [...defaultsIds].every((id) => maxIds.has(id)));
+  assert("üst küme >= varsayılan", maxView.length >= defaults.length);
+
+  // Arama + pencere birlikte.
+  const searched = viewItems(items, { q: "iran", sinceHours: 6, perSource: 6 });
+  assert("q=iran + pencere=6 hepsi eşleşiyor", searched.every((i) => matchesFilter(i, { q: "iran" })));
+}
+
+/** Girdi -> çıktı örnekleri (gerçek haberler üzerinde). */
+export function printExamples(items: DigestItem[], log: (line: string) => void = console.log) {
+  const cases: { name: string; view: DigestView }[] = [
+    { name: "pencere=36, kaynak başına=12  (varsayılan)", view: { sinceHours: 36, perSource: 12 } },
+    { name: "pencere=48, kaynak başına=20  (üst küme)", view: { sinceHours: 48, perSource: 20 } },
+    { name: "pencere=6,  kaynak başına=12", view: { sinceHours: 6, perSource: 12 } },
+    { name: "pencere=12, kaynak başına=6", view: { sinceHours: 12, perSource: 6 } },
+    { name: "pencere=36, kaynak başına=20", view: { sinceHours: 36, perSource: 20 } },
+    { name: "pencere=36, kaynak başına=6", view: { sinceHours: 36, perSource: 6 } },
+    { name: 'q="ai",  pencere=36, kaynak başına=12', view: { q: "ai", sinceHours: 36, perSource: 12 } },
+    { name: 'kaynak=[npr, bbc-tr], pencere=36, kaynak başına=12', view: { source: ["npr", "bbc-tr"], sinceHours: 36, perSource: 12 } },
+    { name: 'q="iran", pencere=6, kaynak başına=6', view: { q: "iran", sinceHours: 6, perSource: 6 } },
+  ];
+
+  log("");
+  log("GİRDİ -> ÇIKTI (gerçek haberler üzerinde)");
+  for (const test of cases) {
+    const out = viewItems(items, test.view);
+    const perSource = new Map<string, number>();
+    for (const item of out) perSource.set(item.source, (perSource.get(item.source) ?? 0) + 1);
+    const dist = [...perSource.entries()].map(([source, n]) => source + " " + n).join(", ");
+
+    log("");
+    log("GİRDİ  " + test.name);
+    log("ÇIKTI  " + out.length + " haber  [" + (dist || "boş") + "]");
+    for (const item of out.slice(0, 3)) {
+      log("        - [" + item.source + "] " + item.title.slice(0, 70));
+    }
+    if (out.length > 3) log("        … +" + (out.length - 3) + " haber");
+  }
+  log("");
 }

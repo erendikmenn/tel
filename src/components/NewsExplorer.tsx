@@ -11,7 +11,7 @@ import {
   WINDOW_OPTIONS,
 } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
-import { filterItems, takePerSource } from "@/lib/filter";
+import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
 
 type ExplorerState = {
@@ -116,14 +116,16 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     return [...seen].sort((a, b) => a.localeCompare(b, "tr"));
   }, [items]);
 
-  const filtered = useMemo(() => {
-    const matched = filterItems(items, {
-      q: state.q,
-      source: state.sources,
-      sinceHours: state.hours,
-    });
-    return takePerSource(matched, state.perSource);
-  }, [items, state.q, state.sources, state.hours, state.perSource]);
+  const filtered = useMemo(
+    () =>
+      viewItems(items, {
+        q: state.q,
+        source: state.sources,
+        sinceHours: state.hours,
+        perSource: state.perSource,
+      }),
+    [items, state.q, state.sources, state.hours, state.perSource],
+  );
 
   const { lead, rail, rest } = useMemo(() => splitHome(filtered), [filtered]);
 

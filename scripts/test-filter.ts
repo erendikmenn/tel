@@ -1,5 +1,5 @@
 import { REAL_ITEMS } from "./fixtures/real-items";
-import { checkFilterRules } from "./support/filter-checks";
+import { checkFilterRules, printExamples } from "./support/filter-checks";
 
 let failed = false;
 
@@ -14,6 +14,7 @@ function assert(name: string, ok: boolean, detail?: string) {
 
 console.log("Kaynak: scripts/fixtures/real-items.ts — gerçek feed snapshot'ı (" + REAL_ITEMS.length + " haber)");
 console.log("");
+printExamples(REAL_ITEMS);
 checkFilterRules(REAL_ITEMS, assert);
 
 if (failed) {
