@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsc -p tsconfig.test.json && node .test-build/scripts/test-filter.js"
+    "test": "tsc -p tsconfig.test.json && node .test-build/scripts/test-filter.js",
+    "test:live": "tsc -p tsconfig.test.json && node .test-build/scripts/test-filter-live.js",
+    "fixtures": "tsc -p tsconfig.test.json && node .test-build/scripts/capture-fixtures.js"
   },
   "dependencies": {
     "next": "16.3.5",

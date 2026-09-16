@@ -1,30 +1,28 @@
-import { buildDigest } from "../src/lib/digest";
-import { filterItems } from "../src/lib/filter";
+import { fetchRealItems } from "./support/real-feed";
+import { checkFilterRules } from "./support/filter-checks";
 
 async function main() {
-  const digest = await buildDigest();
-  const items = digest.items;
+  const items = await fetchRealItems();
+  console.log("Kaynak: canlı 5 RSS (" + items.length + " haber)");
+  console.log("");
 
-  console.log(
-    `digest  ${items.length} haber` +
-      (digest.failedFeeds.length ? `  ulaşılamayan: ${digest.failedFeeds.join(", ")}` : ""),
-  );
-
-  const cases = [
-    { name: "limit=5", filter: { limit: 5 } },
-    { name: "source=bbc-tr limit=5", filter: { source: "bbc-tr", limit: 5 } },
-    { name: "sinceHours=6 limit=5", filter: { sinceHours: 6, limit: 5 } },
-    { name: 'q="Libya" limit=10', filter: { q: "Libya", limit: 10 } },
-  ];
-
-  for (const test of cases) {
-    const found = filterItems(items, test.filter);
-    console.log(`\n${test.name}  →  ${found.length}`);
-    for (const item of found) {
-      console.log(`  - [${item.source}] ${item.title}`);
-      console.log(`    ${item.link}`);
+  let failed = false;
+  function assert(name: string, ok: boolean, detail?: string) {
+    if (!ok) {
+      console.error("FAIL  " + name + (detail ? " — " + detail : ""));
+      failed = true;
+      return;
     }
+    console.log("ok    " + name);
   }
+
+  checkFilterRules(items, assert);
+
+  if (failed) {
+    console.error("\ncanlı feed kontrolleri başarısız");
+    process.exit(1);
+  }
+  console.log("\ntüm canlı kontroller geçti");
 }
 
 main().catch((error) => {

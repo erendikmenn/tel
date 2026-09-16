@@ -44,12 +44,13 @@ Anasayfadaki `NewsExplorer` (client) arama ve filtreyi uygular, sonra aynı `spl
 
 Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak ve zaman seçilir. Hepsi **tarayıcıda** çalışır: sayfa bir kez üretilir (~60 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
 
-- **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`); sorgu kelimesi başlık/özet/kaynak içindeki bir **kelimenin başıysa** eşleşir (`lib` → `libya`, ama `ai` → `said` **değil**). Varsayılan olarak tüm kelimeler eşleşmeli.
+- **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
 - **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, zaman filtresiyle aralarında **VE**.
 - **Zaman**: son 1 / 6 / 12 / 24 saat ya da tümü. Liste zaten `ITEM_MAX_AGE_HOURS` (36 saat) ile sınırlı.
 - **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6` paylaşılabilir; **Temizle** hepsini sıfırlar.
 - Çekirdek: `src/lib/filter.ts` (`filterItems`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
 - **Kategori** filtresi `0.3 tasnif` ile gelecek; `DigestFilter`'a `category` eklenince aynı çubukta yer alır.
+- Testler **gerçek veriyle** çalışır: `npm test` canlıdan alınmış gerçek başlıklardan oluşan `scripts/fixtures/real-items.ts` snapshot'ı üzerinde kuralları doğrular; `npm run test:live` aynı kontrolleri canlı 5 RSS'te çalıştırır; `npm run fixtures` snapshot'ı yeniler.
 
 ## Görseller
 
@@ -86,7 +87,9 @@ npm start
 ```
 
 ```bash
-npm test
+npm test          # dondurulmuş gerçek feed snapshot'ı (hızlı, ağsız)
+npm run test:live # canlı 5 RSS ile aynı kontroller
+npm run fixtures  # snapshot'ı canlıdan yenile
 ```
 
 ## Ayarlar
