@@ -254,17 +254,13 @@ a {
   accent-color: var(--ink);
 }
 
-/* Pencere seçenekleri iki kolon: sol taze pencereler, sağ uçlar (48 saat + Tümü). */
-.explorer-columns {
-  display: flex;
-  align-items: start;
-  gap: 8px 24px;
-}
-
-.explorer-col {
+/* Her filtre grubunda en fazla 5 satır; taşarsa yanına yeni kolon açılır. */
+.explorer-options {
   display: grid;
-  align-content: start;
-  gap: 8px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(5, auto);
+  gap: 8px 18px;
+  justify-content: start;
 }
 
 
@@ -540,6 +536,12 @@ a {
 
   .refresh-count {
     text-align: left;
+  }
+
+  .explorer-options {
+    grid-auto-flow: row;
+    grid-template-rows: none;
+    grid-template-columns: 1fr;
   }
 
   .lead-pack,

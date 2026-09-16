@@ -36,11 +36,6 @@ const DEFAULTS: ExplorerState = {
 
 const STORAGE_KEY = "tel:view";
 
-// Pencere iki kolon: sol = taze pencereler (1…36 saat), sağ = uçlar (48 saat + Tümü).
-// Böylece "48 saat" 1 saat'in, "Tümü" 6 saat'in hizasında durur.
-const WINDOW_LEFT = WINDOW_OPTIONS.slice(0, -2);
-const WINDOW_RIGHT = WINDOW_OPTIONS.slice(-2);
-
 function pickOption(raw: string | null, options: number[]) {
   // 0 geçerli bir değer (sınırsız), bu yüzden "yok" ile karıştırmamak için önce boşu ele.
   if (raw == null || raw === "") return null;
@@ -221,61 +216,64 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
         <div className="explorer-panel" id="explorer-panel">
           <fieldset className="explorer-group">
             <legend>Kaynak</legend>
-            {sourceOptions.map((name) => (
-              <label key={name} className="explorer-option">
-                <input
-                  type="checkbox"
-                  checked={state.sources.includes(name)}
-                  onChange={() => toggleSource(name)}
-                />
-                <span>{name}</span>
-              </label>
-            ))}
-          </fieldset>
-
-          <fieldset className="explorer-group">
-            <legend>Kategori</legend>
-            {TOPICS.map((topic) => (
-              <label key={topic.id} className="explorer-option">
-                <input
-                  type="checkbox"
-                  checked={state.categories.includes(topic.id)}
-                  onChange={() => toggleCategory(topic.id)}
-                />
-                <span>{topic.label}</span>
-              </label>
-            ))}
-            <label className="explorer-option">
-              <input
-                type="checkbox"
-                checked={state.categories.includes(TOPIC_ALL)}
-                onChange={() => toggleCategory(TOPIC_ALL)}
-              />
-              <span>Diğer</span>
-            </label>
-          </fieldset>
-
-          <fieldset className="explorer-group">
-            <legend>Pencere</legend>
-            <div className="explorer-columns">
-              <div className="explorer-col">{WINDOW_LEFT.map(renderWindowOption)}</div>
-              <div className="explorer-col">{WINDOW_RIGHT.map(renderWindowOption)}</div>
+            <div className="explorer-options">
+              {sourceOptions.map((name) => (
+                <label key={name} className="explorer-option">
+                  <input
+                    type="checkbox"
+                    checked={state.sources.includes(name)}
+                    onChange={() => toggleSource(name)}
+                  />
+                  <span>{name}</span>
+                </label>
+              ))}
             </div>
           </fieldset>
 
           <fieldset className="explorer-group">
-            <legend>Kaynak başına</legend>
-            {PER_SOURCE_OPTIONS.map((perSource) => (
-              <label key={perSource} className="explorer-option">
+            <legend>Kategori</legend>
+            <div className="explorer-options">
+              {TOPICS.map((topic) => (
+                <label key={topic.id} className="explorer-option">
+                  <input
+                    type="checkbox"
+                    checked={state.categories.includes(topic.id)}
+                    onChange={() => toggleCategory(topic.id)}
+                  />
+                  <span>{topic.label}</span>
+                </label>
+              ))}
+              <label className="explorer-option">
                 <input
-                  type="radio"
-                  name="explorer-persource"
-                  checked={state.perSource === perSource}
-                  onChange={() => update({ perSource })}
+                  type="checkbox"
+                  checked={state.categories.includes(TOPIC_ALL)}
+                  onChange={() => toggleCategory(TOPIC_ALL)}
                 />
-                <span>{perSourceLabel(perSource)}</span>
+                <span>Diğer</span>
               </label>
-            ))}
+            </div>
+          </fieldset>
+
+          <fieldset className="explorer-group">
+            <legend>Pencere</legend>
+            <div className="explorer-options">{WINDOW_OPTIONS.map(renderWindowOption)}</div>
+          </fieldset>
+
+          <fieldset className="explorer-group">
+            <legend>Kaynak başına</legend>
+            <div className="explorer-options">
+              {PER_SOURCE_OPTIONS.map((perSource) => (
+                <label key={perSource} className="explorer-option">
+                  <input
+                    type="radio"
+                    name="explorer-persource"
+                    checked={state.perSource === perSource}
+                    onChange={() => update({ perSource })}
+                  />
+                  <span>{perSourceLabel(perSource)}</span>
+                </label>
+              ))}
+            </div>
           </fieldset>
         </div>
       ) : null}
