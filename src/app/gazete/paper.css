@@ -169,7 +169,7 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 55mm;
+  height: 62mm;
   object-fit: cover;
   margin: 0;
 }
@@ -245,7 +245,7 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 27mm;
+  height: 30mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
@@ -296,13 +296,23 @@
 }
 
 /* ── Kısa kısa ──────────────────────────────────────────── */
+/* Blok sayfanın kalan yüksekliğini emer; sığmayan satırlar kırpılır,
+   böylece ön sayfa altta boş kalmaz. */
 .paper-briefs {
   padding: 5px 0 3px;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .paper-brief-list {
   columns: 4;
   column-gap: 5mm;
+  column-fill: auto;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .paper-brief {
@@ -354,6 +364,8 @@
 
   .paper {
     width: auto;
+    /* Yazdırma alanını (A4 - 2×7mm kenar) tamamen doldur. */
+    height: 281mm;
     min-height: 0;
     padding: 0;
     box-shadow: none;
