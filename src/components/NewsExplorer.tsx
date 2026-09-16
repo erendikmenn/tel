@@ -33,6 +33,10 @@ const DEFAULTS: ExplorerState = {
 
 const STORAGE_KEY = "tel:view";
 
+// Pencere seçenekleri: son ikisi (48 saat + Tümü) yan yana, gerisi alt alta.
+const STACKED_WINDOWS = WINDOW_OPTIONS.slice(0, -2);
+const INLINE_WINDOWS = WINDOW_OPTIONS.slice(-2);
+
 function pickOption(raw: string | null, options: number[]) {
   // 0 geçerli bir değer (sınırsız), bu yüzden "yok" ile karıştırmamak için önce boşu ele.
   if (raw == null || raw === "") return null;
@@ -151,6 +155,18 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
   const clearAll = () =>
     update({ q: "", sources: [], hours: DEFAULTS.hours, perSource: DEFAULTS.perSource });
 
+  const renderWindowOption = (hours: number) => (
+    <label key={hours} className="explorer-option">
+      <input
+        type="radio"
+        name="explorer-hours"
+        checked={state.hours === hours}
+        onChange={() => update({ hours })}
+      />
+      <span>{windowOptionLabel(hours)}</span>
+    </label>
+  );
+
   return (
     <div className="explorer">
       <div className="explorer-bar">
@@ -195,17 +211,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
 
           <fieldset className="explorer-group">
             <legend>Pencere</legend>
-            {WINDOW_OPTIONS.map((hours) => (
-              <label key={hours} className="explorer-option">
-                <input
-                  type="radio"
-                  name="explorer-hours"
-                  checked={state.hours === hours}
-                  onChange={() => update({ hours })}
-                />
-                <span>{windowOptionLabel(hours)}</span>
-              </label>
-            ))}
+            {STACKED_WINDOWS.map(renderWindowOption)}
+            <div className="explorer-options-row">{INLINE_WINDOWS.map(renderWindowOption)}</div>
           </fieldset>
 
           <fieldset className="explorer-group">

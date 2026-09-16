@@ -254,6 +254,13 @@ a {
   accent-color: var(--ink);
 }
 
+/* Son iki pencere seçeneği (48 saat + Tümü) yan yana dursun. */
+.explorer-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
 
 .explorer-active {
   display: flex;
