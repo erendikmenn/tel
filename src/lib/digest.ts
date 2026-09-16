@@ -3,6 +3,7 @@ import { FEEDS } from "@/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
 import { enlargeImage, pageImage } from "@/lib/image";
 import { normalizeText } from "@/lib/text";
+import { classify } from "@/lib/topics";
 
 export type DigestItem = {
   id: string;
@@ -12,6 +13,8 @@ export type DigestItem = {
   isoDate?: string;
   summary?: string;
   image?: string;
+  /** Kural tabanlı konu etiketleri (en fazla 2). Boş = "Diğer". */
+  topics?: string[];
 };
 
 type MediaNode = {
@@ -135,6 +138,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
       const key = normalizeText(title);
       if (!key || seen.has(key)) return [];
       seen.add(key);
+      const summary = itemSummary(parsed, title);
       return [
         {
           id: parsed.guid || parsed.link!,
@@ -142,8 +146,9 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
           link: parsed.link!,
           source: feed.name,
           isoDate: parsed.isoDate ?? parsed.pubDate,
-          summary: itemSummary(parsed, title),
+          summary,
           image: itemImage(parsed),
+          topics: classify({ title, summary, source: feed.name }),
         },
       ];
     });

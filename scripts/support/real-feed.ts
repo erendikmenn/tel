@@ -2,6 +2,7 @@ import Parser from "rss-parser";
 import { FEEDS } from "../../src/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
 import { normalizeText } from "../../src/lib/text";
+import { classify } from "../../src/lib/topics";
 import type { DigestItem } from "../../src/lib/digest";
 
 type RawItem = {
@@ -41,14 +42,16 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
       const key = normalizeText(title);
       if (!key || seen.has(key)) continue;
       seen.add(key);
-      const summary = raw.contentSnippet ? stripHtml(raw.contentSnippet) : undefined;
+      const rawSummary = raw.contentSnippet ? stripHtml(raw.contentSnippet) : undefined;
+      const summary = rawSummary && normalizeText(rawSummary) !== key ? rawSummary : undefined;
       items.push({
         id: raw.guid ?? raw.link,
         title,
         link: raw.link,
         source: feed.name,
         isoDate: iso,
-        summary: summary && normalizeText(summary) !== key ? summary : undefined,
+        summary,
+        topics: classify({ title, summary, source: feed.name }),
       });
     }
   }

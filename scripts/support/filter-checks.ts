@@ -17,6 +17,7 @@ import {
   type DigestView,
 } from "../../src/lib/filter";
 import { normalizeText } from "../../src/lib/text";
+import { TOPICS, TOPIC_ALL, topicLabel } from "../../src/lib/topics";
 
 export type Assert = (name: string, ok: boolean, detail?: string) => void;
 
@@ -134,6 +135,56 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   // Arama + pencere birlikte.
   const searched = viewItems(items, { q: "iran", sinceHours: 6, perSource: 6 });
   assert("q=iran + pencere=6 hepsi eşleşiyor", searched.every((i) => matchesFilter(i, { q: "iran" })));
+
+  // --- Konu etiketleri (kural tabanlı sınıflandırma) ---
+  const untagged = items.filter((i) => !Array.isArray(i.topics));
+  assert("her haberde topics dizisi var", untagged.length === 0, untagged.slice(0, 2).map((i) => i.title).join(" | "));
+
+  const tooMany = items.filter((i) => (i.topics ?? []).length > 2);
+  assert("en fazla 2 konu etiketi", tooMany.length === 0);
+
+  for (const id of ["savas", "toplum", "siyaset", "teknoloji"]) {
+    assert("konu dolu: " + topicLabel(id), items.some((i) => (i.topics ?? []).includes(id)));
+  }
+
+  for (const topic of TOPICS) {
+    const found = filterItems(items, { category: topic.id });
+    assert("category=" + topic.id + " tutarlı", found.every((i) => (i.topics ?? []).includes(topic.id)));
+  }
+  const others = filterItems(items, { category: TOPIC_ALL });
+  assert("category=diger etiketsizleri getirir", others.every((i) => (i.topics ?? []).length === 0));
+
+  const gaza = items.find((i) => /gaza|gazze/i.test(i.title));
+  assert("Gaza haberi -> savas", !gaza || (gaza.topics ?? []).includes("savas"));
+  const ai = items.find((i) => /\bAI\b|OpenAI|Anthropic|yapay zeka/i.test(i.title));
+  assert("AI haberi -> teknoloji", !ai || (ai.topics ?? []).includes("teknoloji"));
+  const sports = items.find((i) => /Asian Games|derby|Messi/i.test(i.title));
+  assert("spor haberi -> spor", !sports || (sports.topics ?? []).includes("spor"));
+  const econ = items.find((i) => /inflation|interest rates/i.test(i.title));
+  assert("ekonomi haberi -> ekonomi", !econ || (econ.topics ?? []).includes("ekonomi"));
+}
+
+/** Konu dağılımı + örnek başlıklar (gerçek veri). */
+export function printTopicReport(items: DigestItem[], log: (line: string) => void = console.log) {
+  const classified = items.map((item) => ({ item, topics: item.topics ?? [] }));
+  const counts = new Map<string, number>();
+  for (const row of classified) {
+    if (row.topics.length === 0) counts.set(TOPIC_ALL, (counts.get(TOPIC_ALL) ?? 0) + 1);
+    for (const id of row.topics) counts.set(id, (counts.get(id) ?? 0) + 1);
+  }
+
+  log("");
+  log("KONU DAĞILIMI (gerçek haberler)");
+  for (const [id, n] of [...counts.entries()].sort((a, b) => b[1] - a[1])) {
+    log("  " + topicLabel(id).padEnd(24) + n);
+  }
+  log("");
+  for (const topic of TOPICS) {
+    const rows = classified.filter((row) => row.topics.includes(topic.id));
+    log("### " + topic.label + " (" + rows.length + ")");
+    for (const row of rows.slice(0, 4)) log("   - " + row.item.title.slice(0, 84));
+    log("");
+  }
 }
 
 /** Girdi -> çıktı örnekleri (gerçek haberler üzerinde). */

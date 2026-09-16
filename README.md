@@ -48,10 +48,30 @@ Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** pan
 - **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**.
 - **Pencere**: son 1 / 6 / 12 / 24 / 36 / 48 saat ya da **Tümü** (varsayılan **36 saat**), tarayıcıda uygulanır. **Ölçüm:** 48 saat → 114, 1 hafta → 124, 1 ay → 125 kalem; arada anlamlı eşik olmadığı için uzun pencereler kaldırıldı. **Tümü** = feed'in verdiği her şey (bugün 125). Gerçek uzun pencereler arşiv (`0.3`) ile gelir.
 - **Kaynak başına**: 6 / 12 / 16 / **20+** (sınırsız; varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
-- **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6&kaynakbasi=20` paylaşılabilir. Pencere/kaynak-başına tercihi ayrıca `localStorage`'da tutulur (`tel:view`); **Temizle** hepsini varsayılana döndürür.
+- **Kategori**: 9 konu + Diğer; `DigestFilter.category` ile süzülür (aşağıdaki **Kategoriler** bölümü).
+- **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&kategori=teknoloji&zaman=6&kaynakbasi=20` paylaşılabilir. Pencere/kaynak-başına tercihi ayrıca `localStorage`'da tutulur (`tel:view`); **Temizle** hepsini varsayılana döndürür.
 - Çekirdek: `src/lib/filter.ts` (`filterItems`, `takePerSource`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
 - **Kategori** filtresi `0.3 tasnif` ile gelecek; `DigestFilter`'a `category` eklenince aynı çubukta yer alır.
 - Testler **gerçek veriyle** çalışır: `npm test` canlıdan alınmış gerçek başlıklardan oluşan `scripts/fixtures/real-items.ts` snapshot'ı üzerinde kuralları doğrular; `npm run test:live` aynı kontrolleri canlı 5 RSS'te çalıştırır; `npm run fixtures` snapshot'ı yeniler.
+
+## Kategoriler
+
+Her habere **kural tabanlı** konu etiketi atanır (`src/lib/topics.ts`) ve filtre çubuğundan seçilir. **Sıfır bağımlılık**: model, API anahtarı veya indirme yok — herkes klonlayıp anında çalıştırır.
+
+**9 konu + Diğer:** Savaş & Çatışma · Siyaset · Ekonomi · Teknoloji & Yapay Zeka · Sağlık · Bilim & Çevre · Spor · Kültür & Eğlence · Toplum & Adalet · Diğer
+
+Kurallar:
+
+- Eşleştirme **yalnızca başlıkta** yapılır. Özetler (özellikle Guardian) başka haberlerin teaser metnini taşıdığı için sınıflandırmaya gürültü sokuyordu.
+- TR + EN anahtar kelimeler; `normalizeText` ile aksan/İ katlanır.
+- **Kelime sınırı:** tam eşleşme ya da (4+ harfse) kelime başı → `savaş` → `savaşının`, `faiz` → `faizler`; ama `zam` → `zaman` değil.
+- `"=kelime"` tam eşleşme zorunlu kılar (`=ai`); `"?kelime"` **zayıf** kelimedir (tek başına etiketler, sıralamada geride kalır).
+- **Öbek** desteği: `yapay zeka`, `interest rate`, `trade war`.
+- Bir habere en fazla **2 konu** atanır; hiçbiri tutmazsa boş kalır ve **Diğer** filtresi onu yakalar.
+
+Ölçüm (125 gerçek haber): **Savaş 35 · Toplum 34 · Siyaset 23 · Diğer 21 · Teknoloji 13 · Ekonomi 11 · Bilim 7 · Spor 6 · Kültür 4 · Sağlık 4.** `npm test` bu dağılımı ve örnek başlıkları basar.
+
+**Neden embedding yok:** proje local-first; ~120MB model indirmesi + native paket "klonla → çalıştır" deneyimini ağırlaştırır. Ölçüm bir konunun zayıf kaldığını gösterirse, kural katmanının **altına düşen opsiyonel** bir yerel embedding katmanı eklenebilir (kural → varsa embedding).
 
 ## Görseller
 

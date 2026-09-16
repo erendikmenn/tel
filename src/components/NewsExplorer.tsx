@@ -16,10 +16,12 @@ import {
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
+import { TOPICS, TOPIC_ALL, topicLabel } from "@/lib/topics";
 
 type ExplorerState = {
   q: string;
   sources: string[];
+  categories: string[];
   hours: number;
   perSource: number;
 };
@@ -27,6 +29,7 @@ type ExplorerState = {
 const DEFAULTS: ExplorerState = {
   q: "",
   sources: [],
+  categories: [],
   hours: DEFAULT_WINDOW_HOURS,
   perSource: DEFAULT_PER_SOURCE,
 };
@@ -74,6 +77,10 @@ function readInitialState(): ExplorerState {
       .split(",")
       .map((value) => value.trim())
       .filter(Boolean),
+    categories: (params.get("kategori") ?? "")
+      .split(",")
+      .map((value) => value.trim())
+      .filter(Boolean),
     hours: pickOption(params.get("zaman"), WINDOW_OPTIONS) ?? storedHours ?? DEFAULTS.hours,
     perSource:
       pickOption(params.get("kaynakbasi"), PER_SOURCE_OPTIONS) ??
@@ -86,6 +93,7 @@ function persist(state: ExplorerState) {
   const params = new URLSearchParams();
   if (state.q.trim()) params.set("q", state.q.trim());
   if (state.sources.length > 0) params.set("kaynak", state.sources.join(","));
+  if (state.categories.length > 0) params.set("kategori", state.categories.join(","));
   if (state.hours !== DEFAULTS.hours) params.set("zaman", String(state.hours));
   if (state.perSource !== DEFAULTS.perSource) params.set("kaynakbasi", String(state.perSource));
 
@@ -131,17 +139,19 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       viewItems(items, {
         q: state.q,
         source: state.sources,
+        category: state.categories,
         // "Tümü" = zaman süzgeci yok
         sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
         perSource: state.perSource,
       }),
-    [items, state.q, state.sources, state.hours, state.perSource],
+    [items, state.q, state.sources, state.categories, state.hours, state.perSource],
   );
 
   const { lead, rail, rest } = useMemo(() => splitHome(filtered), [filtered]);
 
   const filterCount =
     state.sources.length +
+    state.categories.length +
     (state.hours !== DEFAULTS.hours ? 1 : 0) +
     (state.perSource !== DEFAULTS.perSource ? 1 : 0);
   const hasAny = state.q.trim().length > 0 || filterCount > 0;
@@ -153,8 +163,21 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     update({ sources });
   };
 
+  const toggleCategory = (id: string) => {
+    const categories = state.categories.includes(id)
+      ? state.categories.filter((value) => value !== id)
+      : [...state.categories, id];
+    update({ categories });
+  };
+
   const clearAll = () =>
-    update({ q: "", sources: [], hours: DEFAULTS.hours, perSource: DEFAULTS.perSource });
+    update({
+      q: "",
+      sources: [],
+      categories: [],
+      hours: DEFAULTS.hours,
+      perSource: DEFAULTS.perSource,
+    });
 
   const renderWindowOption = (hours: number) => (
     <label key={hours} className="explorer-option">
@@ -211,6 +234,28 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
           </fieldset>
 
           <fieldset className="explorer-group">
+            <legend>Kategori</legend>
+            {TOPICS.map((topic) => (
+              <label key={topic.id} className="explorer-option">
+                <input
+                  type="checkbox"
+                  checked={state.categories.includes(topic.id)}
+                  onChange={() => toggleCategory(topic.id)}
+                />
+                <span>{topic.label}</span>
+              </label>
+            ))}
+            <label className="explorer-option">
+              <input
+                type="checkbox"
+                checked={state.categories.includes(TOPIC_ALL)}
+                onChange={() => toggleCategory(TOPIC_ALL)}
+              />
+              <span>Diğer</span>
+            </label>
+          </fieldset>
+
+          <fieldset className="explorer-group">
             <legend>Pencere</legend>
             <div className="explorer-columns">
               <div className="explorer-col">{WINDOW_LEFT.map(renderWindowOption)}</div>
@@ -245,6 +290,16 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             onClick={() => toggleSource(name)}
           >
             {name} <span aria-hidden="true">×</span>
+          </button>
+        ))}
+        {state.categories.map((id) => (
+          <button
+            key={id}
+            type="button"
+            className="explorer-chip"
+            onClick={() => toggleCategory(id)}
+          >
+            {topicLabel(id)} <span aria-hidden="true">×</span>
           </button>
         ))}
         {state.hours !== DEFAULTS.hours ? (

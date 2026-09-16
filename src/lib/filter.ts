@@ -1,6 +1,7 @@
 import type { DigestItem } from "./digest";
 import { FEEDS } from "./feeds";
 import { normalizeText } from "./text";
+import { TOPIC_ALL } from "./topics";
 
 /** Aramada hangi alanlara bakılacak. */
 export type SearchField = "title" | "summary" | "source";
@@ -14,6 +15,8 @@ export type DigestFilter = {
   fields?: SearchField[];
   /** Kaynak adı/id'si (kısmi olabilir). Dizi verilirse aralarında OR vardır. */
   source?: string | string[];
+  /** Konu etiketleri (topic id). "diger" = hiç etiketi olmayanlar. Dizi verilirse OR. */
+  category?: string | string[];
   /** Yalnızca son N saat. > 0 değilse zaman filtresi uygulanmaz. */
   sinceHours?: number;
   /** Dilimleme: kaç item atlanacak. */
@@ -54,6 +57,18 @@ function matchesSource(item: DigestItem, sources: string[]) {
     if (feed) return item.source === feed.name;
 
     return haystack.includes(needle);
+  });
+}
+
+function matchesTopic(item: DigestItem, categories: string[]) {
+  if (categories.length === 0) return true;
+  const topics = item.topics ?? [];
+
+  return categories.some((raw) => {
+    const id = raw.trim();
+    if (!id) return true;
+    if (id === TOPIC_ALL) return topics.length === 0;
+    return topics.includes(id);
   });
 }
 
@@ -101,6 +116,7 @@ export function matchesFilter(item: DigestItem, filter: DigestFilter = {}) {
 
   return (
     matchesSource(item, toArray(filter.source)) &&
+    matchesTopic(item, toArray(filter.category)) &&
     matchesTime(item, filter.sinceHours) &&
     matchesQuery(item, tokens, mode, fields)
   );
