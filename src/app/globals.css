@@ -216,12 +216,13 @@ a {
 
 .explorer-panel {
   display: grid;
-  /* Bölümler iki yana dağılır; ayraçlar arada kendi 1px'lik kolonunda durur. */
-  grid-template-columns: auto 1px auto 1px auto 1px auto;
-  justify-content: space-between;
+  /* Oranlı kolonlar: her bölümün içeriği kendi kolonunda tam ortalanır,
+     ayraçlar da eşit aralıklarla oturur. Kategori iki alt kolon taşıdığı
+     için ondan daha geniş pay alır. */
+  grid-template-columns: 0.85fr 1px 1.45fr 1px 1fr 1px 0.7fr;
   align-items: stretch;
   /* Kenarlara yapışmasın diye yanlarda nefes. */
-  padding: 16px 64px;
+  padding: 16px 48px;
   border: 1px solid var(--line);
   background: var(--card);
 }
@@ -539,14 +540,8 @@ a {
   }
 }
 
-@media (max-width: 1100px) {
-  .explorer-panel {
-    padding: 16px 28px;
-  }
-}
-
 /* Orta genişlik: dört bölüm tek satıra sığmaz, 2x2'ye in. */
-@media (max-width: 1000px) {
+@media (max-width: 1240px) {
   .explorer-panel {
     grid-template-columns: repeat(2, auto);
     justify-content: space-around;
