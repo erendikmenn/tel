@@ -21,7 +21,6 @@ export const metadata = {
 export default async function GazetePage() {
   const digest = await buildDigest();
   const paper = buildPaper(digest.items);
-  const generated = istanbulStamp(new Date().toISOString());
   const leadStamp = istanbulStamp(paper.lead?.isoDate);
   const deck = firstSentence(paper.lead?.summary);
   const body = clipSummary(paper.lead?.summary, PAPER_LEAD_SUMMARY);
@@ -167,12 +166,8 @@ export default async function GazetePage() {
             </section>
           ) : null}
 
-          <footer className="paper-footer">
-            <span>Kaynaklar: {paper.sources.join(" · ")}</span>
-            <span>
-              {APP_NAME} · erenailab · {generated}
-            </span>
-          </footer>
+          {/* Alt bilgi metni yok; sayfanın dibinde kapanış çizgisi. */}
+          <div className="paper-endrule" aria-hidden="true" />
         </article>
       ) : (
         <p className="note">Bugün baskıya girecek yapay zekâ haberi yok.</p>

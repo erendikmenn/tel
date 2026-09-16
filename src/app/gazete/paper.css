@@ -348,20 +348,12 @@
   color: var(--paper-soft);
 }
 
-/* ── Alt bilgi ──────────────────────────────────────────── */
-.paper-footer {
+/* ── Kapanış çizgisi ────────────────────────────────────── */
+/* Metin yok: sayfanın en dibine inen kalın siyah çizgi. */
+.paper-endrule {
   margin-top: auto;
-  padding-top: 5px;
-  padding-bottom: 0;
-  border-top: 1px solid var(--paper-line);
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
-  font-size: 7.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #444;
+  height: 4px;
+  background: var(--paper-line);
 }
 
 @media print {

@@ -13,7 +13,6 @@ const PAGE_AREA_MM = 281.5;
 /** Yazdırma alanı ölçüleri: 196 × 283 mm (A4 eksi 2×7 mm kenar). */
 const PRINT_WIDTH_PX = Math.round((196 / 25.4) * 96);
 const PRINT_HEIGHT_PX = Math.round((283 / 25.4) * 96);
-const MM_PER_PX = 25.4 / 96;
 
 const FIXED = [
   process.env.CHROME_PATH,
@@ -152,25 +151,35 @@ async function renderPdf(browser: string, url: string) {
       await cdp.send("Page.navigate", { url });
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      // İçeriğin doğal yüksekliği (sabit yükseklik ve kırpma devre dışı).
+      // 1) İçeriğin doğal yüksekliğini ölç.
+      // 2) Artan boşluğu "kısa kısa" bloğuna min-height olarak ekle: kolonlar
+      //    öğeleri yayar, sayfa tam dolar, YENİDEN DİZİLİM OLMAZ.
+      //    (scale > 1 kullanmak sayfayı daraltıp metni uzatıyordu → 2 sayfa.)
       const measured = (await cdp.send("Runtime.evaluate", {
         expression: `(() => {
+          const pxPerMm = 96 / 25.4;
           const paper = document.querySelector('.paper');
-          if (!paper) return 0;
+          const briefs = document.querySelector('.paper-briefs');
+          if (!paper || !briefs) return null;
           paper.style.height = 'auto';
           paper.style.minHeight = '0';
           paper.style.overflow = 'visible';
-          return paper.getBoundingClientRect().height;
+          const naturalMm = paper.getBoundingClientRect().height / pxPerMm;
+          const fillMm = Math.max(0, ${PAGE_AREA_MM} - naturalMm);
+          const briefsMm = briefs.getBoundingClientRect().height / pxPerMm;
+          if (fillMm > 0.5) briefs.style.minHeight = briefsMm + fillMm + 'mm';
+          return { naturalMm, fillMm, finalMm: paper.getBoundingClientRect().height / pxPerMm };
         })()`,
         returnByValue: true,
-      })) as { result?: { value?: number } };
+      })) as { result?: { value?: { naturalMm: number; fillMm: number; finalMm: number } | null } };
 
-      const naturalPx = Number(measured.result?.value ?? 0);
-      if (!naturalPx) throw new Error("gazete sayfası ölçülemedi");
+      const measurement = measured.result?.value;
+      if (!measurement) throw new Error("gazete sayfası ölçülemedi");
 
-      const naturalMm = naturalPx * MM_PER_PX;
-      // İçerik kısaysa büyüt, uzunsa küçült: sayfa her zaman tam dolar.
-      const scale = Math.max(0.6, Math.min(1.6, PAGE_AREA_MM / naturalMm));
+      // Uzun gün emniyeti: içerik yine de taşarsa küçült (scale < 1 daraltmaz, genişletir).
+      const scale = measurement.finalMm > PAGE_AREA_MM
+        ? Math.max(0.6, PAGE_AREA_MM / measurement.finalMm)
+        : 1;
 
       const printed = (await cdp.send("Page.printToPDF", {
         printBackground: true,
@@ -180,7 +189,7 @@ async function renderPdf(browser: string, url: string) {
 
       const data = printed.data;
       if (!data) throw new Error("PDF verisi boş döndü");
-      return { pdf: Buffer.from(data, "base64"), naturalMm, scale };
+      return { pdf: Buffer.from(data, "base64"), ...measurement, scale };
     } finally {
       cdp.close();
     }
@@ -206,14 +215,15 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { pdf, naturalMm, scale } = await renderPdf(browser, origin + "/gazete");
+    const { pdf, naturalMm, fillMm, finalMm, scale } = await renderPdf(browser, origin + "/gazete");
     const name = "tel-" + new Date().toISOString().slice(0, 10) + ".pdf";
     return new Response(new Uint8Array(pdf), {
       headers: {
         "content-type": "application/pdf",
         "content-disposition": 'attachment; filename="' + name + '"',
         "cache-control": "no-store",
-        "x-tel-paper": "dogal=" + Math.round(naturalMm) + "mm olcek=" + scale.toFixed(3),
+        "x-tel-paper":
+          "dogal=" + Math.round(naturalMm) + "mm dolgu=" + Math.round(fillMm) + "mm son=" + Math.round(finalMm) + "mm olcek=" + scale.toFixed(3),
       },
     });
   } catch (error) {
