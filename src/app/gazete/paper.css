@@ -104,7 +104,7 @@
 .paper-title {
   margin: 0;
   font-family: var(--font-blackletter), UnifrakturMaguntia, "Old English Text MT", serif;
-  font-size: 58px;
+  font-size: 60px;
   line-height: 0.9;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -160,7 +160,7 @@
   margin: 6px auto 0;
   max-width: 168mm;
   text-align: center;
-  font-size: 13.5px;
+  font-size: 14px;
   font-style: italic;
   line-height: 1.28;
   color: #333;
@@ -169,7 +169,7 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 60mm;
+  height: 63mm;
   object-fit: cover;
   margin: 0;
 }
@@ -207,8 +207,8 @@
   column-rule: 1px solid #e6e6e6;
   text-align: justify;
   hyphens: auto;
-  font-size: 11.6px;
-  line-height: 1.34;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .paper-lead-body p {
@@ -245,7 +245,7 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 29mm;
+  height: 31mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
@@ -260,8 +260,8 @@
   margin: 0;
   text-align: justify;
   hyphens: auto;
-  font-size: 11.4px;
-  line-height: 1.34;
+  font-size: 12.2px;
+  line-height: 1.36;
   color: #222;
 }
 
@@ -298,6 +298,9 @@
 /* ── Kısa kısa ──────────────────────────────────────────── */
 .paper-briefs {
   padding: 5px 0 3px;
+  /* Sıkışınca önce burası kısalır (taşma emniyeti). */
+  min-height: 0;
+  overflow: hidden;
 }
 
 .paper-brief-list {
@@ -308,10 +311,10 @@
 .paper-brief {
   break-inside: avoid;
   margin: 0;
-  padding: 4px 0;
+  padding: 5px 0;
   border-bottom: 1px dotted #c9c9c9;
-  font-size: 11.8px;
-  line-height: 1.26;
+  font-size: 12.2px;
+  line-height: 1.28;
 }
 
 .paper-kicker {
@@ -336,6 +339,7 @@
 .paper-footer {
   margin-top: auto;
   padding-top: 5px;
+  padding-bottom: 0;
   border-top: 1px solid var(--paper-line);
   display: flex;
   justify-content: space-between;
@@ -354,9 +358,11 @@
 
   .paper {
     width: auto;
-    /* Yükseklik içerikten gelir; punto ve fotoğraflar sayfayı dolduracak
-       şekilde ayarlanır (kırpma yok). */
+    /* Yazdırma alanı sabit: içerik tam sığar. Uzun bir günde taşarsa
+       ikinci sayfaya kaymak yerine kısa kısa bloğu kısalır (alt bilgi kalır). */
+    height: 282mm;
     min-height: 0;
+    overflow: hidden;
     padding: 0;
     box-shadow: none;
   }
