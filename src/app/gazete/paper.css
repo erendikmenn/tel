@@ -169,7 +169,7 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 63mm;
+  height: 60mm;
   object-fit: cover;
   margin: 0;
 }
@@ -232,7 +232,7 @@
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
   gap: 6mm;
-  padding: 5px 0 5px;
+  padding: 4px 0 4px;
   border-bottom: 3px solid var(--paper-line);
 }
 
@@ -245,7 +245,7 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 31mm;
+  height: 29mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
