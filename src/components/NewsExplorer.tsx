@@ -414,16 +414,6 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
         >
           Sadece yeni
         </button>
-        {filtered.length > 0 ? (
-          <button
-            type="button"
-            className="explorer-mode"
-            title="Görünen haberleri okundu olarak işaretle"
-            onClick={() => markIds(filtered.map((item) => item.id))}
-          >
-            Okundu say
-          </button>
-        ) : null}
         {countRead(reads) > 0 ? (
           <button type="button" className="explorer-mode is-muted" onClick={resetReads}>
             Okumaları sıfırla
