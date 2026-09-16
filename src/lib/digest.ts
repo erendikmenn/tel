@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
-import { ITEM_MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
+import { MAX_ITEMS } from "@/lib/config";
 import { enlargeImage, pageImage } from "@/lib/image";
 import { normalizeText } from "@/lib/text";
 
@@ -114,20 +114,12 @@ function itemTime(item: DigestItem) {
   return Number.isNaN(time) ? 0 : time;
 }
 
-function isFresh(isoDate?: string) {
-  if (!isoDate) return true;
-  const then = Date.parse(isoDate);
-  if (Number.isNaN(then)) return true;
-  return Date.now() - then < ITEM_MAX_AGE_HOURS * 60 * 60 * 1000;
-}
-
 async function fetchFeed(feed: (typeof FEEDS)[number]) {
   const parsed = await parser.parseURL(feed.url);
   const seen = new Set<string>();
 
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)
-    .filter((item) => isFresh(item.isoDate ?? item.pubDate))
     .flatMap((item) => {
       const parsed = item as ParsedItem;
       const title = stripHtml(parsed.title!);

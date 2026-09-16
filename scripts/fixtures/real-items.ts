@@ -913,5 +913,101 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "BBC Türkçe",
     "isoDate": "2026-09-14T12:15:06.000Z",
     "summary": "Galler, İskoçya ve Kuzey İrlanda özerk yönetimleri başbakanları, İngiltere'nin de dahil olduğu Birleşik Krallık'ta Londra'daki merkezi yönetimi ifade eden \"Westminster'ın devrinin sona erdiğini\" ve Birleşik Krallık hükümetinin \"anayasal değişikliklere hazırlanması gerektiğini\" açıkladılar."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/14/indonesian-police-deaths-of-australian-man-and-two-children-ntwnfb",
+    "title": "Indonesian police investigate deaths of Australian man and two children in Bali as suspected murder-suicide",
+    "link": "https://www.theguardian.com/world/2026/sep/14/indonesian-police-deaths-of-australian-man-and-two-children-ntwnfb",
+    "source": "The Guardian",
+    "isoDate": "2026-09-14T08:44:44.000Z",
+    "summary": "Police in Bali believe the two young children died as a result of violence, while a 57-year-old man is believed to have taken his own life Indonesian police are investigating the deaths of three Australians who died in Bali over the weekend, with initial reports suggesting a father killed his two young children before taking his own life. The man, 57, and his two children, seven and four, who are also Indonesian citizens, were discovered deceased in a bungalow in Kuta on Sunday morning. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/articles/cwyzp47py48o#2",
+    "title": "Questions mount over what an AI 'slowdown' would look like",
+    "link": "https://www.bbc.co.uk/news/articles/cwyzp47py48o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-13T18:20:22.000Z",
+    "summary": "While pacing AI development might sound like a quick fix, it is far from an easy solution."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/13/indonesian-rescue-crews-searching-for-140-people-after-ferry-hit-bad-weather",
+    "title": "At least six dead and 130 missing after Indonesian ferry capsizes, officials say",
+    "link": "https://www.theguardian.com/world/2026/sep/13/indonesian-rescue-crews-searching-for-140-people-after-ferry-hit-bad-weather",
+    "source": "The Guardian",
+    "isoDate": "2026-09-13T12:18:49.000Z",
+    "summary": "Search and rescue agency says 107 people brought to safety from vessel hit by bad weather in Java Sea Rescue workers in Indonesia said at least six people had died and 130 others were missing on Sunday after a ferry sailing between the islands of Java and Borneo capsized in bad weather. Basarnas, Indonesia’s national search and rescue agency, said 107 people had been rescued from the Virgo ⁠Transport 8 vessel, which set sail on Saturday with 243 ​people onboard, including 30 crew members, ​from ‌the East Java ‌city of Surabaya. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/c4gkddz9d10o#3",
+    "title": "Kadınlar neden erkeklerden daha fazla migren atağı geçiriyor?",
+    "link": "https://www.bbc.com/turkce/articles/c4gkddz9d10o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-13T07:15:04.000Z",
+    "summary": "Hormonlar, yetersiz uyku ve stres, kadınların bu yıpratıcı nörolojik rahatsızlığa daha yatkın olmasının nedenlerini açıklamaya yardımcı oluyor."
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/c20l701x45vo#2",
+    "title": "İnsanlar yapay zekanın kontrolünü elinde tutabilecek mi?",
+    "link": "https://www.bbc.com/turkce/articles/c20l701x45vo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-12T07:21:51.000Z",
+    "summary": "Yapay zekâ ajanları kontrolsüz bir siber saldırı başlattı ve bu durum sektördeki bazı kişileri endişelendirdi."
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/11/cia-releases-presidential-briefs-bin-laden-al-qaida",
+    "title": "CIA releases dozens of presidential daily briefs on Bin Laden and al-Qaida from before 9/11",
+    "link": "https://www.theguardian.com/us-news/2026/sep/11/cia-releases-presidential-briefs-bin-laden-al-qaida",
+    "source": "The Guardian",
+    "isoDate": "2026-09-11T22:27:21.000Z",
+    "summary": "The presidential briefing documents were declassified on the 25th anniversary of the September 11 attacks Several dozen presidential briefing documents declassified on Friday, the 25th anniversary of the September 11 attacks, detail intelligence that government officials had gathered about Osama bin Laden and al-Qaida leading up to the hijackings that killed nearly 3,000 people and upended American national security. The documents illustrate security analysts’ tracking of Bin Laden’s movements and support system, as well as concerns about possible threats to US targets. They also detail officials’ understanding of his network in the United States and other countries, including how his operations were financed. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/cn07xl1k1v4o#2",
+    "title": "Google'ın ardından Anthropic'ten de yapay zekayla biyolojik silah uyarısı",
+    "link": "https://www.bbc.com/turkce/articles/cn07xl1k1v4o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-11T19:14:42.000Z",
+    "summary": "Anthropic yapay zeka modelinin, biyolojik silah geliştirilmesini destekleyebilecek \"kötü amaçlı faaliyetler\" için kullanılmasına yönelik girişimler tespit ettiğini ve bunları engellediğini açıkladı."
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/c980d9l8jnlo#3",
+    "title": "İnsanlar uyuşturucu kullanmaya '25 bin yıl önce başlamış olabilir'",
+    "link": "https://www.bbc.com/turkce/articles/c980d9l8jnlo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-11T03:39:35.000Z",
+    "summary": "Yeni araştırmalar ve 25 bin yıllık insan iskeletleri, insanların zihin değiştirici maddeleri bilim insanlarının tahminlerinden çok daha eski dönemlerde kullanmış olabileceğini gösteriyor."
+  },
+  {
+    "id": "https://www.theguardian.com/global-development/2026/sep/10/nagaland-colonialism-ethnography-ethics-oxford-pitt-rivers-museum-return-human-remains",
+    "title": "‘Our forefathers are coming back’: Naga people celebrate after Oxford museum agrees to return remains",
+    "link": "https://www.theguardian.com/global-development/2026/sep/10/nagaland-colonialism-ethnography-ethics-oxford-pitt-rivers-museum-return-human-remains",
+    "source": "The Guardian",
+    "isoDate": "2026-09-10T11:00:22.000Z",
+    "summary": "Following six years of talks, Pitt Rivers Museum will return body parts collected by British colonial administrators to north-east India Anthropologists and community leaders from Nagaland, a remote state in north-eastern India bordering Myanmar, have expressed joy and relief that human remains belonging to their ancestors that had been on display in a British museum for nearly a century are finally being returned. On Monday, the Pitt Rivers Museum in Oxford announced that 39 pieces of human remains – including parts of skulls, a finger and a piece of skin with hair – belonging to the Naga tribes, will be returned to Nagaland after six years of negotiation between the community and the museum. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/c2e0n4gx81vo#2",
+    "title": "Anthropic'in araştırmacısı: 'Yapay zekanın tüm insanları yok etme ihtimali %10'dan fazla'",
+    "link": "https://www.bbc.com/turkce/articles/c2e0n4gx81vo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-09T13:15:06.000Z",
+    "summary": "Amerikan yapay zeka şirketi Anthropic'te çalışan önde gelen bir güvenlik araştırmacısı, yapay zekanın çok hızlı ilerlediğini ve önümüzdeki 10 yıl içinde \"tüm insanları öldürme\" ihtimalinin %10'dan fazla olduğuna inandığını söyledi."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/07/why-indias-economic-data-faces-a-trust-deficit",
+    "title": "‘Trust deficit’: Why India’s economic data has sparked a furore",
+    "link": "https://www.theguardian.com/world/2026/sep/07/why-indias-economic-data-faces-a-trust-deficit",
+    "source": "The Guardian",
+    "isoDate": "2026-09-08T06:30:29.000Z",
+    "summary": "India’s statistical system once commanded respect, and its data on economic and social indicators was considered rigorous – that appears to have eroded • Don’t get This is India delivered to your inbox? Sign up here There isn’t much that we Indians agree on these days. GDP numbers are no exception. Last week, India released glowing GDP numbers for the latest quarter – 7.8% growth – higher than the forecast 7%. It sparked a furore. Subhash Garg, a former finance secretary under Narendra Modi’s government and now a critic, reframed what Modi called a “herculean feat” as mere smoke and mirrors. According to Garg, the government revised last year’s current-price GDP downwards to inflate this year’s number – he believes the real growth is only 2.6%. Continue reading..."
+  },
+  {
+    "id": "https://www.whatsapp.com/channel/0029Vb5eTSkHFxP3rcjNq41i#4",
+    "title": "Abone olmak için tıklayın",
+    "link": "https://www.whatsapp.com/channel/0029Vb5eTSkHFxP3rcjNq41i?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2024-04-15T11:20:59.000Z",
+    "summary": "BBC Türkçe'nin Türkiye ve dünyadaki gelişmelerle ilgili haberleri artık telefonunuzda"
   }
 ];

@@ -254,6 +254,13 @@ a {
   accent-color: var(--ink);
 }
 
+/* Uzun listeler (pencere seçenekleri) iki+ kolona yayılsın. */
+.explorer-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 8px;
+}
+
 .explorer-active {
   display: flex;
   flex-wrap: wrap;

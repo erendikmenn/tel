@@ -10,6 +10,7 @@ import {
   PER_SOURCE_OPTIONS,
   WINDOW_OPTIONS,
   perSourceLabel,
+  windowLabel,
 } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
@@ -192,17 +193,19 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
 
           <fieldset className="explorer-group">
             <legend>Pencere</legend>
-            {WINDOW_OPTIONS.map((hours) => (
-              <label key={hours} className="explorer-option">
-                <input
-                  type="radio"
-                  name="explorer-hours"
-                  checked={state.hours === hours}
-                  onChange={() => update({ hours })}
-                />
-                <span>Son {hours} saat</span>
-              </label>
-            ))}
+            <div className="explorer-options">
+              {WINDOW_OPTIONS.map((hours) => (
+                <label key={hours} className="explorer-option">
+                  <input
+                    type="radio"
+                    name="explorer-hours"
+                    checked={state.hours === hours}
+                    onChange={() => update({ hours })}
+                  />
+                  <span>Son {windowLabel(hours)}</span>
+                </label>
+              ))}
+            </div>
           </fieldset>
 
           <fieldset className="explorer-group">
@@ -240,7 +243,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             className="explorer-chip"
             onClick={() => update({ hours: DEFAULTS.hours })}
           >
-            Son {state.hours} saat <span aria-hidden="true">×</span>
+            Son {windowLabel(state.hours)} <span aria-hidden="true">×</span>
           </button>
         ) : null}
         {state.perSource !== DEFAULTS.perSource ? (

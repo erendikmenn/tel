@@ -139,6 +139,8 @@ export function printExamples(items: DigestItem[], log: (line: string) => void =
   const cases: { name: string; view: DigestView }[] = [
     { name: "pencere=36, kaynak başına=12  (varsayılan)", view: { sinceHours: 36, perSource: 12 } },
     { name: "pencere=48, kaynak başına=20+ (üst küme)", view: { sinceHours: 48, perSource: PER_SOURCE_UNLIMITED } },
+    { name: "pencere=1 hafta, kaynak başına=20+", view: { sinceHours: 168, perSource: PER_SOURCE_UNLIMITED } },
+    { name: "pencere=1 yıl, kaynak başına=20+ (ne varsa)", view: { sinceHours: 8760, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=36, kaynak başına=20+ (sınırsız)", view: { sinceHours: 36, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=6,  kaynak başına=12", view: { sinceHours: 6, perSource: 12 } },
     { name: "pencere=12, kaynak başına=6", view: { sinceHours: 12, perSource: 6 } },
