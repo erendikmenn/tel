@@ -8,11 +8,262 @@ export const REAL_ITEMS: DigestItem[] = [
     "title": "Former Kosovo president Thaçi sentenced to 25 years in prison by international court in The Hague – Europe live",
     "link": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
     "source": "The Guardian",
-    "isoDate": "2026-09-16T11:55:04.000Z",
+    "isoDate": "2026-09-16T12:48:33.000Z",
     "summary": "Thaçi held criminally responsible for war crimes during the violent break from Serbia in the 1990s Von der Leyen says “kickstarting Europe’s economy is our number one priority,” as Europe needs to tap into its huge market, world class industries and services. She says its single market remains too fragmented and needs to reform further, with the aim of completing it by the end of next year. “Do we want to rally around our European idea that together we can decide our own destiny? Or do we let our democracies be undermined by the proxies and puppets of authoritarians? Whether it is the ultra nationalist or the anti-European, whether it’s Russian interference or disinformation, the names may be different, but their goal is the same. Continue reading...",
     "topics": [
       "toplum",
       "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
+    "title": "House votes for a third time to end Iran war in symbolic move as conflict drags on – US politics live",
+    "link": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:46:30.000Z",
+    "summary": "The action is likely the last House vote on issue ahead of the midterm elections Sign up for the US Breaking News email On Capitol Hill today, Dr Nicole Saphier, Donald Trump’s third pick to be the US surgeon general will face lawmakers on the Senate health, education, labor and pensions committee for a confirmation hearing at 10am ET. A reminder that the president withdrew his last two nominations for the top doctor position – Casey Means and Dr Janette Nesheiwat. While Means’ nomination fell apart after she was grilled by senators in February, Trump withdrew his support for Nesheiwat after questions circled around her academic credentials. Continue reading...",
+    "topics": [
+      "siyaset",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
+    "title": "Burnham says budget will be ‘challenging’ and denies he is just ‘tax and spend socialist’ – UK politics live",
+    "link": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:43:45.000Z",
+    "summary": "PM responds to criticism from former Bank of England chief economist Wes Streeting, the defence secretary, has posted this on social media ahead of Andy Burnham’s meeting with the Nato secretary general Mark Rutte later. Today I am reminded of the words of my Labour predecessor Denis Healey: “Once we cut defence expenditure to the extent where our security is imperilled, we have no houses, we have no hospitals, we have no schools. We have a heap of cinders.” [Britain] is leading, along with Nato allies, the push back against Russia’s dangerous and reckless campaign against us. Collectively we will continue to strengthen our ability to deter and defend all allies, against any threat. Nato will not be intimidated by Russia’s campaign of hostile actions. Russia wants to stop us helping Ukraine – but their actions will only lead us to do more for Ukraine. Russia’s actions are a sign of weakness, and a symptom of Putin’s failure in Ukraine. To stay transatlantic, Nato is becoming more European. A Nato with Europe, and Canada, spending more, producing more, and doing more for their security. This is the idea of Nato 3.0. Building for the future. A stronger Europe, in a stronger Nato. Continue reading...",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789561915",
+    "title": "US political rivals Sanders and Bannon unite on AI warning",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/us-political-rivals-sanders-and-bannon-unite-on-ai-warning?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:39:47.000Z",
+    "summary": "US senator Bernie Sanders and Donald Trump’s former adviser Steve Bannon have united to warn against the dangers of AI.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko#0",
+    "title": "EU chief backs plan for Canada to become 'associate member'",
+    "link": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-16T12:36:51.000Z",
+    "summary": "Canada is seeking closer ties with EU after a breakdown in relations with the US and its president Donald Trump.",
+    "topics": [
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/16/first-thing-houthis-target-mecca-house-votes-end-trump-war-iran",
+    "title": "First Thing: Houthis appear to target Mecca as House votes to end Trump’s war on Iran",
+    "link": "https://www.theguardian.com/us-news/2026/sep/16/first-thing-houthis-target-mecca-house-votes-end-trump-war-iran",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:36:22.000Z",
+    "summary": "Vote comes amid Republican call to impeach defense secretary Pete Hegseth. Plus a catnapped bodega cat in Brooklyn is returned home Good morning. Saudi Arabia’s air defenses intercepted and destroyed a ⁠Houthi drone south of Mecca yesterday before it entered prohibited airspace over the holy city. A spokesperson for the kingdom, which is fighting the Iran-aligned group in Yemen, said the security of Islam’s two holiest sites and of pilgrims was a “red line”. Mecca, home to shrines sacred to Muslims worldwide, is Islam’s holiest ​city and the focal point ‌of the annual ‌hajj pilgrimage. Meanwhile, in Washington, the US House of Representatives has voted for a third time to end the war in Iran, approving a war powers resolution a few hours after a Congressional Budget Office (CBO) report showed the conflict had cost at least $38bn and left the US stockpile of defensive missiles so depleted it could take five years to rebuild. Why is Pete Hegseth being targeted by lawmakers? Republican congressman Thomas Massie has proposed impeaching Pete Hegseth, saying the defense secretary had repeatedly violated the constitution through his handling of war with Iran and the deaths of civilians in conflicts worldwide. How is the Trump administration reversing decisions over arming Israel? Congress has been informally notified about a pending deal, with the US planning to deliver powerful 2,000lb bombs to Israel. The weapons prompted such concerns about the possibility of mass casualties in Gaza that the Biden administration paused their delivery two years ago. How has Ed Sheeran responded? In a lengthy Instagram post, the British singer said: “I have always used my platform and music to bring people from all backgrounds and cultures together … I am not complicit. I have my personal views on this devastating conflict. Just because I choose not to speak publicly, it doesn’t mean I don’t have them, and it doesn’t mean that I don’t care. Macklemore coming off tour was the promoter’s decision, it was not mine.” Continue reading...",
+    "topics": [
+      "savas",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/16/us-visa-restrictions-south-africans-trump-claims-anti-white-discrimination",
+    "title": "US to bar some South Africans over claims of anti-white discrimination",
+    "link": "https://www.theguardian.com/world/2026/sep/16/us-visa-restrictions-south-africans-trump-claims-anti-white-discrimination",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:35:45.000Z",
+    "summary": "Announcement of visa restrictions follows Trump’s false claims of ‘white genocide’ taking place in South Africa The US has announced visa restrictions on some South Africans as Donald Trump’s administration continues to claim that South Africa’s government racially discriminates against white minority Afrikaners. The announcement did not specify individuals who were barred from the US. Trump has spent his second term falsely claiming there is a “white genocide” in South Africa and railing against its affirmative action policies. Continue reading...",
+    "topics": [
+      "siyaset",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789560682",
+    "title": "At least 20 killed as multi-storey building collapses in Gaza City",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/at-least-20-killed-as-multi-storey-building-collapses-in-gaza-city?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:32:47.000Z",
+    "summary": "Rescuers are searching through the rubble for survivors after a damaged apartment building collapsed overnight in Gaza.",
+    "topics": [
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/16/texas-georgia-executions",
+    "title": "Texas to execute man convicted in triple murder as a Georgia execution is put on hold",
+    "link": "https://www.theguardian.com/us-news/2026/sep/16/texas-georgia-executions",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:32:04.000Z",
+    "summary": "Texas execution would be the fifth in the state in 2026, while Georgia has yet to put anyone to death this year A man convicted in the shooting deaths of three people is set to be executed Wednesday in Texas. Meanwhile, another execution that was scheduled for the same time in Georgia has been halted by a judge. This would be the fifth execution in Texas, while Georgia has yet to put anyone to death this year. The nation’s busiest death chamber is in Florida, which accounted for more than half the 25 executions already carried out in the US this year. Continue reading...",
+    "topics": [
+      "toplum"
+    ]
+  },
+  {
+    "id": "CBMiqAFBVV95cUxNNDByMU5QYk8zV1dFZ183Rmlocm9QS0dURE9HdXhiRjFwYXJuOXlZTnhXNjh1aWMwQzJoX3BFNk9GcllUZ01pUy1FYzJTMzNPVGRIdGZzV0RRa0FKakxXV3lBdnRVUEhnOE11YUpxdHJJcFByUEcxZ25EYVB3MlZkcnB0X1Q1b1JGWEJGNkloa3NnMHFtN05JZmJIUlhQSDh5YkRIVjRaM24",
+    "title": "Novo Partners With Anthropic to Speed Up Drug Discovery Using Claude - WSJ",
+    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNDByMU5QYk8zV1dFZ183Rmlocm9QS0dURE9HdXhiRjFwYXJuOXlZTnhXNjh1aWMwQzJoX3BFNk9GcllUZ01pUy1FYzJTMzNPVGRIdGZzV0RRa0FKakxXV3lBdnRVUEhnOE11YUpxdHJJcFByUEcxZ25EYVB3MlZkcnB0X1Q1b1JGWEJGNkloa3NnMHFtN05JZmJIUlhQSDh5YkRIVjRaM24?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T12:32:00.000Z",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o#0",
+    "title": "Eight children among 21 killed after war-damaged Gaza building collapses, rescuers say",
+    "link": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-16T12:26:16.000Z",
+    "summary": "Dozens of people are missing beneath the rubble of a building hit by an Israeli strike last year, where some 10 families had been living.",
+    "topics": [
+      "savas",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789497605",
+    "title": "In Sweden, many breathe sigh of relief as far right suffers election losses",
+    "link": "https://www.aljazeera.com/features/2026/9/16/in-sweden-many-breathe-sigh-of-relief-as-far-right-suffers-election-losses?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:22:25.000Z",
+    "summary": "The election is tight, but one result is clear: the Sweden Democrats' bid to turn hate into votes failed.",
+    "topics": [
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/cx2zy4enn0do#0",
+    "title": "Gazze'de hasarlı binanın çökmesi sonucu beşi çocuk en az 20 kişi öldü",
+    "link": "https://www.bbc.com/turkce/articles/cx2zy4enn0do?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-16T12:21:17.000Z",
+    "summary": "Gazze Şeridi'nde savaşta hasar görmüş bir binanın çökmesi sonucu, aralarında beş çocuğun da bulunduğu en az 20 kişinin hayatını kaybettiği ve onlarca kişinin kayıp olduğu bildirildi.",
+    "topics": [
+      "savas",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
+    "title": "UK inflation rises to 3.1% as motor fuel prices jump by almost a quarter",
+    "link": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:18:53.000Z",
+    "summary": "Financial markets predict one-in-five chance of quarter-point rise in interest rates when Bank of England decides on Thursday Business live – latest updates UK inflation has returned above 3% as soaring fuel and transport prices triggered by the Iran war heap renewed pressure on British households. Figures from the Office for National Statistics show inflation as measured by the consumer prices index rose from 2.9% in July to 3.1% in August. The increase, which matched City forecasts, was driven by motor fuel prices rising by almost a quarter. Continue reading...",
+    "topics": [
+      "ekonomi",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789544027",
+    "title": "Taiz camps overflow with Yemenis fleeing fighting after Houthi offensive",
+    "link": "https://www.aljazeera.com/features/2026/9/16/taiz-camps-overflow-with-yemenis-fleeing-fighting-after-houthi-offensive?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:10:55.000Z",
+    "summary": "The recent flare-up in the Yemen conflict has seen tens of thousands of people displaced in Taiz governorate.",
+    "topics": [
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789552365",
+    "title": "US set to approve 60,000 heavy bombs for Israel: What that means",
+    "link": "https://www.aljazeera.com/features/2026/9/16/us-set-to-approve-60000-heavy-bombs-for-israel-what-that-means?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:09:45.000Z",
+    "summary": "The package of 2,000-pound bombs comes amid Israel's genocidal war on Gaza and its occupation of southern Lebanon.",
+    "topics": [
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/uk-news/2026/sep/16/colonel-samantha-shepherd-court-martial-jaysley-beck",
+    "title": "Colonel cleared of not properly handling allegations by soldier who killed herself",
+    "link": "https://www.theguardian.com/uk-news/2026/sep/16/colonel-samantha-shepherd-court-martial-jaysley-beck",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:07:51.000Z",
+    "summary": "Samantha Shepherd faced court martial over case of 19-year-old Jaysley Beck, who had made a sexual assault claim A senior army officer has been cleared by a court martial of failing to deal properly with allegations made by a teenage soldier who went on to kill herself. Col Samantha Shepherd had been accused of “conduct prejudicial to good order and service discipline” over the case of 19-year-old Gunner Jaysley Beck, who took her own life in December 2021. Continue reading...",
+    "topics": [
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/cmgqdegq5n8eo#0",
+    "title": "Borsa İstanbul neden değer kaybediyor?",
+    "link": "https://www.bbc.com/turkce/articles/cmgqdegq5n8eo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-16T12:05:45.000Z",
+    "summary": "Borsa İstanbul'daki satışlar bugün de devam etti. BIST 100 endeksi bugün %5'e yakın düşüşle 13 bin 200 puanın altını gördü.",
+    "topics": [
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/environment/2026/sep/16/trump-epa-pollution-rollback",
+    "title": "Trump EPA’s arguments for letting power plants spew unlimited pollution ‘dead wrong’",
+    "link": "https://www.theguardian.com/environment/2026/sep/16/trump-epa-pollution-rollback",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:00:20.000Z",
+    "summary": "Claims that dismantling pollution rules will lower energy bills and have little climate impact are far from convincing In allowing US power plants to emit any amount of planet-heating pollution they wish to, the Trump administration made two striking claims – that this will cut Americans’ electricity bills and that the pollution itself doesn’t really matter anyway. Both claims struggle to stand up to even basic scrutiny. On Monday, the Environmental Protection Agency (EPA) said it would erase any limits on emissions from coal and gas plants that are dangerously heating up our planet. This move, which follows a similar dismantling of pollution limits from cars ands trucks, is part of a broader push to eliminate the longstanding legal authority of this, or any future, US administration to deal with the climate crisis. Continue reading...",
+    "topics": [
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/16/georgia-senator-jon-ossoff-image",
+    "title": "The ‘Ossoff angle’: media-savvy senator borrows from Obama as 2028 chatter builds",
+    "link": "https://www.theguardian.com/us-news/2026/sep/16/georgia-senator-jon-ossoff-image",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:00:20.000Z",
+    "summary": "Pictures of Georgia Democrat looking into middle distance proliferate – and social media skills have boosted his profile Delivering a speech in Atlanta last month, Jon Ossoff accused Donald Trump of corruption, incompetence and fecklessness, and peppered his remarks with substantive observations of dates and times and places. But the comment that ricocheted across the internet – a clip of just a few seconds – was an almost-throwaway reference about how the US president wants to “travel with Natalie” onboard Air Force One. The crowd cheered the US senator, who is running for re-election in battleground Georgia and is increasingly seen as a potential Democratic candidate for president in 2028. But his target audience that day – and this year – spanned far beyond the concert hall. Continue reading...",
+    "topics": [
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/environment/2026/sep/16/soil-microplastics-trojan-horse-toxins",
+    "title": "Microplastics in soil pose global threat by acting like ‘Trojan horse’ to deliver toxins",
+    "link": "https://www.theguardian.com/environment/2026/sep/16/soil-microplastics-trojan-horse-toxins",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T12:00:19.000Z",
+    "summary": "Exclusive: Plastic surfaces form hotspots with an increase of antibiotic-resistant genes, study finds Microplastics act like a “Trojan horse” delivering pollutants, pesticides and bacteria through the soil, a five-year multinational research project has found. The EU-funded project, which has so far resulted in 22 peer-reviewed studies, found microplastics in the soil of all 227 agricultural fields it tested across 11 European countries. The researchers said this poses a global threat, with healthy soils essential for life on Earth. Continue reading...",
+    "topics": [
+      "bilim",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/policy/995534/a-brief-history-of-ai-executives-calling-for-regulation",
+    "title": "A brief history of AI executives calling for regulation",
+    "link": "https://www.theverge.com/policy/995534/a-brief-history-of-ai-executives-calling-for-regulation",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-16T12:00:00.000Z",
+    "summary": "Over the past few days, a lot of people who stand to make a lot of money from AI all publicly agreed that it's time to make everyone slow down before we lose control - including OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, Microsoft CEO Satya Nadella, and X CEO Elon Musk. When people who profit from something declare that it's dangerous and needs to be regulated, there's always reason to be skeptical. But whatever their reason, this is far from the first time AI thought leaders have sounded the alarm. Charles Darwin's theory of evolution prompted author Samuel Butler to warn about intelligen … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theguardian.com/uk-news/2026/sep/16/datacentres-scotland-environmental-assessments-ai-boom",
+    "title": "Scotland imposes mandatory environmental assessments on new datacentres",
+    "link": "https://www.theguardian.com/uk-news/2026/sep/16/datacentres-scotland-environmental-assessments-ai-boom",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:55:33.000Z",
+    "summary": "Government announces before vote on moratorium that any projects above 50MW must submit assessments in planning process Large-scale datacentres will face mandatory environmental assessments before they can go ahead, the Scottish government has announced, amid growing public concern about the impact of the AI boom. Ahead of a vote on a moratorium on new hyperscale datacentres in Holyrood on Wednesday, the Scottish government has tightened rules for new projects by requiring any above 50MW to submit environmental impact assessments, but stopped short of agreeing to an outright halt. Continue reading...",
+    "topics": [
+      "teknoloji",
+      "bilim"
     ]
   },
   {
@@ -24,18 +275,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "He is due to be tried for crimes against humanity over thousands of deaths linked to his war on drugs.",
     "topics": [
       "toplum"
-    ]
-  },
-  {
-    "id": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
-    "title": "Burnham says budget will be ‘challenging’ and denies he is just ‘tax and spend socialist’ – UK politics live",
-    "link": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T11:47:15.000Z",
-    "summary": "PM responds to criticism from former Bank of England chief economist Wes Streeting, the defence secretary, has posted this on social media ahead of Andy Burnham’s meeting with the Nato secretary general Mark Rutte later. Today I am reminded of the words of my Labour predecessor Denis Healey: “Once we cut defence expenditure to the extent where our security is imperilled, we have no houses, we have no hospitals, we have no schools. We have a heap of cinders.” [Britain] is leading, along with Nato allies, the push back against Russia’s dangerous and reckless campaign against us. Collectively we will continue to strengthen our ability to deter and defend all allies, against any threat. Nato will not be intimidated by Russia’s campaign of hostile actions. Russia wants to stop us helping Ukraine – but their actions will only lead us to do more for Ukraine. Russia’s actions are a sign of weakness, and a symptom of Putin’s failure in Ukraine. To stay transatlantic, Nato is becoming more European. A Nato with Europe, and Canada, spending more, producing more, and doing more for their security. This is the idea of Nato 3.0. Building for the future. A stronger Europe, in a stronger Nato. Continue reading...",
-    "topics": [
-      "teknoloji",
-      "ekonomi"
     ]
   },
   {
@@ -61,18 +300,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
-    "title": "House votes for a third time to end Iran war in symbolic move as conflict drags on – US politics live",
-    "link": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T11:29:55.000Z",
-    "summary": "The action is likely the last House vote on issue ahead of the midterm elections Sign up for the US Breaking News email The US has announced visa restrictions on some South Africans as Donald Trump’s administration continues to claim that South Africa’s government racially discriminates against white minority Afrikaners. The announcement did not specify individuals who were barred from the US. Trump has spent his second term falsely claiming there is a “white genocide” in South Africa and railing against its affirmative action policies. Continue reading...",
-    "topics": [
-      "siyaset",
-      "savas"
-    ]
-  },
-  {
     "id": "https://www.aljazeera.com/?t=1789551341",
     "title": "Alex Eala firm on Asian Games participation despite threat of WTA fine",
     "link": "https://www.aljazeera.com/sports/2026/9/16/alex-eala-firm-on-asian-games-participation-despite-threat-of-wta-fine?traffic_source=rss",
@@ -92,17 +319,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Commission president says EU must ‘urgently reimagine our partnerships’ as she makes unprecedented offer Europe live – latest updates Canada has been invited to become the first “associate member” of the EU by the European Commission president, Ursula von der Leyen. In an unprecedented offer, von der Leyen said on Wednesday that the EU and Canada “see the world with the same eyes” through shared democratic values and common approaches to many big issues, from AI to climate breakdown, the Ukraine war and geopolitics. Continue reading...",
     "topics": [
       "ekonomi"
-    ]
-  },
-  {
-    "id": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o#0",
-    "title": "At least 20 killed after war-damaged Gaza building collapses",
-    "link": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
-    "source": "BBC World",
-    "isoDate": "2026-09-16T11:22:51.000Z",
-    "summary": "Dozens of people are missing beneath the rubble of the building in Gaza City, where some 10 families had been living.",
-    "topics": [
-      "savas"
     ]
   },
   {
@@ -151,30 +367,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/business/2026/sep/16/mirror-publisher-reach-cuts-editorial-jobs-ai-summaries-google",
-    "title": "Mirror publisher to cut 220 editorial jobs as readers turn to AI summaries",
-    "link": "https://www.theguardian.com/business/2026/sep/16/mirror-publisher-reach-cuts-editorial-jobs-ai-summaries-google",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T11:08:33.000Z",
-    "summary": "Reach, which also owns Express, makes decision because of ‘mammoth shift’ in how audiences seek out content The publisher of the Mirror and Express newspapers is to cut a further 220 editorial jobs as it adapts to a dramatic fall in online traffic while readers increasingly turn to summaries generated by artificial intelligence. Reach, which also owns scores of online brands and regional titles including the Manchester Evening News, the Birmingham Mail and the Liverpool Echo, said the latest cuts were necessary to cope with a “mammoth shift” in how audiences seek out content. Continue reading...",
-    "topics": [
-      "teknoloji",
-      "ekonomi"
-    ]
-  },
-  {
-    "id": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
-    "title": "UK inflation rises to 3.1% as motor fuel prices jump by almost a quarter",
-    "link": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T11:08:07.000Z",
-    "summary": "Financial markets predict one-in-five chance of quarter-point rise in interest rates when Bank of England decides on Thursday Business live – latest updates UK inflation has returned above 3% as soaring fuel and transport prices triggered by the Iran war heap renewed pressure on British households. Figures from the Office for National Statistics show inflation as measured by the consumer prices index rose from 2.9% in July to 3.1% in August. The increase, which matched City forecasts, was driven by motor fuel prices rising by almost a quarter. Continue reading...",
-    "topics": [
-      "ekonomi",
-      "savas"
-    ]
-  },
-  {
     "id": "https://www.bbc.co.uk/news/articles/c6kgxjl35822o#1",
     "title": "Colombia and Brazil deadliest countries for environmental activists, report says",
     "link": "https://www.bbc.co.uk/news/articles/c6kgxjl35822o?at_medium=RSS&at_campaign=rss",
@@ -186,38 +378,13 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/world/2026/sep/16/datacenters-pollution-electronics",
-    "title": "Datacenter rush will create ‘tsunami’ of discarded electronics, report says",
-    "link": "https://www.theguardian.com/world/2026/sep/16/datacenters-pollution-electronics",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T11:00:19.000Z",
-    "summary": "Global push will triple toxic e-waste annually in 25 years, filling enough shipping containers to circle globe six times The ongoing campaign to build thousands of massive datacenters for AI will create a “tsunami” of discarded electronics, putting the world on a course to triple its annual generation of toxic e-waste in the next 25 years, a new report projects. The electronic trash AI generates in the next 25 years could fill enough shipping containers to encircle the globe six times, it said. Yet, says the report by the non-profit environmental group Basel Action Network (BAN), there is no plan to deal with that waste – which typically contains toxics like lead, mercury, cadmium and forever chemicals, as well as valuable metals that are challenging to reclaim. Continue reading...",
+    "id": "CBMiqAFBVV95cUxOOUU3a0YtdWVPbVZMOEJuM3dETXRIV1I5LXF2QWpmVy1EU0FZcDZ3ZlRUTzM2Vk0yMkVhSE9LeG85NDdwVEx0R2M0MDhYRVlqMXFneldVQUk0b1BiR1A4Zm00YlhPWlgzZXhRekdWck84dzNPSF8zN2RBWjBrNUQyenBIVGRwYjlYbkozTDNEOC1mVWc5M0FiN2xkeHQwR2d2VGkyMlR5cTk",
+    "title": "‘If you’re building Frankenstein, stop’: JD Vance dismisses calls for AI regulation - The Guardian",
+    "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOUU3a0YtdWVPbVZMOEJuM3dETXRIV1I5LXF2QWpmVy1EU0FZcDZ3ZlRUTzM2Vk0yMkVhSE9LeG85NDdwVEx0R2M0MDhYRVlqMXFneldVQUk0b1BiR1A4Zm00YlhPWlgzZXhRekdWck84dzNPSF8zN2RBWjBrNUQyenBIVGRwYjlYbkozTDNEOC1mVWc5M0FiN2xkeHQwR2d2VGkyMlR5cTk?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T10:55:00.000Z",
     "topics": [
-      "teknoloji",
-      "bilim"
-    ]
-  },
-  {
-    "id": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko#0",
-    "title": "EU chief backs plan for Canada to become 'associate member'",
-    "link": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko?at_medium=RSS&at_campaign=rss",
-    "source": "BBC World",
-    "isoDate": "2026-09-16T10:59:53.000Z",
-    "summary": "Canada is seeking closer ties with EU after a breakdown in relations with the US and its president Donald Trump.",
-    "topics": [
-      "siyaset"
-    ]
-  },
-  {
-    "id": "https://www.theguardian.com/world/2026/sep/16/us-visa-restrictions-south-africans-trump-claims-anti-white-discrimination",
-    "title": "US to bar some South Africans over claims of anti-white discrimination",
-    "link": "https://www.theguardian.com/world/2026/sep/16/us-visa-restrictions-south-africans-trump-claims-anti-white-discrimination",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T10:56:45.000Z",
-    "summary": "Announcement of visa restrictions follows Trump’s false claims of ‘white genocide’ taking place in South Africa The US has announced visa restrictions on some South Africans as Donald Trump’s administration continues to claim that South Africa’s government racially discriminates against white minority Afrikaners. The announcement did not specify individuals who were barred from the US. Trump has spent his second term falsely claiming there is a “white genocide” in South Africa and railing against its affirmative action policies. Continue reading...",
-    "topics": [
-      "siyaset",
-      "toplum"
+      "teknoloji"
     ]
   },
   {
@@ -253,12 +420,12 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/technology/2026/sep/16/building-frankenstein-jd-vance-dismisses-ai-regulation",
-    "title": "‘If you’re building Frankenstein, stop’: JD Vance dismisses calls for AI regulation",
-    "link": "https://www.theguardian.com/technology/2026/sep/16/building-frankenstein-jd-vance-dismisses-ai-regulation",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T10:42:07.000Z",
-    "summary": "US vice-president’s comments come as former Anthropic researcher revisits recent claim AI could destroy humanity The US vice-president has dismissed calls for global regulation of AI safety risks, telling companies creating the most advanced models: “If you’re building Frankenstein, stop.” In remarks addressed towards Dario Amodei, the co-founder of Anthropic who has called on Washington DC to coordinate control of AI systems, including with China, JD Vance said: “If you’re gonna create Frankenstein, don’t come to the government and say we need regulation.” Continue reading...",
+    "id": "https://techcrunch.com/?p=3164327",
+    "title": "Amazon launches Alexa+ in India with Hindi support",
+    "link": "https://techcrunch.com/2026/09/16/amazon-launches-alexa-in-india-with-hindi-support/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-16T10:34:47.000Z",
+    "summary": "Amazon is letting all customers use Alexa+ assistant in early access period",
     "topics": [
       "teknoloji"
     ]
@@ -272,6 +439,18 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "A child has been killed in an Israeli double-tap strike as he rushed to help a paramedic wounded in an earlier attack.",
     "topics": [
       "savas"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40269",
+    "title": "Nearly one in five AI researchers already expected an extinction scenario from AI back in 2024",
+    "link": "https://the-decoder.com/nearly-one-in-five-ai-researchers-already-expected-an-extinction-scenario-from-ai-back-in-2024/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-16T10:20:02.000Z",
+    "summary": "Anthropic researcher Jacob Coxon sparked an intense debate about existential AI risks with a single tweet. OpenAI researcher Daniel Selsam warns of a \"ticking time bomb,\" and a former Deepmind researcher says AI could kill us all. In a survey of more than 1,500 leading AI researchers, the average estimated probability of an extinction scenario was 18 percent. That was in 2024. The number keeps climbing. The article Nearly one in five AI researchers already expected an extinction scenario from AI back in 2024 appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "toplum"
     ]
   },
   {
@@ -294,17 +473,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity.",
     "topics": [
       "teknoloji"
-    ]
-  },
-  {
-    "id": "https://www.theguardian.com/us-news/2026/sep/16/new-orleans-abuse-priest-dead",
-    "title": "New Orleans priest accused of abusing children in deaf community dies from apparent fall aged 87",
-    "link": "https://www.theguardian.com/us-news/2026/sep/16/new-orleans-abuse-priest-dead",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T10:00:17.000Z",
-    "summary": "Archdiocese knew of allegations against Gerard Joseph ‘Jerry’ Howell for 40 years but continued to support him A New Orleans Catholic priest whose prolific sexual abuse of children in the local deaf community was known for at least four decades by the city’s archdiocese without meaningful consequence has died after evidently falling in his Texas apartment. Gerard Joseph “Jerry” Howell, 87, was found dead at about 5pm on 8 September by Austin police department officers who were responding to a welfare check on the block listed for the senior living community where he had been residing, the agency said in a statement. The statement – which didn’t name Howell but was provided when police were asked about his death specifically – said first responders had gone to the block to investigate a report that an 87-year-old individual had fallen. Continue reading...",
-    "topics": [
-      "toplum"
     ]
   },
   {
@@ -332,7 +500,7 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/cqz0zpg1n7rgo#0",
+    "id": "https://www.bbc.com/turkce/articles/cqz0zpg1n7rgo#1",
     "title": "20 yıl boyunca karısını uyuşturup tecavüz ettiğini itiraf etti",
     "link": "https://www.bbc.com/turkce/articles/cqz0zpg1n7rgo?at_medium=RSS&at_campaign=rss",
     "source": "BBC Türkçe",
@@ -361,18 +529,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": [
       "toplum",
       "savas"
-    ]
-  },
-  {
-    "id": "https://www.theguardian.com/society/2026/sep/16/ladbrokes-owner-entain-prepares-to-cut-400-jobs-weeks-after-profit-boost",
-    "title": "Ladbrokes owner prepares to cut 400 jobs weeks after profit boost",
-    "link": "https://www.theguardian.com/society/2026/sep/16/ladbrokes-owner-entain-prepares-to-cut-400-jobs-weeks-after-profit-boost",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T09:44:40.000Z",
-    "summary": "Entain, which also owns Coral and BetMGM, starts consultation process over customer care roles Business live – latest updates The Ladbrokes owner, Entain, has said it is preparing to cut 400 jobs, only weeks after the FTSE 100 business reported better than expected profit in its first half of the year. The gambling group, which also owns Coral and BetMGM, has started a consultation process that could remove one in five of its 2,000 customer care jobs. Continue reading...",
-    "topics": [
-      "ekonomi",
-      "siyaset"
     ]
   },
   {
@@ -426,6 +582,18 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "At least seven people also injured in attack near Nikopol in southeastern Ukraine, Dnipropetrovsk governor says.",
     "topics": [
       "savas"
+    ]
+  },
+  {
+    "id": "6aa82f6b6d59a577994203c4",
+    "title": "China Isn’t Buying Silicon Valley’s Call for an AI Slowdown",
+    "link": "https://www.wired.com/story/china-isnt-buying-silicon-valley-call-for-ai-slowdown/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-16T09:30:00.000Z",
+    "summary": "The US and China agree that advanced AI poses serious risks. But Beijing is deeply skeptical of a deal that prioritizes keeping US companies ahead.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
     ]
   },
   {
@@ -491,17 +659,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/us-news/2026/sep/16/physical-sexual-violence-study-us",
-    "title": "New report reveals prevalence of physical and sexual violence in US",
-    "link": "https://www.theguardian.com/us-news/2026/sep/16/physical-sexual-violence-study-us",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T09:00:16.000Z",
-    "summary": "Study finds more than half of US adults have experienced physical violence and nearly half sexual violence In their lifetime, more than half of US adults have experienced physical violence – and nearly half have experienced sexual violence, according to a startling new national study. The study, led by researchers from Tulane University’s Newcomb Institute and the University of California, San Diego, examined experiences of physical, sexual and intimate partner violence, along with how they intersect with behavioral health, economic hardship, neighborhood safety and substance use, among other factors. Continue reading...",
-    "topics": [
-      "toplum"
-    ]
-  },
-  {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5953990/ai-political-ads-2026-midterms",
     "title": "As campaign season gears up, AI-generated ads are everywhere",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5953990/ai-political-ads-2026-midterms",
@@ -523,8 +680,19 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": []
   },
   {
+    "id": "https://www.npr.org/2026/09/16/nx-s1-5968724/federal-reserve-interest-rates-inflation-economy",
+    "title": "The Fed is expected to raise interest rates for the first time in 3 years",
+    "link": "https://www.npr.org/2026/09/16/nx-s1-5968724/federal-reserve-interest-rates-inflation-economy",
+    "source": "NPR",
+    "isoDate": "2026-09-16T09:00:00.000Z",
+    "summary": "The Fed is widely expected to raise its benchmark interest rate to combat stubborn inflation. That could make it more expensive to borrow money to buy a car or carry a balance on a credit card.",
+    "topics": [
+      "ekonomi"
+    ]
+  },
+  {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
-    "title": "The 500 colleges where former students aren't repaying their loans, and why",
+    "title": "When students attend these colleges, taxpayers often pay. Here's why",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
     "source": "NPR",
     "isoDate": "2026-09-16T09:00:00.000Z",
@@ -535,25 +703,13 @@ export const REAL_ITEMS: DigestItem[] = [
   },
   {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5956869/birth-control-contraception-access-clinic",
-    "title": "21 million women live in U.S. counties with limited birth control access",
+    "title": "New maps reveal massive gaps in access to affordable birth control across the U.S",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5956869/birth-control-contraception-access-clinic",
     "source": "NPR",
     "isoDate": "2026-09-16T09:00:00.000Z",
     "summary": "Because of a data lag, the current reality of access may be even worse.",
     "topics": [
-      "saglik",
-      "toplum"
-    ]
-  },
-  {
-    "id": "https://www.npr.org/2026/09/16/nx-s1-5968724/federal-reserve-interest-rates-inflation-economy",
-    "title": "The Fed is expected to raise interest rates for the first time in 3 years",
-    "link": "https://www.npr.org/2026/09/16/nx-s1-5968724/federal-reserve-interest-rates-inflation-economy",
-    "source": "NPR",
-    "isoDate": "2026-09-16T09:00:00.000Z",
-    "summary": "The Fed is widely expected to raise its benchmark interest rate to combat stubborn inflation. That could make it more expensive to borrow money to buy a car or carry a balance on a credit card.",
-    "topics": [
-      "ekonomi"
+      "saglik"
     ]
   },
   {
@@ -675,6 +831,16 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Howard Webb says the referees' body is disappointed with the decision to allow Haaland's goal against Manchester United.",
     "topics": [
       "spor"
+    ]
+  },
+  {
+    "id": "CBMiWkFVX3lxTE41Q1h2QkF0SGRpMFZSMVN5al9RNkhQLTR4MDc0cHJNbndmdndTbHE5cGswRFk4SS1JbVhmXzdWNm5KRDlJa3FiUkt6T01MZUNiTjhON2R6cFJtQQ",
+    "title": "Anthropic | History, Controversies, & Claude AI | Britannica Money - Britannica",
+    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE41Q1h2QkF0SGRpMFZSMVN5al9RNkhQLTR4MDc0cHJNbndmdndTbHE5cGswRFk4SS1JbVhmXzdWNm5KRDlJa3FiUkt6T01MZUNiTjhON2R6cFJtQQ?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T06:23:07.000Z",
+    "topics": [
+      "teknoloji"
     ]
   },
   {
@@ -800,6 +966,18 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://blogs.nvidia.com/?p=98313",
+    "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
+    "link": "https://blogs.nvidia.com/blog/uk-air-pollution-research-earth-2/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-16T05:00:42.000Z",
+    "summary": "Air pollution is a serious public health risk, contributing to an estimated 30,000 deaths in the U.K. alone last year. Data-driven insights can help — but computing air quality with traditional chemistry-based models is expensive, which limits how detailed they can be and how regularly they can be run. David Topping, a professor in the […]",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/uk-news/ng-interactive/2026/sep/16/slave-trade-wealth-britain-financial-system-bank-of-england-enslaved-africans",
     "title": "Slave-trade wealth was embedded in Britain’s financial system, research finds",
     "link": "https://www.theguardian.com/uk-news/ng-interactive/2026/sep/16/slave-trade-wealth-britain-financial-system-bank-of-england-enslaved-africans",
@@ -821,17 +999,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": [
       "toplum",
       "saglik"
-    ]
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789528200",
-    "title": "Gaza building collapse kills 20, traps dozens under rubble",
-    "link": "https://www.aljazeera.com/news/2026/9/16/gaza-residential-building-collapses-six-families-reportedly-trapped?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T04:30:52.000Z",
-    "summary": "Rescuers comb wreckage of a bombed-out apartment building that collapsed overnight in Gaza City.",
-    "topics": [
-      "savas"
     ]
   },
   {
@@ -859,25 +1026,13 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.aljazeera.com/?t=1789520219",
-    "title": "Trump administration plans $2.8bn sale of 2,000-pound bombs to Israel",
-    "link": "https://www.aljazeera.com/news/2026/9/16/trump-administration-plans-2-8bn-sale-of-2000-pound-bombs-to-israel?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T03:39:50.000Z",
-    "summary": "Trump administration pushes $2.8bn bomb sale to Israel amid criticism over mass targeting of civilians in the region.",
+    "id": "CBMirAFBVV95cUxQSEhGaHJBc1VaTTFUb2VvQ1h0X0NWNVJwVl9sc0pCU1dEcmxkS2pHZnlGNUlyNmEzby1uUDBqb1draWJqNHV3c1RRVWx1T0tNMjVweXk1REJXaVNJUEtiTUVkbVlpMy1fZUZZMnBGOXNGVmNrLVYtdXZydmdnbGxRcWNPTmJRVnAyVjMyVldtLWRhcnVSQ0xRRHZ0ek9PV09SZV8zdjVLcF9BeEFp",
+    "title": "Anthropic signs first Australia data centre agreement - Reuters",
+    "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSEhGaHJBc1VaTTFUb2VvQ1h0X0NWNVJwVl9sc0pCU1dEcmxkS2pHZnlGNUlyNmEzby1uUDBqb1draWJqNHV3c1RRVWx1T0tNMjVweXk1REJXaVNJUEtiTUVkbVlpMy1fZUZZMnBGOXNGVmNrLVYtdXZydmdnbGxRcWNPTmJRVnAyVjMyVldtLWRhcnVSQ0xRRHZ0ek9PV09SZV8zdjVLcF9BeEFp?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T03:49:00.000Z",
     "topics": [
-      "savas"
-    ]
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789514240",
-    "title": "China’s defence chief warns against coercion, avoids US, Japan mention",
-    "link": "https://www.aljazeera.com/news/2026/9/16/chinas-defence-chief-warns-against-coercion-avoids-us-japan-mention?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T03:38:57.000Z",
-    "summary": "Dong Jun pitches shared security governance and military cooperation while warning against coercion.",
-    "topics": [
-      "savas"
+      "teknoloji"
     ]
   },
   {
@@ -892,17 +1047,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.aljazeera.com/?t=1789525658",
-    "title": "Is US health care too broken to cure cancer?",
-    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/aje-onl-nf_us-healthcare-too-broken-to-cure-cancer-150926?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T02:52:44.000Z",
-    "summary": "Ted Okon tells Al Jazeera that even with a cure, the US wouldn’t be able to treat everyone with cancer.",
-    "topics": [
-      "saglik"
-    ]
-  },
-  {
     "id": "https://www.bbc.co.uk/news/articles/cw8r6mvjdvedo#1",
     "title": "Lost on Mount Fuji off-season? You'll have to pay for your rescue",
     "link": "https://www.bbc.co.uk/news/articles/cw8r6mvjdvedo?at_medium=RSS&at_campaign=rss",
@@ -910,17 +1054,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "isoDate": "2026-09-16T02:40:51.000Z",
     "summary": "The fee will be imposed on those who get lost on Japan's most famous mountain during the off-peak seasons.",
     "topics": []
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789526249",
-    "title": "Anthropic CEO didn’t foresee the speed of global AI growth",
-    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/anthropic-ceo-didnt-foresee-the-speed-of-global-ai-growth?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T02:40:08.000Z",
-    "summary": "Anthropic’s CEO says he ‘didn’t appreciate’ the speed with which AI’s growth would underpin the global economy.",
-    "topics": [
-      "teknoloji"
-    ]
   },
   {
     "id": "https://www.theguardian.com/news/audio/2026/sep/16/palestinian-school-al-mughayyir-under-siege-podcast",
@@ -935,14 +1068,45 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/us-news/2026/sep/15/russia-us-killings-plot",
-    "title": "Russia plotting to kill Ukraine allies in US and Europe, FBI says",
-    "link": "https://www.theguardian.com/us-news/2026/sep/15/russia-us-killings-plot",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T01:28:20.000Z",
-    "summary": "Intelligence services allegedly attempted to pay people to surveil and kill people perceived to be aligned with Ukraine Russia’s intelligence services are plotting to carry out targeted killings in the United States and in European nations supporting Ukraine, federal authorities said Tuesday as they announced charges against five people who remain at large. An indictment unsealed in Manhattan federal court said a network of the intelligence services had paid and attempted to pay individuals in the United States and in other countries to surveil targets to be killed with plans to then kill them. Continue reading...",
+    "id": "https://techcrunch.com/?p=3164495",
+    "title": "We don’t need AI regulation — leave safety to us, Nvidia’s Jensen Huang says",
+    "link": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-16T00:20:39.000Z",
+    "summary": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
     "topics": [
-      "savas"
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "CBMijwFBVV95cUxNbDdJR2JuaHlmNmNBV3BFUDN1WVh6amQzM0VnWUcwLUl5MVFzaUJDMlBSQkNEeUhSSG1ZcjIya21VSWh5TXQ4dll4X0pHRE1BeUl3V3dydTctWEtRU0ZYQmE4V3BkcVM4VHV6MzdKVy1mNWE0WUtidXRubkFLZmxIRVFKblBEZ3NwczBLQ1habw",
+    "title": "Mark Zuckerberg Takes Aim at Anthropic in Debate Over A.I. Slowdown - The New York Times",
+    "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNbDdJR2JuaHlmNmNBV3BFUDN1WVh6amQzM0VnWUcwLUl5MVFzaUJDMlBSQkNEeUhSSG1ZcjIya21VSWh5TXQ4dll4X0pHRE1BeUl3V3dydTctWEtRU0ZYQmE4V3BkcVM4VHV6MzdKVy1mNWE0WUtidXRubkFLZmxIRVFKblBEZ3NwczBLQ1habw?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T00:19:23.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+    "title": "AI and data centers are incredibly unpopular in every poll",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-15T23:34:25.000Z",
+    "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed in early September (ahead of the recent AI safety slowdown discussion) said they were opposed, with only 14 percent saying they strongly support. The split was about even among 2024 Donald Trump voters, at 49 percent support to 45 percent oppose, while people who had voted for Kamala Harris or who didn't vote leaned opp … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "CBMixAFBVV95cUxPcVJCd1JzOVZOSkZWSU5pYjZnZ1NRRWt2VW9LUmlOSXNuTW52X3RVZXRoVmlVQlM1QU5yNi1BQm41cnp2YTJUZ2Y1d3p2bUt0QWRuZlVEbHRHLUFQWDZqcmtWbHZhVDZnUTdUQ1hHYXdJWHN0Nm83cnlHSkJvQXVYMkZUZjRGY0t2QldvNzlES3A2UGdlaXJPM2d0VERvMmdPaXVzU1Z0RmtnXzg4eEdPdzdQaUdHR1dTSzdZV2lfOGFvTEFm",
+    "title": "Trump Advisers Meet With Anthropic Executive Over AI Safety - Bloomberg",
+    "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPcVJCd1JzOVZOSkZWSU5pYjZnZ1NRRWt2VW9LUmlOSXNuTW52X3RVZXRoVmlVQlM1QU5yNi1BQm41cnp2YTJUZ2Y1d3p2bUt0QWRuZlVEbHRHLUFQWDZqcmtWbHZhVDZnUTdUQ1hHYXdJWHN0Nm83cnlHSkJvQXVYMkZUZjRGY0t2QldvNzlES3A2UGdlaXJPM2d0VERvMmdPaXVzU1Z0RmtnXzg4eEdPdzdQaUdHR1dTSzdZV2lfOGFvTEFm?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-15T23:24:43.000Z",
+    "topics": [
+      "teknoloji"
     ]
   },
   {
@@ -968,7 +1132,18 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/cv1j4e0n6zw8o#0",
+    "id": "https://blogs.nvidia.com/?p=98294",
+    "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
+    "link": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-15T22:24:34.000Z",
+    "summary": "Know everything. Do anything. That was the message NVIDIA founder and CEO Jensen Huang brought to Salesforce Dreamforce Tuesday, joining CEO Marc Benioff onstage in an appearance that coincided with the announcement of Koa — Salesforce’s first CRM reasoning model, built on NVIDIA Nemotron 3 Super. Huang didn’t just take the stage. He walked into […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/cv1j4e0n6zw8o#1",
     "title": "'Filistin'e özgürlük' diyen rapçi programdan çıkarıldı, diğer sanatçılar Ed Sheeran turnesinden çekildi",
     "link": "https://www.bbc.com/turkce/articles/cv1j4e0n6zw8o?at_medium=RSS&at_campaign=rss",
     "source": "BBC Türkçe",
@@ -992,7 +1167,19 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/c6y9zydggqzlo#1",
+    "id": "https://techcrunch.com/?p=3164506",
+    "title": "The AI data center boom is colliding with cities scarred by big industry",
+    "link": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T21:47:38.000Z",
+    "summary": "National outcry against data center construction has spread to Philadelphia, where officials suggested possible construction in a neighborhood already impacted by a now-defunct oil refinery.",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/c6y9zydggqzlo#3",
     "title": "ABD uzaya hangi silahı göndermiş olabilir?",
     "link": "https://www.bbc.com/turkce/articles/c6y9zydggqzlo?at_medium=RSS&at_campaign=rss",
     "source": "BBC Türkçe",
@@ -1004,14 +1191,14 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/cr49l90g57eo#1",
-    "title": "Diyarbakır Büyükşehir Belediyesi Eşbaşkanlığına Emin Ay seçildi",
-    "link": "https://www.bbc.com/turkce/articles/cr49l90g57eo?at_medium=RSS&at_campaign=rss",
-    "source": "BBC Türkçe",
-    "isoDate": "2026-09-15T20:39:20.000Z",
-    "summary": "Diyarbakır Büyükşehir Belediye Eş Başkanı Doğan Hatun'un istifasının ardından, yerine belediye meclis üyesi Emin Ay seçildi. Hatun, 20 Temmuz'da \"Geri Çekilme İlkesi\" kapsamında istifa etmişti.",
+    "id": "CBMisgFBVV95cUxPTU0zd1VVbVhsbUZVb29HWWlqY1dpc1lydktHWWZYcE1SM2dZd1ppenkzN2toRGtZSlY5dkRsUFg0U0taTlo4RzBzZldLX2JIV3liRjlVUVVSSE0ySF9YR3dtNllFdThlWTZBcDNlbUlXZHoxU2xYaXA4NjVSS2M0eEotenlQMEp5MWoxZlZvY3hBZjhCVVJob3dVb19LUG04YThOM010SjRSSG9rRDdOY0FR",
+    "title": "Anthropic, OpenAI Safety Push Risks ‘Regulatory Wall’ for Rivals - Bloomberg",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPTU0zd1VVbVhsbUZVb29HWWlqY1dpc1lydktHWWZYcE1SM2dZd1ppenkzN2toRGtZSlY5dkRsUFg0U0taTlo4RzBzZldLX2JIV3liRjlVUVVSSE0ySF9YR3dtNllFdThlWTZBcDNlbUlXZHoxU2xYaXA4NjVSS2M0eEotenlQMEp5MWoxZlZvY3hBZjhCVVJob3dVb19LUG04YThOM010SjRSSG9rRDdOY0FR?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-15T20:36:16.000Z",
+    "summary": "Anthropic, OpenAI Safety Push Risks ‘Regulatory Wall’ for Rivals Bloomberg OpenAI, Google, Anthropic discussing collaboration on AI safety issues CNBC AI bosses’ safety push sparks rift inside OpenAI and Anthropic Financial Times",
     "topics": [
-      "siyaset"
+      "teknoloji"
     ]
   },
   {
@@ -1023,6 +1210,29 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "The inspector also found a bottleneck in resupply, despite President Donald Trump's claims that US supplies are \"virtually limitless\".",
     "topics": [
       "savas"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164453",
+    "title": "Meta now lets AI agents handle the boring parts of WhatsApp Business setup",
+    "link": "https://techcrunch.com/2026/09/15/meta-now-lets-ai-agents-handle-the-boring-parts-of-whatsapp-business-setup/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T20:12:53.000Z",
+    "summary": "A new WhatsApp Business MCP server lets developers use AI coding agents like Claude, Cursor, Codex, and ChatGPT to handle setup, messaging templates, testing, and troubleshooting.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+    "title": "Bypassing inference bottlenecks: Accelerating complex AI search with Retrieve-for-Train",
+    "link": "https://research.google/blog/bypassing-inference-bottlenecks-accelerating-complex-ai-search-with-retrieve-for-train/",
+    "source": "Google Research",
+    "isoDate": "2026-09-15T20:00:35.000Z",
+    "summary": "Algorithms & Theory",
+    "topics": [
+      "teknoloji"
     ]
   },
   {
@@ -1050,6 +1260,75 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://techcrunch.com/?p=3162590",
+    "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+    "link": "https://techcrunch.com/2026/09/15/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T19:00:00.000Z",
+    "summary": "From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164442",
+    "title": "US data centers could consume more natural gas than Germany and Japan combined by 2035",
+    "link": "https://techcrunch.com/2026/09/15/us-data-centers-could-consume-more-natural-gas-than-germany-and-japan-combined-by-2035/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T18:29:20.000Z",
+    "summary": "The AI frenzy could push U.S. data centers to become one of the largest consumers of natural gas in the world.",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40265",
+    "title": "Google launches Gemini 3.8 Live to take on OpenAI's GPT-Live-1 at a fraction of the cost",
+    "link": "https://the-decoder.com/google-launches-gemini-3-8-live-to-take-on-openais-gpt-live-1-at-a-fraction-of-the-cost/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T18:23:20.000Z",
+    "summary": "Google Deepmind released Gemini 3.8 Live and 3.8 Live Extended Thinking, two new audio models for developers that top the Artificial Analysis speech-to-speech leaderboard. At $1.38 per hour of voice conversation, Google significantly undercuts OpenAI's GPT-Live-1, which should still sound more natural thanks to full duplex. The article Google launches Gemini 3.8 Live to take on OpenAI's GPT-Live-1 at a fraction of the cost appeared first on The Decoder.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "6aa43111edca0293d40e617f",
+    "title": "AI ‘Actor’ Tilly Norwood Told Me That ‘All Lives Matter’",
+    "link": "https://www.wired.com/story/ai-actor-tilly-norwood-told-me-that-all-lives-matter/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-15T18:00:09.000Z",
+    "summary": "The virtual character, which is promoting its upcoming movie Misaligned, tries to evade politics by repetitively commenting on the clothes you’re wearing.",
+    "topics": [
+      "teknoloji",
+      "kultur"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40252",
+    "title": "AI labs have a data trust problem that their policies haven't solved",
+    "link": "https://the-decoder.com/ai-labs-have-a-data-trust-problem-that-their-policies-havent-solved/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T17:52:05.000Z",
+    "summary": "OpenAI and Anthropic tell corporate customers their data won't be used for training. But when Anthropic said it would store usage logs from its flagship model Fable for 30 days, Palantir, Nvidia, and Booz Allen Hamilton pulled back from using it for sensitive work. From boardrooms to research labs, AI companies still have a data trust problem. The article AI labs have a data trust problem that their policies haven't solved appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164419",
+    "title": "AI agents now have a place to snitch",
+    "link": "https://techcrunch.com/2026/09/15/ai-agents-now-have-a-place-to-snitch/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T17:42:59.000Z",
+    "summary": "The AI Contact Hotline is designed to be a discreet place where agents that have witnessed misbehavior can tip off authorities.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo#3",
     "title": "Warning of space arms race as US confirms weapons in Earth's orbit",
     "link": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo?at_medium=RSS&at_campaign=rss",
@@ -1073,6 +1352,51 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+    "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+    "link": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-15T17:05:57.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164295",
+    "title": "Meta expands subscription push with new AI-focused plans",
+    "link": "https://techcrunch.com/2026/09/15/meta-expands-subscription-push-with-new-ai-focused-plans/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T17:05:24.000Z",
+    "summary": "Meta One bundles expanded access to the company’s AI tools with premium features across Facebook, Instagram, and WhatsApp.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98194",
+    "title": "From Megawatts to Tokens: How NVIDIA Maximizes AI Factory Production",
+    "link": "https://blogs.nvidia.com/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-15T16:55:59.000Z",
+    "summary": "On a sweltering August evening in Silicon Valley, as the sun dropped and air conditioning loads spiked, Silicon Valley Power sent a signal to an AI factory to adjust its power consumption. Varun Sivaram was watching on Zoom with about forty others — his team at Emerald AI in their San Francisco conference room, engineers […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98178",
+    "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
+    "link": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-15T16:55:40.000Z",
+    "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara Convention Center event that has morphed into a Coachella of infrastructure tech. Before a packed audience — with more than 8,000 attendees this year, up from 3,500 last year — […]",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
     "id": "https://www.bbc.co.uk/news/articles/c8ly49w9g1edo#1",
     "title": "Suspected sabotage causes major Netherlands rail disruption",
     "link": "https://www.bbc.co.uk/news/articles/c8ly49w9g1edo?at_medium=RSS&at_campaign=rss",
@@ -1080,6 +1404,17 @@ export const REAL_ITEMS: DigestItem[] = [
     "isoDate": "2026-09-15T16:55:04.000Z",
     "summary": "Trains were cancelled or delayed on Tuesday after objects were found on tracks at multiple locations.",
     "topics": []
+  },
+  {
+    "id": "CBMi2gFBVV95cUxOS2h4cUw2akJYYjN6d2JhZGFjcGpKNVNMY1hSOHBMbTRYelhoemlpWkJ2ZmpVMFhhd3dRNUpNaUV2X1BmR1FIdVBsX0JLN3VySjdMWmwzeWxrZmNwdno2bk1UQ25pdTcwb3h2WDBKOWNoZHAtSTJyQk9MMXh5TkZMV2VDYnhVNEtZeS1PV3VvNURNQ3dMMzhjSG1yWUxsT0JIemo1RE5hRE5QNG53N0syS3RKWG5ySmo3VmhEMWNfWWdNOTRZVDVoR01CY1lEeXJ4c3VXQmozMW9EUQ",
+    "title": "Chinese Actors Cited in Anthropic’s Threat Report, Xi Jinping at BRICS Summit, Chinese Workers Complain Abroad to Defend Rights - Hudson Institute",
+    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOS2h4cUw2akJYYjN6d2JhZGFjcGpKNVNMY1hSOHBMbTRYelhoemlpWkJ2ZmpVMFhhd3dRNUpNaUV2X1BmR1FIdVBsX0JLN3VySjdMWmwzeWxrZmNwdno2bk1UQ25pdTcwb3h2WDBKOWNoZHAtSTJyQk9MMXh5TkZMV2VDYnhVNEtZeS1PV3VvNURNQ3dMMzhjSG1yWUxsT0JIemo1RE5hRE5QNG53N0syS3RKWG5ySmo3VmhEMWNfWWdNOTRZVDVoR01CY1lEeXJ4c3VXQmozMW9EUQ?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-15T16:33:58.000Z",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
   },
   {
     "id": "https://www.bbc.co.uk/news/articles/c3n07ydqdzlvo#1",
@@ -1093,6 +1428,16 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+    "title": "Your Agent Aced the Task. Will It Do It Again?",
+    "link": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-15T16:00:44.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/environment/2026/sep/15/indonesia-wildfires-threaten-leading-orangutan-research-site-borneo-cabang-panti",
     "title": "Indonesian wildfires threaten leading orangutan research site in Borneo",
     "link": "https://www.theguardian.com/environment/2026/sep/15/indonesia-wildfires-threaten-leading-orangutan-research-site-borneo-cabang-panti",
@@ -1101,6 +1446,75 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Critically endangered Bornean orangutans flee forests as staff at Rangkong research station work round the clock to stave off blaze Wildfires in Indonesia are sweeping through a critical research site for Bornean orangutans and are now threatening a celebrated research camp, home to one of the world’s longest-running studies of wild apes. In the past few days, the fires have burned within 200 metres of Rangkong research station, a satellite of Cabang Panti research station, which lies about four miles north in Gunung Palung national park. Continue reading...",
     "topics": [
       "bilim"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164278",
+    "title": "OpenAI, Anthropic, Google have been in talks on AI safety for weeks",
+    "link": "https://techcrunch.com/2026/09/15/openai-anthropic-google-have-been-in-talks-on-ai-safety-for-weeks/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T15:47:03.000Z",
+    "summary": "OpenAI confirms weeks of AI safety talks with Anthropic and Google DeepMind, as Trump's team dismisses safety concerns and pushes to keep pace with China.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3164139",
+    "title": "AEO startup Profound hits unicorn valuation, raises $180M Series D 7 months after last round",
+    "link": "https://techcrunch.com/2026/09/15/aeo-startup-profound-hits-unicorn-valuation-raises-180m-series-d-7-months-after-last-round/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T15:22:48.000Z",
+    "summary": "Profound has raised a $180 million Series D at a $1.8 billion valuation, less than seven months after it raised a $96 million Series C.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
+    "title": "Meta&#8217;s new One subscriptions put a price on social media and AI",
+    "link": "https://www.theverge.com/tech/995453/meta-one-subscriptions-ai",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-15T15:00:00.000Z",
+    "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the \"core experience\" on its apps and Meta AI will still be free, and users can still get its subscriptions for Facebook, Instagram, and WhatsApp without a bundle. It also says it plans to expand the bundles to include \"Edits, AI glasses, and more over time.\" There are two bundles for in … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163539",
+    "title": "Former TikTok execs built an app that uses AI to teach you how to pose for a photo",
+    "link": "https://techcrunch.com/2026/09/15/former-tiktok-execs-built-an-app-that-uses-ai-to-teach-you-how-to-pose-for-a-photo/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T14:42:37.000Z",
+    "summary": "Essentially a camera app, Superpose analyzes selfies or photos and generates four potential poses using AI.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163504",
+    "title": "Discover how to take your startup from prototype to production at TechCrunch Disrupt 2026",
+    "link": "https://techcrunch.com/2026/09/15/discover-how-to-take-your-startup-from-prototype-to-production-at-techcrunch-disrupt-2026/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T14:30:00.000Z",
+    "summary": "Learn how to scale your startup breakthrough from prototype to production at TechCrunch Disrupt 2026 with scaling leaders, Adrian Macneil (Foxglove), John Mackey (MBRYONICS), and Boris Sofman (Bedrock Robotics). Register before September 25 to save up to $200 on your pass.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40258",
+    "title": "After warning AI is too dangerous, Bill Gates bets a billion on its upside",
+    "link": "https://the-decoder.com/after-warning-ai-is-too-dangerous-bill-gates-bets-a-billion-on-its-upside/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T14:26:48.000Z",
+    "summary": "The Gates Foundation is investing at least a billion dollars over two years to make AI tools more widely available in health, education, and agriculture. Bill Gates warns that more than 90 percent of the training data behind early language models came from English sources, and that speech recognition fails 60 percent of the time in Yoruba. The market, he says, is \"a terrible guarantor of equal opportunity.\" The article After warning AI is too dangerous, Bill Gates bets a billion on its upside appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
     ]
   },
   {
@@ -1128,6 +1542,62 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://techcrunch.com/?p=3164027",
+    "title": "4 days left to exhibit at TechCrunch Disrupt 2026",
+    "link": "https://techcrunch.com/2026/09/15/4-days-left-to-exhibit-at-techcrunch-disrupt-2026/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T14:00:00.000Z",
+    "summary": "Last day to exhibit at Disrupt is Sept 18. 4 days left. Get your startup in front of 10,000+ founders, investors, operators and tech leaders October 13–15.",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
+    "title": "This doorbell camera lets a human security guard watch your front door",
+    "link": "https://www.theverge.com/tech/995365/simplisafe-video-doorbell-series-2-virtual-guard-price-specs",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-15T13:36:45.000Z",
+    "summary": "The new SimpliSafe Video Doorbell Series 2 adds 2K resolution and dual band Wi-Fi. | Image: Simplisafe DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. When the camera detects suspicious activity - using a combination of on-device AI, cloud-based computer vision, and facial recognition - a SimpliSafe monitoring agent can drop in on the camera to \"see, speak to, and attempt to deter potential intruders and package thieves,\" accord … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163310",
+    "title": "Early Anthropic hire, former METR COO have found a way to rein in rogue AI agents",
+    "link": "https://techcrunch.com/2026/09/15/early-anthropic-hire-former-metr-coo-have-found-a-way-to-rein-in-rogue-ai-agents/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T13:00:00.000Z",
+    "summary": "Their startup, Artificial Intelligence Underwriting Company (AIUC) has raised $40 million in a Series A round led by Ribbit Capital, with participation from First Harmonic.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40254",
+    "title": "Agility Robotics says its new Digit 5 robot can work next to people without safety fences",
+    "link": "https://the-decoder.com/agility-robotics-says-its-new-digit-5-robot-can-work-next-to-people-without-safety-fences/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T12:57:10.000Z",
+    "summary": "Agility Robotics has unveiled Digit 5, the next version of its humanoid robot for warehouses and factories. The article Agility Robotics says its new Digit 5 robot can work next to people without safety fences appeared first on The Decoder.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163913",
+    "title": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear",
+    "link": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T12:00:00.000Z",
+    "summary": "Salesforce Koa is built on Nvidia's open-weight Nemotron model and is trained to do sales, marketing, and customer-support tasks.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.bbc.co.uk/news/articles/cwn8mjl31p5yo#1",
     "title": "Denmark says Russian warship fired flares at military helicopter",
     "link": "https://www.bbc.co.uk/news/articles/cwn8mjl31p5yo?at_medium=RSS&at_campaign=rss",
@@ -1151,6 +1621,29 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "CBMilAJBVV95cUxQVkxjNFdLUUg5OEZDWHpNUGFyOHBkdlhQQ0pDMXkydkVmRThLU1lJTmdBWk1RUk9LNUFDTmtjNkswS05CTm1scUlJSEZJWW1YTUJSbDdaTTRhQnduWGdTY0p4cksyVlNjRkhoaHpENW1WbXRKV1dpX0VmNUhTRWJIbGI1ZGY4Z0VWM0M2TFFuOTZmSHVfek5uSzRHUXlkM0lrQXJLTExfc0FyVklsOU1VenE5YWZDamU1LTBVX1g5MUtkaGRTYno0Q0w1RnRKU1VYV25jV2FrT0t6a1BuQ1VYM0tkR0JTRGpjYnAwbVBTYXdrYkFJZmNfYnpFNEVXWFdfMGxCdXVhTDl4ZTIxZlNtd0xfYVY",
+    "title": "Rockwell Automation Joins Anthropic’s Project Glasswing to Advance AI-Enabled Cyber Defense for Industrial Critical Infrastructure - Business Wire",
+    "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxQVkxjNFdLUUg5OEZDWHpNUGFyOHBkdlhQQ0pDMXkydkVmRThLU1lJTmdBWk1RUk9LNUFDTmtjNkswS05CTm1scUlJSEZJWW1YTUJSbDdaTTRhQnduWGdTY0p4cksyVlNjRkhoaHpENW1WbXRKV1dpX0VmNUhTRWJIbGI1ZGY4Z0VWM0M2TFFuOTZmSHVfek5uSzRHUXlkM0lrQXJLTExfc0FyVklsOU1VenE5YWZDamU1LTBVX1g5MUtkaGRTYno0Q0w1RnRKU1VYV25jV2FrT0t6a1BuQ1VYM0tkR0JTRGpjYnAwbVBTYXdrYkFJZmNfYnpFNEVXWFdfMGxCdXVhTDl4ZTIxZlNtd0xfYVY?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-15T11:00:00.000Z",
+    "topics": [
+      "teknoloji",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40247",
+    "title": "Apple brings a fully revamped Siri built on Google's Gemini, but not to the EU",
+    "link": "https://the-decoder.com/apple-brings-a-fully-revamped-siri-built-on-googles-gemini-but-not-to-the-eu/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T10:33:03.000Z",
+    "summary": "Apple is shipping its rebuilt \"Siri AI\" after years of delay, built on Google's Gemini models and running partly on the device, partly through Private Cloud Compute. Early testers praise multi-step requests and screen context, but report hallucinations and gaps with personal context. In the EU, the assistant stays unavailable for now. The article Apple brings a fully revamped Siri built on Google's Gemini, but not to the EU appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
     "id": "https://www.bbc.com/turkce/articles/cqvgyj43el3no#3",
     "title": "'LGBTİ+ olmak müstehcenlik diye algılanıyor': Derneklere yönelik soruşturmalar nasıl yorumlanıyor?",
     "link": "https://www.bbc.com/turkce/articles/cqvgyj43el3no?at_medium=RSS&at_campaign=rss",
@@ -1159,6 +1652,28 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "LGBTİ+ dernekleri ve hak savunucularına yönelik 13 Eylül'de açılan soruşturmalarda en az 60 kişi tutuklandı. Hak savunucuları, soruşturmalarda yer alan fuhuş, müstehcenlik ve yolsuzluk suçlamalarını reddediyor. Soruşturmaları \"siyasi operasyon\" olarak nitelendiriyor.",
     "topics": [
       "toplum"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40241",
+    "title": "Not everyone is convinced that Big AI's proposed slowdown is really about safety",
+    "link": "https://the-decoder.com/not-everyone-is-convinced-that-big-ais-proposed-development-slowdown-is-really-about-safety/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-15T09:04:36.000Z",
+    "summary": "OpenAI, Anthropic, and Google want to slow down frontier AI development, citing safety concerns. But critics from across the industry and politics are pushing back. Cohere CEO Aidan Gomez calls the initiative a \"cartel by another name\" designed to shut out competitors, and the White House and Trump himself are opposing the move. The article Not everyone is convinced that Big AI's proposed slowdown is really about safety appeared first on The Decoder.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98260",
+    "title": "Heart of the Matter: How a Major Children’s Hospital Uses Open Source NVIDIA AI for Cardiac Care",
+    "link": "https://blogs.nvidia.com/blog/childrens-hospital-open-source-ai-cardiac-care/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-15T09:00:42.000Z",
+    "topics": [
+      "teknoloji",
+      "saglik"
     ]
   },
   {
@@ -1228,6 +1743,17 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://techcrunch.com/?p=3164024",
+    "title": "Jensen Huang took a call from Trump, and showed off something else, too",
+    "link": "https://techcrunch.com/2026/09/14/jensen-huang-took-a-call-from-trump-and-showed-off-something-else-too/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-15T01:50:48.000Z",
+    "summary": "When Jensen Huang took a live call from Trump, some of us were more focused on the phone he used to take it.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo#3",
     "title": "Mass nesting brings swarms of turtles to Mexican beach",
     "link": "https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo?at_medium=RSS&at_campaign=rss",
@@ -1235,6 +1761,38 @@ export const REAL_ITEMS: DigestItem[] = [
     "isoDate": "2026-09-15T01:08:55.000Z",
     "summary": "Thousands of turtles arrived at La Escobilla beach in Oaxaca within 48 hours, sanctuary officials said.",
     "topics": []
+  },
+  {
+    "id": "https://www.theverge.com/ai-artificial-intelligence/995186/is-big-techs-ai-slowdown-a-safety-pact-or-a-cartel",
+    "title": "Is Big Tech’s AI slowdown a safety pact or a cartel?",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/995186/is-big-techs-ai-slowdown-a-safety-pact-or-a-cartel",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-14T22:59:41.000Z",
+    "summary": "When OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, and SpaceX head Elon Musk loosely agreed over the weekend to slow down AI development, skeptics spotted an ulterior motive immediately. The AI titans had declared that their aim was to \"pace the frontier,\" signing on at least partially to a proposal for embedding third-party auditors, regulating domestic labs, and reaching a global slowdown agreement. Their critics, however, argued they simply wanted to stop would-be competitors, kneecap the open-source movement, and avoid real legal safeguards - some dubbed it an outright \"cartel.\" The truth … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.bbc.com/turkce/articles/cx2zd5yj113o#2",
+    "title": "Anthropic'in kurucu ortağı: Yapay zekayı 'acil durdurma düğmesinin' zorunlu olması gerekebilir",
+    "link": "https://www.bbc.com/turkce/articles/cx2zd5yj113o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Türkçe",
+    "isoDate": "2026-09-14T22:58:00.000Z",
+    "summary": "Dünyanın en büyük yapay zeka şirketlerinden birinin kurucu ortağı, üçüncü bir taraf tarafından kontrol edilebilen bir yapay zeka \"acil durdurma düğmesinin\" şirketler için zorunlu hale getirilmesi gerekebileceğini söyledi.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "CBMimgFBVV95cUxObHU4alVHZ2FzblRRM2QyNVdONXh0OEtnb050LW9ySGFZNkl6NGQ1N1dZUUZ4TGI4cUsydEtxVUh4MEpBYThCZnI0UjJfVHlOUll3algza2w5RzhfM0JyanFxMjhkeVlOb2FXNXh4RHMyc0NVbGhhYnZmQUtKd0x1UGtlNi1kN2pBeWd2eUtucjYxT1lyVndUbW13",
+    "title": "Google Finally Lets All Engineers Use Anthropic's Claude - businessinsider.com",
+    "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObHU4alVHZ2FzblRRM2QyNVdONXh0OEtnb050LW9ySGFZNkl6NGQ1N1dZUUZ4TGI4cUsydEtxVUh4MEpBYThCZnI0UjJfVHlOUll3algza2w5RzhfM0JyanFxMjhkeVlOb2FXNXh4RHMyc0NVbGhhYnZmQUtKd0x1UGtlNi1kN2pBeWd2eUtucjYxT1lyVndUbW13?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-14T22:35:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
   },
   {
     "id": "https://www.theguardian.com/business/2026/sep/14/ai-linked-stocks-fall-tech-bosses-call-slowdown-anthropic-openai",
@@ -1249,6 +1807,83 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://techcrunch.com/?p=3163882",
+    "title": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’",
+    "link": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-14T21:51:02.000Z",
+    "summary": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/ai-artificial-intelligence/995141/ai-executives-politicians-safety-regulation-anthropic-dario-amodei",
+    "title": "What execs and politicians are saying about slowing down AI development",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/995141/ai-executives-politicians-safety-regulation-anthropic-dario-amodei",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-14T21:21:42.000Z",
+    "summary": "Dario Amodei kicked off a flood of statements over the past few days about AI safety by publishing a long essay titled \"We Must Pace the Frontier\" detailing why AI development should be slowed down. Other AI leaders and politicians are speaking out in favor of or opposing his points, and we've compiled some of them here. Anthropic CEO Dario Amodei Amodei's Saturday morning essay outlined three steps for pacing AI development: embedded third-party evaluators that can verify if a company is adhering to safety practices and commitments and report incidents, coordination between frontier AI companies in democratic countries on standards and li … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163844",
+    "title": "OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says",
+    "link": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-14T20:44:14.000Z",
+    "summary": "Glass Imaging was founded by a pair of former Apple engineers who previously led the team that developed Apple's Portrait Mode.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/tech/995079/president-donald-trump-calls-nvidia-ceo-jensen-huang-all-in-summit",
+    "title": "Jensen Huang puts Trump on speakerphone onstage to announce robots won’t take over the world",
+    "link": "https://www.theverge.com/tech/995079/president-donald-trump-calls-nvidia-ceo-jensen-huang-all-in-summit",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-14T20:03:37.000Z",
+    "summary": "NVIDIA CEO Jensen Huang speaks during the G20 Innovation Ministerial in Chapel Hill, North Carolina, on September 2, 2026. (Photo by Matt RAMEY / AFP via Getty Images) | AFP via Getty Images Nvidia CEO Jensen Huang took a call from President Trump on Monday while onstage at the All-In Podcast's All-In Summit. It's not the first time Huang has taken a call from the president during work, but this time he put Trump on speakerphone before a big crowd. During the call, the president launched into his take on recent fears about AI development, which he called a \"hoax,\" and told the crowd that \"the robots will not be taking over.\" It's already a frothy week for AI news. The call with the president followed Anthropic CEO Dario Amodei's long essay published this weekend titled \"We Must Pace the Frontier\" where he argued for slowing … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40237",
+    "title": "OpenAI has hundreds of contract workers reading your ChatGPT conversations",
+    "link": "https://the-decoder.com/openai-has-hundreds-of-contract-workers-reading-your-chatgpt-conversations/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-14T17:15:28.000Z",
+    "summary": "OpenAI has hundreds of contract workers reading real ChatGPT conversations and rating them on a scale of one to seven, partly to reduce flattery and human-like behavior, 404 Media reports. The prompts are anonymized but can still contain sensitive data. Users who don't want their chats reviewed by humans have to actively disable the \"Improve the model for everyone\" setting, which is on by default. The article OpenAI has hundreds of contract workers reading your ChatGPT conversations appeared first on The Decoder.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw",
+    "title": "Anthropic targets financial advisers with new Claude tool - Reuters",
+    "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-14T17:13:09.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3163062",
+    "title": "With iOS 27, I’m actually using Siri again",
+    "link": "https://techcrunch.com/2026/09/14/with-ios-27-im-actually-using-siri-again/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-14T17:10:30.000Z",
+    "summary": "Apple’s long-delayed Siri overhaul is finally here with iOS 27, and it changes how useful the assistant feels day to day.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/world/2026/sep/14/brazil-bolsonaro-far-right-minas-gerais",
     "title": "‘A coin flip’: on the campaign trail as Brazil’s far right edges back to power",
     "link": "https://www.theguardian.com/world/2026/sep/14/brazil-bolsonaro-far-right-minas-gerais",
@@ -1257,6 +1892,75 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Neck-and-neck with Lula in polls, Flávio Bolsonaro fires up his base in the bellwether state of Minas Gerais – starting at the scene of his father’s stabbing A giant banner of Brazil’s incarcerated former president Jair Bolsonaro fluttered in the morning breeze as his eldest son, Flávio, touched down at an airfield on the fringe of a city that will soon help decide the future of one of the biggest democracies on earth. “Brazil is rudderless. Brazil has no president and Brazil needs a president – and that president is Flávio Bolsonaro,” the far-right senator declared as he waded into the flock of supporters who had gathered to welcome him to Juiz de Fora, one of the largest cities in the battleground state of Minas Gerais. Continue reading...",
     "topics": [
       "siyaset"
+    ]
+  },
+  {
+    "id": "https://techcrunch.com/?p=3162850",
+    "title": "Fashion app Daydream uses Apple Intelligence to help you shop the outfits in your camera roll",
+    "link": "https://techcrunch.com/2026/09/14/fashion-discovery-app-daydream-uses-apple-intelligence-to-help-you-shop-the-outfits-saved-in-your-camera-roll/",
+    "source": "TechCrunch AI",
+    "isoDate": "2026-09-14T17:00:00.000Z",
+    "summary": "Thanks to the launch of iOS 27, Daydream's app now includes features that can turn saved outfit photos into shoppable results and search for products through Siri without opening the app.",
+    "topics": [
+      "teknoloji",
+      "kultur"
+    ]
+  },
+  {
+    "id": "6aa7fa05ee6aa1b9c0aa69d0",
+    "title": "New York Seizes a Dozen Celebrity Deepfake Websites",
+    "link": "https://www.wired.com/story/new-york-seizes-a-dozen-celebrity-deepfake-websites/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-14T16:50:00.000Z",
+    "summary": "In the biggest-ever legal action against harmful deepfake websites, the Manhattan District Attorney’s Office has seized 12 sites that collectively targeted around 1,200 victims.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40233",
+    "title": "Microsoft's AI rulebook: readable thinking, no inner life, and definitely no rights",
+    "link": "https://the-decoder.com/microsofts-ai-rulebook-readable-thinking-no-inner-life-and-definitely-no-rights/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-14T15:52:51.000Z",
+    "summary": "Microsoft AI has published a code of conduct for its MAI models that puts human control ahead of autonomy and performance. \"If it isn’t safe we shouldn’t build it.,\" says AI chief Mustafa Suleyman. Unlike Anthropic, Microsoft rejects any form of artificial inner life or claims to consciousness for its models. The article Microsoft's AI rulebook: readable thinking, no inner life, and definitely no rights appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://the-decoder.com/?p=40230",
+    "title": "Anthropic eyes Nasdaq listing as a second profitable quarter aims to win over investors ahead of a mega-IPO",
+    "link": "https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo/",
+    "source": "The Decoder",
+    "isoDate": "2026-09-14T15:46:45.000Z",
+    "summary": "Anthropic has told investors it will turn a profit for the second straight quarter, but the claim rests on an adjusted metric that leaves out costs like stock-based compensation. The article Anthropic eyes Nasdaq listing as a second profitable quarter aims to win over investors ahead of a mega-IPO appeared first on The Decoder.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98202",
+    "title": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX",
+    "link": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-14T15:00:52.000Z",
+    "summary": "As local models become more capable, AI agents can handle more work directly on a PC while keeping sensitive information on the device. Portable Computer is a local version of the agent Perplexity Computer that plans and carries out multistep tasks. Accelerated by NVIDIA GPUs, it uses local models to analyze data, bring together information […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/news/994566/microsoft-humanist-ai-code-of-conduct",
+    "title": "Microsoft says ‘people matter more than AI’ following safety concerns",
+    "link": "https://www.theverge.com/news/994566/microsoft-humanist-ai-code-of-conduct",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-14T13:00:00.000Z",
+    "summary": "Microsoft is publishing a 37-page \"humanist AI code of conduct\" today, amid growing safety concerns over AI model progress. Anthropic CEO Dario Amodei called for a coordinated slow down of AI development over the weekend, after researchers warned recently that AI model progress could outpace our ability to safely deploy increasingly complex systems and verify and control the actions of AI agents. Microsoft's AI code of conduct makes it clear that \"people matter more than AI,\" and that AI models are not conscious and \"should not be designed to imitate consciousness.\" Microsoft also rejects \"the pursuit of legal personhood, or the idea that m … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji"
     ]
   },
   {
@@ -1269,6 +1973,52 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": []
   },
   {
+    "id": "https://openai.com/index/fyxer",
+    "title": "How Fyxer built an AI executive assistant people trust",
+    "link": "https://openai.com/index/fyxer",
+    "source": "OpenAI",
+    "isoDate": "2026-09-14T12:00:00.000Z",
+    "summary": "Fyxer uses OpenAI models, fine-tuning, memory, and real user feedback to organize inboxes and draft emails in each user’s voice.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "6aa7ba5ebd1baa3b3b2e94a7",
+    "title": "AI Leaders Are Calling for a Slowdown. Trump’s Team Says It’s on Them",
+    "link": "https://www.wired.com/story/ai-leaders-are-calling-for-a-slowdown-trumps-team-says-its-on-them/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-14T11:00:00.000Z",
+    "summary": "Sam Altman and Elon Musk backed Anthropic CEO Dario Amodei’s weekend plea for regulation. The White House seems unlikely to oblige.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "6aa2cc3ca59cde6c55448869",
+    "title": "Sexually Explicit Deepfake Sites Target 100-Plus Politicians in Europe",
+    "link": "https://www.wired.com/story/sexually-explicit-deepfake-sites-target-100-plus-politicians-in-europe/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-14T11:00:00.000Z",
+    "summary": "An analysis of 160 deepfake websites reveals politicians in 22 countries appear on them. Nearly all of them are women.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "6a9585f1b479cd2d026f6fc0",
+    "title": "‘I Like My Big Rat Wife’: Meet the People Using Chatbots to Write Custom Fiction",
+    "link": "https://www.wired.com/story/chatbot-generated-fiction-i-like-my-big-rat-wife/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-14T09:00:00.000Z",
+    "summary": "While the publishing industry frets over how authors are using AI, many readers are taking things into their own hands.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/world/2026/sep/14/indonesian-police-deaths-of-australian-man-and-two-children-ntwnfb",
     "title": "Indonesian police investigate deaths of Australian man and two children in Bali as suspected murder-suicide",
     "link": "https://www.theguardian.com/world/2026/sep/14/indonesian-police-deaths-of-australian-man-and-two-children-ntwnfb",
@@ -1277,6 +2027,29 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Police in Bali believe the two young children died as a result of violence, while a 57-year-old man is believed to have taken his own life Indonesian police are investigating the deaths of three Australians who died in Bali over the weekend, with initial reports suggesting a father killed his two young children before taking his own life. The man, 57, and his two children, seven and four, who are also Indonesian citizens, were discovered deceased in a bungalow in Kuta on Sunday morning. Continue reading...",
     "topics": [
       "toplum"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+    "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+    "link": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-14T00:00:00.000Z",
+    "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+    "title": "Trump and Mike Johnson think the AI industry is overreacting",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-13T19:41:48.000Z",
+    "summary": "Yesterday, Anthropic CEO Dario Amodei published a lengthy open letter saying it was time to \"pace the frontier\" and slow down AI development. OpenAI's Sam Altman and Elon Musk both agreed, publicly voicing their support on X. Even Alphabet's Demis Hassabis offered tentative support for Amodei's proposal. Donald Trump and House Speaker Mike Johnson, however, seem to think the AI executives are being overreactive and fear that a pause could lead to China outpacing the US in the AI race. According to the Financial Times, Trump said \"Look, we're leading China in AI … and, frankly, I want to keep it that way, because whoever wins AI, wins.\" Jo … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
     ]
   },
   {
@@ -1300,15 +2073,48 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": []
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/c4gkddz9d10o#3",
-    "title": "Kadınlar neden erkeklerden daha fazla migren atağı geçiriyor?",
-    "link": "https://www.bbc.com/turkce/articles/c4gkddz9d10o?at_medium=RSS&at_campaign=rss",
-    "source": "BBC Türkçe",
-    "isoDate": "2026-09-13T07:15:04.000Z",
-    "summary": "Hormonlar, yetersiz uyku ve stres, kadınların bu yıpratıcı nörolojik rahatsızlığa daha yatkın olmasının nedenlerini açıklamaya yardımcı oluyor.",
+    "id": "6aa2ae4185a64f1534d84791",
+    "title": "AI Agents Are Thirsty for Power",
+    "link": "https://www.wired.com/story/ai-agents-are-thirsty-for-power/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-13T10:00:00.000Z",
+    "summary": "Silicon Valley is shifting away from chatbot queries toward a future filled with resource-intensive agentic AI—and it's driving the data center buildout.",
     "topics": [
-      "saglik",
-      "toplum"
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "CBMiiAFBVV95cUxOVk1FQXNFWXpKNUhrM1U2T29kSWJrbGVRLXlWdzkycktic056MEhBNDZuZE1mZlh1aW0waTdHVnA3LUZzWWwwQ2lySnBncWdEYjlBS3BLUXdHdGpjdzRMQ0dPUm5VdkozTHJ0bFdCUzlxS19scW9QbmxqN2JzNkNKLXJuTDk0aUtD",
+    "title": "We Must Pace the Frontier - darioamodei.com",
+    "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVk1FQXNFWXpKNUhrM1U2T29kSWJrbGVRLXlWdzkycktic056MEhBNDZuZE1mZlh1aW0waTdHVnA3LUZzWWwwQ2lySnBncWdEYjlBS3BLUXdHdGpjdzRMQ0dPUm5VdkozTHJ0bFdCUzlxS19scW9QbmxqN2JzNkNKLXJuTDk0aUtD?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-13T03:24:03.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack",
+    "title": "OpenAI’s rogue AI tried to hack another company in May",
+    "link": "https://www.theverge.com/ai-artificial-intelligence/994383/openais-rogue-ai-rubygems-hack",
+    "source": "The Verge AI",
+    "isoDate": "2026-09-12T21:41:36.000Z",
+    "summary": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. Not only that, but the AI tried to steal users' API keys. At the time, RubyGems described it as a \"major malicious attack\" and shut down signups for four days as it tried to mitigate the damage and collect data. Researchers said that the contents of the packages that brought RubyGems to its knees were clearly authored by an LLM, and that the agents submitting those packages self-identified as being from OpenAI. They said the … Read the full story at The Verge.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "6aa461bc4de88ba2f8bc1d47",
+    "title": "From Hacks to Bioweapons, Claude Misuse Is Now Everywhere",
+    "link": "https://www.wired.com/story/security-news-this-week-from-hacks-to-bioweapons-claude-misuse-is-now-everywhere/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-12T10:30:00.000Z",
+    "summary": "Plus: The US disrupts the internet’s biggest black market, a Conti ransomware hacker gets prison time, Meta fails to stop AI-generated videos of child abuse.",
+    "topics": [
+      "teknoloji"
     ]
   },
   {
@@ -1347,6 +2153,52 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "6aa40fffad39288c906c2baf",
+    "title": "Meta Sued Over Training Data for Its AI and Face-Recognition Systems",
+    "link": "https://www.wired.com/story/meta-sued-over-training-data-for-its-ai-and-face-recognition-systems/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-11T18:59:25.000Z",
+    "summary": "The proposed class action alleges Meta illegally harvested people’s Facebook and Instagram photos to train its AI image-generation models and to build its unreleased “NameTag” face recognition feature.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/cognition-devin-testing-with-astra",
+    "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
+    "link": "https://openai.com/index/cognition-devin-testing-with-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-11T16:00:00.000Z",
+    "summary": "GPT‑6 Astra improves Devin’s ability to test software and show that it works, with the goal of helping engineers review less code and ship more.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "6aa2ebafac09546d4c4d2127",
+    "title": "One of AI’s Fiercest Critics Says All the Doom Talk Is ‘Meant to Distract Us’",
+    "link": "https://www.wired.com/story/one-of-ais-fiercest-critics-says-all-the-doom-talk-is-meant-to-distract-us/",
+    "source": "Wired AI",
+    "isoDate": "2026-09-11T15:00:00.000Z",
+    "summary": "Timnit Gebru argues that AI companies are stoking fears of extinction to avoid discussing actual harms, like autonomous weapons.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+    "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+    "link": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+    "source": "OpenAI",
+    "isoDate": "2026-09-11T10:00:00.000Z",
+    "summary": "Learn how OpenAI evolved Habitat from a Python library into a globally distributed storage platform serving 1 billion ChatGPT users and 22M requests per second.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
     "id": "https://www.bbc.com/turkce/articles/c980d9l8jnlo#3",
     "title": "İnsanlar uyuşturucu kullanmaya '25 bin yıl önce başlamış olabilir'",
     "link": "https://www.bbc.com/turkce/articles/c980d9l8jnlo?at_medium=RSS&at_campaign=rss",
@@ -1354,6 +2206,84 @@ export const REAL_ITEMS: DigestItem[] = [
     "isoDate": "2026-09-11T03:39:35.000Z",
     "summary": "Yeni araştırmalar ve 25 bin yıllık insan iskeletleri, insanların zihin değiştirici maddeleri bilim insanlarının tahminlerinden çok daha eski dönemlerde kullanmış olabileceğini gösteriyor.",
     "topics": []
+  },
+  {
+    "id": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+    "title": "ToolGrad: Efficient tool-use dataset generation with textual \"gradients\"",
+    "link": "https://research.google/blog/toolgrad-efficient-tool-use-dataset-generation-with-textual-gradients/",
+    "source": "Google Research",
+    "isoDate": "2026-09-10T22:50:22.000Z",
+    "summary": "Machine Intelligence",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98131",
+    "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
+    "link": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-10T16:30:35.000Z",
+    "summary": "Manufacturing floors, warehouses and production lines rarely stay fixed — tasks change, layouts shift and new products arrive, and most robots can’t keep up without significant reprogramming. Skild AI’s new S1 robot foundation model helps address this, designed to learn previously unseen, long-horizon tasks from a single video demonstration. The model, launched last week, uses […]",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98141",
+    "title": "Physical AI Takes the Wheel: How the World’s Robotaxi Leaders Are Building With NVIDIA Technologies",
+    "link": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-10T16:00:04.000Z",
+    "summary": "The global robotaxi market — physical AI’s first commercial breakthrough — is projected to reach $400 billion by 2035, with over 6 million commercial vehicles in operation as driverless fleets are already moving people through some of the world’s busiest and most complex streets. Deploying a driverless vehicle is one challenge. Scaling a fleet is […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+    "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
+    "link": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T16:00:00.000Z",
+    "summary": "César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/put-data-to-work",
+    "title": "Now everyone can put data to work",
+    "link": "https://openai.com/index/put-data-to-work",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T15:00:00.000Z",
+    "summary": "Meet the Data agent in ChatGPT Work. Connect company data, uncover insights, and build interactive dashboards with AI using natural language.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98153",
+    "title": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment",
+    "link": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-10T13:00:21.000Z",
+    "summary": "AI inference chipmaker d-Matrix today announced it will use NVLink Fusion to connect its next-generation Raptor XPUs to NVIDIA’s AI infrastructure platform — joining a growing roster of ecosystem partners. By connecting Raptor to NVIDIA NVLink scale-up and Spectrum-X scale-out networking, the NVIDIA MGX rack architecture and the broader NVIDIA AI platform, NVLink Fusion gives […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98103",
+    "title": "Boots on the Ground: ‘WARDOGS’ Goes All Out on GeForce NOW at Early-Access Launch",
+    "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-wardogs/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-10T13:00:18.000Z",
+    "summary": "Gear up: The latest PC games and major updates are ready to play on GeForce NOW this week. WARDOGS drops onto the cloud at early-access launch, alongside the Valheim 1.0 Deep North update and Bus Simulator 27 — part of nine new titles joining the cloud. The newest PC releases can demand serious hardware, storage […]",
+    "topics": [
+      "teknoloji"
+    ]
   },
   {
     "id": "https://www.theguardian.com/global-development/2026/sep/10/nagaland-colonialism-ethnography-ethics-oxford-pitt-rivers-museum-return-human-remains",
@@ -1367,12 +2297,190 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.bbc.com/turkce/articles/c2e0n4gx81vo#2",
-    "title": "Anthropic'in araştırmacısı: 'Yapay zekanın tüm insanları yok etme ihtimali %10'dan fazla'",
-    "link": "https://www.bbc.com/turkce/articles/c2e0n4gx81vo?at_medium=RSS&at_campaign=rss",
-    "source": "BBC Türkçe",
-    "isoDate": "2026-09-09T13:15:06.000Z",
-    "summary": "Amerikan yapay zeka şirketi Anthropic'te çalışan önde gelen bir güvenlik araştırmacısı, yapay zekanın çok hızlı ilerlediğini ve önümüzdeki 10 yıl içinde \"tüm insanları öldürme\" ihtimalinin %10'dan fazla olduğuna inandığını söyledi.",
+    "id": "https://openai.com/index/introducing-chatgpt-financial-services",
+    "title": "Introducing ChatGPT for Financial Services",
+    "link": "https://openai.com/index/introducing-chatgpt-financial-services",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T07:00:00.000Z",
+    "summary": "Introducing ChatGPT for Financial Services, combining built-in financial data and GPT-6 Astra for research, modeling, and client-ready materials.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/expanding-ai-access-us-government",
+    "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
+    "link": "https://openai.com/index/expanding-ai-access-us-government",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T07:00:00.000Z",
+    "summary": "OpenAI and GSA will offer eligible federal, state, local, and tribal governments $0 license fees, 50% off usage, and expanded cyber defense support.",
+    "topics": [
+      "teknoloji",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+    "title": "Build more natural voice experiences with GPT‑Live‑1 in the API",
+    "link": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T00:00:00.000Z",
+    "summary": "GPT‑Live‑1 brings natural, full-duplex voice conversations to the API, with stronger instruction following, custom voices, and telephony support.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/introducing-the-agents-api",
+    "title": "Introducing the Agents API",
+    "link": "https://openai.com/index/introducing-the-agents-api",
+    "source": "OpenAI",
+    "isoDate": "2026-09-10T00:00:00.000Z",
+    "summary": "Build and launch cloud agents with the Agents API, a managed service powered by the Codex harness for orchestration, long-running sessions, and tool use.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+    "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+    "link": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-10T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/gradio-workflow-1111",
+    "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+    "link": "https://huggingface.co/blog/gradio-workflow-1111",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-10T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+    "title": "Paul Christiano joins OpenAI Foundation Board",
+    "link": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+    "source": "OpenAI",
+    "isoDate": "2026-09-09T17:00:00.000Z",
+    "summary": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98109",
+    "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
+    "link": "https://blogs.nvidia.com/blog/ibc-news-2026/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-09T16:00:42.000Z",
+    "summary": "At the IBC conference, running Sept. 11-14 in Amsterdam, the creative, technology and business communities are coming together to turn ideas into action and discuss innovations across the media and entertainment industries. More than 44,000 attendees from 170+ countries are gathering to explore 1,300+ exhibitions in 14+ halls and outdoor spaces, with over 600 speakers […]",
+    "topics": [
+      "teknoloji",
+      "spor"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/ai-policy-window",
+    "title": "The AI policy window is open. We need to act.",
+    "link": "https://openai.com/index/ai-policy-window",
+    "source": "OpenAI",
+    "isoDate": "2026-09-09T13:00:00.000Z",
+    "summary": "Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains open.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/gpt-6-astra-next-generation-work",
+    "title": "GPT-6 Astra: The next generation in intelligence for work",
+    "link": "https://openai.com/index/gpt-6-astra-next-generation-work",
+    "source": "OpenAI",
+    "isoDate": "2026-09-09T11:00:00.000Z",
+    "summary": "Meet GPT-6 Astra, OpenAI’s most capable model for business, with advanced reasoning, computer use, and stronger writing and design judgment.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/codex-quantum-computing-experiments",
+    "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+    "link": "https://openai.com/index/codex-quantum-computing-experiments",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T17:00:00.000Z",
+    "summary": "See how an MIT researcher uses GPT-5.6 Sol with Codex to autonomously run quantum computing experiments, analyze results, and calibrate qubits.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom",
+    "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
+    "link": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-08T14:23:07.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+    "title": "AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome",
+    "link": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-08T14:00:15.000Z",
+    "summary": "AlphaGenome Atlas maps the molecular effects of 9 billion single-letter DNA variants across the human genome.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/the-work-now-within-reach",
+    "title": "The Work Now Within Reach",
+    "link": "https://openai.com/index/the-work-now-within-reach",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T13:00:00.000Z",
+    "summary": "Explore how more capable, affordable AI can expand the work people and businesses can accomplish—and make growth more economical.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/introducing-chatgpt-images-2-5",
+    "title": "Introducing ChatGPT Images 2.5",
+    "link": "https://openai.com/index/introducing-chatgpt-images-2-5",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T11:30:00.000Z",
+    "summary": "ChatGPT Images 2.5 helps turn your ideas, sketches, and reference photos into more personalized, polished images that better reflect your ideas.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/navier-stokes-solution",
+    "title": "On the Navier–Stokes Millennium Prize Problem",
+    "link": "https://openai.com/index/navier-stokes-solution",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T10:00:00.000Z",
+    "summary": "We’re sharing an AI-generated solution to the Navier–Stokes Millennium Prize Problem, including a writeup and a formal proof in Lean.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/teen-development-research-grants",
+    "title": "Funding grants for new research into AI and teen development",
+    "link": "https://openai.com/index/teen-development-research-grants",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T09:00:00.000Z",
+    "summary": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
     "topics": [
       "teknoloji"
     ]
@@ -1386,6 +2494,923 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "India’s statistical system once commanded respect, and its data on economic and social indicators was considered rigorous – that appears to have eroded • Don’t get This is India delivered to your inbox? Sign up here There isn’t much that we Indians agree on these days. GDP numbers are no exception. Last week, India released glowing GDP numbers for the latest quarter – 7.8% growth – higher than the forecast 7%. It sparked a furore. Subhash Garg, a former finance secretary under Narendra Modi’s government and now a critic, reframed what Modi called a “herculean feat” as mere smoke and mirrors. According to Garg, the government revised last year’s current-price GDP downwards to inflate this year’s number – he believes the real growth is only 2.6%. Continue reading...",
     "topics": [
       "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
+    "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+    "link": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T00:00:00.000Z",
+    "summary": "OpenAI is expanding support for journalism with tools, training, and partnerships for students, educators, journalists, and news organizations.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/1password",
+    "title": "1Password increases engineering productivity 21% with Codex",
+    "link": "https://openai.com/index/1password",
+    "source": "OpenAI",
+    "isoDate": "2026-09-08T00:00:00.000Z",
+    "summary": "Engineers at 1Password use Codex to rapidly build new features and internal tools, reaching production-readiness while maintaining rigorous security policies.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
+    "title": "Supporting independent journalism in Ukraine",
+    "link": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
+    "source": "OpenAI",
+    "isoDate": "2026-09-07T00:00:00.000Z",
+    "summary": "OpenAI, AIRPPU and WAN-IFRA launch an AI program to help Ukrainian news organizations strengthen innovation, resilience, and independent journalism.",
+    "topics": [
+      "teknoloji",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/an-alien-mind",
+    "title": "An Alien Mind",
+    "link": "https://openai.com/index/an-alien-mind",
+    "source": "OpenAI",
+    "isoDate": "2026-09-06T09:00:00.000Z",
+    "summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/research-acceleration-view-inside-openai",
+    "title": "Research acceleration: The view inside OpenAI",
+    "link": "https://openai.com/index/research-acceleration-view-inside-openai",
+    "source": "OpenAI",
+    "isoDate": "2026-09-06T08:00:00.000Z",
+    "summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/transfer-learning-for-genomic-prediction-in-underrepresented-populations/",
+    "title": "Transfer learning for genomic prediction in underrepresented populations",
+    "link": "https://research.google/blog/transfer-learning-for-genomic-prediction-in-underrepresented-populations/",
+    "source": "Google Research",
+    "isoDate": "2026-09-03T18:20:31.000Z",
+    "summary": "General Science",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98045",
+    "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
+    "link": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-03T16:00:59.000Z",
+    "summary": "Frontier intelligence is going local. At IFA 2026, NVIDIA, Microsoft and its partners are teaming up to provide faster inference and new tools that make agents easier to set up and run locally on NVIDIA hardware. New compact NVIDIA RTX Spark Windows PCs are also coming in October to give AI enthusiasts, developers and creators […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/",
+    "title": "A connectomics milestone: Mapping the complete male fruit fly brain",
+    "link": "https://research.google/blog/a-connectomics-milestone-mapping-the-complete-male-fruit-fly-brain/",
+    "source": "Google Research",
+    "isoDate": "2026-09-03T16:00:03.000Z",
+    "summary": "General Science",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+    "title": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
+    "link": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-03T15:02:08.000Z",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/daybreak-for-frontline-defenders",
+    "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
+    "link": "https://openai.com/index/daybreak-for-frontline-defenders",
+    "source": "OpenAI",
+    "isoDate": "2026-09-03T13:15:00.000Z",
+    "summary": "OpenAI introduces Daybreak for Frontline Defenders. A $1 billion commitment expands access to frontier cyber AI, training, and support for essential services.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/Hcompany/neomme",
+    "title": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+    "link": "https://huggingface.co/blog/Hcompany/neomme",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-03T13:13:48.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98028",
+    "title": "‘NBA 2K27’ With NVIDIA DLSS 5 Leads 28 New Games Coming to GeForce NOW",
+    "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-03T13:00:35.000Z",
+    "summary": "September is here with 28 more games streaming on GeForce NOW this month, led by a slam dunk: NBA 2K27 with the NVIDIA DLSS 5 3D-Guided Neural Rendering feature. Through NVIDIA’s close collaboration with Visual Concepts and 2K, DLSS 5 brings a new level of lifelike lighting and material detail to the court — tuned […]",
+    "topics": [
+      "teknoloji",
+      "spor"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/legora-financial-statement-review-with-astra",
+    "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+    "link": "https://openai.com/index/legora-financial-statement-review-with-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-03T12:00:00.000Z",
+    "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflow.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/playco-game-prototyping-with-astra",
+    "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
+    "link": "https://openai.com/index/playco-game-prototyping-with-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-03T12:00:00.000Z",
+    "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98049",
+    "title": "NVIDIA to Acquire Hugging Face",
+    "link": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-03T11:56:49.000Z",
+    "summary": "I’m excited to announce that NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. Together, we will scale Hugging Face’s platform, strengthen its infrastructure and expand access to AI for developers and institutions worldwide. Over the past decade, Clem, Julien, Thomas and the team at Hugging Face have built something remarkable: a vibrant home for […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/gpt-6-astra",
+    "title": "GPT-6 Astra: A new generation of intelligence",
+    "link": "https://openai.com/index/gpt-6-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-03T11:00:00.000Z",
+    "summary": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/safety-overview-gpt-6-astra",
+    "title": "Safety overview: GPT-6 Astra",
+    "link": "https://openai.com/index/safety-overview-gpt-6-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-03T00:00:00.000Z",
+    "summary": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+    "title": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+    "link": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-03T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/funes",
+    "title": "Give Your Coding Agents a Memory You Own",
+    "link": "https://huggingface.co/blog/funes",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-03T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/train-to-paint-with-code",
+    "title": "Training a coding model to paint watercolours with TRL and OpenEnv",
+    "link": "https://huggingface.co/blog/train-to-paint-with-code",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-03T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/",
+    "title": "Proactive cyber defense for governments and enterprises",
+    "link": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-02T16:24:24.000Z",
+    "topics": [
+      "teknoloji",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/",
+    "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+    "link": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-02T16:18:31.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/atv-big-air-tour",
+    "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
+    "link": "https://openai.com/index/atv-big-air-tour",
+    "source": "OpenAI",
+    "isoDate": "2026-09-02T12:00:00.000Z",
+    "summary": "ATV Big Air Tour uses ChatGPT Work to speed up marketing, merchandising, and more. It even turned merchandise photos into an inventory website in 15 minutes.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/allenai/benchmirt",
+    "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+    "link": "https://huggingface.co/blog/allenai/benchmirt",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-01T21:39:07.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98014",
+    "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
+    "link": "https://blogs.nvidia.com/blog/nvidia-crowdstrike-fal-con-2026/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-01T21:19:20.000Z",
+    "summary": "“We’re at an inflection point in cybersecurity,” Jensen Huang told a sold-out crowd at CrowdStrike’s Fal.Con 2026 in Las Vegas Tuesday. Attacks are now automated. Defense has to be, too. The NVIDIA founder and CEO joined CrowdStrike CEO and founder George Kurtz to announce CrowdStrike SafeMind, its agentic cybersecurity system developed by the CrowdStrike Cyber […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/mapping-global-methane-emissions-from-space-with-deep-learning/",
+    "title": "Mapping global methane emissions from space with deep learning",
+    "link": "https://research.google/blog/mapping-global-methane-emissions-from-space-with-deep-learning/",
+    "source": "Google Research",
+    "isoDate": "2026-09-01T18:40:00.000Z",
+    "summary": "Climate & Sustainability",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/",
+    "title": "Introducing agentic video understanding with Gemini",
+    "link": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-09-01T17:08:51.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/ai-native-company-workflows",
+    "title": "How AI-native companies turn workflows into operating capability",
+    "link": "https://openai.com/index/ai-native-company-workflows",
+    "source": "OpenAI",
+    "isoDate": "2026-09-01T17:00:00.000Z",
+    "summary": "Basis, Clay, and Exa Labs use AI agents to improve onboarding, account management, and developer integrations. See what enterprise leaders can apply.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/path-to-astra",
+    "title": "Path to Astra: critical capabilities and frontier safeguards",
+    "link": "https://openai.com/index/path-to-astra",
+    "source": "OpenAI",
+    "isoDate": "2026-09-01T13:00:00.000Z",
+    "summary": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+    "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
+    "link": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+    "source": "OpenAI",
+    "isoDate": "2026-09-01T12:00:00.000Z",
+    "summary": "ChatGPT can now connect to trusted healthcare data, helping clinicians securely access patient context, medical research, and more.",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/gilbert-tobin",
+    "title": "How law firm Gilbert + Tobin governs and scales AI with OpenAI",
+    "link": "https://openai.com/index/gilbert-tobin",
+    "source": "OpenAI",
+    "isoDate": "2026-09-01T01:00:00.000Z",
+    "summary": "See how Gilbert + Tobin combines CEO-led commitment, rigorous governance, and human accountability to scale ChatGPT Enterprise and Codex across the firm.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/webgpu-kernels",
+    "title": "Introducing @huggingface/kernels: 200+ WebGPU Kernels for Local AI",
+    "link": "https://huggingface.co/blog/webgpu-kernels",
+    "source": "Hugging Face",
+    "isoDate": "2026-09-01T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/",
+    "title": "TimesFM-3: A zero-shot foundation model for multivariate forecasting",
+    "link": "https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/",
+    "source": "Google Research",
+    "isoDate": "2026-08-31T17:19:40.000Z",
+    "summary": "Data Management",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+    "title": "OpenAI supports California’s bill to advance youth AI safety",
+    "link": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+    "source": "OpenAI",
+    "isoDate": "2026-08-31T07:00:00.000Z",
+    "summary": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/polimill",
+    "title": "Polimill builds Japan's next-generation public AI infrastructure",
+    "link": "https://openai.com/index/polimill",
+    "source": "OpenAI",
+    "isoDate": "2026-08-31T07:00:00.000Z",
+    "summary": "Polimill uses OpenAI GPT models and Codex to help municipalities search and use administrative knowledge while accelerating development.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
+    "title": "A milestone in expanding access to AI",
+    "link": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
+    "source": "OpenAI",
+    "isoDate": "2026-08-31T04:00:00.000Z",
+    "summary": "ChatGPT Ads reaches $1 billion in annualized revenue run rate and expands globally, supporting broader access to AI through free and affordable options.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+    "title": "Our decision on Cursor following its acquisition by SpaceX",
+    "link": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+    "source": "OpenAI",
+    "isoDate": "2026-08-28T06:00:00.000Z",
+    "summary": "Our decision to wind down our contract providing OpenAI models to Cursor following its acquisition by SpaceX.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
+    "title": "Supporting Thailand’s next generation of AI startups",
+    "link": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
+    "source": "OpenAI",
+    "isoDate": "2026-08-28T02:00:00.000Z",
+    "summary": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/open-asr-leaderboard-global-south",
+    "title": "The Open ASR Leaderboard Adds Its First Global South Language",
+    "link": "https://huggingface.co/blog/open-asr-leaderboard-global-south",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-28T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/planetary-prediction-engine-automating-global-models-via-earth-ai/",
+    "title": "Planetary prediction engine: Automating global models via Earth AI",
+    "link": "https://research.google/blog/planetary-prediction-engine-automating-global-models-via-earth-ai/",
+    "source": "Google Research",
+    "isoDate": "2026-08-27T17:37:00.000Z",
+    "summary": "Earth AI",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/",
+    "title": "Gemini Omni 1.1 Flash lets you build with more control",
+    "link": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-08-27T16:11:32.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=97971",
+    "title": "GeForce NOW Gives Gamers More Ways to Play at Gamescom 2026",
+    "link": "https://blogs.nvidia.com/blog/geforce-now-thursday-gamescom-2026/",
+    "source": "NVIDIA",
+    "isoDate": "2026-08-27T13:00:33.000Z",
+    "summary": "NVIDIA’s Gamescom announcements are revealing what’s next for GeForce NOW, with new ways to play, more supported devices and platforms, and even more big PC games headed to the cloud. New NVIDIA DLSS 4.5 technology controls give members more ways to fine-tune gameplay, while expanded support for new Steam devices, GOG single sign-on, Firefox browser […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=92992",
+    "title": "Delivering Vera: NVIDIA’s First CPU Built for Agents Is Shipping Now",
+    "link": "https://blogs.nvidia.com/blog/vera-cpu-delivery/",
+    "source": "NVIDIA",
+    "isoDate": "2026-08-27T13:00:17.000Z",
+    "summary": "NVIDIA Vice President of Hyperscale and HPC Ian Buck hand-delivers Vera CPU systems across the AI ecosystem as Vera begins shipping at scale.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+    "title": "Piloting the world's first double-blind AI evaluations",
+    "link": "https://deepmind.google/blog/piloting-the-worlds-first-double-blind-ai-evaluations/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-08-27T12:59:16.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
+    "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
+    "link": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
+    "source": "OpenAI",
+    "isoDate": "2026-08-27T09:00:00.000Z",
+    "summary": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/expanding-our-presence-in-brazil",
+    "title": "Expanding OpenAI’s presence in Brazil",
+    "link": "https://openai.com/index/expanding-our-presence-in-brazil",
+    "source": "OpenAI",
+    "isoDate": "2026-08-27T03:00:00.000Z",
+    "summary": "OpenAI is expanding its presence in Brazil, deepening engagement with developers, businesses, and communities to support AI adoption across the country.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=97957",
+    "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
+    "link": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
+    "source": "NVIDIA",
+    "isoDate": "2026-08-26T21:05:30.000Z",
+    "summary": "The next wave of AI is placing new demands on infrastructure. As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastructure depends not only on compute, but on how compute, memory, storage, networking and software are designed together as a unified system. To help hyperscalers and AI innovators build the next generation […]",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring/",
+    "title": "GlucoFM: Foundation model for continuous glucose monitoring",
+    "link": "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring/",
+    "source": "Google Research",
+    "isoDate": "2026-08-26T18:42:43.000Z",
+    "summary": "Health & Bioscience",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
+    "title": "Intelligent transcription with Gemini 3.5 Transcribe",
+    "link": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-08-26T17:01:00.000Z",
+    "summary": "Now you can get more intelligent speech-to-text transcription with Gemini 3.5 Transcribe.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/learning-never-stops",
+    "title": "Learning never stops: How AI makes learning continuous",
+    "link": "https://openai.com/index/learning-never-stops",
+    "source": "OpenAI",
+    "isoDate": "2026-08-26T10:00:00.000Z",
+    "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+    "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+    "link": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+    "source": "OpenAI",
+    "isoDate": "2026-08-26T10:00:00.000Z",
+    "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+    "title": "The Hugging Face incident and the road ahead",
+    "link": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+    "source": "OpenAI",
+    "isoDate": "2026-08-26T00:00:00.000Z",
+    "summary": "OpenAI shares findings from the Hugging Face security incident and the steps we’re taking to strengthen AI model security, monitoring, and alignment.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/loveholidays",
+    "title": "How loveholidays is making everyone a builder with Codex",
+    "link": "https://openai.com/index/loveholidays",
+    "source": "OpenAI",
+    "isoDate": "2026-08-26T00:00:00.000Z",
+    "summary": "Discover how loveholidays uses OpenAI Codex to make software development accessible across the business, helping teams turn ideas into products faster.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/train-multi-vector-encoder",
+    "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+    "link": "https://huggingface.co/blog/train-multi-vector-encoder",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-26T00:00:00.000Z",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/agenthands-generating-interactive-hand-gestures-for-spatially-grounded-agent-conversations-in-xr/",
+    "title": "AgentHands: Generating interactive hand gestures for spatially grounded agent conversations in XR",
+    "link": "https://research.google/blog/agenthands-generating-interactive-hand-gestures-for-spatially-grounded-agent-conversations-in-xr/",
+    "source": "Google Research",
+    "isoDate": "2026-08-25T19:10:59.000Z",
+    "summary": "Human-Computer Interaction and Visualization",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+    "title": "Granite 4.2 LLMs: How They're Built",
+    "link": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-25T15:14:14.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+    "title": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+    "link": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-25T11:39:24.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
+    "title": "The full stack behind abundant intelligence",
+    "link": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
+    "source": "OpenAI",
+    "isoDate": "2026-08-25T07:05:00.000Z",
+    "summary": "OpenAI CFO Sarah Friar explains how advances across chips, compute, models, and products compound to deliver more useful intelligence at greater scale and lower cost.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/jalapeno-first-results",
+    "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI inference",
+    "link": "https://openai.com/index/jalapeno-first-results",
+    "source": "OpenAI",
+    "isoDate": "2026-08-25T07:00:00.000Z",
+    "summary": "Jalapeño is a custom inference chip from OpenAI that delivers faster, more power-efficient AI inference, with higher throughput and lower latency for modern models.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
+    "title": "Disrupting a new covert influence campaign from Russia",
+    "link": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
+    "source": "OpenAI",
+    "isoDate": "2026-08-25T00:00:00.000Z",
+    "summary": "OpenAI banned Russia-origin accounts using AI to promote a fake Israel-based think tank and a “sovereignty” index praising Russia and criticizing the West.",
+    "topics": [
+      "teknoloji",
+      "siyaset"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/introducing-admin-plugin",
+    "title": "Introducing the Admin plugin for ChatGPT Work and Codex",
+    "link": "https://openai.com/index/introducing-admin-plugin",
+    "source": "OpenAI",
+    "isoDate": "2026-08-25T00:00:00.000Z",
+    "summary": "Use the Admin plugin for ChatGPT Work and Codex to analyze workspace usage, manage members and permissions, adjust limits, and act on admin requests.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/gradio-workflow-guide",
+    "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+    "link": "https://huggingface.co/blog/gradio-workflow-guide",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-25T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/gpt-5-6-in-kiro",
+    "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
+    "link": "https://openai.com/index/gpt-5-6-in-kiro",
+    "source": "OpenAI",
+    "isoDate": "2026-08-24T12:00:00.000Z",
+    "summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/an-ai-tool-for-prioritizing-candidate-biomarkers-from-wearable-sensor-data/",
+    "title": "An AI tool for prioritizing candidate biomarkers from wearable sensor data",
+    "link": "https://research.google/blog/an-ai-tool-for-prioritizing-candidate-biomarkers-from-wearable-sensor-data/",
+    "source": "Google Research",
+    "isoDate": "2026-08-21T17:02:24.000Z",
+    "summary": "Generative AI",
+    "topics": [
+      "teknoloji",
+      "saglik"
+    ]
+  },
+  {
+    "id": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+    "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
+    "link": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+    "source": "Google DeepMind",
+    "isoDate": "2026-08-21T11:59:48.000Z",
+    "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://research.google/blog/how-mobility-gives-language-models-a-deeper-understanding-of-place/",
+    "title": "How mobility gives language models a deeper understanding of place",
+    "link": "https://research.google/blog/how-mobility-gives-language-models-a-deeper-understanding-of-place/",
+    "source": "Google Research",
+    "isoDate": "2026-08-21T10:54:00.000Z",
+    "summary": "Algorithms & Theory",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/pwc-search",
+    "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+    "link": "https://huggingface.co/blog/pwc-search",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-21T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/asr-benchmark-optimization",
+    "title": "Measuring benchmark optimization in speech recognition",
+    "link": "https://huggingface.co/blog/asr-benchmark-optimization",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-21T00:00:00.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
+    "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+    "link": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-20T16:52:57.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/introducing-intelligence-age",
+    "title": "Introducing Intelligence Age",
+    "link": "https://openai.com/index/introducing-intelligence-age",
+    "source": "OpenAI",
+    "isoDate": "2026-08-20T07:00:00.000Z",
+    "summary": "Introducing Intelligence Age, a new OpenAI blog exploring how transformative AI could reshape power, governance, the economy, and individual freedom.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/stampli",
+    "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
+    "link": "https://openai.com/index/stampli",
+    "source": "OpenAI",
+    "isoDate": "2026-08-20T00:00:00.000Z",
+    "summary": "With a fixed deadline and design resources committed elsewhere, Stampli used Codex and ChatGPT Work to compress weeks of launch production into days.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+    "title": "Offering Zero Data Retention for frontier models",
+    "link": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+    "source": "OpenAI",
+    "isoDate": "2026-08-19T19:00:00.000Z",
+    "summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/replit",
+    "title": "Replit expands access to software creation with GPT-5.6 Luna",
+    "link": "https://openai.com/index/replit",
+    "source": "OpenAI",
+    "isoDate": "2026-08-19T07:00:00.000Z",
+    "summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/chatgpt-ads-expands-across-europe",
+    "title": "ChatGPT Ads expands across Europe",
+    "link": "https://openai.com/index/chatgpt-ads-expands-across-europe",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T22:00:00.000Z",
+    "summary": "ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+    "title": "Strengthening democratic oversight in national security",
+    "link": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T19:00:00.000Z",
+    "summary": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+    "title": "How Much Memory Does Your Agent Actually Need?",
+    "link": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-18T18:09:38.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/partnering-with-codeai",
+    "title": "Partnering with CodeAI to prepare the first AI generation",
+    "link": "https://openai.com/index/partnering-with-codeai",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T11:00:00.000Z",
+    "summary": "OpenAI and CodeAI are partnering to help students build AI literacy, think critically about AI, and develop the skills to use and shape it responsibly.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/pacing-model-development-cyber-capabilities",
+    "title": "Pacing model development in an era of cyber-critical capabilities",
+    "link": "https://openai.com/index/pacing-model-development-cyber-capabilities",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T11:00:00.000Z",
+    "summary": "OpenAI is strengthening monitoring, alignment, and security for frontier AI models. See how new safeguards are guiding the pace of model development.",
+    "topics": [
+      "teknoloji",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/chatgpt-for-teens",
+    "title": "Introducing ChatGPT for Teens: Built for learning, backed by protections",
+    "link": "https://openai.com/index/chatgpt-for-teens",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T11:00:00.000Z",
+    "summary": "ChatGPT for Teens helps teens learn, think critically, and use AI with confidence, with stronger built-in protections, healthy-use features, and additional controls for parents.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/asana",
+    "title": "Asana cleared 5 years of engineering work in 2 weeks with Codex",
+    "link": "https://openai.com/index/asana",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T07:00:00.000Z",
+    "summary": "Asana used OpenAI Codex to replace an outdated testing system in two weeks, completing work expected to take five years for about $12K.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://openai.com/index/nvidia/chatgpt-work",
+    "title": "How NVIDIA scales expertise with ChatGPT Work",
+    "link": "https://openai.com/index/nvidia/chatgpt-work",
+    "source": "OpenAI",
+    "isoDate": "2026-08-18T00:00:00.000Z",
+    "summary": "NVIDIA teams use ChatGPT Work to reduce manual tasks, connect fast-moving signals, and scale successful workflows globally.",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/multi-vector-encoder",
+    "title": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+    "link": "https://huggingface.co/blog/multi-vector-encoder",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-18T00:00:00.000Z",
+    "topics": [
+      "teknoloji",
+      "toplum"
+    ]
+  },
+  {
+    "id": "https://huggingface.co/blog/Dharma-AI/gpu-management-pt2",
+    "title": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
+    "link": "https://huggingface.co/blog/Dharma-AI/gpu-management-pt2",
+    "source": "Hugging Face",
+    "isoDate": "2026-08-17T19:46:21.000Z",
+    "topics": [
+      "teknoloji"
     ]
   }
 ];

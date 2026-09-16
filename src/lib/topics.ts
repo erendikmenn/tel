@@ -203,6 +203,8 @@ const FEED_CATEGORY_TOPICS: Record<string, string> = {
 };
 
 const FEED_HINT_SCORE = 2;
+/** Feed'in tamamı tek konuya aitse (ör. OpenAI blogu) o konu daha güçlü eklenir. */
+const FEED_TOPIC_SCORE = 4;
 
 const MIN_KEYWORD_PREFIX = 4;
 const STRONG_SCORE = 2;
@@ -250,6 +252,8 @@ type Classifiable = {
   source: string;
   /** RSS <category> değerleri (yayıncının kendi etiketleri). */
   feedCategories?: string[];
+  /** Feed'in tamamı tek konuya aitse (ör. yapay zekâ blogları). */
+  feedTopics?: string[];
 };
 
 export type TopicScore = { id: string; score: number; matched: string[] };
@@ -273,15 +277,24 @@ export function explain(item: Classifiable): TopicScore[] {
     };
   });
 
-  for (const raw of feedCategories) {
-    const topicId = FEED_CATEGORY_TOPICS[normalizeText(raw)];
-    if (!topicId) continue;
+  const applyHint = (topicId: string, score: number, label: string) => {
     const row = rows.find((entry) => entry.id === topicId);
     if (row) {
-      row.score += FEED_HINT_SCORE;
-      row.matched.push("feed:" + raw);
+      row.score += score;
+      row.matched.push(label);
     } else {
-      rows.push({ id: topicId, score: FEED_HINT_SCORE, matched: ["feed:" + raw] });
+      rows.push({ id: topicId, score, matched: [label] });
+    }
+  };
+
+  for (const raw of feedCategories) {
+    const topicId = FEED_CATEGORY_TOPICS[normalizeText(raw)];
+    if (topicId) applyHint(topicId, FEED_HINT_SCORE, "feed:" + raw);
+  }
+
+  for (const topicId of item.feedTopics ?? []) {
+    if (TOPICS.some((topic) => topic.id === topicId)) {
+      applyHint(topicId, FEED_TOPIC_SCORE, "feed-konu:" + topicId);
     }
   }
 

@@ -44,10 +44,13 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
   for (const result of results) {
     if (result.status !== "fulfilled") continue;
     const { feed, parsed } = result.value;
+    let taken = 0;
     for (const raw of parsed.items as RawItem[]) {
       if (!raw.title || !raw.link) continue;
       const iso = raw.isoDate ?? raw.pubDate;
       if (iso && Date.now() - Date.parse(iso) > MAX_AGE_HOURS * 3600_000) continue;
+      if (taken >= (feed.limit ?? Number.POSITIVE_INFINITY)) continue;
+      taken += 1;
       const title = stripHtml(raw.title);
       const key = normalizeText(title);
       if (!key || seen.has(key)) continue;
@@ -66,6 +69,7 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
           summary,
           source: feed.name,
           feedCategories: itemCategories(raw),
+          feedTopics: feed.topic ? [feed.topic] : undefined,
         }),
       });
     }

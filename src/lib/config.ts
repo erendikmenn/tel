@@ -4,7 +4,7 @@ export const APP_NAME = "Tel";
 // feed'ler zaten en fazla birkaç günlük kalem veriyor ama arada 2+ yıllık bayat kalemler
 // çıkabiliyor (ölçüldü: BBC Türkçe'de 884 günlük bir kalem). Gerçek seçim tarayıcıda.
 export const MAX_AGE_HOURS = 720; // 30 gün: bundan eskisi bayat/hatalı sayılır
-export const MAX_ITEMS = 300; // güvenlik tavanı (bugünkü gerçek ~125, hiçbir zaman bağlamaz)
+export const MAX_ITEMS = 400; // güvenlik tavanı (ölçüldü: 15 feed ile ~380 kalem sığıyor)
 
 // Ekrandaki varsayılanlar ve seçenekler. Ölçüm (16 Eyl 2026, 5 feed, kaynak başına 12):
 //   1s:4  6s:50  12s:52  24s:57  36s:58  48s:58  Tümü:58

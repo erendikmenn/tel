@@ -6,7 +6,9 @@ Saat dilimi Europe/Istanbul. Haberler **en yeniden eskiye** dizilir.
 
 ## Kaynaklar
 
-**5 kaynak.** Liste `src/lib/feeds.ts` içinde; eklemek veya çıkarmak oradan.
+**15 kaynak.** Liste `src/lib/feeds.ts` içinde; eklemek veya çıkarmak oradan.
+
+**Dünya haberleri (5)**
 
 | Kaynak | RSS |
 | --- | --- |
@@ -16,13 +18,36 @@ Saat dilimi Europe/Istanbul. Haberler **en yeniden eskiye** dizilir.
 | Al Jazeera | `https://www.aljazeera.com/xml/rss/all.xml` |
 | NPR | `https://feeds.npr.org/1001/rss.xml` |
 
+**Yapay zekâ — laboratuvarların kendi blogları (5).** Hepsi `topic: "teknoloji"` taşır: kalemler başlıkta anahtar kelime olmasa da **Teknoloji & Yapay Zeka** konusuna düşer.
+
+| Kaynak | RSS |
+| --- | --- |
+| OpenAI | `https://openai.com/news/rss.xml` |
+| Google DeepMind | `https://deepmind.google/blog/rss.xml` |
+| Google Research | `https://research.google/blog/rss/` |
+| Hugging Face | `https://huggingface.co/blog/feed.xml` |
+| NVIDIA | `https://blogs.nvidia.com/feed/` |
+
+**Yapay zekâ — medya (4 + 1 toplayıcı).**
+
+| Kaynak | RSS | Not |
+| --- | --- | --- |
+| TechCrunch AI | `techcrunch.com/category/artificial-intelligence/feed/` | |
+| The Verge AI | `theverge.com/rss/ai-artificial-intelligence/index.xml` | |
+| Wired AI | `wired.com/feed/tag/ai/latest/rss` | |
+| The Decoder | `the-decoder.com/feed/` | AI odaklı |
+| Anthropic (Google News) | `news.google.com/rss/search?q=Anthropic` | **Resmî RSS'i yok** (anthropic.com'da tüm adresler 404); haberleri Google News sorgusuyla gelir, `limit: 12` ile havuzu domine etmesi engellenir |
+
+Anthropic, Meta AI, Mistral ve xAI'nin **resmî RSS'i yok** — ölçüldü (hepsi 404). Google News sorgusu bu boşluğu kapatıyor; kalemler ilgili haberin kaynağına çıkar.
+
 Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yazar.
 
 ## Ne sıklıkla yenilenir
 
 - Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
-- Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
-- Sunucu bir **üst küme** çeker: **30 günden yeni her şey** (`MAX_AGE_HOURS`). Kaynak başına yapay sınır yok; genel `MAX_ITEMS = 300` güvenlik tavanı var (`src/lib/config.ts`). Pencere süzgeci **tarayıcıda** uygulanır.
+- Her üretimde 15 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
+- Sunucu bir **üst küme** çeker: **30 günden yeni her şey** (`MAX_AGE_HOURS`). Kaynak başına yapay sınır yok; `Feed.limit` yalnızca toplayıcı feed'ler için (Google News), genel `MAX_ITEMS = 400` güvenlik tavanı var (`src/lib/config.ts`). Pencere süzgeci **tarayıcıda** uygulanır.
+- Ölçüm (16 Eyl 2026, 15 feed): havuz **307 kalem**; en kalabalık kaynak OpenAI 60, The Guardian 45, BBC World 26.
 - Ekrandaki **varsayılan** görünüm son **24 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
 - Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
 
@@ -46,7 +71,7 @@ Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** pan
 
 - **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
 - **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**.
-- **Pencere**: son 1 / 6 / 12 / 24 saat ya da **Tümü** (varsayılan **24 saat**), tarayıcıda uygulanır. **Ölçüm (kaynak başına 12):** 1s → 4, 6s → 50, 12s → 52, 24s → 57, Tümü → 58. Kaynak başına sınır bağlayıcı olduğu için 24 saatten sonrası **aynı listeyi** veriyordu; bu yüzden 36 ve 48 saat seçenekleri kaldırıldı. Sınırı **20+** yapınca pencere yeniden anlam kazanır: 6s → 60, 12s → 85, 24s → 101, Tümü → 125. **Tümü** = feed'in verdiği her şey; gerçek uzun pencereler arşiv (`0.3`) ile gelir.
+- **Pencere**: son 1 / 6 / 12 / 24 saat ya da **Tümü** (varsayılan **24 saat**), tarayıcıda uygulanır. **Ölçüm (kaynak başına 12):** 1s → 22, 6s → 58, 12s → 63, 24s → 95, Tümü → 169. Kaynak başına **20+** ile: 6s → 72, 12s → 96, 24s → 141, Tümü → 307. 36 ve 48 saat seçenekleri, kaynak başına sınır bağlayıcı olduğu için kaldırılmıştı; yapay zekâ feed'leriyle pencere yeniden ayrışıyor (24s 95'e karşı Tümü 169). **Tümü** = feed'in verdiği her şey; gerçek uzun pencereler arşiv (`0.3`) ile gelir.
 - **Kaynak başına**: 6 / 12 / 16 / **20+** (sınırsız; varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
 - **Kategori**: 9 konu + Diğer; `DigestFilter.category` ile süzülür (aşağıdaki **Kategoriler** bölümü).
 - **Canlı sayaçlar**: panelde her seçeneğin yanında, **diğer gruplar sabitken** o seçimle kaç sonuç geleceği yazar (`src/lib/counts.ts`). Sonucu olmayan seçenekler solgun görünür; seçmeden önce "kaç haber gelir" görülür. Grup içi seçim sayıları değiştirmez (yönlü arama mantığı).

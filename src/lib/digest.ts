@@ -144,6 +144,9 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)
     .filter((item) => isSane(item.isoDate ?? item.pubDate))
+    // Toplayıcı feed'ler (ör. Google News sorgusu) yüzlerce kalem döndürebiliyor;
+    // havuzu domine etmemeleri için kaynak başına sınır verilebilir.
+    .slice(0, feed.limit ?? Number.POSITIVE_INFINITY)
     .flatMap((item) => {
       const parsed = item as ParsedItem;
       const title = stripHtml(parsed.title!);
@@ -165,6 +168,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
             summary,
             source: feed.name,
             feedCategories: itemCategories(parsed),
+            feedTopics: feed.topic ? [feed.topic] : undefined,
           }),
         },
       ];
