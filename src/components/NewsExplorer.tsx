@@ -18,8 +18,6 @@ import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
 import {
-  READ_STORAGE_KEY,
-  countRead,
   countUnread,
   loadReads,
   markRead,
@@ -35,8 +33,6 @@ type ExplorerState = {
   categories: string[];
   hours: number;
   perSource: number;
-  /** true ise yalnızca okunmamışlar gösterilir. */
-  onlyNew: boolean;
 };
 
 const DEFAULTS: ExplorerState = {
@@ -45,7 +41,6 @@ const DEFAULTS: ExplorerState = {
   categories: [],
   hours: DEFAULT_WINDOW_HOURS,
   perSource: DEFAULT_PER_SOURCE,
-  onlyNew: false,
 };
 
 const STORAGE_KEY = "tel:view";
@@ -95,7 +90,6 @@ function readInitialState(): ExplorerState {
       pickOption(params.get("kaynakbasi"), PER_SOURCE_OPTIONS) ??
       storedPerSource ??
       DEFAULTS.perSource,
-    onlyNew: params.get("yeni") === "1",
   };
 }
 
@@ -116,7 +110,6 @@ function persist(state: ExplorerState) {
   if (state.categories.length > 0) params.set("kategori", state.categories.join(","));
   if (state.hours !== DEFAULTS.hours) params.set("zaman", String(state.hours));
   if (state.perSource !== DEFAULTS.perSource) params.set("kaynakbasi", String(state.perSource));
-  if (state.onlyNew) params.set("yeni", "1");
 
   const search = params.toString();
   const url = search ? window.location.pathname + "?" + search : window.location.pathname;
@@ -155,16 +148,6 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     setReads(next);
   };
 
-  const resetReads = () => {
-    saveReads(storage(), {});
-    try {
-      storage()?.removeItem?.(READ_STORAGE_KEY);
-    } catch {
-      // yoksay
-    }
-    setReads({});
-  };
-
   const update = (patch: Partial<ExplorerState>) => {
     const next = { ...state, ...patch };
     setState(next);
@@ -186,18 +169,14 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
       perSource: state.perSource,
       reads,
-      onlyNew: state.onlyNew,
     }),
-    [state.q, state.sources, state.categories, state.hours, state.perSource, state.onlyNew, reads],
+    [state.q, state.sources, state.categories, state.hours, state.perSource, reads],
   );
 
   const filtered = useMemo(() => viewItems(items, baseView), [items, baseView]);
 
-  // "N yeni": "Sadece yeni" kapalıyken de doğru olsun diye okuma süzgeci olmadan sayılır.
-  const newCount = useMemo(
-    () => countUnread(reads, viewItems(items, { ...baseView, onlyNew: false })),
-    [items, baseView, reads],
-  );
+  // "N yeni": görünen haberlerden kaçı henüz okunmamış.
+  const newCount = useMemo(() => countUnread(reads, filtered), [reads, filtered]);
   const readIds = useMemo(() => new Set(Object.keys(reads)), [reads]);
   const linkIds = useMemo(() => {
     const map = new Map<string, string>();
@@ -236,8 +215,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     state.sources.length +
     state.categories.length +
     (state.hours !== DEFAULTS.hours ? 1 : 0) +
-    (state.perSource !== DEFAULTS.perSource ? 1 : 0) +
-    (state.onlyNew ? 1 : 0);
+    (state.perSource !== DEFAULTS.perSource ? 1 : 0);
   const hasAny = state.q.trim().length > 0 || filterCount > 0;
 
   const toggleSource = (name: string) => {
@@ -261,7 +239,6 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       categories: [],
       hours: DEFAULTS.hours,
       perSource: DEFAULTS.perSource,
-      onlyNew: false,
     });
 
   /** Bir habere tıklamak onu okundu işaretler (kartlar tek tek dinleyici taşımasın diye burada). */
@@ -402,23 +379,9 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
 
       <div className="explorer-active">
         <span className="explorer-count">
-          {state.onlyNew
-            ? filtered.length + " yeni haber"
-            : filtered.length + " haber" + (newCount > 0 ? " · " + newCount + " yeni" : "")}
+          {filtered.length} haber
+          {newCount > 0 ? " · " + newCount + " yeni" : ""}
         </span>
-        <button
-          type="button"
-          className={"explorer-mode" + (state.onlyNew ? " is-on" : "")}
-          aria-pressed={state.onlyNew}
-          onClick={() => update({ onlyNew: !state.onlyNew })}
-        >
-          Sadece yeni
-        </button>
-        {countRead(reads) > 0 ? (
-          <button type="button" className="explorer-mode is-muted" onClick={resetReads}>
-            Okumaları sıfırla
-          </button>
-        ) : null}
         {state.sources.map((name) => (
           <button
             key={name}

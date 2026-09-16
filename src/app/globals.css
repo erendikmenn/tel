@@ -328,6 +328,16 @@ a {
   border-color: var(--ink);
 }
 
+/* Okunmuş haberler geri çekilir; yeni gelenler öne çıkar. */
+.is-read {
+  opacity: 0.5;
+}
+
+.is-read h2,
+.is-read h3 {
+  color: var(--muted);
+}
+
 .explorer-clear {
   padding: 4px 0;
   border: 0;
