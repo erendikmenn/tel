@@ -3,6 +3,7 @@ import {
   DEFAULT_WINDOW_HOURS,
   PER_SOURCE_OPTIONS,
   PER_SOURCE_UNLIMITED,
+  WINDOW_ALL,
   WINDOW_OPTIONS,
   perSourceLabel,
 } from "../../src/lib/config";
@@ -83,7 +84,8 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   assert("takePerSource sırayı korur", capped[0]?.id === items[0]?.id);
 
   // --- Görünüm (pencere + kaynak başına), gerçek veri üzerinde ---
-  const maxWindow = Math.max(...WINDOW_OPTIONS);
+  // WINDOW_ALL (0) = zaman süzgeci yok; monotonluk zincirinin en geniş kümesi.
+  const maxWindow = WINDOW_ALL;
   const maxPerSource = PER_SOURCE_UNLIMITED;
   const sources = [...new Set(items.map((i) => i.source))];
 
@@ -139,8 +141,7 @@ export function printExamples(items: DigestItem[], log: (line: string) => void =
   const cases: { name: string; view: DigestView }[] = [
     { name: "pencere=36, kaynak başına=12  (varsayılan)", view: { sinceHours: 36, perSource: 12 } },
     { name: "pencere=48, kaynak başına=20+ (üst küme)", view: { sinceHours: 48, perSource: PER_SOURCE_UNLIMITED } },
-    { name: "pencere=1 hafta, kaynak başına=20+", view: { sinceHours: 168, perSource: PER_SOURCE_UNLIMITED } },
-    { name: "pencere=1 ay, kaynak başına=20+ (en geniş)", view: { sinceHours: 720, perSource: PER_SOURCE_UNLIMITED } },
+    { name: "pencere=Tümü, kaynak başına=20+ (feed'in hepsi)", view: { sinceHours: WINDOW_ALL, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=36, kaynak başına=20+ (sınırsız)", view: { sinceHours: 36, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=6,  kaynak başına=12", view: { sinceHours: 6, perSource: 12 } },
     { name: "pencere=12, kaynak başına=6", view: { sinceHours: 12, perSource: 6 } },

@@ -8,9 +8,10 @@ import {
   DEFAULT_PER_SOURCE,
   DEFAULT_WINDOW_HOURS,
   PER_SOURCE_OPTIONS,
+  WINDOW_ALL,
   WINDOW_OPTIONS,
   perSourceLabel,
-  windowLabel,
+  windowOptionLabel,
 } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
@@ -125,7 +126,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       viewItems(items, {
         q: state.q,
         source: state.sources,
-        sinceHours: state.hours,
+        // "Tümü" = zaman süzgeci yok
+        sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
         perSource: state.perSource,
       }),
     [items, state.q, state.sources, state.hours, state.perSource],
@@ -202,7 +204,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
                     checked={state.hours === hours}
                     onChange={() => update({ hours })}
                   />
-                  <span>Son {windowLabel(hours)}</span>
+                  <span>{windowOptionLabel(hours)}</span>
                 </label>
               ))}
             </div>
@@ -243,7 +245,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             className="explorer-chip"
             onClick={() => update({ hours: DEFAULTS.hours })}
           >
-            Son {windowLabel(state.hours)} <span aria-hidden="true">×</span>
+            {windowOptionLabel(state.hours)} <span aria-hidden="true">×</span>
           </button>
         ) : null}
         {state.perSource !== DEFAULTS.perSource ? (
