@@ -22,9 +22,10 @@ const AI_WORDS = [
 
 // Sayfadaki yerler (A4 tek sayfa)
 export const PAPER_STRIP = 3; // üst bant teaser'ları
+export const PAPER_FLANKERS = 2; // manşet fotoğrafının soluna/sağına konan haberler
 export const PAPER_STORIES = 3; // fotoğraflı ikincil haberler
 export const PAPER_SIDEBAR = 5; // çerçeveli yan sütun
-export const PAPER_BRIEFS = 10; // kısa kısa
+export const PAPER_BRIEFS = 12; // kısa kısa (sayfa altını doldurur)
 
 export const PAPER_LEAD_SUMMARY = 420;
 export const PAPER_STORY_SUMMARY = 240;
@@ -34,6 +35,8 @@ const STRIP_TITLE_MAX = 64;
 export type Paper = {
   lead?: DigestItem;
   strip: DigestItem[];
+  /** Manşet fotoğrafının soluna ve sağına yerleşen iki haber. */
+  flankers: DigestItem[];
   stories: DigestItem[];
   sidebar: DigestItem[];
   briefs: DigestItem[];
@@ -113,19 +116,26 @@ export function buildPaper(items: DigestItem[], now = Date.now()): Paper {
   const strip = rest.filter((item) => item.title.length <= STRIP_TITLE_MAX).slice(0, PAPER_STRIP);
   const afterStrip = rest.filter((item) => !strip.includes(item));
 
-  const stories = afterStrip.filter((item) => item.image).slice(0, PAPER_STORIES);
-  const afterStories = afterStrip.filter((item) => !stories.includes(item));
+  // Fotoğrafın iki yanı: manşetten sonraki iki haber (kısa başlıklılar önce).
+  const flankers = afterStrip
+    .filter((item) => item.title.length <= 100)
+    .slice(0, PAPER_FLANKERS);
+  const afterFlankers = afterStrip.filter((item) => !flankers.includes(item));
+
+  const stories = afterFlankers.filter((item) => item.image).slice(0, PAPER_STORIES);
+  const afterStories = afterFlankers.filter((item) => !stories.includes(item));
 
   const sidebar = afterStories.slice(0, PAPER_SIDEBAR);
   const briefs = afterStories.slice(PAPER_SIDEBAR, PAPER_SIDEBAR + PAPER_BRIEFS);
 
-  const used = [lead, ...strip, ...stories, ...sidebar, ...briefs].filter(
+  const used = [lead, ...strip, ...flankers, ...stories, ...sidebar, ...briefs].filter(
     (item): item is DigestItem => Boolean(item),
   );
 
   return {
     lead,
     strip,
+    flankers,
     stories,
     sidebar,
     briefs,

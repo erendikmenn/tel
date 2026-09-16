@@ -67,10 +67,38 @@ export default async function GazetePage() {
           <section className="paper-banner">
             <h2 className="paper-banner-title">{paper.lead.title}</h2>
             {deck ? <p className="paper-deck">{deck}</p> : null}
-            {paper.lead.image ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img className="paper-banner-photo" src={paper.lead.image} alt="" />
-            ) : null}
+            {/* Fotoğrafın SOLUNDA ve SAĞINDA iki ayrı haber (gazete akışı) */}
+            <div className="paper-banner-grid">
+              <div className="paper-flanker paper-flanker-left">
+                {paper.flankers[0] ? (
+                  <>
+                    <p className="paper-kicker">{paper.flankers[0].source}</p>
+                    <h3>{paper.flankers[0].title}</h3>
+                    <p className="paper-text">
+                      {clipSummary(paper.flankers[0].summary, PAPER_STORY_SUMMARY)}
+                    </p>
+                  </>
+                ) : null}
+              </div>
+
+              {paper.lead.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="paper-banner-photo" src={paper.lead.image} alt="" />
+              ) : null}
+
+              <div className="paper-flanker paper-flanker-right">
+                {paper.flankers[1] ? (
+                  <>
+                    <p className="paper-kicker">{paper.flankers[1].source}</p>
+                    <h3>{paper.flankers[1].title}</h3>
+                    <p className="paper-text">
+                      {clipSummary(paper.flankers[1].summary, PAPER_STORY_SUMMARY)}
+                    </p>
+                  </>
+                ) : null}
+              </div>
+            </div>
+
             {showBody ? (
               <div className="paper-lead-body">
                 <p>{body}</p>

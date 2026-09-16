@@ -155,21 +155,46 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 48mm;
+  height: 68mm;
   object-fit: cover;
-  margin: 6px 0 0;
+  margin: 0;
 }
 
-/* Gövde: gazete gibi gerekçeli kolonlar + ilk harf büyük */
-.paper-lead-body {
+/* Manşet fotoğrafı ortada, iki yanında ayrı haberler */
+.paper-banner-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.75fr) minmax(0, 1fr);
+  gap: 3.5mm;
+  align-items: start;
   margin-top: 6px;
+}
+
+.paper-flanker h3 {
+  margin: 2px 0 4px;
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.paper-flanker-left {
+  padding-right: 3mm;
+  border-right: 1px solid #e2e2e2;
+}
+
+.paper-flanker-right {
+  padding-left: 3mm;
+  border-left: 1px solid #e2e2e2;
+}
+
+/* Manşet gövdesi: fotoğrafın altında gerekçeli 3 kolon + ilk harf büyük */
+.paper-lead-body {
+  margin-top: 7px;
   columns: 3;
   column-gap: 6mm;
-  column-rule: 1px solid #e0e0e0;
+  column-rule: 1px solid #e6e6e6;
   text-align: justify;
   hyphens: auto;
-  font-size: 10.5px;
-  line-height: 1.36;
+  font-size: 11.5px;
+  line-height: 1.38;
 }
 
 .paper-lead-body p {
@@ -206,14 +231,14 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 25mm;
+  height: 32mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
 
 .paper-story h3 {
-  margin: 2px 0 3px;
-  font-size: 15px;
+  margin: 2px 0 4px;
+  font-size: 16px;
   line-height: 1.08;
 }
 
@@ -221,8 +246,8 @@
   margin: 0;
   text-align: justify;
   hyphens: auto;
-  font-size: 10px;
-  line-height: 1.32;
+  font-size: 10.5px;
+  line-height: 1.34;
   color: #222;
 }
 
@@ -269,9 +294,9 @@
 .paper-brief {
   break-inside: avoid;
   margin: 0;
-  padding: 2.5px 0;
+  padding: 3px 0;
   border-bottom: 1px dotted #c9c9c9;
-  font-size: 10.5px;
+  font-size: 11px;
   line-height: 1.22;
 }
 
@@ -343,11 +368,22 @@
   }
 
   .paper-strip,
-  .paper-lead-body,
   .paper-stories,
   .paper-brief-list {
     grid-template-columns: 1fr;
     columns: 1;
+  }
+
+  .paper-banner-grid,
+  .paper-lead-body {
+    grid-template-columns: 1fr;
+    columns: 1;
+  }
+
+  .paper-flanker-left,
+  .paper-flanker-right {
+    padding: 0;
+    border: 0;
   }
 
   .paper-mid {

@@ -1,6 +1,7 @@
 import type { DigestItem } from "../../src/lib/digest";
 import {
   PAPER_BRIEFS,
+  PAPER_FLANKERS,
   PAPER_SIDEBAR,
   PAPER_STORIES,
   PAPER_STRIP,
@@ -19,7 +20,14 @@ export type PaperAssert = (name: string, ok: boolean, detail?: string) => void;
 export function checkPaperRules(items: DigestItem[], assert: PaperAssert) {
   const paper = buildPaper(items);
   const pool = items.filter((item) => isAiItem(item));
-  const pages = [paper.lead, ...paper.strip, ...paper.stories, ...paper.sidebar, ...paper.briefs]
+  const pages = [
+    paper.lead,
+    ...paper.strip,
+    ...paper.flankers,
+    ...paper.stories,
+    ...paper.sidebar,
+    ...paper.briefs,
+  ]
     .filter((item): item is DigestItem => Boolean(item));
 
   assert("manşet var", Boolean(paper.lead), "havuz: " + pool.length);
@@ -35,6 +43,8 @@ export function checkPaperRules(items: DigestItem[], assert: PaperAssert) {
   assert("yan sütun en fazla " + PAPER_SIDEBAR, paper.sidebar.length <= PAPER_SIDEBAR);
   assert("kısa kısa en fazla " + PAPER_BRIEFS, paper.briefs.length <= PAPER_BRIEFS);
   assert("ikincil haberler görselli", paper.stories.every((item) => Boolean(item.image)));
+  assert("fotoğrafın iki yanı dolu (flanker)", paper.flankers.length === PAPER_FLANKERS);
+  assert("flanker başlıkları kısa", paper.flankers.every((item) => item.title.length <= 100));
   assert("üst bant başlıkları kısa", paper.strip.every((item) => item.title.length <= 64));
 
   assert("sayfadaki her haber AI", pages.every((item) => isAiItem(item)));
@@ -82,6 +92,7 @@ export function printPaper(paper: Paper, log: (line: string) => void = console.l
   log("  Tel · by erenailab · Sayı " + paper.edition + " · " + paper.pool + " aday haber");
   if (paper.lead) log("  MANŞET   " + paper.lead.title.slice(0, 80));
   for (const item of paper.strip) log("  BANT     " + item.title.slice(0, 78));
+  for (const item of paper.flankers) log("  YANİ     " + item.title.slice(0, 78));
   for (const item of paper.stories) log("  HABER    [" + item.source + "] " + item.title.slice(0, 66));
   for (const item of paper.sidebar) log("  YAN      " + item.title.slice(0, 76));
   for (const item of paper.briefs) log("  KISA     " + item.title.slice(0, 76));

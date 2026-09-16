@@ -108,8 +108,8 @@ Kurallar:
 
 - **Havuz:** yapay zekâ kaynakları (`Feed.group === "ai"`) + başlığında AI geçen diğer haberler (ölçüm: ~192 aday).
 - **Puan:** tazelik (≤3s 4 · ≤8s 3 · ≤24s 2 · üstü 1) + görsel (2) + başlığın sığması (≤70 harf 2 · ≤100 1) — en fazla 8.
-- **Dizgi:** üst bant (3 kısa teaser) → **gotik künye** → künye şeridi (gün · tarih · sayı) → manşet + italik deck → **renkli** manşet fotoğrafı → gerekçeli 3 kolon gövde (ilk harf büyük) → 3 fotoğraflı haber + çerçeveli **Öne çıkanlar** sütunu → 4 kolon **kısa kısa** (10) → alt bilgi.
-- **Baskı:** A4 210×297 mm, **tek sayfa** (yazdırma yüksekliği ölçüldü: 253 mm). Fotoğraflar **renkli**.
+- **Dizgi:** üst bant (3 kısa teaser) → **gotik künye** → künye şeridi (gün · tarih · sayı) → manşet + italik deck → **fotoğrafın SOLUNA ve SAĞINA iki ayrı haber** (flanker) → gerekçeli 3 kolon manşet gövdesi (ilk harf büyük) → 3 fotoğraflı haber + çerçeveli **Öne çıkanlar** sütunu → 4 kolon **kısa kısa** (12) → alt bilgi.
+- **Baskı:** A4 210×297 mm, **tek sayfa** — yazdırma yüksekliği ölçüldü: **277 mm** (A4 metin alanı 283 mm). Fotoğraflar **renkli**. Ölçüm **794 px** (A4 genişliği) viewport'ta yapılır; masaüstü genişliğinde ölçmek yanıltıcı, kolonlar daralınca metin uzuyor.
 - **PDF:** sağ üstteki **PDF olarak kaydet** tarayıcının yazdırma penceresini açar → "PDF olarak kaydet" ile tek sayfalık A4 çıkar. Sunucu tarafı PDF motoru **yok**, bağımlılık eklenmedi.
 - **Yazı tipi:** künye için `UnifrakturMaguntia` (next/font, `--font-blackletter`); başlık ve gövde Georgia.
 - **Kod:** kurallar `src/lib/paper.ts`, sayfa `src/app/gazete/`, stiller `src/app/gazete/paper.css`, kontroller `scripts/support/paper-checks.ts`.
