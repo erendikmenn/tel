@@ -24,7 +24,7 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 - Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
 - Alınan kalemler **son 36 saat** ile sınırlıdır (`ITEM_MAX_AGE_HOURS` — `src/lib/config.ts`).
 - Kaynak başına en fazla **12** kalem alınır (`FEED_ITEM_LIMIT`).
-- Aynı başlık (Türkçe normalize) bir kez gösterilir.
+- Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
 
 Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate` dolunca baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
 
@@ -37,6 +37,19 @@ Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate`
 3. **Son haberler** — kalanı ızgarada
 
 Kartlar `rel="noreferrer"` ile dışarı gider.
+
+Anasayfadaki `NewsExplorer` (client) arama ve filtreyi uygular, sonra aynı `splitHome()` ile manşet/sütun/ızgara kurar.
+
+## Arama ve filtreleme
+
+Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak ve zaman seçilir. Hepsi **tarayıcıda** çalışır: sayfa bir kez üretilir (~60 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
+
+- **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`); sorgu kelimesi başlık/özet/kaynak içindeki bir **kelimenin başıysa** eşleşir (`lib` → `libya`, ama `ai` → `said` **değil**). Varsayılan olarak tüm kelimeler eşleşmeli.
+- **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, zaman filtresiyle aralarında **VE**.
+- **Zaman**: son 1 / 6 / 12 / 24 saat ya da tümü. Liste zaten `ITEM_MAX_AGE_HOURS` (36 saat) ile sınırlı.
+- **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6` paylaşılabilir; **Temizle** hepsini sıfırlar.
+- Çekirdek: `src/lib/filter.ts` (`filterItems`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
+- **Kategori** filtresi `0.3 tasnif` ile gelecek; `DigestFilter`'a `category` eklenince aynı çubukta yer alır.
 
 ## Görseller
 
@@ -70,6 +83,10 @@ http://localhost:3000
 ```bash
 npm run build
 npm start
+```
+
+```bash
+npm test
 ```
 
 ## Ayarlar

@@ -1,11 +1,8 @@
-import { LeadStory } from "@/components/LeadStory";
+import { NewsExplorer } from "@/components/NewsExplorer";
 import { RefreshCountdown } from "@/components/RefreshCountdown";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
-import { StoryList } from "@/components/StoryList";
-import { StoryRail } from "@/components/StoryRail";
 import { istanbulDate, istanbulWeekday } from "@/lib/config";
 import { buildDigest } from "@/lib/digest";
-import { splitHome } from "@/lib/home";
 import "./pack.css";
 
 // Tek doğruluk kaynağı: intro'daki geri sayım da bu değeri kullanır.
@@ -14,7 +11,6 @@ export const revalidate = 1800;
 
 export default async function Home() {
   const digest = await buildDigest();
-  const { lead, rail, rest } = splitHome(digest.items);
   // Bu sürümün üretildiği an; geri sayımın çıkış noktası.
   const generatedAt = new Date().toISOString();
 
@@ -37,21 +33,11 @@ export default async function Home() {
         </div>
       </section>
 
-      {lead ? (
-        <section className="tel-lead">
-          <LeadStory item={lead} />
-          <StoryRail items={rail} />
-        </section>
+      {digest.items.length > 0 ? (
+        <NewsExplorer items={digest.items} />
       ) : (
         <p className="note">Kaynaklar şu an sessiz. Birazdan yenilenir.</p>
       )}
-
-      {rest.length > 0 ? (
-        <section className="block">
-          <h2>Son haberler</h2>
-          <StoryList items={rest} />
-        </section>
-      ) : null}
 
       <SiteFooter />
     </div>
