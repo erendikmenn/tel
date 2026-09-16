@@ -195,19 +195,17 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
 
           <fieldset className="explorer-group">
             <legend>Pencere</legend>
-            <div className="explorer-options">
-              {WINDOW_OPTIONS.map((hours) => (
-                <label key={hours} className="explorer-option">
-                  <input
-                    type="radio"
-                    name="explorer-hours"
-                    checked={state.hours === hours}
-                    onChange={() => update({ hours })}
-                  />
-                  <span>{windowOptionLabel(hours)}</span>
-                </label>
-              ))}
-            </div>
+            {WINDOW_OPTIONS.map((hours) => (
+              <label key={hours} className="explorer-option">
+                <input
+                  type="radio"
+                  name="explorer-hours"
+                  checked={state.hours === hours}
+                  onChange={() => update({ hours })}
+                />
+                <span>{windowOptionLabel(hours)}</span>
+              </label>
+            ))}
           </fieldset>
 
           <fieldset className="explorer-group">
