@@ -25,7 +25,9 @@ export const PAPER_STRIP = 3; // üst bant teaser'ları
 export const PAPER_FLANKERS = 2; // manşet fotoğrafının soluna/sağına konan haberler
 export const PAPER_STORIES = 3; // fotoğraflı ikincil haberler
 export const PAPER_SIDEBAR = 5; // çerçeveli yan sütun
-export const PAPER_BRIEFS = 9; // kısa kısa
+// Kısa kısa: 4 kolona 2'şer (8). Kolonlar kalan yüksekliği paylaşır
+// (justify-content: space-between), böylece ne boşluk kalır ne satır kesilir.
+export const PAPER_BRIEFS = 8;
 
 export const PAPER_LEAD_SUMMARY = 420;
 export const PAPER_STORY_SUMMARY = 240;

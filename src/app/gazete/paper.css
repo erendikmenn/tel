@@ -296,16 +296,29 @@
 }
 
 /* ── Kısa kısa ──────────────────────────────────────────── */
+/* Kısa kısa bloğu kalan yüksekliği alır; kolonlar bu yüksekliği paylaşır,
+   öğeler bütün kalır (ortadan kesilme yok). */
 .paper-briefs {
-  padding: 5px 0 3px;
-  /* Sıkışınca önce burası kısalır (taşma emniyeti). */
+  padding: 5px 0 0;
+  flex: 1 1 auto;
   min-height: 0;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .paper-brief-list {
-  columns: 4;
-  column-gap: 5mm;
+  display: flex;
+  gap: 5mm;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.paper-brief-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .paper-brief {
@@ -358,11 +371,9 @@
 
   .paper {
     width: auto;
-    /* Yazdırma alanı sabit: içerik tam sığar. Uzun bir günde taşarsa
-       ikinci sayfaya kaymak yerine kısa kısa bloğu kısalır (alt bilgi kalır). */
-    height: 282mm;
+    /* Yükseklik içerikten gelir; /gazete/pdf rotası içeriği ölçüp tam sayfaya
+       ölçekler (kırpma yok, boşluk yok). Tarayıcıdan yazdırırken de doğal akış. */
     min-height: 0;
-    overflow: hidden;
     padding: 0;
     box-shadow: none;
   }
@@ -390,10 +401,13 @@
   }
 
   .paper-strip,
-  .paper-stories,
-  .paper-brief-list {
+  .paper-stories {
     grid-template-columns: 1fr;
-    columns: 1;
+  }
+
+  .paper-brief-list {
+    flex-direction: column;
+    gap: 0;
   }
 
   .paper-banner-grid,

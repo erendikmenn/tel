@@ -3,7 +3,7 @@ import { FEEDS } from "@/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
 import { pageImage } from "@/lib/image";
 import { itemImage, type MediaNode } from "@/lib/media";
-import { normalizeText } from "@/lib/text";
+import { decodeEntities, normalizeText } from "@/lib/text";
 import { classify } from "@/lib/topics";
 
 export type DigestItem = {
@@ -56,12 +56,7 @@ const parser = new Parser({
 });
 
 function stripHtml(value: string) {
-  return value
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/g, "'")
+  return decodeEntities(value.replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
     .trim();
 }

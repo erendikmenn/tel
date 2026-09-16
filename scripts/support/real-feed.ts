@@ -1,7 +1,7 @@
 import Parser from "rss-parser";
 import { FEEDS } from "../../src/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
-import { normalizeText } from "../../src/lib/text";
+import { decodeEntities, normalizeText } from "../../src/lib/text";
 import { classify } from "../../src/lib/topics";
 import type { DigestItem } from "../../src/lib/digest";
 import { itemImage, type ImageSource } from "../../src/lib/media";
@@ -26,9 +26,7 @@ function itemCategories(raw: RawItem): string[] {
 }
 
 function stripHtml(value: string) {
-  return value
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&[a-z]+;/gi, " ")
+  return decodeEntities(value.replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
     .trim();
 }

@@ -26,6 +26,12 @@ export default async function GazetePage() {
   const deck = firstSentence(paper.lead?.summary);
   const body = clipSummary(paper.lead?.summary, PAPER_LEAD_SUMMARY);
   const showBody = Boolean(body && body !== deck);
+  // Kısa kısa: 4 kolona dengeli bölünür; kolonlar kalan yüksekliği paylaşır,
+  // böylece öğeler ortasından kesilmez ve sayfa boş kalmaz.
+  const briefPerColumn = Math.ceil(paper.briefs.length / 4) || 0;
+  const briefColumns = [0, 1, 2, 3].map((index) =>
+    paper.briefs.slice(index * briefPerColumn, (index + 1) * briefPerColumn),
+  );
 
   return (
     <div className="paper-wrap">
@@ -147,11 +153,15 @@ export default async function GazetePage() {
             <section className="paper-briefs">
               <h4>Kısa kısa</h4>
               <div className="paper-brief-list">
-                {paper.briefs.map((item) => (
-                  <p className="paper-brief" key={item.id}>
-                    <strong>{item.title}</strong>
-                    <span className="paper-meta"> {item.source}</span>
-                  </p>
+                {briefColumns.map((column, index) => (
+                  <div className="paper-brief-col" key={index}>
+                    {column.map((item) => (
+                      <p className="paper-brief" key={item.id}>
+                        <strong>{item.title}</strong>
+                        <span className="paper-meta"> {item.source}</span>
+                      </p>
+                    ))}
+                  </div>
                 ))}
               </div>
             </section>
