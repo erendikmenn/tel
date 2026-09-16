@@ -25,7 +25,7 @@ export const PAPER_STRIP = 3; // üst bant teaser'ları
 export const PAPER_FLANKERS = 2; // manşet fotoğrafının soluna/sağına konan haberler
 export const PAPER_STORIES = 3; // fotoğraflı ikincil haberler
 export const PAPER_SIDEBAR = 5; // çerçeveli yan sütun
-export const PAPER_BRIEFS = 8; // kısa kısa (Safari'nin yazdırma payı da hesaba katıldı)
+export const PAPER_BRIEFS = 6; // kısa kısa (Safari'nin yazdırma payı da hesaba katıldı)
 
 export const PAPER_LEAD_SUMMARY = 420;
 export const PAPER_STORY_SUMMARY = 240;
