@@ -11,7 +11,7 @@ export function normalizeText(value: string) {
     .normalize("NFD")
     .replace(/\p{M}/gu, "")
     .replace(/ı/g, "i")
-    .replace(/[^\p{L}\p{N}\s]/gu, "")
+    .replace(/[^\p{L}\p{N}\s]+/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
 }

@@ -24,6 +24,10 @@ export type DigestFilter = {
 
 const DEFAULT_FIELDS: SearchField[] = ["title", "summary", "source"];
 
+// 3 harften kısa sorgular (ör. "ai") yalnızca TAM kelime eşleşir; aksi halde
+// "aim", "aid", "airport", "ailem" gibi ilgisiz kelimeleri de toplardı.
+const MIN_PREFIX_LENGTH = 3;
+
 function itemTime(item: DigestItem) {
   if (!item.isoDate) return 0;
   const time = Date.parse(item.isoDate);
@@ -72,9 +76,13 @@ function matchesQuery(
   if (tokens.length === 0) return true;
 
   const words = searchWords(item, fields);
-  // Kelime sınırı: token bir kelimenin tam kendisi ya da başı olmalı.
-  // Böylece "ai" artık "said" içinde eşleşmez, ama "lib" → "libya" olur.
-  const hit = (token: string) => words.some((word) => word === token || word.startsWith(token));
+  // Kelime sınırı: tam kelime her zaman; prefix yalnızca >= MIN_PREFIX_LENGTH.
+  // Böylece "ai" → "AI"/"AI-generated" eşleşir ama "aim/aid/air/ailem" yakalanmaz;
+  // "lib" → "libya", "iran" → "iranian"/"iranbacked" çalışır.
+  const hit = (token: string) =>
+    words.some(
+      (word) => word === token || (token.length >= MIN_PREFIX_LENGTH && word.startsWith(token)),
+    );
   return mode === "any" ? tokens.some(hit) : tokens.every(hit);
 }
 
