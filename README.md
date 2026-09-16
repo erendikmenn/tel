@@ -62,14 +62,16 @@ Her habere **kural tabanlı** konu etiketi atanır (`src/lib/topics.ts`) ve filt
 
 Kurallar:
 
-- Eşleştirme **yalnızca başlıkta** yapılır. Özetler (özellikle Guardian) başka haberlerin teaser metnini taşıdığı için sınıflandırmaya gürültü sokuyordu.
+- Eşleştirme **başlıkta** yapılır; ayrıca **RSS `<category>` etiketleri** başlıkla birlikte değerlendirilir. Özetler (özellikle Guardian) başka haberlerin teaser metnini taşıdığı için **kullanılmaz**.
 - TR + EN anahtar kelimeler; `normalizeText` ile aksan/İ katlanır.
 - **Kelime sınırı:** tam eşleşme ya da (4+ harfse) kelime başı → `savaş` → `savaşının`, `faiz` → `faizler`; ama `zam` → `zaman` değil.
 - `"=kelime"` tam eşleşme zorunlu kılar (`=ai`); `"?kelime"` **zayıf** kelimedir (tek başına etiketler, sıralamada geride kalır).
 - **Öbek** desteği: `yapay zeka`, `interest rate`, `trade war`.
 - Bir habere en fazla **2 konu** atanır; hiçbiri tutmazsa boş kalır ve **Diğer** filtresi onu yakalar.
 
-Ölçüm (125 gerçek haber): **Savaş 35 · Toplum 34 · Siyaset 23 · Diğer 21 · Teknoloji 13 · Ekonomi 11 · Bilim 7 · Spor 6 · Kültür 4 · Sağlık 4.** `npm test` bu dağılımı ve örnek başlıkları basar.
+**RSS etiketleri (bedava sinyal):** Guardian 45/45 (`Business`, `Technology`, `AI (artificial intelligence)`, `Environment`, `US politics`…), Al Jazeera 25/25 (`Sport`, `News`); **BBC Türkçe, BBC World ve NPR hiç vermiyor.** Guardian etiketi `{ _: "Business", $: { domain } }` biçiminde geldiği için (rss-parser ham hâlde hata veriyordu) `itemCategories()` normalleştirir; anahtar listemizde olmayan `Business`/`Sport` değerleri küçük bir eşlemeyle bağlanır.
+
+Ölçüm (125 gerçek haber): **Savaş 38 · Toplum 34 · Siyaset 27 · Ekonomi 17 · Diğer 17 · Teknoloji 14 · Bilim 9 · Spor 6 · Sağlık 5 · Kültür 4.** `npm test` bu dağılımı ve örnek başlıkları basar.
 
 **Neden embedding yok:** proje local-first; ~120MB model indirmesi + native paket "klonla → çalıştır" deneyimini ağırlaştırır. Ölçüm bir konunun zayıf kaldığını gösterirse, kural katmanının **altına düşen opsiyonel** bir yerel embedding katmanı eklenebilir (kural → varsa embedding).
 

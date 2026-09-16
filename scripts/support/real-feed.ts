@@ -12,7 +12,17 @@ type RawItem = {
   isoDate?: string;
   pubDate?: string;
   contentSnippet?: string;
+  categories?: unknown[];
 };
+
+/** RSS <category>: düz metin ya da { _: "Business", $: {...} }. */
+function itemCategories(raw: RawItem): string[] {
+  if (!Array.isArray(raw.categories)) return [];
+  return raw.categories
+    .map((entry) => (typeof entry === "string" ? entry : ((entry as { _?: string })?._ ?? "")))
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
 
 function stripHtml(value: string) {
   return value
@@ -51,7 +61,12 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
         source: feed.name,
         isoDate: iso,
         summary,
-        topics: classify({ title, summary, source: feed.name }),
+        topics: classify({
+          title,
+          summary,
+          source: feed.name,
+          feedCategories: itemCategories(raw),
+        }),
       });
     }
   }

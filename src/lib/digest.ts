@@ -32,6 +32,18 @@ type ParsedItem = Parser.Item & {
   "content:encoded"?: string;
 };
 
+/** RSS <category> değerleri: düz metin ya da { _: "Business", $: { domain } } olabilir. */
+function itemCategories(item: ParsedItem): string[] {
+  const raw = (item as { categories?: unknown }).categories;
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .map((entry) =>
+      typeof entry === "string" ? entry : ((entry as { _?: string })?._ ?? ""),
+    )
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
 export type Digest = {
   items: DigestItem[];
   failedFeeds: string[];
@@ -148,7 +160,12 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
           isoDate: parsed.isoDate ?? parsed.pubDate,
           summary,
           image: itemImage(parsed),
-          topics: classify({ title, summary, source: feed.name }),
+          topics: classify({
+            title,
+            summary,
+            source: feed.name,
+            feedCategories: itemCategories(parsed),
+          }),
         },
       ];
     });

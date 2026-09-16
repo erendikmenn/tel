@@ -190,6 +190,20 @@ export const TOPICS: Topic[] = [
   },
 ];
 
+/**
+ * Yayıncının kendi etiketleri (RSS <category>) başlıkla birlikte eşleştirilir.
+ * Guardian "Business"/"Sport" gibi kelimeler anahtar listemizde yok; onlar için
+ * küçük bir eşleme. Diğerleri (Technology, Environment, Health, Science, Politics,
+ * Economics, Inflation, Human rights…) zaten anahtar kelimelerle yakalanıyor.
+ */
+const FEED_CATEGORY_TOPICS: Record<string, string> = {
+  business: "ekonomi",
+  sport: "spor",
+  sports: "spor",
+};
+
+const FEED_HINT_SCORE = 2;
+
 const MIN_KEYWORD_PREFIX = 4;
 const STRONG_SCORE = 2;
 const WEAK_SCORE = 1;
@@ -230,25 +244,48 @@ function matchesEntry(entry: Entry, words: string[], padded: string) {
   return words.some((word) => word === entry.value || (!entry.exact && word.startsWith(entry.value)));
 }
 
-type Classifiable = { title: string; summary?: string; source: string };
+type Classifiable = {
+  title: string;
+  summary?: string;
+  source: string;
+  /** RSS <category> değerleri (yayıncının kendi etiketleri). */
+  feedCategories?: string[];
+};
 
 export type TopicScore = { id: string; score: number; matched: string[] };
 
 /** Teşhis/test için: her konunun puanı ve tutan kelimeleri. */
 export function explain(item: Classifiable): TopicScore[] {
-  const text = normalizeText(item.title);
+  // Yayıncı etiketleri başlıkla birlikte eşleşir; kontrollü sözlük oldukları için
+  // özetlerdeki gibi gürültü taşımazlar.
+  const feedCategories = item.feedCategories ?? [];
+  const text = normalizeText([item.title, ...feedCategories].join(" "));
   if (!text) return [];
   const words = text.split(" ").filter(Boolean);
   const padded = " " + text + " ";
 
-  return MATCHERS.map((matcher) => {
+  const rows = MATCHERS.map((matcher) => {
     const hits = matcher.entries.filter((entry) => matchesEntry(entry, words, padded));
     return {
       id: matcher.id,
       score: hits.reduce((sum, entry) => sum + entry.score, 0),
       matched: hits.map((entry) => entry.raw),
     };
-  })
+  });
+
+  for (const raw of feedCategories) {
+    const topicId = FEED_CATEGORY_TOPICS[normalizeText(raw)];
+    if (!topicId) continue;
+    const row = rows.find((entry) => entry.id === topicId);
+    if (row) {
+      row.score += FEED_HINT_SCORE;
+      row.matched.push("feed:" + raw);
+    } else {
+      rows.push({ id: topicId, score: FEED_HINT_SCORE, matched: ["feed:" + raw] });
+    }
+  }
+
+  return rows
     .filter((row) => row.score >= MIN_TOPIC_SCORE)
     .sort((a, b) => b.score - a.score);
 }

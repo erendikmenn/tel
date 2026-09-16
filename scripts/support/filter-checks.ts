@@ -17,7 +17,7 @@ import {
   type DigestView,
 } from "../../src/lib/filter";
 import { normalizeText } from "../../src/lib/text";
-import { TOPICS, TOPIC_ALL, topicLabel } from "../../src/lib/topics";
+import { TOPICS, TOPIC_ALL, classify, topicLabel } from "../../src/lib/topics";
 
 export type Assert = (name: string, ok: boolean, detail?: string) => void;
 
@@ -162,6 +162,20 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   assert("spor haberi -> spor", !sports || (sports.topics ?? []).includes("spor"));
   const econ = items.find((i) => /inflation|interest rates/i.test(i.title));
   assert("ekonomi haberi -> ekonomi", !econ || (econ.topics ?? []).includes("ekonomi"));
+
+  // RSS <category> sinyali (yayıncının kendi etiketi)
+  assert(
+    "feed=Business -> ekonomi",
+    classify({ title: "Publisher cuts 400 jobs", source: "The Guardian", feedCategories: ["Business"] }).includes("ekonomi"),
+  );
+  assert(
+    "feed=Sport -> spor",
+    classify({ title: "Eala reaches final", source: "Al Jazeera", feedCategories: ["Sport"] }).includes("spor"),
+  );
+  assert(
+    "feed=Technology -> teknoloji",
+    classify({ title: "Chip race heats up", source: "The Guardian", feedCategories: ["Technology"] }).includes("teknoloji"),
+  );
 }
 
 /** Konu dağılımı + örnek başlıklar (gerçek veri). */
