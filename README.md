@@ -156,7 +156,7 @@ npm start
 
 ```bash
 npm test          # dondurulmuş gerçek feed snapshot'ı (hızlı, ağsız)
-npm run test:live # canlı 5 RSS ile aynı kontroller
+npm run test:live # canlı 15 RSS ile aynı kontroller
 npm run fixtures  # snapshot'ı canlıdan yenile
 ```
 
@@ -164,11 +164,12 @@ npm run fixtures  # snapshot'ı canlıdan yenile
 
 | Ne | Nerede | Varsayılan |
 | --- | --- | --- |
-| Kaynak listesi | `src/lib/feeds.ts` | 5 feed |
+| Kaynak listesi | `src/lib/feeds.ts` | **15 feed** (5 dünya + 10 yapay zekâ) |
 | Sayfa yenileme | `src/app/page.tsx` → `revalidate` | 1800 sn (30 dk) |
 | Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 24 saat + Tümü (varsayılan 24 saat) |
 | Fetch akıl sağlığı | `src/lib/config.ts` → `MAX_AGE_HOURS` | 30 gün (bundan eskisi elenir) |
-| Genel güvenlik tavanı | `src/lib/config.ts` → `MAX_ITEMS` | 300 (pratikte ~125) |
+| Genel güvenlik tavanı | `src/lib/config.ts` → `MAX_ITEMS` | 400 (pratikte ~307) |
+| Gazetenin havuzu | `src/lib/paper.ts` → `AI_SOURCES` + AI kelimeleri | AI kaynakları + başlıkta AI geçenler |
 
 Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 
@@ -187,6 +188,7 @@ Yeni sürüm:
 
 | Sürüm | Ne |
 | --- | --- |
+| **0.1.2** | **Konu kategorileri** (9 + Diğer; TR/EN anahtar kelime + RSS etiketleri), filtre panelinde **canlı sonuç sayaçları**, pencere seçenekleri 1/6/12/24 saat + Tümü, **okuma durumu** (tıkla → solgunlaş), **10 yapay zekâ kaynağı** (OpenAI, DeepMind, Google Research, Hugging Face, NVIDIA, TechCrunch AI, The Verge AI, Wired AI, The Decoder, Anthropic/Google News), kaynak listesi 5 satırda kaydırmalı + Dünya/Yapay zekâ kısayolları ve **`/gazete`**: kural motoruyla dizilen gazete ön sayfası + **tek tıkla A4 PDF** |
 | **0.1.1** | Canlı arama (kelime bazlı; TR/EN/aksan duyarsız) + kaynak/zaman filtresi, URL'e yazılır; gerçek feed verisiyle testler |
 | 0.1.0 | Anasayfa: 5 RSS, 36 saat, manşet + sütun + ızgara, tık kaynağa |
 | 0.1.x | Aynı ürün, hata / küçük UI |
