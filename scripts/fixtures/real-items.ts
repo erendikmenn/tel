@@ -4,16 +4,85 @@ import type { DigestItem } from "../../src/lib/digest";
 // Yenilemek için: npm run fixtures
 export const REAL_ITEMS: DigestItem[] = [
   {
+    "id": "https://www.theguardian.com/world/2026/sep/16/kosovo-former-president-hashim-thaci-jailed-war-crimes",
+    "title": "Kosovo’s former president jailed for 25 years over war crimes",
+    "link": "https://www.theguardian.com/world/2026/sep/16/kosovo-former-president-hashim-thaci-jailed-war-crimes",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T13:09:41.000Z",
+    "summary": "Hashim Thaçi, 58, was convicted by The Hague for crimes committed while he was senior commander of the Kosovo Liberation Army Europe live – latest updates Hashim Thaçi, the former president of Kosovo, has been sentenced to 25 years by a tribunal in The Hague for war crimes, including dozens of murders, committed during his time as a senior commander of the Kosovo Liberation Army during the country’s war for independence from Serbia in the late 1990s. The European-backed Kosovo Specialist Chambers, convicted Thaci, 58, and three other former senior commanders of 96 murders, and counts of torture, cruel treatment and arbitrary detention directed at political opponents and civilians. Continue reading...",
+    "topics": [
+      "savas",
+      "siyaset"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
     "title": "Former Kosovo president Thaçi sentenced to 25 years in prison by international court in The Hague – Europe live",
     "link": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
     "source": "The Guardian",
-    "isoDate": "2026-09-16T12:48:33.000Z",
+    "isoDate": "2026-09-16T13:09:00.000Z",
     "summary": "Thaçi held criminally responsible for war crimes during the violent break from Serbia in the 1990s Von der Leyen says “kickstarting Europe’s economy is our number one priority,” as Europe needs to tap into its huge market, world class industries and services. She says its single market remains too fragmented and needs to reform further, with the aim of completing it by the end of next year. “Do we want to rally around our European idea that together we can decide our own destiny? Or do we let our democracies be undermined by the proxies and puppets of authoritarians? Whether it is the ultra nationalist or the anti-European, whether it’s Russian interference or disinformation, the names may be different, but their goal is the same. Continue reading...",
     "topics": [
       "toplum",
       "siyaset"
     ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789562057",
+    "title": "FIFA to present review of Infantino’s shelved investment plan to Council",
+    "link": "https://www.aljazeera.com/sports/2026/9/16/fifa-to-present-review-of-infantinos-shelved-investment-plan-to-council?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T13:05:02.000Z",
+    "summary": "A review of FIFA President Gianni Infantino's failed World Cup selloff to be presented to governing body's Council.",
+    "topics": [
+      "spor",
+      "ekonomi"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789550699",
+    "title": "Duterte in person at ICC for first time over ‘war on drugs’ killings",
+    "link": "https://www.aljazeera.com/news/2026/9/16/duterte-in-person-at-icc-for-first-time-over-war-on-drugs-killings?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T13:01:13.000Z",
+    "summary": "Former Philippine president accused of setting up death squads faces trial starting on November 30.",
+    "topics": [
+      "saglik",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://blogs.nvidia.com/?p=98287",
+    "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+    "link": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+    "source": "NVIDIA",
+    "isoDate": "2026-09-16T13:00:33.000Z",
+    "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data center. Today, Emerald AI, Google and NVIDIA announced the launch of the AI Energy Management Alliance (AEMA), a first-of-its-kind coalition advancing data centers that can dynamically manage their electricity use […]",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789548508",
+    "title": "Photos: Gaza building collapse kills 20, including women and children",
+    "link": "https://www.aljazeera.com/gallery/2026/9/16/photos-gaza-building-collapse-kills-20-including-women-and-children?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:56:42.000Z",
+    "summary": "Israel-hit building collapsed in Gaza City, killing 20 and leaving dozens trapped under the rubble.",
+    "topics": [
+      "toplum",
+      "savas"
+    ]
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789539111",
+    "title": "What is BRICS Pay, and can it rival the West’s SWIFT payments system?",
+    "link": "https://www.aljazeera.com/news/2026/9/16/what-is-brics-pay-and-can-it-rival-the-wests-swift-payments-system?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T12:53:07.000Z",
+    "summary": "BRICS Pay is a decentralised digital system for making international payments in currencies other than the dollar.",
+    "topics": []
   },
   {
     "id": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
@@ -67,7 +136,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "link": "https://www.theguardian.com/us-news/2026/sep/16/first-thing-houthis-target-mecca-house-votes-end-trump-war-iran",
     "source": "The Guardian",
     "isoDate": "2026-09-16T12:36:22.000Z",
-    "summary": "Vote comes amid Republican call to impeach defense secretary Pete Hegseth. Plus a catnapped bodega cat in Brooklyn is returned home Good morning. Saudi Arabia’s air defenses intercepted and destroyed a ⁠Houthi drone south of Mecca yesterday before it entered prohibited airspace over the holy city. A spokesperson for the kingdom, which is fighting the Iran-aligned group in Yemen, said the security of Islam’s two holiest sites and of pilgrims was a “red line”. Mecca, home to shrines sacred to Muslims worldwide, is Islam’s holiest ​city and the focal point ‌of the annual ‌hajj pilgrimage. Meanwhile, in Washington, the US House of Representatives has voted for a third time to end the war in Iran, approving a war powers resolution a few hours after a Congressional Budget Office (CBO) report showed the conflict had cost at least $38bn and left the US stockpile of defensive missiles so depleted it could take five years to rebuild. Why is Pete Hegseth being targeted by lawmakers? Republican congressman Thomas Massie has proposed impeaching Pete Hegseth, saying the defense secretary had repeatedly violated the constitution through his handling of war with Iran and the deaths of civilians in conflicts worldwide. How is the Trump administration reversing decisions over arming Israel? Congress has been informally notified about a pending deal, with the US planning to deliver powerful 2,000lb bombs to Israel. The weapons prompted such concerns about the possibility of mass casualties in Gaza that the Biden administration paused their delivery two years ago. How has Ed Sheeran responded? In a lengthy Instagram post, the British singer said: “I have always used my platform and music to bring people from all backgrounds and cultures together … I am not complicit. I have my personal views on this devastating conflict. Just because I choose not to speak publicly, it doesn’t mean I don’t have them, and it doesn’t mean that I don’t care. Macklemore coming off tour was the promoter’s decision, it was not mine.” Continue reading...",
+    "summary": "Vote comes amid Republican call to impeach defense secretary Pete Hegseth. Plus a catnapped bodega cat in Brooklyn is returned home Don’t already get First Thing in your inbox? Sign up here Good morning. Saudi Arabia’s air defenses intercepted and destroyed a ⁠Houthi drone south of Mecca yesterday before it entered prohibited airspace over the holy city. A spokesperson for the kingdom, which is fighting the Iran-aligned group in Yemen, said the security of Islam’s two holiest sites and of pilgrims was a “red line”. Mecca, home to shrines sacred to Muslims worldwide, is Islam’s holiest ​city and the focal point ‌of the annual ‌hajj pilgrimage. Meanwhile, in Washington, the US House of Representatives has voted for a third time to end the war in Iran, approving a war powers resolution a few hours after a Congressional Budget Office (CBO) report showed the conflict had cost at least $38bn and left the US stockpile of defensive missiles so depleted it could take five years to rebuild. Why is Pete Hegseth being targeted by lawmakers? Republican congressman Thomas Massie has proposed impeaching Pete Hegseth, saying the defense secretary had repeatedly violated the constitution through his handling of war with Iran and the deaths of civilians in conflicts worldwide. How is the Trump administration reversing decisions over arming Israel? Congress has been informally notified about a pending deal, with the US planning to deliver powerful 2,000lb bombs to Israel. The weapons prompted such concerns about the possibility of mass casualties in Gaza that the Biden administration paused their delivery two years ago. How has Ed Sheeran responded? In a lengthy Instagram post, the British singer said: “I have always used my platform and music to bring people from all backgrounds and cultures together … I am not complicit. I have my personal views on this devastating conflict. Just because I choose not to speak publicly, it doesn’t mean I don’t have them, and it doesn’t mean that I don’t care. Macklemore coming off tour was the promoter’s decision, it was not mine.” Continue reading...",
     "topics": [
       "savas",
       "siyaset"
@@ -250,6 +319,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-16T12:00:00.000Z",
     "summary": "Over the past few days, a lot of people who stand to make a lot of money from AI all publicly agreed that it's time to make everyone slow down before we lose control - including OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, Microsoft CEO Satya Nadella, and X CEO Elon Musk. When people who profit from something declare that it's dangerous and needs to be regulated, there's always reason to be skeptical. But whatever their reason, this is far from the first time AI thought leaders have sounded the alarm. Charles Darwin's theory of evolution prompted author Samuel Butler to warn about intelligen … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/STK_414_5_D.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -378,6 +448,17 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "CBMiswFBVV95cUxOQURZTjVJM1hoVzJnSGdacHcydUhOUHR0NUhnd0pLNGw5UzBINkE1N1BSU0FjM2RZZFNGcWZWZGVZdUlwZGlXSmhqdnZMeERQMmpIcnpYRUNGN3d2aGRrWWt1UURNMzhNQU9TQnQ4SUk3YjdrZ2FJX1dJYkREbEVwVDNvZXdLVjlwYWNuZDdodHBCc2pGdWVvUk1CVWdLWlB2N3ZMdkdPcG03R01UUGFuSFo0QQ",
+    "title": "Anthropic’s AI steals mathematicians’ record for most complicated curve - Scientific American",
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOQURZTjVJM1hoVzJnSGdacHcydUhOUHR0NUhnd0pLNGw5UzBINkE1N1BSU0FjM2RZZFNGcWZWZGVZdUlwZGlXSmhqdnZMeERQMmpIcnpYRUNGN3d2aGRrWWt1UURNMzhNQU9TQnQ4SUk3YjdrZ2FJX1dJYkREbEVwVDNvZXdLVjlwYWNuZDdodHBCc2pGdWVvUk1CVWdLWlB2N3ZMdkdPcG03R01UUGFuSFo0QQ?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-16T11:00:00.000Z",
+    "topics": [
+      "teknoloji",
+      "bilim"
+    ]
+  },
+  {
     "id": "CBMiqAFBVV95cUxOOUU3a0YtdWVPbVZMOEJuM3dETXRIV1I5LXF2QWpmVy1EU0FZcDZ3ZlRUTzM2Vk0yMkVhSE9LeG85NDdwVEx0R2M0MDhYRVlqMXFneldVQUk0b1BiR1A4Zm00YlhPWlgzZXhRekdWck84dzNPSF8zN2RBWjBrNUQyenBIVGRwYjlYbkozTDNEOC1mVWc5M0FiN2xkeHQwR2d2VGkyMlR5cTk",
     "title": "‘If you’re building Frankenstein, stop’: JD Vance dismisses calls for AI regulation - The Guardian",
     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOOUU3a0YtdWVPbVZMOEJuM3dETXRIV1I5LXF2QWpmVy1EU0FZcDZ3ZlRUTzM2Vk0yMkVhSE9LeG85NDdwVEx0R2M0MDhYRVlqMXFneldVQUk0b1BiR1A4Zm00YlhPWlgzZXhRekdWck84dzNPSF8zN2RBWjBrNUQyenBIVGRwYjlYbkozTDNEOC1mVWc5M0FiN2xkeHQwR2d2VGkyMlR5cTk?oc=5",
@@ -425,7 +506,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "link": "https://techcrunch.com/2026/09/16/amazon-launches-alexa-in-india-with-hindi-support/",
     "source": "TechCrunch AI",
     "isoDate": "2026-09-16T10:34:47.000Z",
-    "summary": "Amazon is letting all customers use Alexa+ assistant in early access period",
+    "summary": "Amazon is letting all customers use Alexa+ assistant in early access period.",
     "topics": [
       "teknoloji"
     ]
@@ -448,6 +529,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-16T10:20:02.000Z",
     "summary": "Anthropic researcher Jacob Coxon sparked an intense debate about existential AI risks with a single tweet. OpenAI researcher Daniel Selsam warns of a \"ticking time bomb,\" and a former Deepmind researcher says AI could kill us all. In a survey of more than 1,500 leading AI researchers, the average estimated probability of an extinction scenario was 18 percent. That was in 2024. The number keeps climbing. The article Nearly one in five AI researchers already expected an extinction scenario from AI back in 2024 appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/09/robot_scientists_threat.png",
     "topics": [
       "teknoloji",
       "toplum"
@@ -659,6 +741,15 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
+    "title": "A Kansas girl ran off to join the circus and changed the tattoo world",
+    "link": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
+    "source": "NPR",
+    "isoDate": "2026-09-16T09:00:00.000Z",
+    "summary": "One of the country's first known female tattoo artists was born on a Kansas farm. Maud Stevens Wagner ran off to join the circus and later became a tattoo legend.",
+    "topics": []
+  },
+  {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5953990/ai-political-ads-2026-midterms",
     "title": "As campaign season gears up, AI-generated ads are everywhere",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5953990/ai-political-ads-2026-midterms",
@@ -669,15 +760,6 @@ export const REAL_ITEMS: DigestItem[] = [
       "teknoloji",
       "siyaset"
     ]
-  },
-  {
-    "id": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
-    "title": "A Kansas girl ran off to join the circus and changed the tattoo world",
-    "link": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
-    "source": "NPR",
-    "isoDate": "2026-09-16T09:00:00.000Z",
-    "summary": "One of the country's first known female tattoo artists was born on a Kansas farm. Maud Stevens Wagner ran off to join the circus and later became a tattoo legend.",
-    "topics": []
   },
   {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5968724/federal-reserve-interest-rates-inflation-economy",
@@ -691,17 +773,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
-    "title": "When students attend these colleges, taxpayers often pay. Here's why",
-    "link": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
-    "source": "NPR",
-    "isoDate": "2026-09-16T09:00:00.000Z",
-    "summary": "Federal data shows many borrowers who aren't paying their loans went to private, for-profit colleges — schools that often market to low-income students and rely on federal financial aid for revenue.",
-    "topics": [
-      "toplum"
-    ]
-  },
-  {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5956869/birth-control-contraception-access-clinic",
     "title": "New maps reveal massive gaps in access to affordable birth control across the U.S",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5956869/birth-control-contraception-access-clinic",
@@ -710,6 +781,17 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Because of a data lag, the current reality of access may be even worse.",
     "topics": [
       "saglik"
+    ]
+  },
+  {
+    "id": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
+    "title": "When students attend these colleges, taxpayers often pay. Here's why",
+    "link": "https://www.npr.org/2026/09/16/nx-s1-5946419/student-loans-repayment-for-profit-college",
+    "source": "NPR",
+    "isoDate": "2026-09-16T09:00:00.000Z",
+    "summary": "Federal data shows many borrowers who aren't paying their loans went to private, for-profit colleges — schools that often market to low-income students and rely on federal financial aid for revenue.",
+    "topics": [
+      "toplum"
     ]
   },
   {
@@ -834,16 +916,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "CBMiWkFVX3lxTE41Q1h2QkF0SGRpMFZSMVN5al9RNkhQLTR4MDc0cHJNbndmdndTbHE5cGswRFk4SS1JbVhmXzdWNm5KRDlJa3FiUkt6T01MZUNiTjhON2R6cFJtQQ",
-    "title": "Anthropic | History, Controversies, & Claude AI | Britannica Money - Britannica",
-    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE41Q1h2QkF0SGRpMFZSMVN5al9RNkhQLTR4MDc0cHJNbndmdndTbHE5cGswRFk4SS1JbVhmXzdWNm5KRDlJa3FiUkt6T01MZUNiTjhON2R6cFJtQQ?oc=5",
-    "source": "Anthropic (Google News)",
-    "isoDate": "2026-09-16T06:23:07.000Z",
-    "topics": [
-      "teknoloji"
-    ]
-  },
-  {
     "id": "https://www.bbc.com/turkce/articles/c63eqd3nqp4jo#0",
     "title": "Eğitim enflasyonu birinci sırada: Devlet okulunda bir öğrencinin yıllık maliyeti ne kadar?",
     "link": "https://www.bbc.com/turkce/articles/c63eqd3nqp4jo?at_medium=RSS&at_campaign=rss",
@@ -926,46 +998,6 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.aljazeera.com/?t=1789468469",
-    "title": "What’s the Pinglu Canal, China’s new gateway to Southeast Asia?",
-    "link": "https://www.aljazeera.com/news/2026/9/16/whats-the-pinglu-canal-chinas-new-gateway-to-southeast-asia?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T05:24:50.000Z",
-    "summary": "China's first modern river-to-sea canal could significantly cut down time and costs of trade to Southeast Asia.",
-    "topics": []
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789535987",
-    "title": "Republican forces Congress to hold impeachment vote for Pete Hegseth",
-    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/republican-forces-congress-to-hold-impeachment-vote-for-pete-hegseth?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T05:21:18.000Z",
-    "summary": "United States Representative Thomas Massie is forcing fellow Republicans to vote whether to impeach Secretary of Defense",
-    "topics": [
-      "siyaset"
-    ]
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789529229",
-    "title": "News helicopter crash in Los Angeles kills three, injures one",
-    "link": "https://www.aljazeera.com/news/2026/9/16/news-helicopter-crash-in-los-angeles-kills-three-injures-one?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T05:07:47.000Z",
-    "summary": "NBC Los Angeles helicopter crashes while covering deadly metro bus collision from the air.",
-    "topics": []
-  },
-  {
-    "id": "https://www.aljazeera.com/?t=1789534454",
-    "title": "At least 10 dead, dozens missing in Gaza building collapse",
-    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/at-least-10-dead-dozens-missing-in-gaza-building-collapse?traffic_source=rss",
-    "source": "Al Jazeera",
-    "isoDate": "2026-09-16T05:06:52.000Z",
-    "summary": "At least 10 Palestinians are dead and up to 70 more are believed missing after a building collapsed in Gaza City.",
-    "topics": [
-      "savas"
-    ]
-  },
-  {
     "id": "https://blogs.nvidia.com/?p=98313",
     "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
     "link": "https://blogs.nvidia.com/blog/uk-air-pollution-research-earth-2/",
@@ -1014,20 +1046,8 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
-    "id": "https://www.theguardian.com/world/2026/sep/16/gaza-students-devastated-belgium-university-scholarships",
-    "title": "Students in Gaza ‘devastated’ after plan for them to study in Belgium fails",
-    "link": "https://www.theguardian.com/world/2026/sep/16/gaza-students-devastated-belgium-university-scholarships",
-    "source": "The Guardian",
-    "isoDate": "2026-09-16T04:00:11.000Z",
-    "summary": "Belgian government unable to agree on evacuation of 13 students to take up scholarships at universities Students who are unable to leave Gaza and take up scholarships at Belgian universities have said they are devastated after Belgium’s government hit deadlock on a plan enabling them to leave the war-torn territory. Ahmed Abujami, a 28-year-old doctor in Gaza, said he was “deeply disappointed” after Belgium’s five-party coalition government last Friday failed to agree on an evacuation plan for 13 students and researchers in the territory. Abujami has a scholarship to do a one-year master’s degree in public health at the Institute of Tropical Medicine in Antwerp. He hopes to gain skills and experience to rebuild Gaza’s shattered health system. Continue reading...",
-    "topics": [
-      "toplum",
-      "savas"
-    ]
-  },
-  {
     "id": "CBMirAFBVV95cUxQSEhGaHJBc1VaTTFUb2VvQ1h0X0NWNVJwVl9sc0pCU1dEcmxkS2pHZnlGNUlyNmEzby1uUDBqb1draWJqNHV3c1RRVWx1T0tNMjVweXk1REJXaVNJUEtiTUVkbVlpMy1fZUZZMnBGOXNGVmNrLVYtdXZydmdnbGxRcWNPTmJRVnAyVjMyVldtLWRhcnVSQ0xRRHZ0ek9PV09SZV8zdjVLcF9BeEFp",
-    "title": "Anthropic signs first Australia data centre agreement - Reuters",
+    "title": "Anthropic signs first Australia data centre agreement - reuters.com",
     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQSEhGaHJBc1VaTTFUb2VvQ1h0X0NWNVJwVl9sc0pCU1dEcmxkS2pHZnlGNUlyNmEzby1uUDBqb1draWJqNHV3c1RRVWx1T0tNMjVweXk1REJXaVNJUEtiTUVkbVlpMy1fZUZZMnBGOXNGVmNrLVYtdXZydmdnbGxRcWNPTmJRVnAyVjMyVldtLWRhcnVSQ0xRRHZ0ek9PV09SZV8zdjVLcF9BeEFp?oc=5",
     "source": "Anthropic (Google News)",
     "isoDate": "2026-09-16T03:49:00.000Z",
@@ -1080,7 +1100,7 @@ export const REAL_ITEMS: DigestItem[] = [
   },
   {
     "id": "CBMijwFBVV95cUxNbDdJR2JuaHlmNmNBV3BFUDN1WVh6amQzM0VnWUcwLUl5MVFzaUJDMlBSQkNEeUhSSG1ZcjIya21VSWh5TXQ4dll4X0pHRE1BeUl3V3dydTctWEtRU0ZYQmE4V3BkcVM4VHV6MzdKVy1mNWE0WUtidXRubkFLZmxIRVFKblBEZ3NwczBLQ1habw",
-    "title": "Mark Zuckerberg Takes Aim at Anthropic in Debate Over A.I. Slowdown - The New York Times",
+    "title": "Mark Zuckerberg Takes Aim at Anthropic in Debate Over A.I. Slowdown - nytimes.com",
     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNbDdJR2JuaHlmNmNBV3BFUDN1WVh6amQzM0VnWUcwLUl5MVFzaUJDMlBSQkNEeUhSSG1ZcjIya21VSWh5TXQ4dll4X0pHRE1BeUl3V3dydTctWEtRU0ZYQmE4V3BkcVM4VHV6MzdKVy1mNWE0WUtidXRubkFLZmxIRVFKblBEZ3NwczBLQ1habw?oc=5",
     "source": "Anthropic (Google News)",
     "isoDate": "2026-09-16T00:19:23.000Z",
@@ -1095,6 +1115,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-15T23:34:25.000Z",
     "summary": "Poll data released Tuesday by The New York Times and Siena University confirms what we've already been seeing, and what politicians are responding to - AI and data centers are incredibly unpopular. Asked if they support or oppose the construction of data centers to power AI tech, 61 percent of the 1,503 likely voters surveyed in early September (ahead of the recent AI safety slowdown discussion) said they were opposed, with only 14 percent saying they strongly support. The split was about even among 2024 Donald Trump voters, at 49 percent support to 45 percent oppose, while people who had voted for Kamala Harris or who didn't vote leaned opp … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKS528_DATA_CENTERS2_B.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -1236,6 +1257,16 @@ export const REAL_ITEMS: DigestItem[] = [
     ]
   },
   {
+    "id": "CBMingFBVV95cUxNamhBSWgtcmZwTVRVOXlnbGZMN2R1bDFlMWEtV21wUXFmUGVoWW5vQWNVbU55OEE0T0lWMUFlMXFZVGdvNmN0TElFUGNkQUlwQ01hU09aUEZIZlBjd0lMbGJMOVJHbmhOSTNRaHU0cXBnNmRVQ2lTb21odDUzOGlRQ1phSTRDUDVucThHQjNncjI1Q1pMOVV0WlotdDVpUdIBowFBVV95cUxNQW5ST21vbGJyUWYzcHVFZFJOZUgzTEJ3TWFkS3Y4Nm9fQ2w3c3puMnJqaFBpbl9CVG5Gd1RSZUVGQmJqLVZaN0dBZ0dOWEZNb3IxMDBtaGhWNGllb29aZERqeGxibHhnakZJRDgxeF9oa1NDSGV2YzYwa3plQ0dhZU43aHJNb1MyUlZRRm1hb1BZRVpZRVF4LUd1OWNQXzJpZFpr",
+    "title": "Nvidia's Huang diverges with CEOs of Anthropic, OpenAI on AI safety at Dreamforce - CNBC",
+    "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNamhBSWgtcmZwTVRVOXlnbGZMN2R1bDFlMWEtV21wUXFmUGVoWW5vQWNVbU55OEE0T0lWMUFlMXFZVGdvNmN0TElFUGNkQUlwQ01hU09aUEZIZlBjd0lMbGJMOVJHbmhOSTNRaHU0cXBnNmRVQ2lTb21odDUzOGlRQ1phSTRDUDVucThHQjNncjI1Q1pMOVV0WlotdDVpUdIBowFBVV95cUxNQW5ST21vbGJyUWYzcHVFZFJOZUgzTEJ3TWFkS3Y4Nm9fQ2w3c3puMnJqaFBpbl9CVG5Gd1RSZUVGQmJqLVZaN0dBZ0dOWEZNb3IxMDBtaGhWNGllb29aZERqeGxibHhnakZJRDgxeF9oa1NDSGV2YzYwa3plQ0dhZU43aHJNb1MyUlZRRm1hb1BZRVpZRVF4LUd1OWNQXzJpZFpr?oc=5",
+    "source": "Anthropic (Google News)",
+    "isoDate": "2026-09-15T20:00:16.000Z",
+    "topics": [
+      "teknoloji"
+    ]
+  },
+  {
     "id": "https://www.theguardian.com/world/2026/sep/15/brazil-supreme-court-presidential-election",
     "title": "Ferocious fight among Brazil’s supreme court erupts on eve of presidential election",
     "link": "https://www.theguardian.com/world/2026/sep/15/brazil-supreme-court-presidential-election",
@@ -1289,6 +1320,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T18:23:20.000Z",
     "summary": "Google Deepmind released Gemini 3.8 Live and 3.8 Live Extended Thinking, two new audio models for developers that top the Artificial Analysis speech-to-speech leaderboard. At $1.38 per hour of voice conversation, Google significantly undercuts OpenAI's GPT-Live-1, which should still sound more natural thanks to full duplex. The article Google launches Gemini 3.8 Live to take on OpenAI's GPT-Live-1 at a fraction of the cost appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/07/google_gemini-1.png",
     "topics": [
       "teknoloji"
     ]
@@ -1312,6 +1344,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T17:52:05.000Z",
     "summary": "OpenAI and Anthropic tell corporate customers their data won't be used for training. But when Anthropic said it would store usage logs from its flagship model Fable for 30 days, Palantir, Nvidia, and Booz Allen Hamilton pulled back from using it for sensitive work. From boardrooms to research labs, AI companies still have a data trust problem. The article AI labs have a data trust problem that their policies haven't solved appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/09/openai_anthropic_data.png",
     "topics": [
       "teknoloji",
       "siyaset"
@@ -1406,17 +1439,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": []
   },
   {
-    "id": "CBMi2gFBVV95cUxOS2h4cUw2akJYYjN6d2JhZGFjcGpKNVNMY1hSOHBMbTRYelhoemlpWkJ2ZmpVMFhhd3dRNUpNaUV2X1BmR1FIdVBsX0JLN3VySjdMWmwzeWxrZmNwdno2bk1UQ25pdTcwb3h2WDBKOWNoZHAtSTJyQk9MMXh5TkZMV2VDYnhVNEtZeS1PV3VvNURNQ3dMMzhjSG1yWUxsT0JIemo1RE5hRE5QNG53N0syS3RKWG5ySmo3VmhEMWNfWWdNOTRZVDVoR01CY1lEeXJ4c3VXQmozMW9EUQ",
-    "title": "Chinese Actors Cited in Anthropic’s Threat Report, Xi Jinping at BRICS Summit, Chinese Workers Complain Abroad to Defend Rights - Hudson Institute",
-    "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOS2h4cUw2akJYYjN6d2JhZGFjcGpKNVNMY1hSOHBMbTRYelhoemlpWkJ2ZmpVMFhhd3dRNUpNaUV2X1BmR1FIdVBsX0JLN3VySjdMWmwzeWxrZmNwdno2bk1UQ25pdTcwb3h2WDBKOWNoZHAtSTJyQk9MMXh5TkZMV2VDYnhVNEtZeS1PV3VvNURNQ3dMMzhjSG1yWUxsT0JIemo1RE5hRE5QNG53N0syS3RKWG5ySmo3VmhEMWNfWWdNOTRZVDVoR01CY1lEeXJ4c3VXQmozMW9EUQ?oc=5",
-    "source": "Anthropic (Google News)",
-    "isoDate": "2026-09-15T16:33:58.000Z",
-    "topics": [
-      "teknoloji",
-      "siyaset"
-    ]
-  },
-  {
     "id": "https://www.bbc.co.uk/news/articles/c3n07ydqdzlvo#1",
     "title": "Two sailors missing after tanker attacked in Strait of Hormuz, Oman says",
     "link": "https://www.bbc.co.uk/news/articles/c3n07ydqdzlvo?at_medium=RSS&at_campaign=rss",
@@ -1478,6 +1500,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-15T15:00:00.000Z",
     "summary": "Shortly after launching its new do-everything AI assistant Muse, Meta's launching subscription bundles that pair its standalone app subscriptions with extra AI usage. Some of the new Meta One bundles were in testing earlier this year, but are now available globally starting today, with several tiers for individual users, creators, and businesses. Meta says the \"core experience\" on its apps and Meta AI will still be free, and users can still get its subscriptions for Facebook, Instagram, and WhatsApp without a bundle. It also says it plans to expand the bundles to include \"Edits, AI glasses, and more over time.\" There are two bundles for in … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/Meta-One-Bundle-plans-for-individuals.png?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji",
       "toplum"
@@ -1512,6 +1535,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T14:26:48.000Z",
     "summary": "The Gates Foundation is investing at least a billion dollars over two years to make AI tools more widely available in health, education, and agriculture. Bill Gates warns that more than 90 percent of the training data behind early language models came from English sources, and that speech recognition fails 60 percent of the time in Yoruba. The market, he says, is \"a terrible guarantor of equal opportunity.\" The article After warning AI is too dangerous, Bill Gates bets a billion on its upside appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2023/10/bill_gates_gates_foundation.png",
     "topics": [
       "teknoloji",
       "siyaset"
@@ -1560,6 +1584,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-15T13:36:45.000Z",
     "summary": "The new SimpliSafe Video Doorbell Series 2 adds 2K resolution and dual band Wi-Fi. | Image: Simplisafe DIY home security company SimpliSafe is bringing its AI-powered proactive security feature to the front door. The new SimpliSafe Video Doorbell Series 2 launches today for $199.99 and works with the company's Active Guard Outdoor Protection (starting at $49.99 a month). This combines AI analysis with live agents to detect potential threats and respond proactively. When the camera detects suspicious activity - using a combination of on-device AI, cloud-based computer vision, and facial recognition - a SimpliSafe monitoring agent can drop in on the camera to \"see, speak to, and attempt to deter potential intruders and package thieves,\" accord … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/SimpliSafe-Video-Doorbell-Series-2_06_250844.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -1582,6 +1607,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T12:57:10.000Z",
     "summary": "Agility Robotics has unveiled Digit 5, the next version of its humanoid robot for warehouses and factories. The article Agility Robotics says its new Digit 5 robot can work next to people without safety fences appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/09/Agility-Robotics-Digit-5.png",
     "topics": [
       "teknoloji"
     ]
@@ -1638,6 +1664,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T10:33:03.000Z",
     "summary": "Apple is shipping its rebuilt \"Siri AI\" after years of delay, built on Google's Gemini models and running partly on the device, partly through Private Cloud Compute. Early testers praise multi-step requests and screen context, but report hallucinations and gaps with personal context. In the EU, the assistant stays unavailable for now. The article Apple brings a fully revamped Siri built on Google's Gemini, but not to the EU appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/07/apple_logo_neon_green.png",
     "topics": [
       "teknoloji",
       "siyaset"
@@ -1661,6 +1688,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-15T09:04:36.000Z",
     "summary": "OpenAI, Anthropic, and Google want to slow down frontier AI development, citing safety concerns. But critics from across the industry and politics are pushing back. Cohere CEO Aidan Gomez calls the initiative a \"cartel by another name\" designed to shut out competitors, and the White House and Trump himself are opposing the move. The article Not everyone is convinced that Big AI's proposed slowdown is really about safety appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/06/openai_anthropic_white_house.png",
     "topics": [
       "teknoloji"
     ]
@@ -1769,6 +1797,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-14T22:59:41.000Z",
     "summary": "When OpenAI CEO Sam Altman, Anthropic CEO Dario Amodei, Google DeepMind cofounder Demis Hassabis, and SpaceX head Elon Musk loosely agreed over the weekend to slow down AI development, skeptics spotted an ulterior motive immediately. The AI titans had declared that their aim was to \"pace the frontier,\" signing on at least partially to a proposal for embedding third-party auditors, regulating domestic labs, and reaching a global slowdown agreement. Their critics, however, argued they simply wanted to stop would-be competitors, kneecap the open-source movement, and avoid real legal safeguards - some dubbed it an outright \"cartel.\" The truth … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/11/STKS522_AGI_A.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -1786,7 +1815,7 @@ export const REAL_ITEMS: DigestItem[] = [
   },
   {
     "id": "CBMimgFBVV95cUxObHU4alVHZ2FzblRRM2QyNVdONXh0OEtnb050LW9ySGFZNkl6NGQ1N1dZUUZ4TGI4cUsydEtxVUh4MEpBYThCZnI0UjJfVHlOUll3algza2w5RzhfM0JyanFxMjhkeVlOb2FXNXh4RHMyc0NVbGhhYnZmQUtKd0x1UGtlNi1kN2pBeWd2eUtucjYxT1lyVndUbW13",
-    "title": "Google Finally Lets All Engineers Use Anthropic's Claude - businessinsider.com",
+    "title": "Google Finally Lets All Engineers Use Anthropic's Claude - Business Insider",
     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxObHU4alVHZ2FzblRRM2QyNVdONXh0OEtnb050LW9ySGFZNkl6NGQ1N1dZUUZ4TGI4cUsydEtxVUh4MEpBYThCZnI0UjJfVHlOUll3algza2w5RzhfM0JyanFxMjhkeVlOb2FXNXh4RHMyc0NVbGhhYnZmQUtKd0x1UGtlNi1kN2pBeWd2eUtucjYxT1lyVndUbW13?oc=5",
     "source": "Anthropic (Google News)",
     "isoDate": "2026-09-14T22:35:00.000Z",
@@ -1825,6 +1854,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-14T21:21:42.000Z",
     "summary": "Dario Amodei kicked off a flood of statements over the past few days about AI safety by publishing a long essay titled \"We Must Pace the Frontier\" detailing why AI development should be slowed down. Other AI leaders and politicians are speaking out in favor of or opposing his points, and we've compiled some of them here. Anthropic CEO Dario Amodei Amodei's Saturday morning essay outlined three steps for pacing AI development: embedded third-party evaluators that can verify if a company is adhering to safety practices and commitments and report incidents, coordination between frontier AI companies in democratic countries on standards and li … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/03/STK202_DARIO_AMODEI_CVIRGINIA_D.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -1847,6 +1877,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-14T20:03:37.000Z",
     "summary": "NVIDIA CEO Jensen Huang speaks during the G20 Innovation Ministerial in Chapel Hill, North Carolina, on September 2, 2026. (Photo by Matt RAMEY / AFP via Getty Images) | AFP via Getty Images Nvidia CEO Jensen Huang took a call from President Trump on Monday while onstage at the All-In Podcast's All-In Summit. It's not the first time Huang has taken a call from the president during work, but this time he put Trump on speakerphone before a big crowd. During the call, the president launched into his take on recent fears about AI development, which he called a \"hoax,\" and told the crowd that \"the robots will not be taking over.\" It's already a frothy week for AI news. The call with the president followed Anthropic CEO Dario Amodei's long essay published this weekend titled \"We Must Pace the Frontier\" where he argued for slowing … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/gettyimages-2292612804.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -1858,13 +1889,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-14T17:15:28.000Z",
     "summary": "OpenAI has hundreds of contract workers reading real ChatGPT conversations and rating them on a scale of one to seven, partly to reduce flattery and human-like behavior, 404 Media reports. The prompts are anonymized but can still contain sensitive data. Users who don't want their chats reviewed by humans have to actively disable the \"Improve the model for everyone\" setting, which is on by default. The article OpenAI has hundreds of contract workers reading your ChatGPT conversations appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/09/openai_logo_astra-1.png",
     "topics": [
       "teknoloji"
     ]
   },
   {
     "id": "CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw",
-    "title": "Anthropic targets financial advisers with new Claude tool - Reuters",
+    "title": "Anthropic targets financial advisers with new Claude tool - reuters.com",
     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOako0N2w1bExjVVA0azZSLUI0QXdveUdDUWFnM0RKeVJVTEN4TlFlX0t5UHR6Z1FROWp2LVJUSjY4anRUakt0OTBUWkdFdjNKLTFDNmhPZ0RVY3BZSEZzLVFFUjZVdmtLSHk1bVZQRm1ObVJ6SGVSWGpJbXBBdS1EQ3lSMk4xNzNfVTJQT2NYaW1aUkV5c1plNDJNRXk2S3ZPMzA5Yw?oc=5",
     "source": "Anthropic (Google News)",
     "isoDate": "2026-09-14T17:13:09.000Z",
@@ -1924,6 +1956,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-14T15:52:51.000Z",
     "summary": "Microsoft AI has published a code of conduct for its MAI models that puts human control ahead of autonomy and performance. \"If it isn’t safe we shouldn’t build it.,\" says AI chief Mustafa Suleyman. Unlike Anthropic, Microsoft rejects any form of artificial inner life or claims to consciousness for its models. The article Microsoft's AI rulebook: readable thinking, no inner life, and definitely no rights appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/09/Microsoft-Human-AI-Codex.png",
     "topics": [
       "teknoloji",
       "toplum"
@@ -1936,6 +1969,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Decoder",
     "isoDate": "2026-09-14T15:46:45.000Z",
     "summary": "Anthropic has told investors it will turn a profit for the second straight quarter, but the claim rests on an adjusted metric that leaves out costs like stock-based compensation. The article Anthropic eyes Nasdaq listing as a second profitable quarter aims to win over investors ahead of a mega-IPO appeared first on The Decoder.",
+    "image": "https://the-decoder.com/wp-content/uploads/2026/08/anthropic_claude.png",
     "topics": [
       "teknoloji",
       "ekonomi"
@@ -1959,6 +1993,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-14T13:00:00.000Z",
     "summary": "Microsoft is publishing a 37-page \"humanist AI code of conduct\" today, amid growing safety concerns over AI model progress. Anthropic CEO Dario Amodei called for a coordinated slow down of AI development over the weekend, after researchers warned recently that AI model progress could outpace our ability to safely deploy increasingly complex systems and verify and control the actions of AI agents. Microsoft's AI code of conduct makes it clear that \"people matter more than AI,\" and that AI models are not conscious and \"should not be designed to imitate consciousness.\" Microsoft also rejects \"the pursuit of legal personhood, or the idea that m … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/02/STK095_MICROSOFT_2_CVirginia_B.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji"
     ]
@@ -2047,6 +2082,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-13T19:41:48.000Z",
     "summary": "Yesterday, Anthropic CEO Dario Amodei published a lengthy open letter saying it was time to \"pace the frontier\" and slow down AI development. OpenAI's Sam Altman and Elon Musk both agreed, publicly voicing their support on X. Even Alphabet's Demis Hassabis offered tentative support for Amodei's proposal. Donald Trump and House Speaker Mike Johnson, however, seem to think the AI executives are being overreactive and fear that a pause could lead to China outpacing the US in the AI race. According to the Financial Times, Trump said \"Look, we're leading China in AI … and, frankly, I want to keep it that way, because whoever wins AI, wins.\" Jo … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/09/STK466_ELECTION_2024_CVirginia_E.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji",
       "ekonomi"
@@ -2101,6 +2137,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Verge AI",
     "isoDate": "2026-09-12T21:41:36.000Z",
     "summary": "In May, hundreds of malicious and spam packages were uploaded to RubyGems, causing a serious disruption for the host. Now independent researchers have said that a swarm of OpenAI agents were responsible for the attack. Not only that, but the AI tried to steal users' API keys. At the time, RubyGems described it as a \"major malicious attack\" and shut down signups for four days as it tried to mitigate the damage and collect data. Researchers said that the contents of the packages that brought RubyGems to its knees were clearly authored by an LLM, and that the agents submitting those packages self-identified as being from OpenAI. They said the … Read the full story at The Verge.",
+    "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2025/08/STK149_AI_01.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100",
     "topics": [
       "teknoloji",
       "ekonomi"
@@ -3003,17 +3040,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "topics": [
       "teknoloji",
       "ekonomi"
-    ]
-  },
-  {
-    "id": "https://blogs.nvidia.com/?p=97957",
-    "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
-    "link": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
-    "source": "NVIDIA",
-    "isoDate": "2026-08-26T21:05:30.000Z",
-    "summary": "The next wave of AI is placing new demands on infrastructure. As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastructure depends not only on compute, but on how compute, memory, storage, networking and software are designed together as a unified system. To help hyperscalers and AI innovators build the next generation […]",
-    "topics": [
-      "teknoloji"
     ]
   },
   {

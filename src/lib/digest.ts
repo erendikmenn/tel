@@ -1,7 +1,8 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
-import { enlargeImage, pageImage } from "@/lib/image";
+import { pageImage } from "@/lib/image";
+import { itemImage, type MediaNode } from "@/lib/media";
 import { normalizeText } from "@/lib/text";
 import { classify } from "@/lib/topics";
 
@@ -15,15 +16,6 @@ export type DigestItem = {
   image?: string;
   /** Kural tabanlı konu etiketleri (en fazla 2). Boş = "Diğer". */
   topics?: string[];
-};
-
-type MediaNode = {
-  $?: {
-    url?: string;
-    type?: string;
-    medium?: string;
-    width?: string;
-  };
 };
 
 type ParsedItem = Parser.Item & {
@@ -87,40 +79,6 @@ function itemSummary(item: ParsedItem, title: string) {
   if (!text) return undefined;
   if (normalizeText(text) === normalizeText(title)) return undefined;
   return clip(text);
-}
-
-function mediaUrl(node?: MediaNode) {
-  const url = node?.$?.url;
-  if (!url) return undefined;
-  const type = node.$?.type ?? "";
-  const medium = node.$?.medium ?? "";
-  if (type && !type.startsWith("image/")) return undefined;
-  if (medium && medium !== "image") return undefined;
-  return url;
-}
-
-function itemImage(item: ParsedItem) {
-  const enclosure = item.enclosure;
-  if (enclosure?.url && (!enclosure.type || enclosure.type.startsWith("image/"))) {
-    return enlargeImage(enclosure.url);
-  }
-
-  const thumb = mediaUrl(item.mediaThumbnail);
-  if (thumb) return enlargeImage(thumb);
-
-  const contents = Array.isArray(item.mediaContent)
-    ? item.mediaContent
-    : item.mediaContent
-      ? [item.mediaContent]
-      : [];
-  const ranked = contents
-    .map((node) => ({ url: mediaUrl(node), width: Number(node.$?.width || 0) }))
-    .filter((node): node is { url: string; width: number } => Boolean(node.url))
-    .sort((a, b) => b.width - a.width);
-  if (ranked[0]) return enlargeImage(ranked[0].url);
-
-  const html = item.content || item["content:encoded"] || "";
-  return enlargeImage(html.match(/<img[^>]+src=["']([^"']+)/i)?.[1]);
 }
 
 /** 30 günden eski kalem bayat/hatalı sayılır (feed'ler zaten birkaç günlük verir). */

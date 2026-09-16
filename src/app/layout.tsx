@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Source_Sans_3, Syne } from "next/font/google";
+import { IBM_Plex_Mono, Source_Sans_3, Syne, UnifrakturMaguntia } from "next/font/google";
 import { APP_NAME } from "@/lib/config";
 import "./globals.css";
 
@@ -21,6 +21,14 @@ const mono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+// Gazete künyesi için gotik (blackletter) yazı — sadece /gazete kullanır.
+const blackletter = UnifrakturMaguntia({
+  // Bu yazı tipinin yalnızca "latin" alt kümesi var.
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-blackletter",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -38,7 +46,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="tr"
-      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} ${blackletter.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

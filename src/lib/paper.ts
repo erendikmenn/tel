@@ -20,14 +20,22 @@ const AI_WORDS = [
   "model", "modelleri", "veri",
 ];
 
-export const PAPER_FEATURES = 4;
-export const PAPER_BRIEFS = 8;
-export const PAPER_LEAD_SUMMARY = 240;
-export const PAPER_FEATURE_SUMMARY = 150;
+// Sayfadaki yerler (A4 tek sayfa)
+export const PAPER_STRIP = 3; // üst bant teaser'ları
+export const PAPER_STORIES = 3; // fotoğraflı ikincil haberler
+export const PAPER_SIDEBAR = 5; // çerçeveli yan sütun
+export const PAPER_BRIEFS = 10; // kısa kısa
+
+export const PAPER_LEAD_SUMMARY = 420;
+export const PAPER_STORY_SUMMARY = 240;
+/** Üst bant için kısa başlık sınırı. */
+const STRIP_TITLE_MAX = 64;
 
 export type Paper = {
   lead?: DigestItem;
-  features: DigestItem[];
+  strip: DigestItem[];
+  stories: DigestItem[];
+  sidebar: DigestItem[];
   briefs: DigestItem[];
   /** Kaç aday arasından seçildi (teşhis için). */
   pool: number;
@@ -77,6 +85,14 @@ export function clipSummary(text: string | undefined, max: number) {
   return head.trimEnd() + "…";
 }
 
+/** Manşet altı (deck): özetin ilk cümlesi — gazete kuralı, model değil. */
+export function firstSentence(text: string | undefined, max = 160) {
+  if (!text) return undefined;
+  // 20 karakterden kısa "cümleler" kısaltma sayılır (ör. "ABD."), bölünmez.
+  const match = text.match(/^(.{20,}?[.!?])\s/);
+  return clipSummary(match ? match[1] : text, max);
+}
+
 export function buildPaper(items: DigestItem[], now = Date.now()): Paper {
   const ranked = items
     .filter((item) => isAiItem(item))
@@ -91,14 +107,27 @@ export function buildPaper(items: DigestItem[], now = Date.now()): Paper {
 
   // Manşet görselli olur; hiç görsel yoksa en iyi haber manşete geçer.
   const lead = ranked.find((item) => item.image) ?? ranked[0];
-  const rest = lead ? ranked.filter((item) => item.id !== lead.id) : [];
-  const features = rest.slice(0, PAPER_FEATURES);
-  const briefs = rest.slice(PAPER_FEATURES, PAPER_FEATURES + PAPER_BRIEFS);
-  const used = [lead, ...features, ...briefs].filter((item): item is DigestItem => Boolean(item));
+  const rest = ranked.filter((item) => item.id !== lead?.id);
+
+  // Üst bant: kısa başlıklar (dar kolonlara sığsın).
+  const strip = rest.filter((item) => item.title.length <= STRIP_TITLE_MAX).slice(0, PAPER_STRIP);
+  const afterStrip = rest.filter((item) => !strip.includes(item));
+
+  const stories = afterStrip.filter((item) => item.image).slice(0, PAPER_STORIES);
+  const afterStories = afterStrip.filter((item) => !stories.includes(item));
+
+  const sidebar = afterStories.slice(0, PAPER_SIDEBAR);
+  const briefs = afterStories.slice(PAPER_SIDEBAR, PAPER_SIDEBAR + PAPER_BRIEFS);
+
+  const used = [lead, ...strip, ...stories, ...sidebar, ...briefs].filter(
+    (item): item is DigestItem => Boolean(item),
+  );
 
   return {
     lead,
-    features,
+    strip,
+    stories,
+    sidebar,
     briefs,
     pool: ranked.length,
     edition: editionNumber(new Date(now)),

@@ -106,14 +106,19 @@ Kurallar:
 
 `/gazete` adresinde **kural motoruyla** dizilen bir gazete ön sayfası var. Model yok, rastgelelik yok: aynı veri her zaman aynı sayfayı üretir (test edilir).
 
-- **Havuz:** yapay zekâ kaynakları (`Feed.group === "ai"`) + başlığında AI geçen diğer haberler (ölçüm: 192 aday).
+- **Havuz:** yapay zekâ kaynakları (`Feed.group === "ai"`) + başlığında AI geçen diğer haberler (ölçüm: ~192 aday).
 - **Puan:** tazelik (≤3s 4 · ≤8s 3 · ≤24s 2 · üstü 1) + görsel (2) + başlığın sığması (≤70 harf 2 · ≤100 1) — en fazla 8.
-- **Dizgi:** manşet (görselli en iyi haber) → **4 özellik** (fotoğraflı) → **8 kısa kısa** → künye: `Tel · by erenailab · Sayı <yılın günü>`.
-- **Baskı:** A4 210×297 mm, **tek sayfa**; fotoğraflar siyah-beyaz (gazete kâğıdı hissi). Ekranda da A4 oranında görünür.
+- **Dizgi:** üst bant (3 kısa teaser) → **gotik künye** → künye şeridi (gün · tarih · sayı) → manşet + italik deck → **renkli** manşet fotoğrafı → gerekçeli 3 kolon gövde (ilk harf büyük) → 3 fotoğraflı haber + çerçeveli **Öne çıkanlar** sütunu → 4 kolon **kısa kısa** (10) → alt bilgi.
+- **Baskı:** A4 210×297 mm, **tek sayfa** (yazdırma yüksekliği ölçüldü: 253 mm). Fotoğraflar **renkli**.
 - **PDF:** sağ üstteki **PDF olarak kaydet** tarayıcının yazdırma penceresini açar → "PDF olarak kaydet" ile tek sayfalık A4 çıkar. Sunucu tarafı PDF motoru **yok**, bağımlılık eklenmedi.
-- **Kod:** kurallar `src/lib/paper.ts`, sayfa `src/app/gazete/`, stiller `src/app/gazete/paper.css`, kontroller `scripts/support/paper-checks.ts` (19 kontrol).
+- **Yazı tipi:** künye için `UnifrakturMaguntia` (next/font, `--font-blackletter`); başlık ve gövde Georgia.
+- **Kod:** kurallar `src/lib/paper.ts`, sayfa `src/app/gazete/`, stiller `src/app/gazete/paper.css`, kontroller `scripts/support/paper-checks.ts`.
 
-Özet metinler baskıda taşmasın diye kelime sınırında kırpılır (manşet 240, özellik 150 karakter) — bu da kural motorunun parçası.
+Özet metinler baskıda taşmasın diye kelime sınırında kırpılır (manşet 420, haber 240 karakter); deck özetin ilk cümlesidir — ikisi de kural motorunun parçası, model yok.
+
+**Tuzak (ölçüldü):** A4 genişliği 794 px, yani `@media (max-width: 900px)` kuralı **yazdırmada da** devreye giriyor ve gazete tek kolona çöküyordu (387 mm → 2 sayfa). Mobil kırılımlar bu yüzden `@media screen and (...)` ile ekrana özel yazıldı; yazdırma yüksekliği 253 mm'ye indi.
+
+
 
 ## Görseller
 

@@ -4,6 +4,7 @@ import { MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
 import { normalizeText } from "../../src/lib/text";
 import { classify } from "../../src/lib/topics";
 import type { DigestItem } from "../../src/lib/digest";
+import { itemImage, type ImageSource } from "../../src/lib/media";
 
 type RawItem = {
   title?: string;
@@ -64,6 +65,8 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
         source: feed.name,
         isoDate: iso,
         summary,
+        // Görsel kuralı da test edilebilsin: fixture'da gerçek görsel URL'leri olsun.
+        image: itemImage(raw as ImageSource),
         topics: classify({
           title,
           summary,
