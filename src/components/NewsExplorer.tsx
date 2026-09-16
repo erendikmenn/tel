@@ -230,6 +230,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             </div>
           </fieldset>
 
+          <span className="explorer-divider" aria-hidden="true" />
+
           <fieldset className="explorer-group">
             <legend>Kategori</legend>
             <div className="explorer-options">
@@ -254,10 +256,14 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             </div>
           </fieldset>
 
+          <span className="explorer-divider" aria-hidden="true" />
+
           <fieldset className="explorer-group">
             <legend>Pencere</legend>
             <div className="explorer-options">{WINDOW_OPTIONS.map(renderWindowOption)}</div>
           </fieldset>
+
+          <span className="explorer-divider" aria-hidden="true" />
 
           <fieldset className="explorer-group">
             <legend>Kaynak başına</legend>

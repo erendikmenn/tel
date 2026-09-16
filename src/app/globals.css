@@ -216,12 +216,12 @@ a {
 
 .explorer-panel {
   display: grid;
-  /* Bölümler içeriği kadar geniş ve panelde ORTADA toplanır. */
-  grid-template-columns: repeat(4, auto);
-  justify-content: center;
-  column-gap: 44px;
+  /* Bölümler iki yana dağılır; ayraçlar arada kendi 1px'lik kolonunda durur. */
+  grid-template-columns: auto 1px auto 1px auto 1px auto;
+  justify-content: space-between;
   align-items: stretch;
-  padding: 16px;
+  /* Kenarlara yapışmasın diye yanlarda nefes. */
+  padding: 16px 64px;
   border: 1px solid var(--line);
   background: var(--card);
 }
@@ -238,13 +238,8 @@ a {
   border: 0;
 }
 
-/* Bölüm ayracı: tam yükseklikte (hepsi aynı boyda) ve iki bölümün tam ortasında. */
-.explorer-group + .explorer-group::before {
-  content: "";
-  position: absolute;
-  left: -22px;
-  top: 0;
-  bottom: 0;
+/* Bölüm ayracı: tam yükseklikte, iki bölümün tam ortasında. */
+.explorer-divider {
   width: 1px;
   background: var(--line);
 }
@@ -546,11 +541,7 @@ a {
 
 @media (max-width: 1100px) {
   .explorer-panel {
-    column-gap: 28px;
-  }
-
-  .explorer-group + .explorer-group::before {
-    left: -14px;
+    padding: 16px 28px;
   }
 }
 
@@ -577,21 +568,11 @@ a {
   /* Dar ekranda bölümler alt alta yığılır; ayraç yatay olur. */
   .explorer-panel {
     grid-template-columns: 1fr;
+    row-gap: 14px;
+    padding: 16px;
   }
 
-  .explorer-group {
-    padding: 0;
-  }
-
-  .explorer-group + .explorer-group {
-    padding-top: 14px;
-  }
-
-  .explorer-group + .explorer-group::before {
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: auto;
+  .explorer-divider {
     width: auto;
     height: 1px;
   }
