@@ -545,6 +545,20 @@ a {
   }
 }
 
+/* Orta genişlik: dört bölüm tek satıra sığmaz, 2x2'ye in. */
+@media (max-width: 1000px) {
+  .explorer-panel {
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-around;
+    gap: 20px 32px;
+    padding: 16px 24px;
+  }
+
+  .explorer-divider {
+    display: none;
+  }
+}
+
 @media (max-width: 800px) {
   .intro {
     display: grid;
@@ -573,6 +587,7 @@ a {
   }
 
   .explorer-divider {
+    display: block;
     width: auto;
     height: 1px;
   }
