@@ -13,6 +13,7 @@ import {
   perSourceLabel,
   windowOptionLabel,
 } from "@/lib/config";
+import { countOptions } from "@/lib/counts";
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
@@ -129,18 +130,44 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     return [...seen].sort((a, b) => a.localeCompare(b, "tr"));
   }, [items]);
 
-  const filtered = useMemo(
-    () =>
-      viewItems(items, {
-        q: state.q,
-        source: state.sources,
-        category: state.categories,
-        // "Tümü" = zaman süzgeci yok
-        sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
-        perSource: state.perSource,
-      }),
-    [items, state.q, state.sources, state.categories, state.hours, state.perSource],
+  const baseView = useMemo(
+    () => ({
+      q: state.q,
+      source: state.sources,
+      category: state.categories,
+      // "Tümü" = zaman süzgeci yok
+      sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
+      perSource: state.perSource,
+    }),
+    [state.q, state.sources, state.categories, state.hours, state.perSource],
   );
+
+  const filtered = useMemo(() => viewItems(items, baseView), [items, baseView]);
+
+  // Canlı sayaçlar: her seçeneğin yanında, diğer gruplar sabitken kaç sonuç geleceği.
+  const sourceCounts = useMemo(
+    () => countOptions(items, baseView, "source", sourceOptions),
+    [items, baseView, sourceOptions],
+  );
+  const categoryCounts = useMemo(
+    () =>
+      countOptions(items, baseView, "category", [
+        ...TOPICS.map((topic) => topic.id),
+        TOPIC_ALL,
+      ]),
+    [items, baseView],
+  );
+  const windowCounts = useMemo(
+    () => countOptions(items, baseView, "hours", WINDOW_OPTIONS),
+    [items, baseView],
+  );
+  const perSourceCounts = useMemo(
+    () => countOptions(items, baseView, "perSource", PER_SOURCE_OPTIONS),
+    [items, baseView],
+  );
+
+  const optionClass = (count: number) =>
+    "explorer-option" + (count === 0 ? " is-zero" : "");
 
   const { lead, rail, rest } = useMemo(() => splitHome(filtered), [filtered]);
 
@@ -174,17 +201,21 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       perSource: DEFAULTS.perSource,
     });
 
-  const renderWindowOption = (hours: number) => (
-    <label key={hours} className="explorer-option">
-      <input
-        type="radio"
-        name="explorer-hours"
-        checked={state.hours === hours}
-        onChange={() => update({ hours })}
-      />
-      <span>{windowOptionLabel(hours)}</span>
-    </label>
-  );
+  const renderWindowOption = (hours: number) => {
+    const count = windowCounts.get(hours) ?? 0;
+    return (
+      <label key={hours} className={optionClass(count)}>
+        <input
+          type="radio"
+          name="explorer-hours"
+          checked={state.hours === hours}
+          onChange={() => update({ hours })}
+        />
+        <span>{windowOptionLabel(hours)}</span>
+        <span className="explorer-option-count">{count}</span>
+      </label>
+    );
+  };
 
   return (
     <div className="explorer">
@@ -217,16 +248,20 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
           <fieldset className="explorer-group">
             <legend>Kaynak</legend>
             <div className="explorer-options">
-              {sourceOptions.map((name) => (
-                <label key={name} className="explorer-option">
-                  <input
-                    type="checkbox"
-                    checked={state.sources.includes(name)}
-                    onChange={() => toggleSource(name)}
-                  />
-                  <span>{name}</span>
-                </label>
-              ))}
+              {sourceOptions.map((name) => {
+                const count = sourceCounts.get(name) ?? 0;
+                return (
+                  <label key={name} className={optionClass(count)}>
+                    <input
+                      type="checkbox"
+                      checked={state.sources.includes(name)}
+                      onChange={() => toggleSource(name)}
+                    />
+                    <span>{name}</span>
+                    <span className="explorer-option-count">{count}</span>
+                  </label>
+                );
+              })}
             </div>
           </fieldset>
 
@@ -235,23 +270,28 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
           <fieldset className="explorer-group">
             <legend>Kategori</legend>
             <div className="explorer-options">
-              {TOPICS.map((topic) => (
-                <label key={topic.id} className="explorer-option">
-                  <input
-                    type="checkbox"
-                    checked={state.categories.includes(topic.id)}
-                    onChange={() => toggleCategory(topic.id)}
-                  />
-                  <span>{topic.label}</span>
-                </label>
-              ))}
-              <label className="explorer-option">
+              {TOPICS.map((topic) => {
+                const count = categoryCounts.get(topic.id) ?? 0;
+                return (
+                  <label key={topic.id} className={optionClass(count)}>
+                    <input
+                      type="checkbox"
+                      checked={state.categories.includes(topic.id)}
+                      onChange={() => toggleCategory(topic.id)}
+                    />
+                    <span>{topic.label}</span>
+                    <span className="explorer-option-count">{count}</span>
+                  </label>
+                );
+              })}
+              <label className={optionClass(categoryCounts.get(TOPIC_ALL) ?? 0)}>
                 <input
                   type="checkbox"
                   checked={state.categories.includes(TOPIC_ALL)}
                   onChange={() => toggleCategory(TOPIC_ALL)}
                 />
                 <span>Diğer</span>
+                <span className="explorer-option-count">{categoryCounts.get(TOPIC_ALL) ?? 0}</span>
               </label>
             </div>
           </fieldset>
@@ -268,17 +308,21 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
           <fieldset className="explorer-group">
             <legend>Kaynak başına</legend>
             <div className="explorer-options">
-              {PER_SOURCE_OPTIONS.map((perSource) => (
-                <label key={perSource} className="explorer-option">
-                  <input
-                    type="radio"
-                    name="explorer-persource"
-                    checked={state.perSource === perSource}
-                    onChange={() => update({ perSource })}
-                  />
-                  <span>{perSourceLabel(perSource)}</span>
-                </label>
-              ))}
+              {PER_SOURCE_OPTIONS.map((perSource) => {
+                const count = perSourceCounts.get(perSource) ?? 0;
+                return (
+                  <label key={perSource} className={optionClass(count)}>
+                    <input
+                      type="radio"
+                      name="explorer-persource"
+                      checked={state.perSource === perSource}
+                      onChange={() => update({ perSource })}
+                    />
+                    <span>{perSourceLabel(perSource)}</span>
+                    <span className="explorer-option-count">{count}</span>
+                  </label>
+                );
+              })}
             </div>
           </fieldset>
         </div>

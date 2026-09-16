@@ -7,6 +7,7 @@ import {
   WINDOW_OPTIONS,
   perSourceLabel,
 } from "../../src/lib/config";
+import { countOptions } from "../../src/lib/counts";
 import type { DigestItem } from "../../src/lib/digest";
 import {
   countMatches,
@@ -186,6 +187,73 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   assert(
     "feed=Technology -> teknoloji",
     classify({ title: "Chip race heats up", source: "The Guardian", feedCategories: ["Technology"] }).includes("teknoloji"),
+  );
+
+  // --- Canlı sayaçlar (panelde her seçeneğin yanındaki sayı) ---
+  const panelView: DigestView = { sinceHours: DEFAULT_WINDOW_HOURS, perSource: DEFAULT_PER_SOURCE };
+
+  const windowCounts = countOptions(items, panelView, "hours", WINDOW_OPTIONS);
+  const windowSeries = WINDOW_OPTIONS.map((hours) => windowCounts.get(hours) ?? 0);
+  assert(
+    "pencere sayaçları monoton artar",
+    windowSeries.every((value, index) => index === 0 || value >= windowSeries[index - 1]),
+    JSON.stringify(windowSeries),
+  );
+  assert(
+    "pencere sayacı gerçek sonuçla aynı",
+    WINDOW_OPTIONS.every(
+      (hours) =>
+        windowCounts.get(hours) ===
+        viewItems(items, {
+          ...panelView,
+          sinceHours: hours === WINDOW_ALL ? undefined : hours,
+        }).length,
+    ),
+  );
+
+  const perSourceCounts = countOptions(items, panelView, "perSource", PER_SOURCE_OPTIONS);
+  const perSourceSeries = PER_SOURCE_OPTIONS.map((value) => perSourceCounts.get(value) ?? 0);
+  assert(
+    "kaynak başına sayaçları monoton artar",
+    perSourceSeries.every((value, index) => index === 0 || value >= perSourceSeries[index - 1]),
+    JSON.stringify(perSourceSeries),
+  );
+
+  const categoryCounts = countOptions(items, panelView, "category", [
+    ...TOPICS.map((topic) => topic.id),
+    TOPIC_ALL,
+  ]);
+  assert(
+    "kategori sayacı gerçek sonuçla aynı",
+    TOPICS.every(
+      (topic) => categoryCounts.get(topic.id) === viewItems(items, { ...panelView, category: topic.id }).length,
+    ),
+  );
+  assert(
+    "Diğer sayacı etiketsizlerle aynı",
+    categoryCounts.get(TOPIC_ALL) === viewItems(items, { ...panelView, category: TOPIC_ALL }).length,
+  );
+
+  const sourceNames = [...new Set(items.map((item) => item.source))];
+  const sourceCounts = countOptions(items, panelView, "source", sourceNames);
+  assert(
+    "kaynak sayacı gerçek sonuçla aynı",
+    sourceNames.every(
+      (name) => sourceCounts.get(name) === viewItems(items, { ...panelView, source: name }).length,
+    ),
+  );
+
+  // Sayaçlar diğer gruplara duyarlı olmalı: pencere daralınca kategori sayısı büyüyemez.
+  const narrowWindow = countOptions(items, { ...panelView, sinceHours: 1 }, "category", ["savas"]);
+  assert(
+    "kategori sayacı pencereye duyarlı",
+    (narrowWindow.get("savas") ?? 0) <= (categoryCounts.get("savas") ?? 0),
+  );
+  // Ve kendi grubundaki seçim sayıyı değiştirmemeli (facet mantığı).
+  const withSelection = countOptions(items, { ...panelView, category: ["savas"] }, "category", ["ekonomi"]);
+  assert(
+    "grup içi seçim sayacı değiştirmez",
+    withSelection.get("ekonomi") === categoryCounts.get("ekonomi"),
   );
 }
 

@@ -269,6 +269,20 @@ a {
   accent-color: var(--ink);
 }
 
+/* Canlı sonuç sayısı: sağa yaslı, sıfır olanlar solgun. */
+.explorer-option-count {
+  margin-left: auto;
+  padding-left: 10px;
+  color: var(--muted);
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.explorer-option.is-zero {
+  opacity: 0.45;
+}
+
 /* Her filtre grubunda en fazla 5 satır; taşarsa yanına yeni kolon açılır. */
 .explorer-options {
   display: grid;
