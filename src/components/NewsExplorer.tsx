@@ -33,9 +33,10 @@ const DEFAULTS: ExplorerState = {
 
 const STORAGE_KEY = "tel:view";
 
-// Pencere seçenekleri: son ikisi (48 saat + Tümü) yan yana, gerisi alt alta.
-const STACKED_WINDOWS = WINDOW_OPTIONS.slice(0, -2);
-const INLINE_WINDOWS = WINDOW_OPTIONS.slice(-2);
+// Pencere iki kolon: sol = taze pencereler (1…36 saat), sağ = uçlar (48 saat + Tümü).
+// Böylece "48 saat" 1 saat'in, "Tümü" 6 saat'in hizasında durur.
+const WINDOW_LEFT = WINDOW_OPTIONS.slice(0, -2);
+const WINDOW_RIGHT = WINDOW_OPTIONS.slice(-2);
 
 function pickOption(raw: string | null, options: number[]) {
   // 0 geçerli bir değer (sınırsız), bu yüzden "yok" ile karıştırmamak için önce boşu ele.
@@ -211,8 +212,10 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
 
           <fieldset className="explorer-group">
             <legend>Pencere</legend>
-            {STACKED_WINDOWS.map(renderWindowOption)}
-            <div className="explorer-options-row">{INLINE_WINDOWS.map(renderWindowOption)}</div>
+            <div className="explorer-columns">
+              <div className="explorer-col">{WINDOW_LEFT.map(renderWindowOption)}</div>
+              <div className="explorer-col">{WINDOW_RIGHT.map(renderWindowOption)}</div>
+            </div>
           </fieldset>
 
           <fieldset className="explorer-group">

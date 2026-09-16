@@ -254,11 +254,17 @@ a {
   accent-color: var(--ink);
 }
 
-/* Son iki pencere seçeneği (48 saat + Tümü) yan yana dursun. */
-.explorer-options-row {
+/* Pencere seçenekleri iki kolon: sol taze pencereler, sağ uçlar (48 saat + Tümü). */
+.explorer-columns {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
+  align-items: start;
+  gap: 8px 24px;
+}
+
+.explorer-col {
+  display: grid;
+  align-content: start;
+  gap: 8px;
 }
 
 
