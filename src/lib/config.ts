@@ -1,6 +1,15 @@
 export const APP_NAME = "Tel";
-export const FEED_ITEM_LIMIT = 12;
-export const ITEM_MAX_AGE_HOURS = 36;
+
+// Sunucunun bir kerelik çektiği ÜST KÜME. Kullanıcı ekranda bunun içinden seçer,
+// bu yüzden fetch tavanı, ekranda seçilebilen en büyük değere eşittir.
+export const FEED_ITEM_LIMIT = 20; // kaynak başına en fazla kalem
+export const ITEM_MAX_AGE_HOURS = 48; // en eski kaç saat
+
+// Ekrandaki varsayılanlar ve seçenekler (fetch tavanının altında).
+export const DEFAULT_WINDOW_HOURS = 36;
+export const DEFAULT_PER_SOURCE = 12;
+export const WINDOW_OPTIONS = [1, 6, 12, 24, 36, 48];
+export const PER_SOURCE_OPTIONS = [6, 12, 16, 20];
 
 export function istanbulDate(date = new Date()) {
   return new Intl.DateTimeFormat("tr-TR", {

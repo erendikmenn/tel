@@ -130,3 +130,19 @@ export function filterItems(items: DigestItem[], filter: DigestFilter = {}) {
   const limit = normalizeLimit(filter.limit);
   return limit === undefined ? matched.slice(offset) : matched.slice(offset, offset + limit);
 }
+
+/**
+ * Kaynak başına en fazla `perSource` kalem bırakır; sıra korunur (çağıran zaten
+ * yeniden eskiye sıralı verir). Böylece üretken bir kaynak sayfayı domine etmez.
+ */
+export function takePerSource(items: DigestItem[], perSource: number) {
+  if (!Number.isFinite(perSource) || perSource <= 0) return items;
+
+  const counts = new Map<string, number>();
+  return items.filter((item) => {
+    const kept = counts.get(item.source) ?? 0;
+    if (kept >= perSource) return false;
+    counts.set(item.source, kept + 1);
+    return true;
+  });
+}

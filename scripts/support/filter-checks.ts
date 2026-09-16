@@ -1,5 +1,5 @@
 import type { DigestItem } from "../../src/lib/digest";
-import { countMatches, filterItems, matchesFilter } from "../../src/lib/filter";
+import { countMatches, filterItems, matchesFilter, takePerSource } from "../../src/lib/filter";
 import { normalizeText } from "../../src/lib/text";
 
 export type Assert = (name: string, ok: boolean, detail?: string) => void;
@@ -55,4 +55,15 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   assert("countMatches = toplam", countMatches(items, {}) === items.length);
   assert("limit dilimler", filterItems(items, { limit: 3 }).length === Math.min(3, items.length));
   assert("offset kaydırır", filterItems(items, { offset: 2, limit: 2 })[0]?.id === all[2]?.id);
+
+  // Kaynak başına cap: her kaynak en fazla N ve o kaynağın EN YENİ N'i (sıra korunur).
+  const capped = takePerSource(items, 2);
+  let perSourceOk = true;
+  for (const source of new Set(items.map((i) => i.source))) {
+    const kept = capped.filter((i) => i.source === source).map((i) => i.id);
+    const expected = items.filter((i) => i.source === source).slice(0, 2).map((i) => i.id);
+    if (kept.join(",") !== expected.join(",")) perSourceOk = false;
+  }
+  assert("takePerSource(2): kaynak başına <= 2 ve en yeniler", perSourceOk);
+  assert("takePerSource sırayı korur", capped[0]?.id === items[0]?.id);
 }

@@ -4,69 +4,110 @@ import { useEffect, useMemo, useState } from "react";
 import { LeadStory } from "@/components/LeadStory";
 import { StoryList } from "@/components/StoryList";
 import { StoryRail } from "@/components/StoryRail";
+import {
+  DEFAULT_PER_SOURCE,
+  DEFAULT_WINDOW_HOURS,
+  PER_SOURCE_OPTIONS,
+  WINDOW_OPTIONS,
+} from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
-import { filterItems } from "@/lib/filter";
+import { filterItems, takePerSource } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
-
-const TIME_WINDOWS: { label: string; value: number | null }[] = [
-  { label: "Tümü", value: null },
-  { label: "Son 1 saat", value: 1 },
-  { label: "Son 6 saat", value: 6 },
-  { label: "Son 12 saat", value: 12 },
-  { label: "Son 24 saat", value: 24 },
-];
 
 type ExplorerState = {
   q: string;
   sources: string[];
-  hours: number | null;
+  hours: number;
+  perSource: number;
 };
 
-const EMPTY: ExplorerState = { q: "", sources: [], hours: null };
+const DEFAULTS: ExplorerState = {
+  q: "",
+  sources: [],
+  hours: DEFAULT_WINDOW_HOURS,
+  perSource: DEFAULT_PER_SOURCE,
+};
 
-function parseHours(raw: string | null) {
+const STORAGE_KEY = "tel:view";
+
+function pickOption(raw: string | null, options: number[]) {
   const value = Number(raw);
-  return TIME_WINDOWS.some((window) => window.value === value) ? value : null;
+  return options.includes(value) ? value : null;
 }
 
-function readUrl(): ExplorerState {
-  if (typeof window === "undefined") return EMPTY;
+function readStored() {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    return raw ? (JSON.parse(raw) as { hours?: number; perSource?: number }) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Sıra: URL → localStorage → varsayılan. */
+function readInitialState(): ExplorerState {
+  if (typeof window === "undefined") return DEFAULTS;
+
   const params = new URLSearchParams(window.location.search);
+  const stored = readStored();
+  const storedHours =
+    stored?.hours != null && WINDOW_OPTIONS.includes(stored.hours) ? stored.hours : null;
+  const storedPerSource =
+    stored?.perSource != null && PER_SOURCE_OPTIONS.includes(stored.perSource)
+      ? stored.perSource
+      : null;
+
   return {
     q: params.get("q") ?? "",
     sources: (params.get("kaynak") ?? "")
       .split(",")
       .map((value) => value.trim())
       .filter(Boolean),
-    hours: parseHours(params.get("zaman")),
+    hours: pickOption(params.get("zaman"), WINDOW_OPTIONS) ?? storedHours ?? DEFAULTS.hours,
+    perSource:
+      pickOption(params.get("kaynakbasi"), PER_SOURCE_OPTIONS) ??
+      storedPerSource ??
+      DEFAULTS.perSource,
   };
 }
 
-function writeUrl(state: ExplorerState) {
+function persist(state: ExplorerState) {
   const params = new URLSearchParams();
   if (state.q.trim()) params.set("q", state.q.trim());
   if (state.sources.length > 0) params.set("kaynak", state.sources.join(","));
-  if (state.hours != null) params.set("zaman", String(state.hours));
+  if (state.hours !== DEFAULTS.hours) params.set("zaman", String(state.hours));
+  if (state.perSource !== DEFAULTS.perSource) params.set("kaynakbasi", String(state.perSource));
+
   const search = params.toString();
-  const url = search ? `${window.location.pathname}?${search}` : window.location.pathname;
+  const url = search ? window.location.pathname + "?" + search : window.location.pathname;
   window.history.replaceState(null, "", url);
+
+  try {
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ hours: state.hours, perSource: state.perSource }),
+    );
+  } catch {
+    // localStorage kapalıysa sorun değil
+  }
 }
 
 export function NewsExplorer({ items }: { items: DigestItem[] }) {
-  // Sunucu ile aynı ilk boya: filtre yok. URL'den okuma, hidrasyondan sonra.
-  const [state, setState] = useState<ExplorerState>(EMPTY);
+  // Sunucuyla aynı ilk boya: varsayılan pencere + kaynak başına varsayılan.
+  const [state, setState] = useState<ExplorerState>(DEFAULTS);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // URL'deki ?q/kaynak/zaman ile bir kerelik senkron (paylaşılan bağlantı).
-    const syncFromUrl = () => setState(readUrl());
-    syncFromUrl();
+    // URL/localStorage ile bir kerelik senkron (paylaşılan bağlantı + kalıcı tercih).
+    const sync = () => setState(readInitialState());
+    sync();
   }, []);
 
   const update = (patch: Partial<ExplorerState>) => {
     const next = { ...state, ...patch };
     setState(next);
-    writeUrl(next);
+    persist(next);
   };
 
   const sourceOptions = useMemo(() => {
@@ -75,21 +116,22 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     return [...seen].sort((a, b) => a.localeCompare(b, "tr"));
   }, [items]);
 
-  const filtered = useMemo(
-    () =>
-      filterItems(items, {
-        q: state.q,
-        source: state.sources,
-        sinceHours: state.hours ?? undefined,
-      }),
-    [items, state.q, state.sources, state.hours],
-  );
+  const filtered = useMemo(() => {
+    const matched = filterItems(items, {
+      q: state.q,
+      source: state.sources,
+      sinceHours: state.hours,
+    });
+    return takePerSource(matched, state.perSource);
+  }, [items, state.q, state.sources, state.hours, state.perSource]);
 
   const { lead, rail, rest } = useMemo(() => splitHome(filtered), [filtered]);
 
-  const filterCount = state.sources.length + (state.hours != null ? 1 : 0);
-  const hasSearch = state.q.trim().length > 0;
-  const hasAny = hasSearch || filterCount > 0;
+  const filterCount =
+    state.sources.length +
+    (state.hours !== DEFAULTS.hours ? 1 : 0) +
+    (state.perSource !== DEFAULTS.perSource ? 1 : 0);
+  const hasAny = state.q.trim().length > 0 || filterCount > 0;
 
   const toggleSource = (name: string) => {
     const sources = state.sources.includes(name)
@@ -98,7 +140,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     update({ sources });
   };
 
-  const clearAll = () => update({ q: "", sources: [], hours: null });
+  const clearAll = () =>
+    update({ q: "", sources: [], hours: DEFAULTS.hours, perSource: DEFAULTS.perSource });
 
   return (
     <div className="explorer">
@@ -143,16 +186,31 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
           </fieldset>
 
           <fieldset className="explorer-group">
-            <legend>Zaman</legend>
-            {TIME_WINDOWS.map((window) => (
-              <label key={window.label} className="explorer-option">
+            <legend>Pencere</legend>
+            {WINDOW_OPTIONS.map((hours) => (
+              <label key={hours} className="explorer-option">
                 <input
                   type="radio"
                   name="explorer-hours"
-                  checked={state.hours === window.value}
-                  onChange={() => update({ hours: window.value })}
+                  checked={state.hours === hours}
+                  onChange={() => update({ hours })}
                 />
-                <span>{window.label}</span>
+                <span>Son {hours} saat</span>
+              </label>
+            ))}
+          </fieldset>
+
+          <fieldset className="explorer-group">
+            <legend>Kaynak başına</legend>
+            {PER_SOURCE_OPTIONS.map((perSource) => (
+              <label key={perSource} className="explorer-option">
+                <input
+                  type="radio"
+                  name="explorer-persource"
+                  checked={state.perSource === perSource}
+                  onChange={() => update({ perSource })}
+                />
+                <span>{perSource} haber</span>
               </label>
             ))}
           </fieldset>
@@ -171,13 +229,22 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             {name} <span aria-hidden="true">×</span>
           </button>
         ))}
-        {state.hours != null ? (
+        {state.hours !== DEFAULTS.hours ? (
           <button
             type="button"
             className="explorer-chip"
-            onClick={() => update({ hours: null })}
+            onClick={() => update({ hours: DEFAULTS.hours })}
           >
             Son {state.hours} saat <span aria-hidden="true">×</span>
+          </button>
+        ) : null}
+        {state.perSource !== DEFAULTS.perSource ? (
+          <button
+            type="button"
+            className="explorer-chip"
+            onClick={() => update({ perSource: DEFAULTS.perSource })}
+          >
+            {state.perSource}/kaynak <span aria-hidden="true">×</span>
           </button>
         ) : null}
         {hasAny ? (

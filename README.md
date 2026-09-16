@@ -22,8 +22,8 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 
 - Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
 - Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
-- Alınan kalemler **son 36 saat** ile sınırlıdır (`ITEM_MAX_AGE_HOURS` — `src/lib/config.ts`).
-- Kaynak başına en fazla **12** kalem alınır (`FEED_ITEM_LIMIT`).
+- Sunucu bir **üst küme** çeker: son **48 saat** (`ITEM_MAX_AGE_HOURS`) ve kaynak başına en fazla **20** kalem (`FEED_ITEM_LIMIT`) — `src/lib/config.ts`.
+- Ekrandaki **varsayılan** görünüm son **36 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
 - Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
 
 Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate` dolunca baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
@@ -42,13 +42,14 @@ Anasayfadaki `NewsExplorer` (client) arama ve filtreyi uygular, sonra aynı `spl
 
 ## Arama ve filtreleme
 
-Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak ve zaman seçilir. Hepsi **tarayıcıda** çalışır: sayfa bir kez üretilir (~60 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
+Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak, pencere ve kaynak başına sayı seçilir. Hepsi **tarayıcıda** çalışır: sunucu bir kez üst kümeyi üretir (en fazla ~100 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
 
 - **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
-- **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, zaman filtresiyle aralarında **VE**.
-- **Zaman**: son 1 / 6 / 12 / 24 saat ya da tümü. Liste zaten `ITEM_MAX_AGE_HOURS` (36 saat) ile sınırlı.
-- **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6` paylaşılabilir; **Temizle** hepsini sıfırlar.
-- Çekirdek: `src/lib/filter.ts` (`filterItems`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
+- **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**.
+- **Pencere**: son 1 / 6 / 12 / 24 / 36 / 48 saat (varsayılan **36**). Sunucu en fazla `ITEM_MAX_AGE_HOURS` (48 saat) çeker.
+- **Kaynak başına**: 6 / 12 / 16 / 20 haber (varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
+- **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6&kaynakbasi=20` paylaşılabilir. Pencere/kaynak-başına tercihi ayrıca `localStorage`'da tutulur (`tel:view`); **Temizle** hepsini varsayılana döndürür.
+- Çekirdek: `src/lib/filter.ts` (`filterItems`, `takePerSource`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
 - **Kategori** filtresi `0.3 tasnif` ile gelecek; `DigestFilter`'a `category` eklenince aynı çubukta yer alır.
 - Testler **gerçek veriyle** çalışır: `npm test` canlıdan alınmış gerçek başlıklardan oluşan `scripts/fixtures/real-items.ts` snapshot'ı üzerinde kuralları doğrular; `npm run test:live` aynı kontrolleri canlı 5 RSS'te çalıştırır; `npm run fixtures` snapshot'ı yeniler.
 
@@ -98,8 +99,8 @@ npm run fixtures  # snapshot'ı canlıdan yenile
 | --- | --- | --- |
 | Kaynak listesi | `src/lib/feeds.ts` | 5 feed |
 | Sayfa yenileme | `src/app/page.tsx` → `revalidate` | 1800 sn (30 dk) |
-| Haber penceresi | `src/lib/config.ts` → `ITEM_MAX_AGE_HOURS` | 36 saat |
-| Kaynak başı tavan | `src/lib/config.ts` → `FEED_ITEM_LIMIT` | 12 |
+| Haber penceresi (fetch tavanı) | `src/lib/config.ts` → `ITEM_MAX_AGE_HOURS` | 48 saat (ekranda varsayılan 36) |
+| Kaynak başı tavan (fetch) | `src/lib/config.ts` → `FEED_ITEM_LIMIT` | 20 (ekranda varsayılan 12) |
 
 Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 
