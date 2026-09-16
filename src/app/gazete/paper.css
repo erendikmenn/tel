@@ -43,6 +43,9 @@
 .paper {
   width: 210mm;
   min-height: 296mm;
+  /* Tarayıcı "arka planları yazdır" kapalıysa bile fotoğraflar renkli kalsın. */
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
   margin: 0 auto;
   padding: 8mm 9mm 6mm;
   background: #fff;
@@ -77,8 +80,8 @@
 
 .paper-strip-item h3 {
   margin: 2px 0 0;
-  font-size: 12.5px;
-  line-height: 1.12;
+  font-size: 12px;
+  line-height: 1.1;
 }
 
 /* ── Künye ──────────────────────────────────────────────── */
@@ -90,7 +93,7 @@
 .paper-title {
   margin: 0;
   font-family: var(--font-blackletter), UnifrakturMaguntia, "Old English Text MT", serif;
-  font-size: 58px;
+  font-size: 52px;
   line-height: 0.9;
   letter-spacing: 0.01em;
   font-weight: 400;
@@ -155,7 +158,7 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 68mm;
+  height: 55mm;
   object-fit: cover;
   margin: 0;
 }
@@ -193,8 +196,8 @@
   column-rule: 1px solid #e6e6e6;
   text-align: justify;
   hyphens: auto;
-  font-size: 11.5px;
-  line-height: 1.38;
+  font-size: 10.8px;
+  line-height: 1.34;
 }
 
 .paper-lead-body p {
@@ -231,7 +234,7 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 32mm;
+  height: 27mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
