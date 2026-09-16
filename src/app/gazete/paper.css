@@ -357,6 +357,15 @@
 }
 
 @media print {
+  /* Uygulamanın gri gövde arka planı, kâğıdın bittiği yerle yazdırma alanının
+     bittiği yer arasındaki ince şeride sızıyordu (ölçüldü: #e7e9ed).
+     Yazdırmada her şey beyaz kâğıt. */
+  html,
+  body,
+  .paper-wrap {
+    background: #fff;
+  }
+
   .paper-wrap {
     padding: 0;
   }
