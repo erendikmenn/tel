@@ -1,9 +1,7 @@
 /* Gerçek gazete sayfası: A4, tek sayfa, renkli fotoğraf, gerekçeli kolonlar. */
 @page {
   size: A4 portrait;
-  /* Kenar boşluğunu biz veriyoruz: destekleyen tarayıcılarda (Chrome, yeni Safari)
-     yazdırma alanını büyütür; desteklemeyenler kendi payını kullanır. */
-  margin: 6mm;
+  margin: 7mm;
 }
 
 :root {
@@ -63,7 +61,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   border-bottom: 3px solid var(--paper-line);
-  padding-bottom: 4px;
+  padding-bottom: 5px;
 }
 
 .paper-strip-item {
@@ -89,7 +87,7 @@
 /* ── Künye ──────────────────────────────────────────────── */
 .paper-masthead {
   text-align: center;
-  padding: 2px 0 1px;
+  padding: 3px 0 1px;
 }
 
 .paper-title {
@@ -115,7 +113,7 @@
   grid-template-columns: 1fr auto 1fr;
   gap: 8px;
   align-items: center;
-  padding: 3px 0;
+  padding: 4px 0;
   border-top: 1px solid var(--paper-line);
   border-bottom: 1px solid var(--paper-line);
   font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
@@ -135,7 +133,7 @@
 
 /* ── Manşet ─────────────────────────────────────────────── */
 .paper-banner {
-  padding: 4px 0 4px;
+  padding: 5px 0 5px;
   border-bottom: 3px solid var(--paper-line);
 }
 
@@ -160,7 +158,7 @@
 .paper-banner-photo {
   display: block;
   width: 100%;
-  height: 46mm;
+  height: 55mm;
   object-fit: cover;
   margin: 0;
 }
@@ -222,8 +220,8 @@
 .paper-mid {
   display: grid;
   grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
-  gap: 5mm;
-  padding: 4px 0 4px;
+  gap: 6mm;
+  padding: 5px 0 5px;
   border-bottom: 3px solid var(--paper-line);
 }
 
@@ -236,7 +234,7 @@
 .paper-story img {
   display: block;
   width: 100%;
-  height: 24mm;
+  height: 27mm;
   object-fit: cover;
   margin-bottom: 4px;
 }
@@ -288,7 +286,7 @@
 
 /* ── Kısa kısa ──────────────────────────────────────────── */
 .paper-briefs {
-  padding: 4px 0 2px;
+  padding: 5px 0 3px;
 }
 
 .paper-brief-list {
