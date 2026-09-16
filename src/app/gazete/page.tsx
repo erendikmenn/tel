@@ -33,6 +33,9 @@ export default async function GazetePage() {
         <Link className="paper-button" href="/">
           ← Anasayfa
         </Link>
+        <a className="paper-button paper-button-primary" href="/gazete/pdf">
+          PDF indir
+        </a>
         <PrintButton />
       </div>
 

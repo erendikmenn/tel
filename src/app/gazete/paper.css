@@ -40,6 +40,17 @@
   border-color: var(--ink, #111);
 }
 
+/* Birincil eylem: doğrudan PDF indirir (yazdırma penceresi açılmaz). */
+.paper-button-primary {
+  border-color: var(--ink, #111);
+  background: var(--ink, #111);
+  color: #fff;
+}
+
+.paper-button-primary:hover {
+  opacity: 0.88;
+}
+
 .paper {
   width: 210mm;
   min-height: 296mm;

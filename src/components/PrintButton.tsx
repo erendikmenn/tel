@@ -4,7 +4,7 @@
 export function PrintButton() {
   return (
     <button type="button" className="paper-button" onClick={() => window.print()}>
-      PDF olarak kaydet
+      Yazdır
     </button>
   );
 }
