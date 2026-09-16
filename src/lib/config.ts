@@ -6,15 +6,18 @@ export const APP_NAME = "Tel";
 export const MAX_AGE_HOURS = 720; // 30 gün: bundan eskisi bayat/hatalı sayılır
 export const MAX_ITEMS = 300; // güvenlik tavanı (bugünkü gerçek ~125, hiçbir zaman bağlamaz)
 
-// Ekrandaki varsayılanlar ve seçenekler. Ölçüm (16 Eyl 2026, 5 feed):
-// 48 saat kalemlerin ~%91'ini, 1 hafta ~%99'unu, 1 ay ise 1 haftayla aynısını kapsıyor.
-// Arada anlamlı bir eşik olmadığı için 48 saate kadar taze pencereler, sonra tek bir
-// "Tümü" (feed'in verdiği her şey). Daha uzun pencereler arşiv (0.3) işi.
-export const DEFAULT_WINDOW_HOURS = 36;
+// Ekrandaki varsayılanlar ve seçenekler. Ölçüm (16 Eyl 2026, 5 feed, kaynak başına 12):
+//   1s:4  6s:50  12s:52  24s:57  36s:58  48s:58  Tümü:58
+// Kaynak başına sınır bağlayıcı olduğu için 24 saatten sonrası AYNI listeyi veriyordu;
+// bu yüzden 36 ve 48 seçenekleri kaldırıldı (kullanıcı "bir şey değişmiyor" dedi).
+// Kaynak başına "20+" seçilince pencere yeniden anlam kazanıyor:
+//   1s:4  6s:60  12s:85  24s:101  36s:111  48s:113  Tümü:125
+// Daha uzun pencereler arşiv (0.3) işi.
+export const DEFAULT_WINDOW_HOURS = 24;
 export const DEFAULT_PER_SOURCE = 12;
 /** 0 = zaman süzgeci yok; ekranda "Tümü" olarak görünür. */
 export const WINDOW_ALL = 0;
-export const WINDOW_OPTIONS = [1, 6, 12, 24, 36, 48, WINDOW_ALL];
+export const WINDOW_OPTIONS = [1, 6, 12, 24, WINDOW_ALL];
 /** 0 = kaynak başına sınır yok; ekranda "20+" olarak görünür. */
 export const PER_SOURCE_UNLIMITED = 0;
 export const PER_SOURCE_OPTIONS = [6, 12, 16, PER_SOURCE_UNLIMITED];

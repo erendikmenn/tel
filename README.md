@@ -23,7 +23,7 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 - Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
 - Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
 - Sunucu bir **üst küme** çeker: **30 günden yeni her şey** (`MAX_AGE_HOURS`). Kaynak başına yapay sınır yok; genel `MAX_ITEMS = 300` güvenlik tavanı var (`src/lib/config.ts`). Pencere süzgeci **tarayıcıda** uygulanır.
-- Ekrandaki **varsayılan** görünüm son **36 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
+- Ekrandaki **varsayılan** görünüm son **24 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
 - Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
 
 Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate` dolunca baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
@@ -46,7 +46,7 @@ Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** pan
 
 - **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
 - **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**.
-- **Pencere**: son 1 / 6 / 12 / 24 / 36 / 48 saat ya da **Tümü** (varsayılan **36 saat**), tarayıcıda uygulanır. **Ölçüm:** 48 saat → 114, 1 hafta → 124, 1 ay → 125 kalem; arada anlamlı eşik olmadığı için uzun pencereler kaldırıldı. **Tümü** = feed'in verdiği her şey (bugün 125). Gerçek uzun pencereler arşiv (`0.3`) ile gelir.
+- **Pencere**: son 1 / 6 / 12 / 24 saat ya da **Tümü** (varsayılan **24 saat**), tarayıcıda uygulanır. **Ölçüm (kaynak başına 12):** 1s → 4, 6s → 50, 12s → 52, 24s → 57, Tümü → 58. Kaynak başına sınır bağlayıcı olduğu için 24 saatten sonrası **aynı listeyi** veriyordu; bu yüzden 36 ve 48 saat seçenekleri kaldırıldı. Sınırı **20+** yapınca pencere yeniden anlam kazanır: 6s → 60, 12s → 85, 24s → 101, Tümü → 125. **Tümü** = feed'in verdiği her şey; gerçek uzun pencereler arşiv (`0.3`) ile gelir.
 - **Kaynak başına**: 6 / 12 / 16 / **20+** (sınırsız; varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
 - **Kategori**: 9 konu + Diğer; `DigestFilter.category` ile süzülür (aşağıdaki **Kategoriler** bölümü).
 - **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&kategori=teknoloji&zaman=6&kaynakbasi=20` paylaşılabilir. Pencere/kaynak-başına tercihi ayrıca `localStorage`'da tutulur (`tel:view`); **Temizle** hepsini varsayılana döndürür.
@@ -121,7 +121,7 @@ npm run fixtures  # snapshot'ı canlıdan yenile
 | --- | --- | --- |
 | Kaynak listesi | `src/lib/feeds.ts` | 5 feed |
 | Sayfa yenileme | `src/app/page.tsx` → `revalidate` | 1800 sn (30 dk) |
-| Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 48 saat + Tümü (varsayılan 36 saat) |
+| Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 24 saat + Tümü (varsayılan 24 saat) |
 | Fetch akıl sağlığı | `src/lib/config.ts` → `MAX_AGE_HOURS` | 30 gün (bundan eskisi elenir) |
 | Genel güvenlik tavanı | `src/lib/config.ts` → `MAX_ITEMS` | 300 (pratikte ~125) |
 

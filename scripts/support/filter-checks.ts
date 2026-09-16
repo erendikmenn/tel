@@ -215,16 +215,15 @@ export function printTopicReport(items: DigestItem[], log: (line: string) => voi
 /** Girdi -> çıktı örnekleri (gerçek haberler üzerinde). */
 export function printExamples(items: DigestItem[], log: (line: string) => void = console.log) {
   const cases: { name: string; view: DigestView }[] = [
-    { name: "pencere=36, kaynak başına=12  (varsayılan)", view: { sinceHours: 36, perSource: 12 } },
-    { name: "pencere=48, kaynak başına=20+ (üst küme)", view: { sinceHours: 48, perSource: PER_SOURCE_UNLIMITED } },
+    { name: "pencere=24, kaynak başına=12  (varsayılan)", view: { sinceHours: 24, perSource: 12 } },
+    { name: "pencere=24, kaynak başına=20+ (üst küme)", view: { sinceHours: 24, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=Tümü, kaynak başına=20+ (feed'in hepsi)", view: { sinceHours: WINDOW_ALL, perSource: PER_SOURCE_UNLIMITED } },
-    { name: "pencere=36, kaynak başına=20+ (sınırsız)", view: { sinceHours: 36, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=6,  kaynak başına=12", view: { sinceHours: 6, perSource: 12 } },
     { name: "pencere=12, kaynak başına=6", view: { sinceHours: 12, perSource: 6 } },
-    { name: "pencere=36, kaynak başına=" + perSourceLabel(16).replace(" haber", ""), view: { sinceHours: 36, perSource: 16 } },
-    { name: "pencere=36, kaynak başına=6", view: { sinceHours: 36, perSource: 6 } },
-    { name: 'q="ai",  pencere=36, kaynak başına=12', view: { q: "ai", sinceHours: 36, perSource: 12 } },
-    { name: 'kaynak=[npr, bbc-tr], pencere=36, kaynak başına=12', view: { source: ["npr", "bbc-tr"], sinceHours: 36, perSource: 12 } },
+    { name: "pencere=24, kaynak başına=" + perSourceLabel(16).replace(" haber", ""), view: { sinceHours: 24, perSource: 16 } },
+    { name: "pencere=24, kaynak başına=6", view: { sinceHours: 24, perSource: 6 } },
+    { name: 'q="ai",  pencere=24, kaynak başına=12', view: { q: "ai", sinceHours: 24, perSource: 12 } },
+    { name: 'kaynak=[npr, bbc-tr], pencere=24, kaynak başına=12', view: { source: ["npr", "bbc-tr"], sinceHours: 24, perSource: 12 } },
     { name: 'q="iran", pencere=6, kaynak başına=6', view: { q: "iran", sinceHours: 6, perSource: 6 } },
   ];
 
