@@ -25,9 +25,7 @@ export const PAPER_STRIP = 3; // üst bant teaser'ları
 export const PAPER_FLANKERS = 2; // manşet fotoğrafının soluna/sağına konan haberler
 export const PAPER_STORIES = 3; // fotoğraflı ikincil haberler
 export const PAPER_SIDEBAR = 5; // çerçeveli yan sütun
-// Kısa kısa: blok sayfanın kalan yüksekliğini doldurur, sığmayan satırlar kırpılır
-// (overflow: hidden). Bol tutulur ki ön sayfa altta boş kalmasın.
-export const PAPER_BRIEFS = 60;
+export const PAPER_BRIEFS = 9; // kısa kısa
 
 export const PAPER_LEAD_SUMMARY = 420;
 export const PAPER_STORY_SUMMARY = 240;
