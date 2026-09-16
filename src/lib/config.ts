@@ -1,11 +1,11 @@
 export const APP_NAME = "Tel";
 
-// Sunucunun bir kerelik çektiği ÜST KÜME. Kullanıcı ekranda bunun içinden seçer,
-// bu yüzden fetch tavanı, ekranda seçilebilen en büyük değere eşittir.
-export const FEED_ITEM_LIMIT = 40; // kaynak başına en fazla kalem
+// Sunucunun bir kerelik çektiği ÜST KÜME: son ITEM_MAX_AGE_HOURS saatte NE VARSA.
+// Kaynak başına yapay sınır yok; sadece patolojik bir feed'e karşı genel güvenlik tavanı.
 export const ITEM_MAX_AGE_HOURS = 48; // en eski kaç saat
+export const MAX_ITEMS = 300; // güvenlik tavanı (bugünkü gerçek ~130, hiçbir zaman bağlamaz)
 
-// Ekrandaki varsayılanlar ve seçenekler (fetch tavanının altında).
+// Ekrandaki varsayılanlar ve seçenekler.
 export const DEFAULT_WINDOW_HOURS = 36;
 export const DEFAULT_PER_SOURCE = 12;
 export const WINDOW_OPTIONS = [1, 6, 12, 24, 36, 48];

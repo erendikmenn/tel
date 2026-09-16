@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "../../src/lib/feeds";
-import { FEED_ITEM_LIMIT, ITEM_MAX_AGE_HOURS } from "../../src/lib/config";
+import { ITEM_MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
 import { normalizeText } from "../../src/lib/text";
 import type { DigestItem } from "../../src/lib/digest";
 
@@ -21,7 +21,7 @@ function stripHtml(value: string) {
     .trim();
 }
 
-/** Canlı 5 RSS'ten gerçek kalemleri çeker (uygulamayla aynı: 36 saat, 12/feed, tekilleştirme). */
+/** Canlı 5 RSS'ten gerçek kalemleri çeker (uygulamayla aynı: 48 saatte ne varsa + tekilleştirme). */
 export async function fetchRealItems(): Promise<DigestItem[]> {
   const parser = new Parser({ timeout: 8000 });
   const seen = new Set<string>();
@@ -33,7 +33,6 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
   for (const result of results) {
     if (result.status !== "fulfilled") continue;
     const { feed, parsed } = result.value;
-    let count = 0;
     for (const raw of parsed.items as RawItem[]) {
       if (!raw.title || !raw.link) continue;
       const iso = raw.isoDate ?? raw.pubDate;
@@ -51,11 +50,9 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
         isoDate: iso,
         summary: summary && normalizeText(summary) !== key ? summary : undefined,
       });
-      count += 1;
-      if (count >= FEED_ITEM_LIMIT) break;
     }
   }
 
   items.sort((a, b) => Date.parse(b.isoDate ?? "") - Date.parse(a.isoDate ?? ""));
-  return items;
+  return items.slice(0, MAX_ITEMS);
 }

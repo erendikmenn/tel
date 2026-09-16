@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
-import { FEED_ITEM_LIMIT, ITEM_MAX_AGE_HOURS } from "@/lib/config";
+import { ITEM_MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
 import { enlargeImage, pageImage } from "@/lib/image";
 import { normalizeText } from "@/lib/text";
 
@@ -145,8 +145,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
           image: itemImage(parsed),
         },
       ];
-    })
-    .slice(0, FEED_ITEM_LIMIT);
+    });
 }
 
 export async function buildDigest(): Promise<Digest> {
@@ -163,9 +162,11 @@ export async function buildDigest(): Promise<Digest> {
   });
 
   items.sort((a, b) => itemTime(b) - itemTime(a));
+  // Kaynak başına sınır yok; yalnızca genel güvenlik tavanı.
+  const newest = items.slice(0, MAX_ITEMS);
 
   const filled = await Promise.all(
-    items.map(async (item) => {
+    newest.map(async (item) => {
       if (item.image) return item;
       return { ...item, image: await pageImage(item.link) };
     }),
