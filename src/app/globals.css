@@ -293,6 +293,36 @@ a {
   gap: 8px 18px;
 }
 
+/* Uzun listeler (kaynaklar) 5 satırda kalır, fazlası kaydırılır: panel büyümez. */
+.explorer-options.is-scroll {
+  grid-auto-flow: row;
+  grid-template-rows: none;
+  grid-template-columns: 1fr;
+  max-height: 160px;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+}
+
+/* Kaynak grubu kısayolları (Dünya / Yapay zekâ). */
+.explorer-groupchips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.explorer-chip.is-on {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.explorer-chip-count {
+  color: inherit;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
+
 
 .explorer-active {
   display: flex;

@@ -15,6 +15,7 @@ import {
 } from "@/lib/config";
 import { countOptions } from "@/lib/counts";
 import type { DigestItem } from "@/lib/digest";
+import { FEEDS, FEED_GROUPS, type FeedGroup } from "@/lib/feeds";
 import { viewItems } from "@/lib/filter";
 import { splitHome } from "@/lib/home";
 import {
@@ -154,11 +155,16 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     persist(next);
   };
 
+  // Seçili kaynaklar listenin başında durur: liste kaydırılabilir, seçilen görünür kalmalı.
   const sourceOptions = useMemo(() => {
     const seen = new Set<string>();
     for (const item of items) seen.add(item.source);
-    return [...seen].sort((a, b) => a.localeCompare(b, "tr"));
-  }, [items]);
+    return [...seen].sort((a, b) => {
+      const picked =
+        Number(state.sources.includes(b)) - Number(state.sources.includes(a));
+      return picked !== 0 ? picked : a.localeCompare(b, "tr");
+    });
+  }, [items, state.sources]);
 
   const baseView = useMemo(
     () => ({
@@ -222,6 +228,16 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     const sources = state.sources.includes(name)
       ? state.sources.filter((value) => value !== name)
       : [...state.sources, name];
+    update({ sources });
+  };
+
+  /** Grup kısayolu: grubun tüm kaynaklarını seçer ya da hepsini bırakır. */
+  const toggleGroup = (groupId: FeedGroup) => {
+    const names = FEEDS.filter((feed) => feed.group === groupId).map((feed) => feed.name);
+    const all = names.length > 0 && names.every((name) => state.sources.includes(name));
+    const sources = all
+      ? state.sources.filter((name) => !names.includes(name))
+      : [...new Set([...state.sources, ...names])];
     update({ sources });
   };
 
@@ -296,7 +312,28 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
         <div className="explorer-panel" id="explorer-panel">
           <fieldset className="explorer-group">
             <legend>Kaynak</legend>
-            <div className="explorer-options">
+            {/* 15 kaynak tek tek seçilebilir; grup kısayolları hepsini bir tıkla alır. */}
+            <div className="explorer-groupchips">
+              {FEED_GROUPS.map((group) => {
+                const names = FEEDS.filter((feed) => feed.group === group.id).map(
+                  (feed) => feed.name,
+                );
+                const on =
+                  names.length > 0 && names.every((name) => state.sources.includes(name));
+                return (
+                  <button
+                    key={group.id}
+                    type="button"
+                    className={"explorer-chip" + (on ? " is-on" : "")}
+                    aria-pressed={on}
+                    onClick={() => toggleGroup(group.id)}
+                  >
+                    {group.label} <span className="explorer-chip-count">{names.length}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="explorer-options is-scroll">
               {sourceOptions.map((name) => {
                 const count = sourceCounts.get(name) ?? 0;
                 return (
