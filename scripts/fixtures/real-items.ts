@@ -4,6 +4,46 @@ import type { DigestItem } from "../../src/lib/digest";
 // Yenilemek için: npm run fixtures
 export const REAL_ITEMS: DigestItem[] = [
   {
+    "id": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o#0",
+    "title": "At least 20 killed after war-damaged Gaza building collapses",
+    "link": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-16T11:22:51.000Z",
+    "summary": "Dozens of people are missing beneath the rubble of the building in Gaza City, where some 10 families had been living."
+  },
+  {
+    "id": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
+    "title": "Burnham says budget will be ‘challenging’ but no risks will be taken with economy or living standards – UK politics live",
+    "link": "https://www.theguardian.com/politics/live/2026/sep/16/lisa-nandy-x-andy-burnham-labour-reform-uk-politics-latest-news-updates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:21:25.000Z",
+    "summary": "‘It’s going to be challenging because the picture around the world is challenging and particularly the situation in the Middle East,’ says PM Wes Streeting, the defence secretary, has posted this on social media ahead of Andy Burnham’s meeting with the Nato secretary general Mark Rutte later. Today I am reminded of the words of my Labour predecessor Denis Healey: “Once we cut defence expenditure to the extent where our security is imperilled, we have no houses, we have no hospitals, we have no schools. We have a heap of cinders.” [Britain] is leading, along with Nato allies, the push back against Russia’s dangerous and reckless campaign against us. Collectively we will continue to strengthen our ability to deter and defend all allies, against any threat. Nato will not be intimidated by Russia’s campaign of hostile actions. Russia wants to stop us helping Ukraine – but their actions will only lead us to do more for Ukraine. Russia’s actions are a sign of weakness, and a symptom of Putin’s failure in Ukraine. To stay transatlantic, Nato is becoming more European. A Nato with Europe, and Canada, spending more, producing more, and doing more for their security. This is the idea of Nato 3.0. Building for the future. A stronger Europe, in a stronger Nato. Continue reading..."
+  },
+  {
+    "id": "https://www.npr.org/2026/09/16/g-s1-143569/up-first-newsletter-fed-reserve-interest-rates-iran-war-kennedy-center-contraception",
+    "title": "Fed expected to raise interest rates. And, board votes to close Kennedy Center",
+    "link": "https://www.npr.org/2026/09/16/g-s1-143569/up-first-newsletter-fed-reserve-interest-rates-iran-war-kennedy-center-contraception",
+    "source": "NPR",
+    "isoDate": "2026-09-16T11:19:46.000Z",
+    "summary": "The Fed is expected to raise interest rates today for the first time in three years. And, the Kennedy Center board voted yesterday to close the historic center."
+  },
+  {
+    "id": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
+    "title": "Former Kosovo president Thaçi sentenced to 25 years in prison by international court in The Hague – Europe live",
+    "link": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:16:29.000Z",
+    "summary": "Thaçi held criminally responsible for war crimes during the violent break from Serbia in the 1990s Von der Leyen says “kickstarting Europe’s economy is our number one priority,” as Europe needs to tap into its huge market, world class industries and services. She says its single market remains too fragmented and needs to reform further, with the aim of completing it by the end of next year. “Do we want to rally around our European idea that together we can decide our own destiny? Or do we let our democracies be undermined by the proxies and puppets of authoritarians? Whether it is the ultra nationalist or the anti-European, whether it’s Russian interference or disinformation, the names may be different, but their goal is the same. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/politics/2026/sep/16/andy-burnham-donald-trump-un-general-assembly",
+    "title": "Burnham and Trump expected to meet for first time next week as PM steps up presence on world stage",
+    "link": "https://www.theguardian.com/politics/2026/sep/16/andy-burnham-donald-trump-un-general-assembly",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:09:54.000Z",
+    "summary": "Andy Burnham will attend UN general assembly, where he is expected to try to drum up more support for Ukraine UK politics live – latest updates Andy Burnham is expected to meet Donald Trump for the first time in person at the UN general assembly next week in New York. Last month the Guardian reported British officials had stepped up their preparations for a face to face meeting between Burnham and Trump after the prime minister said he hoped to attend the assembly of world leaders. Continue reading..."
+  },
+  {
     "id": "https://www.bbc.co.uk/news/articles/cw4gr5jnd134o#1",
     "title": "Legendary Nigerian actor Olu Jacobs dies aged 84",
     "link": "https://www.bbc.co.uk/news/articles/cw4gr5jnd134o?at_medium=RSS&at_campaign=rss",
@@ -12,12 +52,52 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Olu Jacobs was one of Nigeria's most recognised actors, whose career spanned several decades."
   },
   {
+    "id": "https://www.theguardian.com/world/2026/sep/16/building-gaza-city-damaged-israeli-strikes-collapses-killed",
+    "title": "At least 19 killed after building in Gaza City damaged by Israeli strikes collapses",
+    "link": "https://www.theguardian.com/world/2026/sep/16/building-gaza-city-damaged-israeli-strikes-collapses-killed",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:08:36.000Z",
+    "summary": "Rescue workers say search for dozens of people hampered by lack of heavy machinery A building housing about 100 displaced Palestinian families collapsed on Wednesday in Gaza City, killing at least 19 people, as rescuers searched the rubble for dozens of people including children believed to be trapped. A rescue team from Gaza’s civil defence said they had recovered the bodies of five children among the victims, while 25 injured people were taken to hospital. Medical sources said rescuers could hear the voices of people trapped beneath the rubble as they tried to reach them. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/business/2026/sep/16/mirror-publisher-reach-cuts-editorial-jobs-ai-summaries-google",
+    "title": "Mirror publisher to cut 220 editorial jobs as readers turn to AI summaries",
+    "link": "https://www.theguardian.com/business/2026/sep/16/mirror-publisher-reach-cuts-editorial-jobs-ai-summaries-google",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:08:33.000Z",
+    "summary": "Reach, which also owns Express, makes decision because of ‘mammoth shift’ in how audiences seek out content The publisher of the Mirror and Express newspapers is to cut a further 220 editorial jobs as it adapts to a dramatic fall in online traffic while readers increasingly turn to summaries generated by artificial intelligence. Reach, which also owns scores of online brands and regional titles including the Manchester Evening News, the Birmingham Mail and the Liverpool Echo, said the latest cuts were necessary to cope with a “mammoth shift” in how audiences seek out content. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
+    "title": "UK inflation rises to 3.1% as motor fuel prices jump by almost a quarter",
+    "link": "https://www.theguardian.com/business/2026/sep/16/uk-inflation-rises-pressure-on-households-bank-of-england-interest-rates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:08:07.000Z",
+    "summary": "Financial markets predict one-in-five chance of quarter-point rise in interest rates when Bank of England decides on Thursday Business live – latest updates UK inflation has returned above 3% as soaring fuel and transport prices triggered by the Iran war heap renewed pressure on British households. Figures from the Office for National Statistics show inflation as measured by the consumer prices index rose from 2.9% in July to 3.1% in August. The increase, which matched City forecasts, was driven by motor fuel prices rising by almost a quarter. Continue reading..."
+  },
+  {
     "id": "https://www.theguardian.com/world/2026/sep/16/von-der-leyen-mark-carney-canada-eu-first-associate-member",
     "title": "European Union invites Canada to become first ever ‘associate member’",
     "link": "https://www.theguardian.com/world/2026/sep/16/von-der-leyen-mark-carney-canada-eu-first-associate-member",
     "source": "The Guardian",
     "isoDate": "2026-09-16T11:06:55.000Z",
-    "summary": "Commission president says partnership will create ‘common prosperity’ based on shared democratic values Europe live – latest updates Canada has been invited to become the first “associate member” of the EU by the European Commission president, Ursula von der Leyen. In an unprecedented offer on Wednesday, von der Leyen said the EU and Canada “see the world with the same eyes” through shared democratic values and common approaches to many big issues, from AI to climate breakdown, the Ukraine war and geopolitics. Continue reading..."
+    "summary": "Commission president says partnership will create ‘common prosperity’ based on shared democratic values Europe live – latest updates Canada has been invited to become the first “associate member” of the EU by the European Commission president, Ursula von der Leyen. In an unprecedented offer, von der Leyen said on Wednesday that the EU and Canada “see the world with the same eyes” through shared democratic values and common approaches to many big issues, from AI to climate breakdown, the Ukraine war and geopolitics. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
+    "title": "House votes for a third time to end Iran war in symbolic move as conflict drags on – US politics live",
+    "link": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:02:34.000Z",
+    "summary": "The action is likely the last House vote on issue ahead of the midterm elections Sign up for the US Breaking News email The Trump administration has cut or frozen up to $177 billon in federal grants since the president took office for his second term, according to a tracking tool by a pro-democracy nonprofit and a group of researchers and scientists. The cuts affected all 50 states and the District of Columbia, with health, nutrition, the environment and disaster relief making up the largest share of cuts, the States United Democracy Center and Grant Witness organization found. As part of a $2.8bn package of military aid, the Trump administration plans to send Israel a type of one-ton bombs that were withheld by the Biden administration over concerns that they were being used to kill Palestinian civilians in Gaza. Donald Trump “threw a tantrum” when he heard that Democratic congresswoman Joyce Beatty, a trustee of the Kennedy Center whose lawsuit forced Trump’s name to be removed from the facade of the memorial, had again prevailed in court. A televised Michigan Senate debate in Detroit on Tuesday was distinctly one-sided, because the Democratic nominee, Dr Abdul El-Sayed turned up, while his Republican rival, Mike Rogers, chose not to attend. Todd Blanche, the US attorney general, alerted reporters at the White House to stand by for what he called “a big development” in the federal crackdown on voting by non-citizens to be announced by Ryan Raybould, the US attorney for the Northern District of Texas. When it came, however, Raybould’s announcement, that his office had charged six lawful permanent residents and one undocumented immigrant for voting in federal elections over the past eight years, hardly lived up to the billing. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/16/datacenters-pollution-electronics",
+    "title": "Datacenter rush will create ‘tsunami’ of discarded electronics, report says",
+    "link": "https://www.theguardian.com/world/2026/sep/16/datacenters-pollution-electronics",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T11:00:19.000Z",
+    "summary": "Global push will triple toxic e-waste annually in 25 years, filling enough shipping containers to circle globe six times The ongoing campaign to build thousands of massive datacenters for AI will create a “tsunami” of discarded electronics, putting the world on a course to triple its annual generation of toxic e-waste in the next 25 years, a new report projects. The electronic trash AI generates in the next 25 years could fill enough shipping containers to encircle the globe six times, it said. Yet, says the report by the non-profit environmental group Basel Action Network (BAN), there is no plan to deal with that waste – which typically contains toxics like lead, mercury, cadmium and forever chemicals, as well as valuable metals that are challenging to reclaim. Continue reading..."
   },
   {
     "id": "https://www.bbc.co.uk/news/articles/cjwyzrr9d3dko#0",
@@ -33,7 +113,7 @@ export const REAL_ITEMS: DigestItem[] = [
     "link": "https://www.theguardian.com/world/2026/sep/16/us-visa-restrictions-south-africans-trump-claims-anti-white-discrimination",
     "source": "The Guardian",
     "isoDate": "2026-09-16T10:56:45.000Z",
-    "summary": "Announcement of visa restrictions comes after Trump alleges ‘white genocide’ taking place in South Africa The US has announced visa restrictions on some South Africans as Donald Trump’s administration continues to claim that South Africa’s government racially discriminates against white minority Afrikaners. The announcement did not specify individuals who were barred from the US. Trump has spent his second term falsely claiming there is a “white genocide” in South Africa and railing against its affirmative action policies. Continue reading..."
+    "summary": "Announcement of visa restrictions follows Trump’s false claims of ‘white genocide’ taking place in South Africa The US has announced visa restrictions on some South Africans as Donald Trump’s administration continues to claim that South Africa’s government racially discriminates against white minority Afrikaners. The announcement did not specify individuals who were barred from the US. Trump has spent his second term falsely claiming there is a “white genocide” in South Africa and railing against its affirmative action policies. Continue reading..."
   },
   {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5970985/canada-become-eu-associate-member",
@@ -60,20 +140,12 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Police have not linked the deaths to a serial killer but are investigating this possibility."
   },
   {
-    "id": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o#0",
-    "title": "At least 20 killed after war-damaged Gaza building collapses",
-    "link": "https://www.bbc.co.uk/news/articles/cvp8d00j9gg5o?at_medium=RSS&at_campaign=rss",
-    "source": "BBC World",
-    "isoDate": "2026-09-16T10:40:36.000Z",
-    "summary": "Dozens of people are missing beneath the rubble of the building in Gaza City, where some 10 families had been living."
-  },
-  {
-    "id": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
-    "title": "Former Kosovo president Thaçi sentenced to 25 years in prison by international court in The Hague – Europe live",
-    "link": "https://www.theguardian.com/world/live/2026/sep/16/european-union-ursula-von-der-leyen-eu-europe-latest-news-updates",
+    "id": "https://www.theguardian.com/technology/2026/sep/16/building-frankenstein-jd-vance-dismisses-ai-regulation",
+    "title": "‘If you’re building Frankenstein, stop’: JD Vance dismisses calls for AI regulation",
+    "link": "https://www.theguardian.com/technology/2026/sep/16/building-frankenstein-jd-vance-dismisses-ai-regulation",
     "source": "The Guardian",
-    "isoDate": "2026-09-16T10:40:21.000Z",
-    "summary": "Thaçi held criminally responsible for war crimes during the violent break from Serbia in the 1990s Von der Leyen says “kickstarting Europe’s economy is our number one priority,” as Europe needs to tap into its huge market, world class industries and services. She says its single market remains too fragmented and needs to reform further, with the aim of completing it by the end of next year. “Do we want to rally around our European idea that together we can decide our own destiny? Or do we let our democracies be undermined by the proxies and puppets of authoritarians? Whether it is the ultra nationalist or the anti-European, whether it’s Russian interference or disinformation, the names may be different, but their goal is the same. Continue reading..."
+    "isoDate": "2026-09-16T10:42:07.000Z",
+    "summary": "US vice-president’s comments come as former Anthropic researcher revisits recent claim AI could destroy humanity The US vice-president has dismissed calls for global regulation of AI safety risks, telling companies creating the most advanced models: “If you’re building Frankenstein, stop.” In remarks addressed towards Dario Amodei, the co-founder of Anthropic who has called on Washington DC to coordinate control of AI systems, including with China, JD Vance said: “If you’re gonna create Frankenstein, don’t come to the government and say we need regulation.” Continue reading..."
   },
   {
     "id": "https://www.bbc.co.uk/news/articles/cq986j7x1nd3o#1",
@@ -106,6 +178,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "BBC World",
     "isoDate": "2026-09-16T10:02:05.000Z",
     "summary": "Sam Altman and other tech CEOs say there are incentives to limit advancements in AI, as fears grow over the threats it poses to humanity."
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/16/new-orleans-abuse-priest-dead",
+    "title": "New Orleans priest accused of abusing children in deaf community dies from apparent fall aged 87",
+    "link": "https://www.theguardian.com/us-news/2026/sep/16/new-orleans-abuse-priest-dead",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T10:00:17.000Z",
+    "summary": "Archdiocese knew of allegations against Gerard Joseph ‘Jerry’ Howell for 40 years but continued to support him A New Orleans Catholic priest whose prolific sexual abuse of children in the local deaf community was known for at least four decades by the city’s archdiocese without meaningful consequence has died after evidently falling in his Texas apartment. Gerard Joseph “Jerry” Howell, 87, was found dead at about 5pm on 8 September by Austin police department officers who were responding to a welfare check on the block listed for the senior living community where he had been residing, the agency said in a statement. The statement – which didn’t name Howell but was provided when police were asked about his death specifically – said first responders had gone to the block to investigate a report that an 87-year-old individual had fallen. Continue reading..."
   },
   {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5968780/trump-rfk-jr-health-nomination-surgeon-general",
@@ -141,11 +221,19 @@ export const REAL_ITEMS: DigestItem[] = [
   },
   {
     "id": "https://www.aljazeera.com/?t=1789551356",
-    "title": "Former Kosovo President Hashim Thaci convicted of war crimes",
+    "title": "Former Kosovo President Hashim Thaci sentenced to 25 years for war crimes",
     "link": "https://www.aljazeera.com/news/2026/9/16/former-kosovo-president-hashim-thaci-convicted-of-war-crimes?traffic_source=rss",
     "source": "Al Jazeera",
     "isoDate": "2026-09-16T09:46:24.000Z",
     "summary": "Thaci, 58, was sentenced to 25 years in prison for ‌crimes including murder, ​torture and illegal detention."
+  },
+  {
+    "id": "https://www.theguardian.com/society/2026/sep/16/ladbrokes-owner-entain-prepares-to-cut-400-jobs-weeks-after-profit-boost",
+    "title": "Ladbrokes owner prepares to cut 400 jobs weeks after profit boost",
+    "link": "https://www.theguardian.com/society/2026/sep/16/ladbrokes-owner-entain-prepares-to-cut-400-jobs-weeks-after-profit-boost",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T09:44:40.000Z",
+    "summary": "Entain, which also owns Coral and BetMGM, starts consultation process over customer care roles Business live – latest updates The Ladbrokes owner, Entain, has said it is preparing to cut 400 jobs, only weeks after the FTSE 100 business reported better than expected profit in its first half of the year. The gambling group, which also owns Coral and BetMGM, has started a consultation process that could remove one in five of its 2,000 customer care jobs. Continue reading..."
   },
   {
     "id": "https://www.aljazeera.com/?t=1789538013",
@@ -227,6 +315,22 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Saudi Arabia accused Yemen's Iran-backed Houthi rebels overnight of trying to attack Islam's holiest city, prompting condemnation from countries in the region but no sign of military support."
   },
   {
+    "id": "https://www.theguardian.com/global-development/2026/sep/16/iran-killing-torture-sexual-abuse-protesters-amnesty",
+    "title": "Iranian security forces coordinated killing, torture and sexual abuse of protesters, says Amnesty",
+    "link": "https://www.theguardian.com/global-development/2026/sep/16/iran-killing-torture-sexual-abuse-protesters-amnesty",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T09:00:16.000Z",
+    "summary": "Leaked documents and testimony reveal extent of regime’s crackdown in 2022 and how it paved the way for more brutal killings of protesters this year Iranian security forces “coordinated” the killing, torture and sexual abuse of hundreds of people who took part in the women-led nationwide protests in September 2022, according to leaked state documents and interviews. Tens of thousands of people, including children, took to the streets of towns and cities across Iran after the death in custody of Mahsa Amini, a 22-year-old Kurdish woman, after her arrest by the “morality” police for allegedly not complying with the country’s hijab regulations. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/16/physical-sexual-violence-study-us",
+    "title": "New report reveals prevalence of physical and sexual violence in US",
+    "link": "https://www.theguardian.com/us-news/2026/sep/16/physical-sexual-violence-study-us",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T09:00:16.000Z",
+    "summary": "Study finds more than half of US adults have experienced physical violence and nearly half sexual violence In their lifetime, more than half of US adults have experienced physical violence – and nearly half have experienced sexual violence, according to a startling new national study. The study, led by researchers from Tulane University’s Newcomb Institute and the University of California, San Diego, examined experiences of physical, sexual and intimate partner violence, along with how they intersect with behavioral health, economic hardship, neighborhood safety and substance use, among other factors. Continue reading..."
+  },
+  {
     "id": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
     "title": "A Kansas girl ran off to join the circus and changed the tattoo world",
     "link": "https://www.npr.org/2026/09/16/nx-s1-5955615/a-kansas-girl-ran-off-to-join-the-circus-and-changed-the-tattoo-world",
@@ -265,14 +369,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "NPR",
     "isoDate": "2026-09-16T09:00:00.000Z",
     "summary": "The Fed is widely expected to raise its benchmark interest rate to combat stubborn inflation. That could make it more expensive to borrow money to buy a car or carry a balance on a credit card."
-  },
-  {
-    "id": "https://www.npr.org/2026/09/16/nx-s1-5966383/morning-news-brief",
-    "title": "Morning news brief",
-    "link": "https://www.npr.org/2026/09/16/nx-s1-5966383/morning-news-brief",
-    "source": "NPR",
-    "isoDate": "2026-09-16T08:44:50.000Z",
-    "summary": "The Fed is expected to raise interest rates Wednesday, new reports detail the damage and $30 billion price tag of the Iran war, Kennedy Center board votes to close after judge's ruling."
   },
   {
     "id": "https://www.theguardian.com/australia-news/2026/sep/16/jeremy-greenwood-icac-evidence-perrottet-payments-ntwnfb",
@@ -387,6 +483,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Twenty-five years after 9/11, figures compiled by conflict monitor underline how Sahel region has become centre of Islamist terror Islamist extremist violence in Africa’s Sahel region is set to reach historic highs after a series of sweeping offensives by groups linked to al-Qaida and Islamic State, according to new figures compiled by the conflict monitor Acled. As the US marks the 25th anniversary of the 9/11 attacks launched by al-Qaida against targets in Washington and New York, the statistics underline the continued expansion of the veteran organisation in parts of Africa – in stark contrast with its relative weakness elsewhere. Continue reading..."
   },
   {
+    "id": "https://www.bbc.co.uk/news/videos/cmzezj8gr224o#3",
+    "title": "Runaway horse captured by police on motorbikes",
+    "link": "https://www.bbc.co.uk/news/videos/cmzezj8gr224o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-16T05:57:23.000Z",
+    "summary": "The unharmed horse escaped from its owner before the start of a parade in New Mexico"
+  },
+  {
     "id": "https://www.aljazeera.com/?t=1789532148",
     "title": "US House votes to end Iran war, 7 Republicans join in favour",
     "link": "https://www.aljazeera.com/news/2026/9/16/us-house-votes-to-end-iran-war-7-republicans-join-in-favour?traffic_source=rss",
@@ -467,6 +571,22 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Rescuers comb wreckage of a bombed-out apartment building that collapsed overnight in Gaza City."
   },
   {
+    "id": "https://www.theguardian.com/science/2026/sep/16/uk-mathematician-debunks-myth-parthenon-optical-illusions",
+    "title": "UK mathematician debunks myth around Parthenon’s optical illusions",
+    "link": "https://www.theguardian.com/science/2026/sep/16/uk-mathematician-debunks-myth-parthenon-optical-illusions",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T04:01:09.000Z",
+    "summary": "Study challenges belief that temple’s curves were designed to correct optical illusions that would have ruined its clean lines A mathematician has uncovered what may be one of the longest-running myths in history after studying optical illusions and the Parthenon, the famed Greek temple that overlooks Athens. Scholars have marvelled at the building on the Acropolis hill for more than 2,000 years and heaped praise on its architects for their clever use of geometry. Its subtle curves are said to correct optical illusions that would have otherwise ruined the Parthenon’s clean lines. Continue reading..."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/16/gaza-students-devastated-belgium-university-scholarships",
+    "title": "Students in Gaza ‘devastated’ after plan for them to study in Belgium fails",
+    "link": "https://www.theguardian.com/world/2026/sep/16/gaza-students-devastated-belgium-university-scholarships",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T04:00:11.000Z",
+    "summary": "Belgian government unable to agree on evacuation of 13 students to take up scholarships at universities Students who are unable to leave Gaza and take up scholarships at Belgian universities have said they are devastated after Belgium’s government hit deadlock on a plan enabling them to leave the war-torn territory. Ahmed Abujami, a 28-year-old doctor in Gaza, said he was “deeply disappointed” after Belgium’s five-party coalition government last Friday failed to agree on an evacuation plan for 13 students and researchers in the territory. Abujami has a scholarship to do a one-year master’s degree in public health at the Institute of Tropical Medicine in Antwerp. He hopes to gain skills and experience to rebuild Gaza’s shattered health system. Continue reading..."
+  },
+  {
     "id": "https://www.aljazeera.com/?t=1789520219",
     "title": "Trump administration plans $2.8bn sale of 2,000-pound bombs to Israel",
     "link": "https://www.aljazeera.com/news/2026/9/16/trump-administration-plans-2-8bn-sale-of-2000-pound-bombs-to-israel?traffic_source=rss",
@@ -475,12 +595,76 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Trump administration pushes $2.8bn bomb sale to Israel amid criticism over mass targeting of civilians in the region."
   },
   {
+    "id": "https://www.aljazeera.com/?t=1789514240",
+    "title": "China’s defence chief warns against coercion, avoids US, Japan mention",
+    "link": "https://www.aljazeera.com/news/2026/9/16/chinas-defence-chief-warns-against-coercion-avoids-us-japan-mention?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T03:38:57.000Z",
+    "summary": "Dong Jun pitches shared security governance and military cooperation while warning against coercion."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/16/saudi-arabia-houthi-drone-shot-down-mecca-iran-middle-east",
+    "title": "Saudi Arabia warns of ‘red line’ after Houthi drone intercepted close to holy city of Mecca",
+    "link": "https://www.theguardian.com/world/2026/sep/16/saudi-arabia-houthi-drone-shot-down-mecca-iran-middle-east",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T02:56:37.000Z",
+    "summary": "Iran-aligned group rejects claim it targeted Mecca, while Organisation of Islamic Cooperation condemns attack Saudi Arabia has claimed its air defences intercepted and destroyed a ⁠Houthi drone attempting to fly over the holy city of Mecca, as Saudi warplanes continued to pound Yemen, raising fears of the conflict spreading further across the Middle East. The Saudi-led military coalition said the security of Mecca – home to Islam’s two holiest sites – was a “red line” and that it would take necessary measures against the ⁠Houthis. Continue reading..."
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789525658",
+    "title": "Is US health care too broken to cure cancer?",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/aje-onl-nf_us-healthcare-too-broken-to-cure-cancer-150926?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T02:52:44.000Z",
+    "summary": "Ted Okon tells Al Jazeera that even with a cure, the US wouldn’t be able to treat everyone with cancer."
+  },
+  {
     "id": "https://www.bbc.co.uk/news/articles/cw8r6mvjdvedo#1",
     "title": "Lost on Mount Fuji off-season? You'll have to pay for your rescue",
     "link": "https://www.bbc.co.uk/news/articles/cw8r6mvjdvedo?at_medium=RSS&at_campaign=rss",
     "source": "BBC World",
     "isoDate": "2026-09-16T02:40:51.000Z",
     "summary": "The fee will be imposed on those who get lost on Japan's most famous mountain during the off-peak seasons."
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789526249",
+    "title": "Anthropic CEO didn’t foresee the speed of global AI growth",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/anthropic-ceo-didnt-foresee-the-speed-of-global-ai-growth?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T02:40:08.000Z",
+    "summary": "Anthropic’s CEO says he ‘didn’t appreciate’ the speed with which AI’s growth would underpin the global economy."
+  },
+  {
+    "id": "https://www.theguardian.com/news/audio/2026/sep/16/palestinian-school-al-mughayyir-under-siege-podcast",
+    "title": "The Palestinian school under siege – podcast",
+    "link": "https://www.theguardian.com/news/audio/2026/sep/16/palestinian-school-al-mughayyir-under-siege-podcast",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T02:00:06.000Z",
+    "summary": "At least five pupils at a village school in the West Bank have been killed in the last year by settlers and soldiers. Emma Graham-Harrison reports on how the school found itself on the frontline, while a teacher explains what life is like for staff and students. Waheed Abu Naim is an English teacher at the Al Mughayyir boys’ school in a village in the West Bank. He loves his job, he says. “I am happy to be a teacher. Although we don’t get lots of money, because my students, especially in the morning, wait for me when I enter the school to shake hands, to smile at me while going inside their classes. So it’s a happy life.” But the last year has been anything but happy for Waheed. His village is now surrounded by settlers, while the military has blocked off every road except one, which has a checkpoint on it. Teachers who live in neighbouring villages cannot always come to work. But worse are the attacks on the village by settlers. This episode was updated after publication. The specific description of bullets hitting the glass – as children and teachers are sheltering in a school stairwell – has been removed. Continue reading..."
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789523478",
+    "title": "Saudi Arabia cancels oil to Europe over East-West pipeline blast",
+    "link": "https://www.aljazeera.com/video/newsfeed/2026/9/16/saudi-arabia-cancels-oil-to-europe-over-east-west-pipeline-blast?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T01:53:27.000Z",
+    "summary": "Saudi Arabia has cancelled some oil deliveries to Europe after attacks shut down its export pipeline to the Red Sea."
+  },
+  {
+    "id": "https://www.aljazeera.com/?t=1789469676",
+    "title": "DRC-Rwanda: Can Geneva talks break the cycle of war in eastern Congo?",
+    "link": "https://www.aljazeera.com/news/2026/9/16/drc-rwanda-can-geneva-talks-break-the-cycle-of-war-in-eastern-congo?traffic_source=rss",
+    "source": "Al Jazeera",
+    "isoDate": "2026-09-16T01:42:37.000Z",
+    "summary": "M23 controls large parts of eastern DRC as Kinshasa and Kigali remain divided over security and sovereignty."
+  },
+  {
+    "id": "https://www.theguardian.com/us-news/2026/sep/15/russia-us-killings-plot",
+    "title": "Russia plotting to kill Ukraine allies in US and Europe, FBI says",
+    "link": "https://www.theguardian.com/us-news/2026/sep/15/russia-us-killings-plot",
+    "source": "The Guardian",
+    "isoDate": "2026-09-16T01:28:20.000Z",
+    "summary": "Intelligence services allegedly attempted to pay people to surveil and kill people perceived to be aligned with Ukraine Russia’s intelligence services are plotting to carry out targeted killings in the United States and in European nations supporting Ukraine, federal authorities said Tuesday as they announced charges against five people who remain at large. An indictment unsealed in Manhattan federal court said a network of the intelligence services had paid and attempted to pay individuals in the United States and in other countries to surveil targets to be killed with plans to then kill them. Continue reading..."
   },
   {
     "id": "https://www.bbc.com/turkce/articles/c9m2m4l45e5ko#2",
@@ -505,6 +689,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "BBC Türkçe",
     "isoDate": "2026-09-15T22:04:29.000Z",
     "summary": "ABD'li rapçi Macklemore, İsrail'i eleştiren yorumları nedeniyle Yahudi gruplar tarafından kınanmıştı. Ed Sheeran ile turneye çıkan sanatçı, \"Filistin'e özgürlük\" çağrısı sonrası Sheeran'a baskı yapıldığını ve bu sebeple turneden çıkarıldığını açıkladı."
+  },
+  {
+    "id": "https://www.theguardian.com/world/2026/sep/15/iran-war-cost-cbo-report",
+    "title": "US House votes for third time to end Iran war after $38bn cost is revealed",
+    "link": "https://www.theguardian.com/world/2026/sep/15/iran-war-cost-cbo-report",
+    "source": "The Guardian",
+    "isoDate": "2026-09-15T21:47:39.000Z",
+    "summary": "Damaging budget report estimates cost will grow by $3bn per month and stockpiles of weapons could take five years to rebuild The US House of Representatives has voted for a third time to end the war in Iran, approving a war powers resolution a few hours after a Congressional Budget Office (CBO) report showed the conflict had cost at least $38bn and left America’s stockpile of defensive missiles so depleted it could take five years to rebuild. The final tally of 220-204 was similar to earlier votes, with a few more Republicans joining most Democrats in calling for an end to the war. None of the resolutions have made it to the president’s desk, where Trump would almost certainly veto them. Continue reading..."
   },
   {
     "id": "https://www.bbc.com/turkce/articles/c6y9zydggqzlo#1",
@@ -553,6 +745,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "BBC World",
     "isoDate": "2026-09-15T18:49:45.000Z",
     "summary": "Arturo Carrera Loaiza denies allegations he was involved in meth production, the Nigerian authorities say."
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo#3",
+    "title": "Warning of space arms race as US confirms weapons in Earth's orbit",
+    "link": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-15T17:35:02.000Z",
+    "summary": "The BBC's defence correspondent Jonathan Beale explains what an arms race in space might look like - and what it could mean for us on the ground."
   },
   {
     "id": "https://www.bbc.com/turkce/articles/cw770k880mx6o#1",
@@ -619,6 +819,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "The Danish prime minister has accused Russia of \"reckless\" behaviour, while the Kremlin is yet to comment."
   },
   {
+    "id": "https://www.theguardian.com/world/2026/sep/15/imran-khan-sons-accuse-pakistan-army-chief-vendetta-asim-munir",
+    "title": "Imran Khan’s sons accuse Pakistani army chief of vendetta against imprisoned father",
+    "link": "https://www.theguardian.com/world/2026/sep/15/imran-khan-sons-accuse-pakistan-army-chief-vendetta-asim-munir",
+    "source": "The Guardian",
+    "isoDate": "2026-09-15T11:23:16.000Z",
+    "summary": "Kasim and Sulaiman Khan tell Guardian they believe ex-PM is being ‘slowly killed’ by harsh treatment, driven by Asim Munir The sons of Imran Khan have accused Pakistan’s powerful army chief of a “personal vendetta” against the incarcerated former prime minister and expressed fears their father is being “slowly killed” in jail, as international pressure mounts over his prison conditions. Kasim Khan, 27, and Sulaiman Khan, 29, have become strong advocates for the release of their father, who has been held in Adiala prison in Rawalpindi since his arrest in 2023, and is serving a 14-year sentence on corruption charges. Continue reading..."
+  },
+  {
     "id": "https://www.bbc.com/turkce/articles/cqvgyj43el3no#3",
     "title": "'LGBTİ+ olmak müstehcenlik diye algılanıyor': Derneklere yönelik soruşturmalar nasıl yorumlanıyor?",
     "link": "https://www.bbc.com/turkce/articles/cqvgyj43el3no?at_medium=RSS&at_campaign=rss",
@@ -627,12 +835,36 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "LGBTİ+ dernekleri ve hak savunucularına yönelik 13 Eylül'de açılan soruşturmalarda en az 60 kişi tutuklandı. Hak savunucuları, soruşturmalarda yer alan fuhuş, müstehcenlik ve yolsuzluk suçlamalarını reddediyor. Soruşturmaları \"siyasi operasyon\" olarak nitelendiriyor."
   },
   {
+    "id": "https://www.theguardian.com/world/2026/sep/13/this-is-india-cities-failing-residents-delhi-building-collapse",
+    "title": "What would it take to make India’s cities better – and safer?",
+    "link": "https://www.theguardian.com/world/2026/sep/13/this-is-india-cities-failing-residents-delhi-building-collapse",
+    "source": "The Guardian",
+    "isoDate": "2026-09-15T06:30:28.000Z",
+    "summary": "After a five-storey building collapsed in Delhi, focus is on how urban areas can adapt to growing populations. Plus, Ahmedabad’s ace newspaper delivery driver goes viral • Don’t get This is India delivered to your inbox? Sign up here Recently, I may have saved a woman’s life on the road. Somehow, this was something I had expected to happen. On that day, I saw a truck leave a construction site with a tangled wire trailing behind. I frantically looked to see what the wire was attached to and spotted the scaffolding a few meters ahead. I shrieked and grabbed the hand of the woman walking in front of me just as the metal pipes came crashing down. We hugged for a brief second, and then walked our separate ways. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/videos/c6j9xym8zjy3o#3",
+    "title": "Superstars and broken records: 2026 Emmy highlights",
+    "link": "https://www.bbc.co.uk/news/videos/c6j9xym8zjy3o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-15T05:14:24.000Z",
+    "summary": "The 78th Primetime Emmy Awards were hosted by Law & Order star Mariska Hargitay at the Peacock Theatre in Los Angeles."
+  },
+  {
     "id": "https://www.bbc.com/turkce/articles/c5yej7v0nz9o#3",
     "title": "Maarif Modeli'ne geçişte son yıl: İki farklı müfredat okullarda nasıl uygulanacak?",
     "link": "https://www.bbc.com/turkce/articles/c5yej7v0nz9o?at_medium=RSS&at_campaign=rss",
     "source": "BBC Türkçe",
     "isoDate": "2026-09-15T05:07:55.000Z",
     "summary": "Türkiye'nin Maarif Model ile kademeli müfredat geçişi, 2026-2027 eğitim öğretim yılında üçüncü yılına giriyor. Bu model sınıflarda nasıl uygulanıyor, eski müfredattan farkı ne?"
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/articles/c33kmred368o#2",
+    "title": "Ukraine's postal workers deliver lifeline under Russian fire",
+    "link": "https://www.bbc.co.uk/news/articles/c33kmred368o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-15T05:01:46.000Z",
+    "summary": "The state post service delivers pensions, medicine and letters to people just miles from the front."
   },
   {
     "id": "https://www.theguardian.com/world/2026/sep/15/white-south-africans-denied-refugee-status-us",
@@ -649,6 +881,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Guardian",
     "isoDate": "2026-09-15T02:43:18.000Z",
     "summary": "Planned daily reductions will further choke one of the world’s most important shipping lanes The Panama canal plans to again cut maritime traffic due to worsening drought caused by the El Niño climate phenomenon, further choking up one of the world’s most important shipping lanes. The canal handles 5% of global maritime trade and about 40% of US container traffic; it is favoured by shippers because it usually reduces cost and transit times, especially for companies trading between China, Asia and the US. Continue reading..."
+  },
+  {
+    "id": "https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo#3",
+    "title": "Mass nesting brings swarms of turtles to Mexican beach",
+    "link": "https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-15T01:08:55.000Z",
+    "summary": "Thousands of turtles arrived at La Escobilla beach in Oaxaca within 48 hours, sanctuary officials said."
   },
   {
     "id": "https://www.theguardian.com/business/2026/sep/14/ai-linked-stocks-fall-tech-bosses-call-slowdown-anthropic-openai",

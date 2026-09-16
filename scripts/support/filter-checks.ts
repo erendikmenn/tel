@@ -2,7 +2,9 @@ import {
   DEFAULT_PER_SOURCE,
   DEFAULT_WINDOW_HOURS,
   PER_SOURCE_OPTIONS,
+  PER_SOURCE_UNLIMITED,
   WINDOW_OPTIONS,
+  perSourceLabel,
 } from "../../src/lib/config";
 import type { DigestItem } from "../../src/lib/digest";
 import {
@@ -82,7 +84,7 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
 
   // --- Görünüm (pencere + kaynak başına), gerçek veri üzerinde ---
   const maxWindow = Math.max(...WINDOW_OPTIONS);
-  const maxPerSource = Math.max(...PER_SOURCE_OPTIONS);
+  const maxPerSource = PER_SOURCE_UNLIMITED;
   const sources = [...new Set(items.map((i) => i.source))];
 
   // Pencere monoton: dar küme, geniş kümenin alt kümesi olmalı.
@@ -109,7 +111,7 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
 
   // Her N için tam olarak o kaynağın en yeni N'i kalmalı.
   let capExact = true;
-  for (const perSource of PER_SOURCE_OPTIONS) {
+  for (const perSource of PER_SOURCE_OPTIONS.filter((value) => value > 0)) {
     const view = viewItems(items, { sinceHours: maxWindow, perSource });
     for (const source of sources) {
       const kept = view.filter((i) => i.source === source).map((i) => i.id).join(",");
@@ -136,10 +138,11 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
 export function printExamples(items: DigestItem[], log: (line: string) => void = console.log) {
   const cases: { name: string; view: DigestView }[] = [
     { name: "pencere=36, kaynak başına=12  (varsayılan)", view: { sinceHours: 36, perSource: 12 } },
-    { name: "pencere=48, kaynak başına=20  (üst küme)", view: { sinceHours: 48, perSource: 20 } },
+    { name: "pencere=48, kaynak başına=20+ (üst küme)", view: { sinceHours: 48, perSource: PER_SOURCE_UNLIMITED } },
+    { name: "pencere=36, kaynak başına=20+ (sınırsız)", view: { sinceHours: 36, perSource: PER_SOURCE_UNLIMITED } },
     { name: "pencere=6,  kaynak başına=12", view: { sinceHours: 6, perSource: 12 } },
     { name: "pencere=12, kaynak başına=6", view: { sinceHours: 12, perSource: 6 } },
-    { name: "pencere=36, kaynak başına=20", view: { sinceHours: 36, perSource: 20 } },
+    { name: "pencere=36, kaynak başına=" + perSourceLabel(16).replace(" haber", ""), view: { sinceHours: 36, perSource: 16 } },
     { name: "pencere=36, kaynak başına=6", view: { sinceHours: 36, perSource: 6 } },
     { name: 'q="ai",  pencere=36, kaynak başına=12', view: { q: "ai", sinceHours: 36, perSource: 12 } },
     { name: 'kaynak=[npr, bbc-tr], pencere=36, kaynak başına=12', view: { source: ["npr", "bbc-tr"], sinceHours: 36, perSource: 12 } },

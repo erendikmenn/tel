@@ -9,6 +9,7 @@ import {
   DEFAULT_WINDOW_HOURS,
   PER_SOURCE_OPTIONS,
   WINDOW_OPTIONS,
+  perSourceLabel,
 } from "@/lib/config";
 import type { DigestItem } from "@/lib/digest";
 import { viewItems } from "@/lib/filter";
@@ -31,6 +32,8 @@ const DEFAULTS: ExplorerState = {
 const STORAGE_KEY = "tel:view";
 
 function pickOption(raw: string | null, options: number[]) {
+  // 0 geçerli bir değer (sınırsız), bu yüzden "yok" ile karıştırmamak için önce boşu ele.
+  if (raw == null || raw === "") return null;
   const value = Number(raw);
   return options.includes(value) ? value : null;
 }
@@ -212,7 +215,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
                   checked={state.perSource === perSource}
                   onChange={() => update({ perSource })}
                 />
-                <span>{perSource} haber</span>
+                <span>{perSourceLabel(perSource)}</span>
               </label>
             ))}
           </fieldset>
@@ -246,7 +249,8 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
             className="explorer-chip"
             onClick={() => update({ perSource: DEFAULTS.perSource })}
           >
-            {state.perSource}/kaynak <span aria-hidden="true">×</span>
+            {perSourceLabel(state.perSource).replace(" haber", "/kaynak")}{" "}
+            <span aria-hidden="true">×</span>
           </button>
         ) : null}
         {hasAny ? (
