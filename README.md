@@ -107,7 +107,7 @@ Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 
 [SemVer](https://semver.org/lang/tr/): `MAJOR.MINOR.PATCH` (`package.json` + git etiketi `vX.Y.Z`).
 
-`0.x` iken ürün henüz 1.0 değil; **minor** yeni katman (MCP, mail, Postgres), **patch** bozulanı düzeltme, **major** (1.0) “bu sözleşme duruyor” dediğin an. `0.1.0` = kamu anasayfa (5 kaynak, dış link, varsayılan 30 dk).
+`0.x` iken ürün henüz 1.0 değil; **minor** yeni katman (MCP, mail, Postgres), **patch** bozulanı düzeltme, **major** (1.0) “bu sözleşme duruyor” dediğin an. `0.1.x` = kamu anasayfa (5 kaynak, dış link, arama + filtre, varsayılan 30 dk).
 
 Yeni sürüm:
 
@@ -118,7 +118,8 @@ Yeni sürüm:
 
 | Sürüm | Ne |
 | --- | --- |
-| **0.1.0** | Anasayfa: 5 RSS, 36 saat, manşet + sütun + ızgara, tık kaynağa |
+| **0.1.1** | Canlı arama (kelime bazlı; TR/EN/aksan duyarsız) + kaynak/zaman filtresi, URL'e yazılır; gerçek feed verisiyle testler |
+| 0.1.0 | Anasayfa: 5 RSS, 36 saat, manşet + sütun + ızgara, tık kaynağa |
 | 0.1.x | Aynı ürün, hata / küçük UI |
 | 0.2 | MCP (digest sorgusu) |
 | 0.3 | Postgres + tasnif |
