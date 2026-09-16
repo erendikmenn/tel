@@ -215,9 +215,12 @@ a {
 }
 
 .explorer-panel {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  /* Bölümler içeriğe göre daralır ve iki yana yayılır: sağda ölü boşluk kalmaz. */
+  justify-content: space-between;
+  gap: 14px 28px;
   padding: 16px;
   border: 1px solid var(--line);
   background: var(--card);
@@ -225,6 +228,8 @@ a {
 
 .explorer-group {
   display: grid;
+  flex: 0 1 auto;
+  min-width: 0;
   gap: 8px;
   align-content: start;
   margin: 0;
@@ -232,8 +237,16 @@ a {
   border: 0;
 }
 
+/* Farklı bölümler arasında ayraç. */
+.explorer-group + .explorer-group {
+  border-left: 1px solid var(--line);
+  padding-left: 28px;
+}
+
 .explorer-group legend {
-  padding: 0 0 4px;
+  width: 100%;
+  padding: 0 0 6px;
+  text-align: center;
   font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
@@ -542,6 +555,22 @@ a {
     grid-auto-flow: row;
     grid-template-rows: none;
     grid-template-columns: 1fr;
+  }
+
+  /* Dar ekranda bölümler alt alta yığılır; ayraç yatay olur. */
+  .explorer-panel {
+    justify-content: flex-start;
+  }
+
+  .explorer-group {
+    width: 100%;
+  }
+
+  .explorer-group + .explorer-group {
+    border-left: 0;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
   }
 
   .lead-pack,
