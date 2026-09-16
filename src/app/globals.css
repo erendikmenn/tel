@@ -216,9 +216,10 @@ a {
 
 .explorer-panel {
   display: grid;
-  /* Bölümler içeriği kadar geniş; artan yer aralarına eşit dağılır. */
+  /* Bölümler içeriği kadar geniş ve panelde ORTADA toplanır. */
   grid-template-columns: repeat(4, auto);
-  justify-content: space-between;
+  justify-content: center;
+  column-gap: 44px;
   align-items: stretch;
   padding: 16px;
   border: 1px solid var(--line);
@@ -233,15 +234,15 @@ a {
   /* Bölümün içeriği kendi içinde ortalanır. */
   justify-items: center;
   margin: 0;
-  padding: 0 16px;
+  padding: 0;
   border: 0;
 }
 
-/* Bölüm ayracı: tam yükseklikte (hepsi aynı boyda), iki bölümün ortasında. */
+/* Bölüm ayracı: tam yükseklikte (hepsi aynı boyda) ve iki bölümün tam ortasında. */
 .explorer-group + .explorer-group::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: -22px;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -540,6 +541,16 @@ a {
 @media (max-width: 1200px) {
   .story-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .explorer-panel {
+    column-gap: 28px;
+  }
+
+  .explorer-group + .explorer-group::before {
+    left: -14px;
   }
 }
 
