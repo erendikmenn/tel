@@ -81,6 +81,21 @@ a {
   text-decoration: none;
 }
 
+.mast-nav a {
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+
+.mast-nav a:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
 .intro {
   display: flex;
   align-items: end;

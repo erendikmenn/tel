@@ -1,0 +1,262 @@
+/* Gazete baskısı: A4 oranında sayfa, yazdırınca birebir çıkar. */
+@page {
+  size: A4 portrait;
+  margin: 8mm;
+}
+
+.paper-wrap {
+  padding: 20px 0 40px;
+}
+
+.paper-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 210mm;
+  max-width: 100%;
+  margin: 0 auto 10px;
+}
+
+.paper-button {
+  padding: 6px 12px;
+  border: 1px solid var(--line, #ccc);
+  background: #fff;
+  color: var(--ink, #111);
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.paper-button:hover {
+  border-color: var(--ink, #111);
+}
+
+.paper {
+  width: 210mm;
+  min-height: 296mm;
+  margin: 0 auto;
+  padding: 9mm 10mm 7mm;
+  background: #fff;
+  color: #111;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Künye */
+.paper-masthead {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 10px;
+}
+
+.paper-title {
+  margin: 0;
+  font-size: 74px;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.paper-byline {
+  margin: 0;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.paper-rule {
+  width: 100%;
+  margin: 6px 0 0;
+  border: 0;
+  border-top: 3px solid #111;
+}
+
+.paper-dateline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0 6px;
+  border-bottom: 1px solid #111;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #333;
+}
+
+/* Manşet */
+.paper-lead {
+  padding: 7px 0 8px;
+  border-bottom: 3px solid #111;
+}
+
+.paper-lead-photo {
+  width: 100%;
+  height: 56mm;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 8px;
+  filter: grayscale(100%) contrast(1.05);
+}
+
+.paper-lead h2 {
+  margin: 0 0 5px;
+  font-size: 34px;
+  line-height: 1.03;
+  letter-spacing: -0.01em;
+}
+
+.paper-standfirst {
+  margin: 0 0 5px;
+  max-width: 172mm;
+  font-size: 13.5px;
+  line-height: 1.3;
+  color: #222;
+}
+
+.paper-meta {
+  margin: 0;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* İkincil haberler */
+.paper-features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 3px solid #111;
+}
+
+.paper-feature {
+  padding: 7px 8px 8px;
+  border-right: 1px solid #d8d8d8;
+}
+
+.paper-feature:last-child {
+  border-right: 0;
+}
+
+.paper-feature img {
+  width: 100%;
+  height: 20mm;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 6px;
+  filter: grayscale(100%) contrast(1.05);
+}
+
+.paper-feature h3 {
+  margin: 0 0 3px;
+  font-size: 15px;
+  line-height: 1.08;
+}
+
+.paper-feature p {
+  margin: 0 0 3px;
+  font-size: 10.5px;
+  line-height: 1.3;
+  color: #333;
+}
+
+/* Kısa kısa */
+.paper-briefs {
+  padding: 7px 0 4px;
+}
+
+.paper-briefs h4 {
+  margin: 0 0 6px;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.paper-brief-list {
+  columns: 2;
+  column-gap: 8mm;
+}
+
+.paper-brief {
+  break-inside: avoid;
+  margin: 0;
+  padding: 2.5px 0;
+  border-bottom: 1px dotted #bbb;
+  font-size: 11.5px;
+  line-height: 1.25;
+}
+
+/* Alt bilgi */
+.paper-footer {
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid #111;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #444;
+}
+
+@media print {
+  .paper-wrap {
+    padding: 0;
+  }
+
+  .paper {
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .paper-lead-photo {
+    height: 52mm;
+  }
+}
+
+@media (max-width: 900px) {
+  .paper {
+    width: auto;
+    min-height: 0;
+    padding: 14px;
+  }
+
+  .paper-title {
+    font-size: 46px;
+  }
+
+  .paper-lead h2 {
+    font-size: 26px;
+  }
+
+  .paper-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .paper-feature:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .paper-dateline,
+  .paper-footer {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

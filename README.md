@@ -102,6 +102,19 @@ Kurallar:
 
 **Neden embedding yok:** proje local-first; ~120MB model indirmesi + native paket "klonla → çalıştır" deneyimini ağırlaştırır. Ölçüm bir konunun zayıf kaldığını gösterirse, kural katmanının **altına düşen opsiyonel** bir yerel embedding katmanı eklenebilir (kural → varsa embedding).
 
+## Gazete — günün baskısı
+
+`/gazete` adresinde **kural motoruyla** dizilen bir gazete ön sayfası var. Model yok, rastgelelik yok: aynı veri her zaman aynı sayfayı üretir (test edilir).
+
+- **Havuz:** yapay zekâ kaynakları (`Feed.group === "ai"`) + başlığında AI geçen diğer haberler (ölçüm: 192 aday).
+- **Puan:** tazelik (≤3s 4 · ≤8s 3 · ≤24s 2 · üstü 1) + görsel (2) + başlığın sığması (≤70 harf 2 · ≤100 1) — en fazla 8.
+- **Dizgi:** manşet (görselli en iyi haber) → **4 özellik** (fotoğraflı) → **8 kısa kısa** → künye: `Tel · by erenailab · Sayı <yılın günü>`.
+- **Baskı:** A4 210×297 mm, **tek sayfa**; fotoğraflar siyah-beyaz (gazete kâğıdı hissi). Ekranda da A4 oranında görünür.
+- **PDF:** sağ üstteki **PDF olarak kaydet** tarayıcının yazdırma penceresini açar → "PDF olarak kaydet" ile tek sayfalık A4 çıkar. Sunucu tarafı PDF motoru **yok**, bağımlılık eklenmedi.
+- **Kod:** kurallar `src/lib/paper.ts`, sayfa `src/app/gazete/`, stiller `src/app/gazete/paper.css`, kontroller `scripts/support/paper-checks.ts` (19 kontrol).
+
+Özet metinler baskıda taşmasın diye kelime sınırında kırpılır (manşet 240, özellik 150 karakter) — bu da kural motorunun parçası.
+
 ## Görseller
 
 Sıra:

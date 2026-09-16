@@ -7,6 +7,9 @@ export function SiteHeader() {
       <Link href="/" className="wordmark">
         {APP_NAME}
       </Link>
+      <nav className="mast-nav">
+        <Link href="/gazete">Gazete</Link>
+      </nav>
     </header>
   );
 }
