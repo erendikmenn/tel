@@ -84,6 +84,14 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Commission president says partnership will create ‘common prosperity’ based on shared democratic values Europe live – latest updates Canada has been invited to become the first “associate member” of the EU by the European Commission president, Ursula von der Leyen. In an unprecedented offer, von der Leyen said on Wednesday that the EU and Canada “see the world with the same eyes” through shared democratic values and common approaches to many big issues, from AI to climate breakdown, the Ukraine war and geopolitics. Continue reading..."
   },
   {
+    "id": "https://www.bbc.co.uk/news/articles/c6kgxjl35822o#1",
+    "title": "Colombia and Brazil deadliest countries for environmental activists, report says",
+    "link": "https://www.bbc.co.uk/news/articles/c6kgxjl35822o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "isoDate": "2026-09-16T11:02:54.000Z",
+    "summary": "The two countries accounted for 52% of killings of environmental activists in 2025, according to Global Witness."
+  },
+  {
     "id": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
     "title": "House votes for a third time to end Iran war in symbolic move as conflict drags on – US politics live",
     "link": "https://www.theguardian.com/us-news/live/2026/sep/16/donald-trump-iran-russia-midterms-north-carolina-latest-news-updates",
@@ -739,14 +747,6 @@ export const REAL_ITEMS: DigestItem[] = [
     "summary": "Prime minister speaks of strengthening Canada’s economic and political ties to Europe at Canada Investment Summit Mark Carney said Canada will pursue a “unique security and economic alliance” with Europe as he positions his country as a base to build in the “new global economic order”. Speaking to investors, company executives and government ministers at the inaugural Canada Investment Summit on Tuesday, the prime minister pitched Canada as a “safe harbour” and lucrative home for foreign capital as his government looks to reduce its reliance on trade with the United States. Continue reading..."
   },
   {
-    "id": "https://www.bbc.co.uk/news/articles/crq8j4k99w39o#1",
-    "title": "Nigeria arrests alleged Mexican drug kingpin at international airport",
-    "link": "https://www.bbc.co.uk/news/articles/crq8j4k99w39o?at_medium=RSS&at_campaign=rss",
-    "source": "BBC World",
-    "isoDate": "2026-09-15T18:49:45.000Z",
-    "summary": "Arturo Carrera Loaiza denies allegations he was involved in meth production, the Nigerian authorities say."
-  },
-  {
     "id": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo#3",
     "title": "Warning of space arms race as US confirms weapons in Earth's orbit",
     "link": "https://www.bbc.co.uk/news/videos/cmn07yjqg5rwo?at_medium=RSS&at_campaign=rss",
@@ -1001,13 +1001,5 @@ export const REAL_ITEMS: DigestItem[] = [
     "source": "The Guardian",
     "isoDate": "2026-09-08T06:30:29.000Z",
     "summary": "India’s statistical system once commanded respect, and its data on economic and social indicators was considered rigorous – that appears to have eroded • Don’t get This is India delivered to your inbox? Sign up here There isn’t much that we Indians agree on these days. GDP numbers are no exception. Last week, India released glowing GDP numbers for the latest quarter – 7.8% growth – higher than the forecast 7%. It sparked a furore. Subhash Garg, a former finance secretary under Narendra Modi’s government and now a critic, reframed what Modi called a “herculean feat” as mere smoke and mirrors. According to Garg, the government revised last year’s current-price GDP downwards to inflate this year’s number – he believes the real growth is only 2.6%. Continue reading..."
-  },
-  {
-    "id": "https://www.whatsapp.com/channel/0029Vb5eTSkHFxP3rcjNq41i#4",
-    "title": "Abone olmak için tıklayın",
-    "link": "https://www.whatsapp.com/channel/0029Vb5eTSkHFxP3rcjNq41i?at_medium=RSS&at_campaign=rss",
-    "source": "BBC Türkçe",
-    "isoDate": "2024-04-15T11:20:59.000Z",
-    "summary": "BBC Türkçe'nin Türkiye ve dünyadaki gelişmelerle ilgili haberleri artık telefonunuzda"
   }
 ];

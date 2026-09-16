@@ -22,7 +22,7 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 
 - Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
 - Her üretimde 5 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
-- Sunucu bir **üst küme** çeker: feed'lerin verdiği **her şey**, yaş sınırı yok. Kaynak başına yapay sınır da yok; patolojik bir feed'e karşı yalnızca genel `MAX_ITEMS = 300` güvenlik tavanı var (`src/lib/config.ts`). Yaş süzgeci **tarayıcıda** uygulanır.
+- Sunucu bir **üst küme** çeker: **30 günden yeni her şey** (`MAX_AGE_HOURS`). Kaynak başına yapay sınır yok; genel `MAX_ITEMS = 300` güvenlik tavanı var (`src/lib/config.ts`). Pencere süzgeci **tarayıcıda** uygulanır.
 - Ekrandaki **varsayılan** görünüm son **36 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
 - Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
 
@@ -42,11 +42,11 @@ Anasayfadaki `NewsExplorer` (client) arama ve filtreyi uygular, sonra aynı `spl
 
 ## Arama ve filtreleme
 
-Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak, pencere ve kaynak başına sayı seçilir. Hepsi **tarayıcıda** çalışır: sunucu bir kez üst kümeyi üretir (feed'lerin verdiği her şey, pratikte ~130 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
+Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak, pencere ve kaynak başına sayı seçilir. Hepsi **tarayıcıda** çalışır: sunucu bir kez üst kümeyi üretir (pratikte ~125 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
 
 - **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
 - **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**.
-- **Pencere**: son 1 / 6 / 12 / 24 / 36 / 48 saat, 1 hafta, 1 ay, 3 ay, 6 ay, 1 yıl (varsayılan **36 saat**). Süzgeç tarayıcıda uygulanır; sunucu yaş sınırı koymaz, yani "1 yıl" feed'in verebildiği kadar geriye gider.
+- **Pencere**: son 1 / 6 / 12 / 24 / 36 / 48 saat, 1 hafta, 1 ay (varsayılan **36 saat**), tarayıcıda uygulanır. **Ölçüm:** feed'ler pratikte ~1 hafta geriye gidiyor (48 saat → 114, 1 hafta → 124, 1 ay → 125 kalem); bu yüzden en büyük anlamlı pencere "1 ay" ve 3 ay / 6 ay / 1 yıl ancak arşiv (`0.3`) gelince anlam kazanır.
 - **Kaynak başına**: 6 / 12 / 16 / **20+** (sınırsız; varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
 - **URL'e yazılır**: `/?q=yapay+zeka&kaynak=bbc-tr,npr&zaman=6&kaynakbasi=20` paylaşılabilir. Pencere/kaynak-başına tercihi ayrıca `localStorage`'da tutulur (`tel:view`); **Temizle** hepsini varsayılana döndürür.
 - Çekirdek: `src/lib/filter.ts` (`filterItems`, `takePerSource`, `countMatches`, `matchesFilter`); metin sadeleştirme `src/lib/text.ts` (`normalizeText`) — tekilleştirmeyle **aynı** fonksiyon.
@@ -99,8 +99,9 @@ npm run fixtures  # snapshot'ı canlıdan yenile
 | --- | --- | --- |
 | Kaynak listesi | `src/lib/feeds.ts` | 5 feed |
 | Sayfa yenileme | `src/app/page.tsx` → `revalidate` | 1800 sn (30 dk) |
-| Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 1 yıl (varsayılan 36 saat) |
-| Genel güvenlik tavanı | `src/lib/config.ts` → `MAX_ITEMS` | 300 (pratikte ~130) |
+| Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 1 ay (varsayılan 36 saat) |
+| Fetch akıl sağlığı | `src/lib/config.ts` → `MAX_AGE_HOURS` | 30 gün (bundan eskisi elenir) |
+| Genel güvenlik tavanı | `src/lib/config.ts` → `MAX_ITEMS` | 300 (pratikte ~125) |
 
 Yığın: Next.js 16, React 19, Tailwind v4, `rss-parser`.
 

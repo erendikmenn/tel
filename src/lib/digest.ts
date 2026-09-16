@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
-import { MAX_ITEMS } from "@/lib/config";
+import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
 import { enlargeImage, pageImage } from "@/lib/image";
 import { normalizeText } from "@/lib/text";
 
@@ -108,6 +108,14 @@ function itemImage(item: ParsedItem) {
   return enlargeImage(html.match(/<img[^>]+src=["']([^"']+)/i)?.[1]);
 }
 
+/** 30 günden eski kalem bayat/hatalı sayılır (feed'ler zaten birkaç günlük verir). */
+function isSane(isoDate?: string) {
+  if (!isoDate) return true;
+  const then = Date.parse(isoDate);
+  if (Number.isNaN(then)) return true;
+  return Date.now() - then <= MAX_AGE_HOURS * 3600_000;
+}
+
 function itemTime(item: DigestItem) {
   if (!item.isoDate) return 0;
   const time = Date.parse(item.isoDate);
@@ -120,6 +128,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
 
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)
+    .filter((item) => isSane(item.isoDate ?? item.pubDate))
     .flatMap((item) => {
       const parsed = item as ParsedItem;
       const title = stripHtml(parsed.title!);

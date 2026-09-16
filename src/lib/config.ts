@@ -1,13 +1,16 @@
 export const APP_NAME = "Tel";
 
-// Sunucunun bir kerelik çektiği ÜST KÜME: feed'lerin verdiği HER ŞEY (yaş sınırı yok).
-// Patolojik bir feed'e karşı yalnızca genel güvenlik tavanı var; yaş süzgeci tarayıcıda.
-export const MAX_ITEMS = 300; // güvenlik tavanı (bugünkü gerçek ~130, hiçbir zaman bağlamaz)
+// Sunucunun bir kerelik çektiği ÜST KÜME. Yaş sınırı "ürün sınırı" değil, akıl sağlığı:
+// feed'ler zaten en fazla birkaç günlük kalem veriyor ama arada 2+ yıllık bayat kalemler
+// çıkabiliyor (ölçüldü: BBC Türkçe'de 884 günlük bir kalem). Gerçek seçim tarayıcıda.
+export const MAX_AGE_HOURS = 720; // 30 gün: bundan eskisi bayat/hatalı sayılır
+export const MAX_ITEMS = 300; // güvenlik tavanı (bugünkü gerçek ~125, hiçbir zaman bağlamaz)
 
-// Ekrandaki varsayılanlar ve seçenekler.
+// Ekrandaki varsayılanlar ve seçenekler. Ölçüm: feed'ler ~1 haftadan sonrasını vermiyor,
+// 1 ay da aynı sonucu veriyor. Daha uzun pencereler ancak arşiv (0.3) gelince anlamlı olur.
 export const DEFAULT_WINDOW_HOURS = 36;
 export const DEFAULT_PER_SOURCE = 12;
-export const WINDOW_OPTIONS = [1, 6, 12, 24, 36, 48, 168, 720, 2160, 4320, 8760];
+export const WINDOW_OPTIONS = [1, 6, 12, 24, 36, 48, 168, 720];
 /** 0 = kaynak başına sınır yok; ekranda "20+" olarak görünür. */
 export const PER_SOURCE_UNLIMITED = 0;
 export const PER_SOURCE_OPTIONS = [6, 12, 16, PER_SOURCE_UNLIMITED];
