@@ -215,32 +215,37 @@ a {
 }
 
 .explorer-panel {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  /* Bölümler içeriğe göre daralır ve iki yana yayılır: sağda ölü boşluk kalmaz. */
+  display: grid;
+  /* Bölümler içeriği kadar geniş; artan yer aralarına eşit dağılır. */
+  grid-template-columns: repeat(4, auto);
   justify-content: space-between;
-  gap: 14px 28px;
+  align-items: stretch;
   padding: 16px;
   border: 1px solid var(--line);
   background: var(--card);
 }
 
 .explorer-group {
+  position: relative;
   display: grid;
-  flex: 0 1 auto;
-  min-width: 0;
   gap: 8px;
   align-content: start;
+  /* Bölümün içeriği kendi içinde ortalanır. */
+  justify-items: center;
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
   border: 0;
 }
 
-/* Farklı bölümler arasında ayraç. */
-.explorer-group + .explorer-group {
-  border-left: 1px solid var(--line);
-  padding-left: 28px;
+/* Bölüm ayracı: tam yükseklikte (hepsi aynı boyda), iki bölümün ortasında. */
+.explorer-group + .explorer-group::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
 }
 
 .explorer-group legend {
@@ -272,8 +277,9 @@ a {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(5, auto);
+  /* Kolon genişliği içeriğe göre: etiketler kırılmaz. */
+  grid-auto-columns: max-content;
   gap: 8px 18px;
-  justify-content: start;
 }
 
 
@@ -559,18 +565,24 @@ a {
 
   /* Dar ekranda bölümler alt alta yığılır; ayraç yatay olur. */
   .explorer-panel {
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
   }
 
   .explorer-group {
-    width: 100%;
+    padding: 0;
   }
 
   .explorer-group + .explorer-group {
-    border-left: 0;
-    padding-left: 0;
-    border-top: 1px solid var(--line);
     padding-top: 14px;
+  }
+
+  .explorer-group + .explorer-group::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
   }
 
   .lead-pack,
