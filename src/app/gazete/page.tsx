@@ -27,8 +27,8 @@ export default async function GazetePage() {
   const showBody = Boolean(body && body !== deck);
   // Kısa kısa: 4 kolona dengeli bölünür; kolonlar kalan yüksekliği paylaşır,
   // böylece öğeler ortasından kesilmez ve sayfa boş kalmaz.
-  const briefPerColumn = Math.ceil(paper.briefs.length / 4) || 0;
-  const briefColumns = [0, 1, 2, 3].map((index) =>
+  const briefPerColumn = Math.ceil(paper.briefs.length / 3) || 0;
+  const briefColumns = [0, 1, 2].map((index) =>
     paper.briefs.slice(index * briefPerColumn, (index + 1) * briefPerColumn),
   );
 
@@ -156,8 +156,8 @@ export default async function GazetePage() {
                   <div className="paper-brief-col" key={index}>
                     {column.map((item) => (
                       <p className="paper-brief" key={item.id}>
+                        <span className="paper-kicker">{item.source}</span>
                         <strong>{item.title}</strong>
-                        <span className="paper-meta"> {item.source}</span>
                       </p>
                     ))}
                   </div>
