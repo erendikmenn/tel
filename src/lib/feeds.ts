@@ -1,4 +1,4 @@
-export type FeedGroup = "dunya" | "ai";
+export type FeedGroup = "dunya" | "ai" | "ekonomi";
 
 export type Feed = {
   id: string;
@@ -15,6 +15,7 @@ export type Feed = {
 /** Kaynak panelindeki toplu seçim grupları. */
 export const FEED_GROUPS: { id: FeedGroup; label: string }[] = [
   { id: "dunya", label: "Dünya" },
+  { id: "ekonomi", label: "Finans" },
   { id: "ai", label: "Yapay zekâ" },
 ];
 
@@ -33,29 +34,43 @@ export const FEEDS: Feed[] = [
     id: "bbc-business",
     name: "BBC Business",
     url: "https://feeds.bbci.co.uk/news/business/rss.xml",
-    group: "dunya",
+    group: "ekonomi",
     topic: "ekonomi",
   },
   {
     id: "marketwatch",
     name: "MarketWatch",
     url: "https://feeds.content.dowjones.io/public/rss/mw_topstories",
-    group: "dunya",
+    group: "ekonomi",
     topic: "ekonomi",
   },
   {
     id: "wsj-markets",
     name: "WSJ Markets",
     url: "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
-    group: "dunya",
+    group: "ekonomi",
     topic: "ekonomi",
   },
   {
     id: "cnbc",
     name: "CNBC",
     url: "https://www.cnbc.com/id/100003114/device/rss/rss.html",
-    group: "dunya",
+    group: "ekonomi",
     topic: "ekonomi",
+  },
+  // Türkiye finansı: ekonomi baskısının manşeti buradan çıkar (ölçüldü:
+  // yalnızca ABD/Fed kaynaklarıyla sayfa Türkiye gündemini hiç göstermiyordu).
+  { id: "bloomberght", name: "Bloomberg HT", url: "https://www.bloomberght.com/rss", group: "ekonomi", topic: "ekonomi" },
+  { id: "dunya-gazete", name: "Dünya", url: "https://www.dunya.com/rss", group: "ekonomi", topic: "ekonomi" },
+  { id: "ekonomim", name: "Ekonomim", url: "https://www.ekonomim.com/rss", group: "ekonomi", topic: "ekonomi" },
+  { id: "investing-tr", name: "Investing.com TR", url: "https://tr.investing.com/rss/news.rss", group: "ekonomi", topic: "ekonomi" },
+  {
+    id: "hurriyet-ekonomi",
+    name: "Hürriyet Ekonomi",
+    url: "https://www.hurriyet.com.tr/rss/ekonomi",
+    group: "ekonomi",
+    topic: "ekonomi",
+    limit: 20,
   },
 
   // Yapay zekâ: laboratuvarların kendi blogları

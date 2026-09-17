@@ -43,6 +43,29 @@ function hasEconomySignal(title: string) {
 
 export type PaperSectionId = "ai" | "ekonomi" | "gundem";
 
+/**
+ * Türkiye sinyali: kaynak Türkçe yayın yapıyorsa ya da başlıkta ülke/market
+ * geçiyorsa bu haber ön sayfada öne alınır. Ekonomi baskısı yalnızca Fed
+ * haberleriyle doluyordu; "Borsa düştü, tutuklamalar" gibi manşetlik haberler
+ * sayfaya hiç girmiyordu (ölçüldü).
+ */
+export const HOME_SOURCES = new Set([
+  "BBC Türkçe",
+  "Bloomberg HT",
+  "Dünya",
+  "Ekonomim",
+  "Investing.com TR",
+  "Hürriyet Ekonomi",
+]);
+
+const HOME_STEMS = ["turkiye", "istanbul", "borsa", "lira", "tcmb", "merkez", "bayrakli"];
+
+export function isHomeItem(item: DigestItem) {
+  if (HOME_SOURCES.has(item.source)) return true;
+  const words = normalizeText(item.title).split(" ");
+  return HOME_STEMS.some((stem) => words.some((word) => word.startsWith(stem)));
+}
+
 export type PaperSection = {
   id: PaperSectionId;
   /** Künyede görünen ad: "Yapay zekâ baskısı" gibi. */
@@ -51,6 +74,8 @@ export type PaperSection = {
   short: string;
   /** Kalem bu bölüme giriyor mu? */
   match: (item: DigestItem) => boolean;
+  /** Türkiye sinyalli haberler öne alınsın mı? (yerel gündem baskıları) */
+  homeFirst?: boolean;
 };
 
 /** Bölümler: her biri kendi havuzundan, aynı kurallarla dizilir. */
@@ -65,12 +90,14 @@ export const PAPER_SECTIONS: PaperSection[] = [
     id: "ekonomi",
     label: "Finans & Ekonomi baskısı",
     short: "Finans & Ekonomi",
+    homeFirst: true,
     match: (item) => (item.topics ?? []).includes("ekonomi") && hasEconomySignal(item.title),
   },
   {
     id: "gundem",
     label: "Gündem baskısı",
     short: "Gündem",
+    homeFirst: true,
     match: (item) => WORLD_SOURCES.has(item.source),
   },
 ];
@@ -171,7 +198,11 @@ export function buildPaper(
 ): Paper {
   const ranked = items
     .filter((item) => section.match(item))
-    .map((item) => ({ item, score: paperScore(item, now) }))
+    .map((item) => ({
+      item,
+      // Yerel gündem baskılarında Türkiye sinyali +3 puan.
+      score: paperScore(item, now) + (section.homeFirst && isHomeItem(item) ? 3 : 0),
+    }))
     .sort(
       (a, b) =>
         b.score - a.score ||
@@ -180,9 +211,13 @@ export function buildPaper(
     )
     .map((row) => row.item);
 
-  // Manşet görselli olur; hiç görsel yoksa en iyi haber manşete geçer.
-  const lead = ranked.find((item) => item.image) ?? ranked[0];
-  const rest = ranked.filter((item) => item.id !== lead?.id);
+  // ÖNCE fotoğraflı yerler doldurulur (manşet + 3 haber): bant ve yanlar
+  // görselli haberleri tüketirse alt sıra fotoğrafsız kalıyordu (ölçüldü).
+  const photoSlots = 1 + PAPER_STORIES;
+  const photos = ranked.filter((item) => item.image).slice(0, photoSlots);
+  const lead = photos[0] ?? ranked[0];
+  const stories = photos.slice(1);
+  const rest = ranked.filter((item) => item !== lead && !stories.includes(item));
 
   // Üst bant: kısa başlıklar (dar kolonlara sığsın).
   const strip = rest.filter((item) => item.title.length <= STRIP_TITLE_MAX).slice(0, PAPER_STRIP);
@@ -192,10 +227,7 @@ export function buildPaper(
   const flankers = afterStrip
     .filter((item) => item.title.length <= 100)
     .slice(0, PAPER_FLANKERS);
-  const afterFlankers = afterStrip.filter((item) => !flankers.includes(item));
-
-  const stories = afterFlankers.filter((item) => item.image).slice(0, PAPER_STORIES);
-  const afterStories = afterFlankers.filter((item) => !stories.includes(item));
+  const afterStories = afterStrip.filter((item) => !flankers.includes(item));
 
   const sidebar = afterStories.slice(0, PAPER_SIDEBAR);
   const briefs = afterStories.slice(PAPER_SIDEBAR, PAPER_SIDEBAR + PAPER_BRIEFS);
