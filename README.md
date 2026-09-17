@@ -158,6 +158,7 @@ npm start
 npm test          # dondurulmuş gerçek feed snapshot'ı (hızlı, ağsız)
 npm run test:live # canlı 15 RSS ile aynı kontroller
 npm run fixtures  # snapshot'ı canlıdan yenile
+npm run bulten    # bugünün bülteni (canlı): manşet, sayfa haberleri, kısa kısa, konu dağılımı
 ```
 
 ## Ayarlar
