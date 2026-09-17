@@ -27,6 +27,36 @@ export const FEEDS: Feed[] = [
   { id: "guardian-world", name: "The Guardian", url: "https://www.theguardian.com/world/rss", group: "dunya" },
   { id: "aljazeera", name: "Al Jazeera", url: "https://www.aljazeera.com/xml/rss/all.xml", group: "dunya" },
   { id: "npr", name: "NPR", url: "https://feeds.npr.org/1001/rss.xml", group: "dunya" },
+  // Finans & ekonomi: "ekonomi" konusuna doğrudan işaretlenir (topic),
+  // böylece /gazete/ekonomi baskısının havuzu dolar.
+  {
+    id: "bbc-business",
+    name: "BBC Business",
+    url: "https://feeds.bbci.co.uk/news/business/rss.xml",
+    group: "dunya",
+    topic: "ekonomi",
+  },
+  {
+    id: "marketwatch",
+    name: "MarketWatch",
+    url: "https://feeds.content.dowjones.io/public/rss/mw_topstories",
+    group: "dunya",
+    topic: "ekonomi",
+  },
+  {
+    id: "wsj-markets",
+    name: "WSJ Markets",
+    url: "https://feeds.a.dj.com/rss/RSSMarketsMain.xml",
+    group: "dunya",
+    topic: "ekonomi",
+  },
+  {
+    id: "cnbc",
+    name: "CNBC",
+    url: "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+    group: "dunya",
+    topic: "ekonomi",
+  },
 
   // Yapay zekâ: laboratuvarların kendi blogları
   { id: "openai", name: "OpenAI", url: "https://openai.com/news/rss.xml", group: "ai", topic: "teknoloji" },

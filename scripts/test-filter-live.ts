@@ -1,7 +1,7 @@
 import { buildPaper } from "../src/lib/paper";
 import { fetchRealItems } from "./support/real-feed";
 import { checkFilterRules, printExamples, printTopicReport } from "./support/filter-checks";
-import { checkPaperRules, printPaper } from "./support/paper-checks";
+import { checkPaperRules, checkPaperSections, printPaper } from "./support/paper-checks";
 import { checkReadRules } from "./support/read-checks";
 
 async function main() {
@@ -24,6 +24,7 @@ async function main() {
   checkFilterRules(items, assert);
   checkReadRules(items, assert);
   checkPaperRules(items, assert);
+  checkPaperSections(items, Date.now(), assert);
   printPaper(buildPaper(items));
 
   if (failed) {

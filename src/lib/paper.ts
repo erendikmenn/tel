@@ -13,6 +13,72 @@ export const AI_SOURCES = new Set(
   FEEDS.filter((feed) => feed.group === "ai").map((feed) => feed.name),
 );
 
+/** Dünya haberleri kaynakları — "gündem" baskısının havuzu. */
+export const WORLD_SOURCES = new Set(
+  FEEDS.filter((feed) => feed.group === "dunya").map((feed) => feed.name),
+);
+
+/**
+ * Ekonomi bölümü için GÜÇLÜ sinyaller. Konu sınıflandırıcısı tek başına
+ * yetmiyor: "bank cards" → "bank", "gambling advertising" → "advertising"
+ * eşleşip bölüme kumar/kart haberleri düşüyordu (ölçüldü). Bu yüzden ekonomi
+ * havuzu = konusu ekonomi OLAN ve başlığında bu kelimelerden birini taşıyanlar.
+ */
+const EKONOMI_STEMS = [
+  "fed", "faiz", "enflas", "infla", "reses", "recess", "borsa", "piyasa", "tarif",
+  "petrol", "oil", "dolar", "dollar", "euro", "butce", "budget", "issiz", "unemploy",
+  "finan", "ekonom", "hisse", "stock", "borc", "debt", "vergi", "gdp", "ihracat",
+  "export", "ithalat", "import", "sanayi", "industr", "ticaret", "trade",
+];
+
+/**
+ * Başlıkta güçlü bir ekonomi sinyali var mı? Kök eşleşmesi kullanılır
+ * ("finan" → finance/financial/finans, "ekonom" → economy/economic/ekonomi).
+ * Böylece "bank cards" gibi yanlış eşleşmeler bölüme haber taşımıyor.
+ */
+function hasEconomySignal(title: string) {
+  const words = normalizeText(title).split(" ");
+  return EKONOMI_STEMS.some((stem) => words.some((word) => word.startsWith(stem)));
+}
+
+export type PaperSectionId = "ai" | "ekonomi" | "gundem";
+
+export type PaperSection = {
+  id: PaperSectionId;
+  /** Künyede görünen ad: "Yapay zekâ baskısı" gibi. */
+  label: string;
+  /** Kısa etiket (bölüm seçici). */
+  short: string;
+  /** Kalem bu bölüme giriyor mu? */
+  match: (item: DigestItem) => boolean;
+};
+
+/** Bölümler: her biri kendi havuzundan, aynı kurallarla dizilir. */
+export const PAPER_SECTIONS: PaperSection[] = [
+  {
+    id: "ai",
+    label: "Yapay zekâ baskısı",
+    short: "Yapay zekâ",
+    match: (item) => isAiItem(item),
+  },
+  {
+    id: "ekonomi",
+    label: "Finans & Ekonomi baskısı",
+    short: "Finans & Ekonomi",
+    match: (item) => (item.topics ?? []).includes("ekonomi") && hasEconomySignal(item.title),
+  },
+  {
+    id: "gundem",
+    label: "Gündem baskısı",
+    short: "Gündem",
+    match: (item) => WORLD_SOURCES.has(item.source),
+  },
+];
+
+export function findSection(id: string | undefined): PaperSection {
+  return PAPER_SECTIONS.find((section) => section.id === id) ?? PAPER_SECTIONS[0];
+}
+
 const AI_WORDS = [
   "ai", "gpt", "chatgpt", "claude", "gemini", "llm", "openai", "anthropic", "deepmind",
   "chatbot", "copilot", "midjourney", "nvidia", "yapay", "zeka", "zekasi", "zekaya",
@@ -34,6 +100,7 @@ export const PAPER_STORY_SUMMARY = 240;
 const STRIP_TITLE_MAX = 64;
 
 export type Paper = {
+  section: PaperSection;
   lead?: DigestItem;
   strip: DigestItem[];
   /** Manşet fotoğrafının soluna ve sağına yerleşen iki haber. */
@@ -97,9 +164,13 @@ export function firstSentence(text: string | undefined, max = 160) {
   return clipSummary(match ? match[1] : text, max);
 }
 
-export function buildPaper(items: DigestItem[], now = Date.now()): Paper {
+export function buildPaper(
+  items: DigestItem[],
+  now = Date.now(),
+  section: PaperSection = PAPER_SECTIONS[0],
+): Paper {
   const ranked = items
-    .filter((item) => isAiItem(item))
+    .filter((item) => section.match(item))
     .map((item) => ({ item, score: paperScore(item, now) }))
     .sort(
       (a, b) =>
@@ -134,6 +205,7 @@ export function buildPaper(items: DigestItem[], now = Date.now()): Paper {
   );
 
   return {
+    section,
     lead,
     strip,
     flankers,

@@ -2,11 +2,14 @@ import type { DigestItem } from "../../src/lib/digest";
 import {
   PAPER_BRIEFS,
   PAPER_FLANKERS,
+  PAPER_SECTIONS,
   PAPER_SIDEBAR,
   PAPER_STORIES,
   PAPER_STRIP,
+  WORLD_SOURCES,
   buildPaper,
   clipSummary,
+  findSection,
   firstSentence,
   isAiItem,
   paperScore,
@@ -83,6 +86,44 @@ export function checkPaperRules(items: DigestItem[], assert: PaperAssert) {
   const sentence = firstSentence("Birinci cümle burada biter. İkinci cümle devam eder ve uzundur.");
   assert("deck ilk cümleyi alır", sentence === "Birinci cümle burada biter.");
   assert("tek cümlelik özet deck olur", (firstSentence("Kısa bir özet") ?? "").startsWith("Kısa"));
+}
+
+/** Bölümler: her baskı kendi havuzundan, aynı kurallarla dizilir. */
+export function checkPaperSections(items: DigestItem[], now: number, assert: (name: string, ok: boolean) => void) {
+  assert("bölüm: üç baskı tanımlı", PAPER_SECTIONS.length === 3);
+  assert(
+    "bölüm: kimlikler ai/ekonomi/gundem",
+    PAPER_SECTIONS.map((section) => section.id).join(",") === "ai,ekonomi,gundem",
+  );
+  assert("bölüm: bilinmeyen kimlik yapay zekâya düşer", findSection("yok").id === "ai");
+
+  const ekonomi = buildPaper(items, now, findSection("ekonomi"));
+  const ekonomiPool = [
+    ...(ekonomi.lead ? [ekonomi.lead] : []),
+    ...ekonomi.strip,
+    ...ekonomi.flankers,
+    ...ekonomi.stories,
+    ...ekonomi.sidebar,
+    ...ekonomi.briefs,
+  ];
+  assert("ekonomi: havuz ekonomi konulu", ekonomiPool.every((item) => (item.topics ?? []).includes("ekonomi")));
+  assert("ekonomi: künye doğru", ekonomi.section.label === "Finans & Ekonomi baskısı");
+
+  const gundem = buildPaper(items, now, findSection("gundem"));
+  const gundemPool = [
+    ...(gundem.lead ? [gundem.lead] : []),
+    ...gundem.strip,
+    ...gundem.flankers,
+    ...gundem.stories,
+    ...gundem.sidebar,
+    ...gundem.briefs,
+  ];
+  assert("gündem: havuz dünya kaynaklarından", gundemPool.every((item) => WORLD_SOURCES.has(item.source)));
+  assert("gündem: künye doğru", gundem.section.label === "Gündem baskısı");
+
+  const ai = buildPaper(items, now);
+  assert("yapay zekâ: varsayılan bölüm ai", ai.section.id === "ai");
+  assert("yapay zekâ: havuz AI kalemlerinden", (ai.lead ? isAiItem(ai.lead) : true));
 }
 
 /** Test çıktısında gazetenin ön sayfasını metin olarak gösterir. */
