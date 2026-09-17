@@ -166,7 +166,8 @@ export default async function GazetePage() {
             </section>
           ) : null}
 
-          {/* Alt bilgi metni yok; sayfanın dibinde kapanış çizgisi. */}
+          {/* Sağ altta künye izi, en dipte kapanış çizgisi. */}
+          <p className="paper-credit-mark">@erenailab</p>
           <div className="paper-endrule" aria-hidden="true" />
         </article>
       ) : (

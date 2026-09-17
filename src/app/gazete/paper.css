@@ -362,6 +362,16 @@
   color: var(--paper-soft);
 }
 
+/* Sağ altta künye izi. */
+.paper-credit-mark {
+  margin: 5px 0 3px;
+  text-align: right;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--paper-soft);
+}
+
 /* ── Kapanış çizgisi ────────────────────────────────────── */
 /* Metin yok: sayfanın en dibine inen kalın siyah çizgi. */
 .paper-endrule {
