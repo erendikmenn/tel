@@ -107,10 +107,13 @@ export function findSection(id: string | undefined): PaperSection {
   return PAPER_SECTIONS.find((section) => section.id === id) ?? PAPER_SECTIONS[0];
 }
 
+// "agent" / "ajan" yok: AI kaynağı olmayan başlıkta çoğu zaman yapay zekâ değil
+// ("killed by ICE agent" AI sayfasına giriyordu, 1 Ekim 2026). Yapay zekâ
+// ajanı haberi başlığında zaten "AI" ya da "yapay zekâ" taşıyor.
 const AI_WORDS = [
   "ai", "gpt", "chatgpt", "claude", "gemini", "llm", "openai", "anthropic", "deepmind",
   "chatbot", "copilot", "midjourney", "nvidia", "yapay", "zeka", "zekasi", "zekaya",
-  "zekanin", "makine", "ogrenmesi", "neural", "algoritma", "robot", "agent", "ajan",
+  "zekanin", "makine", "ogrenmesi", "neural", "algoritma", "robot",
   "model", "modelleri", "veri",
 ];
 
