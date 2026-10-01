@@ -1,3 +1,4 @@
+import { dropRepeats, storyMatcher } from "./dedupe";
 import type { DigestItem } from "./digest";
 import { FEEDS } from "./feeds";
 import { normalizeText } from "./text";
@@ -210,14 +211,17 @@ export function buildPaper(
         a.item.title.localeCompare(b.item.title, "tr"),
     )
     .map((row) => row.item);
+  // Aynı olay birkaç kaynaktan geliyorsa sayfaya en yüksek puanlısı girer
+  // (1 Ekim 2026: Lagarde'ın uyarısı üç ayrı haber olarak basılmıştı).
+  const unique = dropRepeats(ranked, storyMatcher(items));
 
   // ÖNCE fotoğraflı yerler doldurulur (manşet + 3 haber): bant ve yanlar
   // görselli haberleri tüketirse alt sıra fotoğrafsız kalıyordu (ölçüldü).
   const photoSlots = 1 + PAPER_STORIES;
-  const photos = ranked.filter((item) => item.image).slice(0, photoSlots);
-  const lead = photos[0] ?? ranked[0];
+  const photos = unique.filter((item) => item.image).slice(0, photoSlots);
+  const lead = photos[0] ?? unique[0];
   const stories = photos.slice(1);
-  const rest = ranked.filter((item) => item !== lead && !stories.includes(item));
+  const rest = unique.filter((item) => item !== lead && !stories.includes(item));
 
   // Üst bant: kısa başlıklar (dar kolonlara sığsın).
   const strip = rest.filter((item) => item.title.length <= STRIP_TITLE_MAX).slice(0, PAPER_STRIP);
