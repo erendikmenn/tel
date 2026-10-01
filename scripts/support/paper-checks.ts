@@ -56,6 +56,12 @@ export function checkPaperRules(items: DigestItem[], assert: PaperAssert) {
   const nonAi = items.find((item) => !isAiItem(item));
   assert("AI dışı haber sayfaya girmiyor", !nonAi || !pages.some((item) => item.id === nonAi.id));
 
+  // "agent" tek başına yapay zekâ değil (1 Ekim 2026: ICE haberi AI sayfasına girmişti).
+  const probe = (source: string, title: string): DigestItem => ({ id: "ai-word:" + title, title, link: "", source });
+  assert("ICE ajanı haberi AI değil", !isAiItem(probe("BBC World", "Renee Good: Family of US woman killed by ICE agent sues Trump officials")));
+  assert("başlığında AI geçen ajan haberi AI", isAiItem(probe("CNBC", "Google unveils latest AI model, but Wall Street wants a breakout personal agent")));
+  assert("AI kaynağının ajan haberi AI", isAiItem(probe("The Verge AI", "OpenAI’s new agent is a shot at Meta — but can it compete with free?")));
+
   assert("sayı (edition) 1..366", paper.edition >= 1 && paper.edition <= 366);
   assert("kaynak listesi dolu", paper.sources.length > 0);
   assert(
