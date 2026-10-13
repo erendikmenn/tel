@@ -5,7 +5,8 @@ import { buildPaper, findSection } from "@/lib/paper";
 export const revalidate = 1800;
 
 export const metadata = {
-  title: "Tel · Günün baskısı",
+  // Kök düzenin şablonu "· Tel" ekler; burada yazılırsa başlıkta iki kez çıkıyordu.
+  title: "Günün baskısı",
   description: "Yapay zekâ haberlerinden kural motoruyla dizilen günlük gazete sayfası.",
 };
 

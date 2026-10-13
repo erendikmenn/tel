@@ -1,8 +1,11 @@
+import type { Metadata } from "next";
 import { PaperSheet } from "@/components/PaperSheet";
 import { buildDigest } from "@/lib/digest";
 import { PAPER_SECTIONS, buildPaper, findSection } from "@/lib/paper";
 
 export const revalidate = 1800;
+
+type Props = { params: Promise<{ bolum: string }> };
 
 export function generateStaticParams() {
   return PAPER_SECTIONS.filter((section) => section.id !== "ai").map((section) => ({
@@ -10,7 +13,15 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function GazeteBolumPage({ params }: { params: Promise<{ bolum: string }> }) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const section = findSection((await params).bolum);
+  return {
+    title: section.label,
+    description: section.short + " haberlerinden kural motoruyla dizilen günlük gazete sayfası.",
+  };
+}
+
+export default async function GazeteBolumPage({ params }: Props) {
   const { bolum } = await params;
   const section = findSection(bolum);
   const digest = await buildDigest();
