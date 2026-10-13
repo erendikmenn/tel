@@ -42,6 +42,9 @@ const HEADERS = {
 };
 const PAGE_TIMEOUT_MS = 5000;
 const LOOKUP_TTL_MS = 30 * 60_000;
+// og:image <head>'de, sayfanın gerisi indirilmez. CNBC sayfası ~800 KB; 124
+// yazılık bir tur 45 MB indiriyordu, böyle 9 MB (13 Ekim 2026).
+const PAGE_HEAD = { maxBytes: 120_000, stopAt: "</head>" };
 
 /** Sayfanın og:image / twitter:image adresi, HTML kaçışları çözülmüş (itemImage'daki <img> gibi). */
 export function metaImage(html: string) {
@@ -83,7 +86,7 @@ export function pageImage(url: string) {
 }
 
 async function lookUpImage(url: string) {
-  const html = (await getText(url, HEADERS, PAGE_TIMEOUT_MS)).slice(0, 120_000);
+  const html = (await getText(url, HEADERS, PAGE_TIMEOUT_MS, PAGE_HEAD)).slice(0, PAGE_HEAD.maxBytes);
   const found = metaImage(html);
   if (!found) return undefined;
   return usableImage(new URL(found, url).href);

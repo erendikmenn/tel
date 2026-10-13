@@ -1,6 +1,6 @@
 import http from "node:http";
 import https from "node:https";
-import { gunzipSync } from "node:zlib";
+import { constants, gunzipSync } from "node:zlib";
 
 const FEED_HEADERS = {
   "User-Agent": "Tel/0.1 (+https://tel.local)",
@@ -34,12 +34,20 @@ export function getFeedXml(url: string) {
  * yazıyor, önbellekteki kayıt bayatsa (önceki derlemeden, 30 dk'dan eski)
  * isteği sinyali düşürerek yeniden atıyor (patch-fetch.js: "don't pass through
  * signal when revalidating"). O zaman AbortSignal.timeout işlemiyor.
+ *
+ * `limit` verilirse gövde akıştan okunur ve `maxBytes`'a varınca ya da `stopAt`
+ * görülünce okuma biter, bağlantı kapanır; dönen metin o ana kadar gelendir.
  */
-export async function getText(url: string, headers: http.OutgoingHttpHeaders, timeoutMs: number) {
+export async function getText(
+  url: string,
+  headers: http.OutgoingHttpHeaders,
+  timeoutMs: number,
+  limit: BodyLimit = {},
+) {
   const signal = AbortSignal.timeout(timeoutMs);
   let target = url;
   for (let redirects = 0; ; redirects += 1) {
-    const response = await request(target, headers, signal);
+    const response = await request(target, headers, signal, limit);
     if (response.location && response.status >= 300 && response.status < 400) {
       if (redirects >= MAX_REDIRECTS) throw new Error("Too many redirects");
       target = new URL(response.location, target).href;
@@ -50,9 +58,11 @@ export async function getText(url: string, headers: http.OutgoingHttpHeaders, ti
   }
 }
 
+export type BodyLimit = { maxBytes?: number; stopAt?: string };
+
 type Response = { status: number; location?: string; text: string };
 
-function request(url: string, headers: http.OutgoingHttpHeaders, signal: AbortSignal) {
+function request(url: string, headers: http.OutgoingHttpHeaders, signal: AbortSignal, limit: BodyLimit) {
   const get = url.startsWith("https:") ? https.get : http.get;
   return new Promise<Response>((resolve, reject) => {
     const req = get(url, { headers, signal }, (res) => {
@@ -63,24 +73,39 @@ function request(url: string, headers: http.OutgoingHttpHeaders, signal: AbortSi
         return;
       }
       const chunks: Buffer[] = [];
-      res.on("data", (chunk: Buffer) => chunks.push(chunk));
-      res.on("error", reject);
-      res.on("end", () => {
+      let size = 0;
+      let seen = "";
+      const finish = (cut: boolean) => {
         try {
-          resolve({ status, text: decodeFeedBody(Buffer.concat(chunks), res.headers) });
+          resolve({ status, text: decodeFeedBody(Buffer.concat(chunks), res.headers, cut) });
         } catch (error) {
           reject(error);
         }
+      };
+      res.on("data", (chunk: Buffer) => {
+        chunks.push(chunk);
+        size += chunk.length;
+        // stopAt parça sınırına denk gelebilir: önceki parçanın kuyruğu da aranır.
+        if (limit.stopAt) seen = seen.slice(-limit.stopAt.length) + chunk.toString("latin1");
+        if (size >= (limit.maxBytes ?? Infinity) || (limit.stopAt && seen.includes(limit.stopAt))) {
+          res.destroy();
+          finish(true);
+        }
       });
+      res.on("error", reject);
+      res.on("end", () => finish(false));
     });
     req.on("error", reject);
   });
 }
 
-/** Gövdeyi metne çevirir: gzip'liyse (başlık yazmasa da) açar. */
-export function decodeFeedBody(body: Buffer, headers: http.IncomingHttpHeaders) {
+/**
+ * Gövdeyi metne çevirir: gzip'liyse (başlık yazmasa da) açar. `cut`: okumayı
+ * biz yarıda kestik; gzip akışı eksik kalır, gelen kadarı açılır.
+ */
+export function decodeFeedBody(body: Buffer, headers: http.IncomingHttpHeaders, cut = false) {
   const gzip = headers["content-encoding"] === "gzip" || (body[0] === 0x1f && body[1] === 0x8b);
-  const bytes = gzip ? gunzipSync(body) : body;
+  const bytes = gzip ? gunzipSync(body, cut ? { finishFlush: constants.Z_SYNC_FLUSH } : undefined) : body;
   // rss-parser gibi: UTF-8; yalnızca ISO-8859-1 bildiren feed Latin-1 okunur.
   const charset = /(?:encoding|charset)\s*=\s*"?([\w-]+)/i.exec(headers["content-type"] ?? "")?.[1]?.toLowerCase();
   return bytes.toString(charset === "iso-8859-1" || charset === "latin1" ? "latin1" : "utf8");

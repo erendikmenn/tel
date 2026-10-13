@@ -21,6 +21,11 @@ export function checkFeedDecode(assert: HttpAssert) {
     "feed: ISO-8859-1 bildiren gövde Latin-1 okunur",
     decodeFeedBody(Buffer.from("café", "latin1"), { "content-type": "text/xml; charset=ISO-8859-1" }) === "café",
   );
+  const page = gzipSync(Buffer.from('<html><head><meta property="og:image" content="/a.jpg">' + "<p>".repeat(50_000)));
+  assert(
+    "sayfa: yarıda kesilen gzip gövdenin gelen kadarı açılır",
+    decodeFeedBody(page.subarray(0, page.length >> 1), { "content-encoding": "gzip" }, true).includes("og:image"),
+  );
 }
 
 /**
@@ -46,6 +51,11 @@ export async function checkPageFetch(assert: HttpAssert) {
       res.on("close", () => clearInterval(drip));
     } else if (req.url === "/yok") {
       res.writeHead(404).end();
+    } else if (req.url === "/uzun" || req.url === "/basliksiz") {
+      // Gövde bitmez: okuma </head>'de ya da 120 KB'ta durmazsa istek süre dolana kadar asılır.
+      res.writeHead(200, { "content-type": "text/html" });
+      res.write('<html><head><meta property="og:image" content="/img/b.jpg">');
+      res.write(req.url === "/uzun" ? "</head><body>" : "<script>" + "x".repeat(300_000));
     }
     // /sessiz: hiç yanıt yok.
   });
@@ -87,6 +97,15 @@ export async function checkPageFetch(assert: HttpAssert) {
     "görsel: aynı yazı bir kez indirilir, başarısız istek saklanmaz",
     hits["/makale"] === 1 && hits["/yok"] === 2,
     JSON.stringify(hits),
+  );
+
+  const start = Date.now();
+  const heads = await Promise.all([pageImage(base + "/uzun"), pageImage(base + "/basliksiz")]);
+  const headMs = Date.now() - start;
+  assert(
+    "görsel: sayfa </head>'de ya da 120 KB'ta bırakılır, gerisi beklenmez",
+    heads.every((image) => image === base + "/img/b.jpg") && headMs < 2000,
+    JSON.stringify({ heads, headMs }),
   );
 
   server.closeAllConnections();
