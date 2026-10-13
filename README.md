@@ -6,7 +6,7 @@ Saat dilimi Europe/Istanbul. Haberler **en yeniden eskiye** dizilir.
 
 ## Kaynaklar
 
-**15 kaynak.** Liste `src/lib/feeds.ts` içinde; eklemek veya çıkarmak oradan.
+**24 kaynak** (5 dünya + 9 finans + 10 yapay zekâ). Liste `src/lib/feeds.ts` içinde; eklemek veya çıkarmak oradan.
 
 **Dünya haberleri (5)**
 
@@ -17,6 +17,20 @@ Saat dilimi Europe/Istanbul. Haberler **en yeniden eskiye** dizilir.
 | The Guardian (world) | `https://www.theguardian.com/world/rss` |
 | Al Jazeera | `https://www.aljazeera.com/xml/rss/all.xml` |
 | NPR | `https://feeds.npr.org/1001/rss.xml` |
+
+**Finans & ekonomi (9).** Hepsi `topic: "ekonomi"` taşır; `/gazete/ekonomi` baskısının havuzu buradan dolar. Türkiye kaynakları ekonomi baskısının manşetini taşır.
+
+| Kaynak | RSS | Not |
+| --- | --- | --- |
+| BBC Business | `https://feeds.bbci.co.uk/news/business/rss.xml` | |
+| MarketWatch | `https://feeds.content.dowjones.io/public/rss/mw_topstories` | |
+| WSJ Markets | `https://feeds.a.dj.com/rss/RSSMarketsMain.xml` | |
+| CNBC | `https://www.cnbc.com/id/100003114/device/rss/rss.html` | |
+| Bloomberg HT | `https://www.bloomberght.com/rss` | |
+| Dünya | `https://www.dunya.com/rss` | |
+| Ekonomim | `https://www.ekonomim.com/rss` | |
+| Investing.com TR | `https://tr.investing.com/rss/news.rss` | Tarihleri saat dilimsiz verir; UTC okunur (`feedDate`) |
+| Hürriyet Ekonomi | `https://www.hurriyet.com.tr/rss/ekonomi` | `limit: 20` |
 
 **Yapay zekâ — laboratuvarların kendi blogları (5).** Hepsi `topic: "teknoloji"` taşır: kalemler başlıkta anahtar kelime olmasa da **Teknoloji & Yapay Zeka** konusuna düşer.
 
@@ -45,11 +59,11 @@ Bir kaynak cevap vermezse sayfa yine açılır; üstte `ulaşılamayan: …` yaz
 ## Ne sıklıkla yenilenir
 
 - Anasayfa `src/app/page.tsx` içindeki `revalidate` kadar sürede bir yeniden üretilir (varsayılan 1800 sn / 30 dk). Intro'daki geri sayım da aynı değeri okuduğu için süre değişince sayaç kendiliğinden uyum sağlar.
-- Her üretimde 15 feed **paralel** çekilir (`rss-parser`, zaman aşımı 8 sn).
+- Her üretimde 24 feed **paralel** çekilir: `getFeedXml` indirir (`src/lib/http.ts`; zaman aşımı 8 sn, gzip'li gövdeyi başlık yazmasa da açar), `rss-parser` ayrıştırır.
 - Sunucu bir **üst küme** çeker: **30 günden yeni her şey** (`MAX_AGE_HOURS`). Kaynak başına yapay sınır yok; `Feed.limit` yalnızca toplayıcı feed'ler için (Google News), genel `MAX_ITEMS = 400` güvenlik tavanı var (`src/lib/config.ts`). Pencere süzgeci **tarayıcıda** uygulanır.
 - Ölçüm (16 Eyl 2026, 15 feed): havuz **307 kalem**; en kalabalık kaynak OpenAI 60, The Guardian 45, BBC World 26.
 - Ekrandaki **varsayılan** görünüm son **24 saat** ve kaynak başına **12** kalemdir; kullanıcı bunları Filtreler panelinden değiştirebilir.
-- Aynı başlık (Türkçe + aksan normalize, `normalizeText`) bir kez gösterilir.
+- Aynı yazı bir kez gösterilir: kimliği ya da başlığı (Türkçe + aksan normalize, `normalizeText`) aynı olan kalemlerden `FEEDS` sırasında ilk görülen kalır (`dropCopies`; BBC World ile BBC Business aynı yazıyı veriyor).
 
 Yani RSS’ler tarayıcıda sürekli poll edilmez; Next.js sayfayı `revalidate` dolunca baştan kurar. `npm run dev` içinde dosya değişince sayfa yine yenilenir.
 
@@ -70,7 +84,7 @@ Anasayfadaki `NewsExplorer` (client) arama ve filtreyi uygular, sonra aynı `spl
 Anasayfanın üstündeki çubuktan arama yapılır; yanındaki **Filtreler** panelinden kaynak, pencere ve kaynak başına sayı seçilir. Hepsi **tarayıcıda** çalışır: sunucu bir kez üst kümeyi üretir (pratikte ~125 kalem), arama/filtre sunucuya istek atmadan anında uygulanır.
 
 - **Arama** (`q`): kelime bazlı. Büyük-küçük harf ve aksan farkı gözetilmez (`AI` = `ai`, `İran` = `iran`). Noktalama ve tire kelimeyi **böler** (`AI-generated` → `ai generated`). **3 harften kısa** sorgular yalnızca **tam kelime** eşleşir (`ai` → sadece `AI`; `aim`/`aid`/`airport`/`ailem` değil); **3+ harf** prefix de kabul eder (`lib` → `libya`, `iran` → `iranian`/`iranbacked`). Varsayılan olarak tüm kelimeler eşleşmeli.
-- **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**. 15 kaynak var: liste **5 satırda kalır ve kaydırılır** (panel büyümesin), **seçili kaynaklar en üste** çıkar. Üstteki **Dünya (5)** ve **Yapay zekâ (10)** kısayolları bir grubun tamamını tek tıkla seçer/bırakır (`Feed.group`).
+- **Kaynak**: çoklu seçim; seçilenler aralarında **VEYA**, diğer filtrelerle **VE**. 24 kaynak var: liste **5 satırda kalır ve kaydırılır** (panel büyümesin), **seçili kaynaklar en üste** çıkar. Üstteki **Dünya (5)**, **Finans (9)** ve **Yapay zekâ (10)** kısayolları bir grubun tamamını tek tıkla seçer/bırakır (`Feed.group`).
 - **Pencere**: son 1 / 6 / 12 / 24 saat ya da **Tümü** (varsayılan **24 saat**), tarayıcıda uygulanır. **Ölçüm (kaynak başına 12):** 1s → 22, 6s → 58, 12s → 63, 24s → 95, Tümü → 169. Kaynak başına **20+** ile: 6s → 72, 12s → 96, 24s → 141, Tümü → 307. 36 ve 48 saat seçenekleri, kaynak başına sınır bağlayıcı olduğu için kaldırılmıştı; yapay zekâ feed'leriyle pencere yeniden ayrışıyor (24s 95'e karşı Tümü 169). **Tümü** = feed'in verdiği her şey; gerçek uzun pencereler arşiv (`0.3`) ile gelir.
 - **Kaynak başına**: 6 / 12 / 16 / **20+** (sınırsız; varsayılan **12**); `takePerSource()` ile tarayıcıda uygulanır, üretken bir kaynak sayfayı domine etmez.
 - **Kategori**: 9 konu + Diğer; `DigestFilter.category` ile süzülür (aşağıdaki **Kategoriler** bölümü).
@@ -107,6 +121,7 @@ Kurallar:
 `/gazete` adresinde **kural motoruyla** dizilen bir gazete ön sayfası var. Model yok, rastgelelik yok: aynı veri her zaman aynı sayfayı üretir (test edilir).
 
 - **Havuz:** yapay zekâ kaynakları (`Feed.group === "ai"`) + başlığında AI geçen diğer haberler (ölçüm: ~192 aday).
+- **Baskılar:** aynı dizgi üç havuzla basılır (`PAPER_SECTIONS`): `/gazete` yapay zekâ, `/gazete/gundem` dünya kaynakları, `/gazete/ekonomi` konusu ekonomi olup başlığında güçlü bir ekonomi sinyali taşıyanlar. Gündem ve ekonomide Türkiye sinyalli haberler +3 puanla öne alınır. Başka bölüm adı 404 döner.
 - **Puan:** tazelik (≤3s 4 · ≤8s 3 · ≤24s 2 · üstü 1) + görsel (2) + başlığın sığması (≤70 harf 2 · ≤100 1) — en fazla 8.
 - **Dizgi:** üst bant (3 kısa teaser) → **gotik künye** → künye şeridi (gün · tarih · sayı) → manşet + italik deck → **fotoğrafın SOLUNA ve SAĞINA iki ayrı haber** (flanker) → gerekçeli 3 kolon manşet gövdesi (ilk harf büyük) → 3 fotoğraflı haber + çerçeveli **Öne çıkanlar** sütunu → **3 kolon kısa kısa** (kaynak kendi satırında, başlık en fazla 2 satır) → sayfanın dibinde **kalın siyah kapanış çizgisi**. Alt bilgi metni **yok**; kaynak her haberin kendi etiketinde görünür.
 - **Baskı:** A4 210×297 mm, **tek sayfa** ve **sayfa dipine kadar dolu**. Baskıda `.paper` yüksekliği **282 mm**'ye sabitlenir (`overflow: hidden`), içerik de puntoyla o yüksekliğe göre ölçeklenir. Ölçüm PDF'in kendisinden yapılır: `pdftoppm` ile sayfa resme çevrilip en alt koyu piksel aranır → son içerik sayfa dibinden **2 mm** yukarıda (kalan 7 mm zaten `@page` kenar payı). Manşet künyesi 60 px, banner 40 px, gövde 12 px, manşet fotoğrafı 63 mm, haber fotoğrafı 31 mm. Fotoğraflar **renkli** (`print-color-adjust: exact`).
@@ -158,7 +173,7 @@ npm start
 
 ```bash
 npm test          # dondurulmuş gerçek feed snapshot'ı (hızlı, ağsız)
-npm run test:live # canlı 15 RSS ile aynı kontroller
+npm run test:live # canlı 24 RSS ile aynı kontroller
 npm run fixtures  # snapshot'ı canlıdan yenile
 npm run bulten    # bugünün bülteni (canlı): manşet, sayfa haberleri, kısa kısa, konu dağılımı
 ```
@@ -167,7 +182,7 @@ npm run bulten    # bugünün bülteni (canlı): manşet, sayfa haberleri, kısa
 
 | Ne | Nerede | Varsayılan |
 | --- | --- | --- |
-| Kaynak listesi | `src/lib/feeds.ts` | **15 feed** (5 dünya + 10 yapay zekâ) |
+| Kaynak listesi | `src/lib/feeds.ts` | **24 feed** (5 dünya + 9 finans + 10 yapay zekâ) |
 | Sayfa yenileme | `src/app/page.tsx` → `revalidate` | 1800 sn (30 dk) |
 | Pencere seçenekleri | `src/lib/config.ts` → `WINDOW_OPTIONS` | 1 saat … 24 saat + Tümü (varsayılan 24 saat) |
 | Fetch akıl sağlığı | `src/lib/config.ts` → `MAX_AGE_HOURS` | 30 gün (bundan eskisi elenir) |
