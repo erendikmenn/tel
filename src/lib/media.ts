@@ -1,4 +1,4 @@
-import { enlargeImage } from "./image";
+import { usableImage } from "./image";
 
 export type MediaNode = {
   $?: { url?: string; type?: string; medium?: string; width?: string | number };
@@ -19,12 +19,8 @@ export type ImageSource = {
  */
 export function itemImage(item: ImageSource) {
   const enclosure = item.enclosure;
-  if (enclosure?.url && (!enclosure.type || enclosure.type.startsWith("image/"))) {
-    return enlargeImage(enclosure.url);
-  }
-
-  const thumb = mediaUrl(item.mediaThumbnail);
-  if (thumb) return enlargeImage(thumb);
+  const fromEnclosure =
+    enclosure?.url && (!enclosure.type || enclosure.type.startsWith("image/")) ? enclosure.url : undefined;
 
   const contents = Array.isArray(item.mediaContent)
     ? item.mediaContent
@@ -34,11 +30,19 @@ export function itemImage(item: ImageSource) {
   const ranked = contents
     .map((node) => ({ url: mediaUrl(node), width: Number(node.$?.width || 0) }))
     .filter((node): node is { url: string; width: number } => Boolean(node.url))
-    .sort((a, b) => b.width - a.width);
-  if (ranked[0]) return enlargeImage(ranked[0].url);
+    .sort((a, b) => b.width - a.width)
+    .map((node) => node.url);
 
   const html = item.content || item["content:encoded"] || "";
-  return enlargeImage(html.match(/<img[^>]+src=["']([^"']+)/i)?.[1]);
+  const fromHtml = html.match(/<img[^>]+src=["']([^"']+)/i)?.[1];
+
+  // Öncelik: enclosure → media:thumbnail → en geniş media:content → gövdedeki <img>.
+  // Açılmayan aday (kapalı sunucu, bkz. usableImage) atlanır, sıradakine geçilir.
+  for (const url of [fromEnclosure, mediaUrl(item.mediaThumbnail), ...ranked, fromHtml]) {
+    const image = usableImage(url);
+    if (image) return image;
+  }
+  return undefined;
 }
 
 function mediaUrl(node?: MediaNode) {

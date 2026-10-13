@@ -1,6 +1,7 @@
 import { buildPaper } from "../src/lib/paper";
 import { REAL_ITEMS } from "./fixtures/real-items";
 import { checkFilterRules, printExamples, printTopicReport } from "./support/filter-checks";
+import { checkImageRules } from "./support/image-checks";
 import { checkDuplicateRules, checkPaperRules, checkPaperSections, printPaper } from "./support/paper-checks";
 import { checkReadRules } from "./support/read-checks";
 
@@ -24,6 +25,7 @@ checkReadRules(REAL_ITEMS, assert);
 checkPaperRules(REAL_ITEMS, assert);
 checkPaperSections(REAL_ITEMS, Date.now(), assert);
 checkDuplicateRules(REAL_ITEMS, Date.now(), assert);
+checkImageRules(assert);
 printPaper(buildPaper(REAL_ITEMS));
 
 if (failed) {

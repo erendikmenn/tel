@@ -7,6 +7,32 @@ export function enlargeImage(url?: string) {
   );
 }
 
+/**
+ * Görsel sunucusu dışarıya kapalı kaynaklar: RSS görsel adresi veriyor ama
+ * sunucu her isteğe 403 dönüyor (tarayıcı User-Agent'ı ya da Referer fark
+ * etmiyor; ölçüldü, 13 Eki 2026: content-media.investing.com 10/10 → 403).
+ * Bu adresler görsel sayılırsa haber fotoğraflı yere girip sayfada boş kutu
+ * bırakıyor: Ekonomi baskısında 16 sayıda 64 fotoğraf yerinin 42'si böyle
+ * boş basıldı (27 Eyl – 13 Eki 2026).
+ */
+const CLOSED_IMAGE_HOSTS = ["investing.com"];
+
+function isClosedImage(url: string) {
+  let host: string;
+  try {
+    host = new URL(url).hostname;
+  } catch {
+    return false;
+  }
+  return CLOSED_IMAGE_HOSTS.some((closed) => host === closed || host.endsWith("." + closed));
+}
+
+/** Sayfaya konabilecek görsel: kapalı sunucudakiler düşer, BBC görselleri büyütülür. */
+export function usableImage(url?: string) {
+  if (!url || isClosedImage(url)) return undefined;
+  return enlargeImage(url);
+}
+
 const HEADERS = {
   "User-Agent": "Mozilla/5.0 (compatible; Tel/0.1; +https://github.com/erendikmenn/tel)",
   Accept: "text/html",
@@ -38,7 +64,7 @@ export async function pageImage(url: string) {
     const html = (await response.text()).slice(0, 120_000);
     const found = metaImage(html);
     if (!found) return undefined;
-    return enlargeImage(new URL(found, url).href);
+    return usableImage(new URL(found, url).href);
   } catch {
     return undefined;
   }

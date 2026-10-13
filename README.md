@@ -128,6 +128,8 @@ Sıra:
 2. Yoksa yazının `og:image` (veya Twitter image), 5 sn zaman aşımı
 3. BBC `ichef` adresleri büyütülür: `/ace/standard/…` → 976px, `/ace/ws/…` → 800px
 
+Görsel sunucusu dışarıya kapalı kaynakların adresleri görsel sayılmaz (`usableImage`, `src/lib/image.ts`), sıradaki adaya geçilir. Bugün listede yalnızca **investing.com** var: RSS'te her habere görsel veriyor ama sunucusu her isteğe **403** dönüyor (tarayıcı User-Agent'ı ya da Referer fark etmiyor; ölçüldü, 13 Eki 2026). Görsel sayıldıklarında en taze kaynak oldukları sabahlarda Ekonomi baskısının fotoğraf yerlerini dolduruyor, sayfada boş kutu kalıyordu (27 Eyl – 13 Eki: 64 fotoğraf yerinin 42'si).
+
 Bazı NPR kalemleri TIFF veya varsayılan logo gelebilir; bunu CSS düzeltmez.
 
 ## Düzen
