@@ -1,3 +1,4 @@
+import { getText } from "./http";
 import { decodeEntities } from "./text";
 
 const BBC_ACE = /\/ace\/(standard|ws)\/\d+\//;
@@ -39,6 +40,8 @@ const HEADERS = {
   "User-Agent": "Mozilla/5.0 (compatible; Tel/0.1; +https://github.com/erendikmenn/tel)",
   Accept: "text/html",
 };
+const PAGE_TIMEOUT_MS = 5000;
+const LOOKUP_TTL_MS = 30 * 60_000;
 
 /** Sayfanın og:image / twitter:image adresi, HTML kaçışları çözülmüş (itemImage'daki <img> gibi). */
 export function metaImage(html: string) {
@@ -55,20 +58,33 @@ export function metaImage(html: string) {
   }
 }
 
-export async function pageImage(url: string) {
-  try {
-    const response = await fetch(url, {
-      headers: HEADERS,
-      redirect: "follow",
-      signal: AbortSignal.timeout(5000),
-    });
-    if (!response.ok) return undefined;
+const lookups = new Map<string, { at: number; image: Promise<string | undefined> }>();
 
-    const html = (await response.text()).slice(0, 120_000);
-    const found = metaImage(html);
-    if (!found) return undefined;
-    return usableImage(new URL(found, url).href);
-  } catch {
+/**
+ * Yazının og:image görseli. Sayfa fetch ile değil getText ile iner, böylece
+ * 5 sn sınırı her yolda geçerli (bkz. getText).
+ *
+ * Aynı yazı 30 dk içinde bir kez sorulur; Next'in fetch önbelleği bunu
+ * derlemede kendiliğinden yapıyordu: dört sayfa aynı ~120 yazıyı arıyor,
+ * önbelleksiz derleme 192 yerine 572 sayfa isteği attı (13 Ekim 2026).
+ * Başarısız istek (zaman aşımı, 403) saklanmaz, sonraki çağrı yeniden dener.
+ */
+export function pageImage(url: string) {
+  const now = Date.now();
+  for (const [key, entry] of lookups) if (now - entry.at > LOOKUP_TTL_MS) lookups.delete(key);
+  const known = lookups.get(url);
+  if (known) return known.image;
+  const image = lookUpImage(url).catch(() => {
+    lookups.delete(url);
     return undefined;
-  }
+  });
+  lookups.set(url, { at: now, image });
+  return image;
+}
+
+async function lookUpImage(url: string) {
+  const html = (await getText(url, HEADERS, PAGE_TIMEOUT_MS)).slice(0, 120_000);
+  const found = metaImage(html);
+  if (!found) return undefined;
+  return usableImage(new URL(found, url).href);
 }

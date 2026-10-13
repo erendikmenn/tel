@@ -2,11 +2,11 @@ import http from "node:http";
 import https from "node:https";
 import { gunzipSync } from "node:zlib";
 
-const HEADERS = {
+const FEED_HEADERS = {
   "User-Agent": "Tel/0.1 (+https://tel.local)",
   Accept: "application/rss+xml, application/xml, text/xml",
 };
-const TIMEOUT_MS = 8000;
+const FEED_TIMEOUT_MS = 8000;
 const MAX_REDIRECTS = 5;
 
 /**
@@ -22,11 +22,24 @@ const MAX_REDIRECTS = 5;
  *
  * Saf modül: yalnızca Node modülleri, böylece test derlemesinde de yüklenir.
  */
-export async function getFeedXml(url: string) {
-  const signal = AbortSignal.timeout(TIMEOUT_MS);
+export function getFeedXml(url: string) {
+  return getText(url, FEED_HEADERS, FEED_TIMEOUT_MS);
+}
+
+/**
+ * Adresin gövdesini metin olarak indirir (en fazla 5 yönlendirme; 3xx üstü
+ * hata). Süre yönlendirmeler ve gövde dahil tüm işe yeter; dolunca soket kapanır.
+ *
+ * Next'in sardığı fetch bunu garanti etmiyor: derlemede yanıtları önbelleğe
+ * yazıyor, önbellekteki kayıt bayatsa (önceki derlemeden, 30 dk'dan eski)
+ * isteği sinyali düşürerek yeniden atıyor (patch-fetch.js: "don't pass through
+ * signal when revalidating"). O zaman AbortSignal.timeout işlemiyor.
+ */
+export async function getText(url: string, headers: http.OutgoingHttpHeaders, timeoutMs: number) {
+  const signal = AbortSignal.timeout(timeoutMs);
   let target = url;
   for (let redirects = 0; ; redirects += 1) {
-    const response = await request(target, signal);
+    const response = await request(target, headers, signal);
     if (response.location && response.status >= 300 && response.status < 400) {
       if (redirects >= MAX_REDIRECTS) throw new Error("Too many redirects");
       target = new URL(response.location, target).href;
@@ -39,10 +52,10 @@ export async function getFeedXml(url: string) {
 
 type Response = { status: number; location?: string; text: string };
 
-function request(url: string, signal: AbortSignal) {
+function request(url: string, headers: http.OutgoingHttpHeaders, signal: AbortSignal) {
   const get = url.startsWith("https:") ? https.get : http.get;
   return new Promise<Response>((resolve, reject) => {
-    const req = get(url, { headers: HEADERS, signal }, (res) => {
+    const req = get(url, { headers, signal }, (res) => {
       const status = res.statusCode ?? 0;
       if (status >= 300) {
         res.resume();
