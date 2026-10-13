@@ -1,4 +1,5 @@
 import { usableImage } from "./image";
+import { decodeEntities } from "./text";
 
 export type MediaNode = {
   $?: { url?: string; type?: string; medium?: string; width?: string | number };
@@ -34,7 +35,10 @@ export function itemImage(item: ImageSource) {
     .map((node) => node.url);
 
   const html = item.content || item["content:encoded"] || "";
-  const fromHtml = html.match(/<img[^>]+src=["']([^"']+)/i)?.[1];
+  // src HTML'de kaçışlı: The Verge `?quality=90&#038;strip=all` yazıyor; çözülmezse
+  // tarayıcı `#038;…`'ü parça sayar ve sorgu `?quality=90&`'te kesilir.
+  const src = html.match(/<img[^>]+src=["']([^"']+)/i)?.[1];
+  const fromHtml = src && decodeEntities(src);
 
   // Öncelik: enclosure → media:thumbnail → en geniş media:content → gövdedeki <img>.
   // Açılmayan aday (kapalı sunucu, bkz. usableImage) atlanır, sıradakine geçilir.

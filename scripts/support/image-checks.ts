@@ -1,7 +1,8 @@
 import type { DigestItem } from "../../src/lib/digest";
-import { usableImage } from "../../src/lib/image";
+import { metaImage, usableImage } from "../../src/lib/image";
 import { itemImage, type ImageSource } from "../../src/lib/media";
 import { buildPaper, findSection } from "../../src/lib/paper";
+import { decodeEntities } from "../../src/lib/text";
 
 export type ImageAssert = (name: string, ok: boolean, detail?: string) => void;
 
@@ -34,6 +35,32 @@ export function checkImageRules(assert: ImageAssert) {
     "görsel: BBC küçük resmi büyütülür",
     itemImage({ mediaThumbnail: { $: { url: "https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/5a5e/live/a.jpg" } } }) ===
       "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/5a5e/live/a.jpg",
+  );
+
+  // 13 Ekim 2026: The Verge AI'nin 10 kaleminin 10'unda görsel yalnızca gövdede ve src kaçışlı.
+  const verge = "https://platform.theverge.com/wp-content/uploads/sites/2/2026/10/STKB394_MUSE_AI_CVIRGINIA_D.png";
+  const vergeBody = (amp: string): ImageSource => ({
+    content:
+      '<figure><img alt="" data-caption="" data-has-syndication-rights="1" src="' +
+      verge + "?quality=90" + amp + "strip=all" + amp + 'crop=0,0,100,100" /></figure>',
+  });
+  const vergeQuery = ["&#038;", "&#38;", "&#x26;", "&amp;"].map((amp) => itemImage(vergeBody(amp)));
+  assert(
+    "görsel: gövdedeki <img> adresinin HTML kaçışları çözülür (&#038; sorguyu kesmez)",
+    vergeQuery.every((url) => url === verge + "?quality=90&strip=all&crop=0,0,100,100"),
+    vergeQuery.join(" | "),
+  );
+  // 13 Ekim 2026: CNBC'nin 30 sayfasının 30'unda og:image &amp;'lı; WordPress siteleri &#038; yazıyor.
+  const cnbc = "https://image.cnbcfm.com/api/v1/image/108398461-1791814923062-gettyimages-2298287863-AA_06102026_2981670.jpeg";
+  assert(
+    "görsel: og:image adresinin kaçışları aynı çözücüyle çözülür",
+    metaImage('<meta property="og:image" content="' + cnbc + '?v=1791814942&amp;w=1920&amp;h=1080"/>') ===
+      cnbc + "?v=1791814942&w=1920&h=1080" &&
+      metaImage('<meta content="' + verge + '?quality=90&#038;strip=all" property="og:image">') === verge + "?quality=90&strip=all",
+  );
+  assert(
+    "metin: geçersiz kod noktası hata fırlatmaz, olduğu gibi kalır",
+    decodeEntities("a &#x110000; b &#99999999; c &#xD800; d &#0;") === "a &#x110000; b &#99999999; c &#xD800; d &#0;",
   );
 
   // 13 Ekim 2026, 06:15 (İstanbul): Investing.com TR kalemleri en yenisi.

@@ -1,3 +1,5 @@
+import { decodeEntities } from "./text";
+
 const BBC_ACE = /\/ace\/(standard|ws)\/\d+\//;
 
 export function enlargeImage(url?: string) {
@@ -38,7 +40,8 @@ const HEADERS = {
   Accept: "text/html",
 };
 
-function metaImage(html: string) {
+/** Sayfanın og:image / twitter:image adresi, HTML kaçışları çözülmüş (itemImage'daki <img> gibi). */
+export function metaImage(html: string) {
   const patterns = [
     /property=["']og:image["'][^>]*content=["']([^"']+)/i,
     /content=["']([^"']+)["'][^>]*property=["']og:image["']/i,
@@ -48,7 +51,7 @@ function metaImage(html: string) {
 
   for (const pattern of patterns) {
     const value = html.match(pattern)?.[1];
-    if (value) return value.replaceAll("&amp;", "&");
+    if (value) return decodeEntities(value);
   }
 }
 
