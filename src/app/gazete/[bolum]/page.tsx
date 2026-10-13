@@ -4,6 +4,9 @@ import { buildDigest } from "@/lib/digest";
 import { PAPER_SECTIONS, buildPaper, findSection } from "@/lib/paper";
 
 export const revalidate = 1800;
+// Yalnızca bilinen bölümler: findSection bilinmeyen adı yapay zekâ baskısına
+// çeviriyordu, /gazete/herhangi-bir-sey 200 dönüp her yeni adresi baştan çekiyordu.
+export const dynamicParams = false;
 
 type Props = { params: Promise<{ bolum: string }> };
 
