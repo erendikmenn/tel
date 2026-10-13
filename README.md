@@ -140,7 +140,7 @@ Kurallar:
 Sıra:
 
 1. RSS enclosure / `media:thumbnail` / `media:content` / gövde `<img>`
-2. Yoksa yazının `og:image` (veya Twitter image): sayfa `getText` ile `</head>`'e ya da 120 KB'a kadar okunur (`src/lib/http.ts`), 5 sn'de soket kapanır; aynı yazı 30 dk içinde bir kez sorulur. Next'in fetch'i değil: derlemede önbellekteki bayat kaydı yenilerken sinyali düşürüyor, yanıt vermeyen site isteği açık tutuyordu.
+2. Yoksa yazının `og:image` (veya Twitter image): sayfa `getText` ile `</head>`'e ya da 120 KB'a kadar okunur (`src/lib/http.ts`), 5 sn'de soket kapanır; aynı anda en fazla 16 sayfa istenir, aynı yazı 30 dk içinde bir kez sorulur. Next'in fetch'i değil: derlemede önbellekteki bayat kaydı yenilerken sinyali düşürüyor, yanıt vermeyen site isteği açık tutuyordu.
 3. BBC `ichef` adresleri büyütülür: `/ace/standard/…` → 976px, `/ace/ws/…` → 800px
 
 Gövde `<img>` ve `og:image` adreslerindeki HTML kaçışları (`&#038;`, `&amp;`, `&#x26;`) çözülür; çözülmezse tarayıcı `#038;…`'ü parça sayıp sorguyu keser.

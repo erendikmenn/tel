@@ -45,6 +45,10 @@ const LOOKUP_TTL_MS = 30 * 60_000;
 // og:image <head>'de, sayfanın gerisi indirilmez. CNBC sayfası ~800 KB; 124
 // yazılık bir tur 45 MB indiriyordu, böyle 9 MB (13 Ekim 2026).
 const PAGE_HEAD = { maxBytes: 120_000, stopAt: "</head>" };
+// Aynı anda en fazla 16 sayfa. Sınırsızken bir sayfa üretimi ~120 isteği birden
+// atıyordu (CNBC'ye 30, Al Jazeera'ya 25). 16, herkes yanıtsız kalsa bile
+// (120 / 16 × 5 sn ≈ 40 sn) Next'in sayfa başına 60 sn'lik derleme sınırının altında.
+const MAX_LOOKUPS = 16;
 
 /** Sayfanın og:image / twitter:image adresi, HTML kaçışları çözülmüş (itemImage'daki <img> gibi). */
 export function metaImage(html: string) {
@@ -77,12 +81,28 @@ export function pageImage(url: string) {
   for (const [key, entry] of lookups) if (now - entry.at > LOOKUP_TTL_MS) lookups.delete(key);
   const known = lookups.get(url);
   if (known) return known.image;
-  const image = lookUpImage(url).catch(() => {
+  const image = inTurn(() => lookUpImage(url)).catch(() => {
     lookups.delete(url);
     return undefined;
   });
   lookups.set(url, { at: now, image });
   return image;
+}
+
+let running = 0;
+const waiting: (() => void)[] = [];
+
+/** Sırası gelince çalıştırır; biten iş yerini doğrudan sıradakine verir. */
+async function inTurn<T>(task: () => Promise<T>) {
+  if (running < MAX_LOOKUPS) running += 1;
+  else await new Promise<void>((resolve) => waiting.push(resolve));
+  try {
+    return await task();
+  } finally {
+    const next = waiting.shift();
+    if (next) next();
+    else running -= 1;
+  }
 }
 
 async function lookUpImage(url: string) {

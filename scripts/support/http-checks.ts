@@ -37,9 +37,19 @@ export function checkFeedDecode(assert: HttpAssert) {
 export async function checkPageFetch(assert: HttpAssert) {
   const closed: Record<string, number> = {};
   const hits: Record<string, number> = {};
+  let open = 0;
+  let peak = 0;
   const server = http.createServer((req, res) => {
     const opened = Date.now();
     hits[req.url ?? ""] = (hits[req.url ?? ""] ?? 0) + 1;
+    if (req.url?.startsWith("/sira/")) {
+      peak = Math.max(peak, ++open);
+      setTimeout(() => {
+        open -= 1;
+        res.end('<html><head><meta property="og:image" content="/img/s.jpg"></head></html>');
+      }, 20);
+      return;
+    }
     req.socket.on("close", () => (closed[req.url ?? ""] = Date.now() - opened));
     if (req.url === "/makale") {
       res.setHeader("content-type", "text/html; charset=utf-8");
@@ -106,6 +116,13 @@ export async function checkPageFetch(assert: HttpAssert) {
     "görsel: sayfa </head>'de ya da 120 KB'ta bırakılır, gerisi beklenmez",
     heads.every((image) => image === base + "/img/b.jpg") && headMs < 2000,
     JSON.stringify({ heads, headMs }),
+  );
+
+  const queued = await Promise.all(Array.from({ length: 50 }, (_, i) => pageImage(base + "/sira/" + i)));
+  assert(
+    "görsel: aynı anda en fazla 16 sayfa istenir, hepsi sırayla tamamlanır",
+    peak === 16 && queued.every((image) => image === base + "/img/s.jpg"),
+    "en çok " + peak + " eşzamanlı, " + queued.filter(Boolean).length + "/50 görsel",
   );
 
   server.closeAllConnections();
