@@ -1,6 +1,7 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
+import { dropCopies } from "@/lib/dedupe";
 import { pageImage } from "@/lib/image";
 import { itemImage, type MediaNode } from "@/lib/media";
 import { decodeEntities, normalizeText } from "@/lib/text";
@@ -92,7 +93,6 @@ function itemTime(item: DigestItem) {
 
 async function fetchFeed(feed: (typeof FEEDS)[number]) {
   const parsed = await parser.parseURL(feed.url);
-  const seen = new Set<string>();
 
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)
@@ -103,9 +103,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
     .flatMap((item) => {
       const parsed = item as ParsedItem;
       const title = stripHtml(parsed.title!);
-      const key = normalizeText(title);
-      if (!key || seen.has(key)) return [];
-      seen.add(key);
+      if (!normalizeText(title)) return [];
       const summary = itemSummary(parsed, title);
       return [
         {
@@ -141,9 +139,11 @@ export async function buildDigest(): Promise<Digest> {
     items.push(...result.value);
   });
 
-  items.sort((a, b) => itemTime(b) - itemTime(a));
+  // Kopyalar sıralamadan ÖNCE atılır: FEEDS sırasında ilk görülen kalır.
+  const unique = dropCopies(items);
+  unique.sort((a, b) => itemTime(b) - itemTime(a));
   // Kaynak başına sınır yok; yalnızca genel güvenlik tavanı.
-  const newest = items.slice(0, MAX_ITEMS);
+  const newest = unique.slice(0, MAX_ITEMS);
 
   const filled = await Promise.all(
     newest.map(async (item) => {

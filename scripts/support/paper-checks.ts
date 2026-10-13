@@ -1,5 +1,5 @@
 import type { DigestItem } from "../../src/lib/digest";
-import { storyMatcher } from "../../src/lib/dedupe";
+import { dropCopies, storyMatcher } from "../../src/lib/dedupe";
 import {
   PAPER_BRIEFS,
   PAPER_FLANKERS,
@@ -233,4 +233,12 @@ export function checkDuplicateRules(items: DigestItem[], now: number, assert: Pa
     "tekrar: ayıklama sonrası sayfa dolu",
     real.strip.length === PAPER_STRIP && real.sidebar.length === PAPER_SIDEBAR && real.briefs.length === PAPER_BRIEFS,
   );
+
+  // Aynı yazı iki feed'de (13 Ekim 2026: BBC World + BBC Business, aynı guid ve başlık).
+  const bbc = story("BBC World", "Dating app Bumble in $1bn takeover talks, say reports");
+  const sameGuid = { ...bbc, source: "BBC Business", title: bbc.title + " - BBC News" };
+  const sameTitle = { ...bbc, id: "bbc-business:bumble", source: "BBC Business" };
+  const kept = dropCopies([bbc, sameGuid, sameTitle, boe]);
+  assert("kopya: aynı guid ya da başlık bir kez, ilk görülen kalır", kept.length === 2 && kept[0] === bbc && kept[1] === boe);
+  assert("kopya: gerçek havuzda kimlikler tekil", new Set(items.map((item) => item.id)).size === items.length);
 }

@@ -200,6 +200,24 @@ export function storyMatcher(items: DigestItem[]) {
   };
 }
 
+/**
+ * Aynı yazının kopyalarını atar: kimliği ya da sadeleşmiş başlığı daha önce
+ * görülmüş kalem düşer, ilk görülen kalır. BBC World ile BBC Business aynı
+ * yazıyı aynı guid'le veriyor (13 Ekim 2026: dört haber); kopya kalınca
+ * anasayfada iki kez çıkıyor, iki kart aynı React anahtarını taşıyordu.
+ */
+export function dropCopies(items: DigestItem[]) {
+  const ids = new Set<string>();
+  const titles = new Set<string>();
+  return items.filter((item) => {
+    const title = normalizeText(item.title);
+    if (ids.has(item.id) || titles.has(title)) return false;
+    ids.add(item.id);
+    titles.add(title);
+    return true;
+  });
+}
+
 /** Sıralı listeden aynı olayın tekrarlarını atar; her olayın ilk (en yüksek puanlı) haberi kalır. */
 export function dropRepeats(ranked: DigestItem[], sameStory: (a: DigestItem, b: DigestItem) => boolean) {
   const kept: DigestItem[] = [];

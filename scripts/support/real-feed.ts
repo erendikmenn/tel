@@ -3,6 +3,7 @@ import { FEEDS } from "../../src/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
 import { decodeEntities, normalizeText } from "../../src/lib/text";
 import { classify } from "../../src/lib/topics";
+import { dropCopies } from "../../src/lib/dedupe";
 import type { DigestItem } from "../../src/lib/digest";
 import { itemImage, type ImageSource } from "../../src/lib/media";
 
@@ -34,7 +35,6 @@ function stripHtml(value: string) {
 /** Canlı 5 RSS'ten gerçek kalemleri çeker (uygulamayla aynı: yaş sınırı yok, tekilleştirme + MAX_ITEMS). */
 export async function fetchRealItems(): Promise<DigestItem[]> {
   const parser = new Parser({ timeout: 8000 });
-  const seen = new Set<string>();
   const items: DigestItem[] = [];
   const results = await Promise.allSettled(
     FEEDS.map((feed) => parser.parseURL(feed.url).then((parsed) => ({ feed, parsed }))),
@@ -52,8 +52,7 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
       taken += 1;
       const title = stripHtml(raw.title);
       const key = normalizeText(title);
-      if (!key || seen.has(key)) continue;
-      seen.add(key);
+      if (!key) continue;
       const rawSummary = raw.contentSnippet ? stripHtml(raw.contentSnippet) : undefined;
       const summary = rawSummary && normalizeText(rawSummary) !== key ? rawSummary : undefined;
       items.push({
@@ -76,6 +75,7 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
     }
   }
 
-  items.sort((a, b) => Date.parse(b.isoDate ?? "") - Date.parse(a.isoDate ?? ""));
-  return items.slice(0, MAX_ITEMS);
+  const unique = dropCopies(items);
+  unique.sort((a, b) => Date.parse(b.isoDate ?? "") - Date.parse(a.isoDate ?? ""));
+  return unique.slice(0, MAX_ITEMS);
 }
