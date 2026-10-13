@@ -306,7 +306,8 @@ export function NewsExplorer({ items, generatedAt }: { items: DigestItem[]; gene
           type="button"
           className="explorer-toggle"
           aria-expanded={open}
-          aria-controls="explorer-panel"
+          // Panel kapalıyken DOM'da yok; olmayan kimliğe işaret etmesin.
+          aria-controls={open ? "explorer-panel" : undefined}
           onClick={() => setOpen((value) => !value)}
         >
           Filtreler
