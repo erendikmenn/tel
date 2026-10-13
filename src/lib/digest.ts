@@ -2,6 +2,7 @@ import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
 import { MAX_AGE_HOURS, MAX_ITEMS, feedDate } from "@/lib/config";
 import { dropCopies } from "@/lib/dedupe";
+import { getFeedXml } from "@/lib/http";
 import { pageImage } from "@/lib/image";
 import { itemImage, type MediaNode } from "@/lib/media";
 import { decodeEntities, normalizeText } from "@/lib/text";
@@ -42,12 +43,8 @@ export type Digest = {
   failedFeeds: string[];
 };
 
+// İndirme (başlıklar, 8 sn zaman aşımı) getFeedXml'de; rss-parser yalnızca ayrıştırır.
 const parser = new Parser({
-  timeout: 8000,
-  headers: {
-    "User-Agent": "Tel/0.1 (+https://tel.local)",
-    Accept: "application/rss+xml, application/xml, text/xml",
-  },
   customFields: {
     item: [
       ["media:thumbnail", "mediaThumbnail"],
@@ -92,7 +89,7 @@ function itemTime(item: DigestItem) {
 }
 
 async function fetchFeed(feed: (typeof FEEDS)[number]) {
-  const parsed = await parser.parseURL(feed.url);
+  const parsed = await parser.parseString(await getFeedXml(feed.url));
 
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)

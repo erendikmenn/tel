@@ -4,6 +4,7 @@ import { MAX_AGE_HOURS, MAX_ITEMS, feedDate } from "../../src/lib/config";
 import { decodeEntities, normalizeText } from "../../src/lib/text";
 import { classify } from "../../src/lib/topics";
 import { dropCopies } from "../../src/lib/dedupe";
+import { getFeedXml } from "../../src/lib/http";
 import type { DigestItem } from "../../src/lib/digest";
 import { itemImage, type ImageSource } from "../../src/lib/media";
 
@@ -34,10 +35,14 @@ function stripHtml(value: string) {
 
 /** Canlı 5 RSS'ten gerçek kalemleri çeker (uygulamayla aynı: yaş sınırı yok, tekilleştirme + MAX_ITEMS). */
 export async function fetchRealItems(): Promise<DigestItem[]> {
-  const parser = new Parser({ timeout: 8000 });
+  const parser = new Parser();
   const items: DigestItem[] = [];
   const results = await Promise.allSettled(
-    FEEDS.map((feed) => parser.parseURL(feed.url).then((parsed) => ({ feed, parsed }))),
+    FEEDS.map((feed) =>
+      getFeedXml(feed.url)
+        .then((xml) => parser.parseString(xml))
+        .then((parsed) => ({ feed, parsed })),
+    ),
   );
 
   for (const result of results) {
