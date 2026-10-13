@@ -5,6 +5,7 @@ import {
   PER_SOURCE_UNLIMITED,
   WINDOW_ALL,
   WINDOW_OPTIONS,
+  feedDate,
   perSourceLabel,
 } from "../../src/lib/config";
 import { countOptions } from "../../src/lib/counts";
@@ -67,6 +68,17 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   const cutoff = Date.now() - 6 * 3600_000;
   const recent = filterItems(items, { sinceHours: 6 });
   assert("sinceHours=6 penceresi", recent.every((i) => !i.isoDate || Date.parse(i.isoDate) >= cutoff));
+
+  // Saat dilimsiz feed tarihi (Investing.com TR) sunucunun saat diliminden bağımsız UTC okunur.
+  assert(
+    "saat dilimsiz feed tarihi UTC",
+    feedDate("2026-10-13T05:18:47.000Z", "2026-10-13 08:18:47") === "2026-10-13T08:18:47.000Z",
+  );
+  assert(
+    "saat dilimli feed tarihine dokunulmaz",
+    feedDate("2026-10-13T08:03:37.000Z", "Tue, 13 Oct 2026 08:03:37 GMT") === "2026-10-13T08:03:37.000Z" &&
+      feedDate(undefined, "2026-10-13T11:15:00+03:00") === "2026-10-13T11:15:00+03:00",
+  );
 
   // Dilimleme + total
   const all = filterItems(items, {});

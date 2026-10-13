@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "../../src/lib/feeds";
-import { MAX_AGE_HOURS, MAX_ITEMS } from "../../src/lib/config";
+import { MAX_AGE_HOURS, MAX_ITEMS, feedDate } from "../../src/lib/config";
 import { decodeEntities, normalizeText } from "../../src/lib/text";
 import { classify } from "../../src/lib/topics";
 import { dropCopies } from "../../src/lib/dedupe";
@@ -46,7 +46,7 @@ export async function fetchRealItems(): Promise<DigestItem[]> {
     let taken = 0;
     for (const raw of parsed.items as RawItem[]) {
       if (!raw.title || !raw.link) continue;
-      const iso = raw.isoDate ?? raw.pubDate;
+      const iso = feedDate(raw.isoDate, raw.pubDate);
       if (iso && Date.now() - Date.parse(iso) > MAX_AGE_HOURS * 3600_000) continue;
       if (taken >= (feed.limit ?? Number.POSITIVE_INFINITY)) continue;
       taken += 1;

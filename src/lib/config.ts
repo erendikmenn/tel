@@ -40,6 +40,24 @@ export function perSourceLabel(value: number) {
   return value === PER_SOURCE_UNLIMITED ? "20+ haber" : value + " haber";
 }
 
+const ZONELESS_DATE = /^\d{4}-\d{2}-\d{2}[ T]\d{2}:\d{2}(:\d{2}(\.\d+)?)?$/;
+
+/**
+ * Kalemin yayın anı (ISO). Saat dilimi yazmayan tarihler UTC sayılır:
+ * Investing.com TR "2026-10-13 08:18:47" veriyor ve bu UTC (13 Ekim 2026
+ * 08:23 UTC'de en yeni kalem). rss-parser onu sunucunun yerel saatiyle
+ * okuyordu; TZ=Europe/Istanbul'da (bülten sunucusu) haberler 3 saat eski
+ * görünüp hem sırada hem gazetenin tazelik puanında geriye düşüyordu.
+ */
+export function feedDate(isoDate?: string, pubDate?: string) {
+  const raw = pubDate?.trim();
+  if (raw && ZONELESS_DATE.test(raw)) {
+    const time = Date.parse(raw.replace(" ", "T") + "Z");
+    if (!Number.isNaN(time)) return new Date(time).toISOString();
+  }
+  return isoDate ?? pubDate;
+}
+
 export function istanbulDate(date = new Date()) {
   return new Intl.DateTimeFormat("tr-TR", {
     dateStyle: "long",

@@ -1,6 +1,6 @@
 import Parser from "rss-parser";
 import { FEEDS } from "@/lib/feeds";
-import { MAX_AGE_HOURS, MAX_ITEMS } from "@/lib/config";
+import { MAX_AGE_HOURS, MAX_ITEMS, feedDate } from "@/lib/config";
 import { dropCopies } from "@/lib/dedupe";
 import { pageImage } from "@/lib/image";
 import { itemImage, type MediaNode } from "@/lib/media";
@@ -96,7 +96,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
 
   return (parsed.items ?? [])
     .filter((item) => item.title && item.link)
-    .filter((item) => isSane(item.isoDate ?? item.pubDate))
+    .filter((item) => isSane(feedDate(item.isoDate, item.pubDate)))
     // Toplayıcı feed'ler (ör. Google News sorgusu) yüzlerce kalem döndürebiliyor;
     // havuzu domine etmemeleri için kaynak başına sınır verilebilir.
     .slice(0, feed.limit ?? Number.POSITIVE_INFINITY)
@@ -111,7 +111,7 @@ async function fetchFeed(feed: (typeof FEEDS)[number]) {
           title,
           link: parsed.link!,
           source: feed.name,
-          isoDate: parsed.isoDate ?? parsed.pubDate,
+          isoDate: feedDate(parsed.isoDate, parsed.pubDate),
           summary,
           image: itemImage(parsed),
           topics: classify({
