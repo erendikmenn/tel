@@ -34,7 +34,7 @@ export default async function Home() {
       </section>
 
       {digest.items.length > 0 ? (
-        <NewsExplorer items={digest.items} />
+        <NewsExplorer items={digest.items} generatedAt={generatedAt} />
       ) : (
         <p className="note">Kaynaklar şu an sessiz. Birazdan yenilenir.</p>
       )}

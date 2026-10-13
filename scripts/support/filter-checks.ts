@@ -69,6 +69,16 @@ export function checkFilterRules(items: DigestItem[], assert: Assert) {
   const recent = filterItems(items, { sinceHours: 6 });
   assert("sinceHours=6 penceresi", recent.every((i) => !i.isoDate || Date.parse(i.isoDate) >= cutoff));
 
+  // Pencere verilen ana göre ölçülür (sunucunun ürettiği an; hidrasyon aynı listeyi kurar).
+  const dated = items.find((i) => i.isoDate && !Number.isNaN(Date.parse(i.isoDate)));
+  const at = dated ? Date.parse(dated.isoDate!) : 0;
+  assert(
+    "pencere verilen ana göre ölçülür",
+    Boolean(dated) &&
+      matchesFilter(dated!, { sinceHours: 1, now: at + 30 * 60_000 }) &&
+      !matchesFilter(dated!, { sinceHours: 1, now: at + 2 * 3600_000 }),
+  );
+
   // Saat dilimsiz feed tarihi (Investing.com TR) sunucunun saat diliminden bağımsız UTC okunur.
   assert(
     "saat dilimsiz feed tarihi UTC",

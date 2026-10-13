@@ -126,9 +126,13 @@ function persist(state: ExplorerState) {
   }
 }
 
-export function NewsExplorer({ items }: { items: DigestItem[] }) {
+export function NewsExplorer({ items, generatedAt }: { items: DigestItem[]; generatedAt: string }) {
   // Sunucuyla aynı ilk boya: varsayılan pencere + kaynak başına varsayılan.
   const [state, setState] = useState<ExplorerState>(DEFAULTS);
+  // İlk boyada pencere, sunucunun sayfayı ürettiği ana göre ölçülür. ISR bayat
+  // sayfa sunduğunda tarayıcının saatiyle ölçmek listeyi değiştiriyor ve
+  // hidrasyon bozuluyordu (React #418, ölçüldü). Senkrondan sonra yine "şimdi".
+  const [pinnedNow, setPinnedNow] = useState<number | undefined>(() => Date.parse(generatedAt));
   const [open, setOpen] = useState(false);
   const [reads, setReads] = useState<ReadMap>({});
 
@@ -137,6 +141,7 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
     const sync = () => {
       setState(readInitialState());
       setReads(loadReads(storage()));
+      setPinnedNow(undefined);
     };
     sync();
   }, []);
@@ -175,8 +180,9 @@ export function NewsExplorer({ items }: { items: DigestItem[] }) {
       sinceHours: state.hours === WINDOW_ALL ? undefined : state.hours,
       perSource: state.perSource,
       reads,
+      now: pinnedNow,
     }),
-    [state.q, state.sources, state.categories, state.hours, state.perSource, reads],
+    [state.q, state.sources, state.categories, state.hours, state.perSource, reads, pinnedNow],
   );
 
   const filtered = useMemo(() => viewItems(items, baseView), [items, baseView]);

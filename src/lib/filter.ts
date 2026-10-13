@@ -20,6 +20,8 @@ export type DigestFilter = {
   category?: string | string[];
   /** Yalnızca son N saat. > 0 değilse zaman filtresi uygulanmaz. */
   sinceHours?: number;
+  /** Pencerenin ölçüldüğü an (ms). Verilmezse şimdi (Date.now()). */
+  now?: number;
   /** Dilimleme: kaç item atlanacak. */
   offset?: number;
   /** Dilimleme: en fazla kaç item dönecek. */
@@ -102,11 +104,11 @@ function matchesQuery(
   return mode === "any" ? tokens.some(hit) : tokens.every(hit);
 }
 
-function matchesTime(item: DigestItem, sinceHours?: number) {
+function matchesTime(item: DigestItem, sinceHours?: number, now = Date.now()) {
   if (sinceHours == null || !Number.isFinite(sinceHours) || sinceHours <= 0) return true;
   const time = itemTime(item);
   if (!time) return true; // tarihi olmayanı eleme
-  return Date.now() - time <= sinceHours * 60 * 60 * 1000;
+  return now - time <= sinceHours * 60 * 60 * 1000;
 }
 
 /** Tek bir item filtreye uyuyor mu? (saf predicate) */
@@ -118,7 +120,7 @@ export function matchesFilter(item: DigestItem, filter: DigestFilter = {}) {
   return (
     matchesSource(item, toArray(filter.source)) &&
     matchesTopic(item, toArray(filter.category)) &&
-    matchesTime(item, filter.sinceHours) &&
+    matchesTime(item, filter.sinceHours, filter.now) &&
     matchesQuery(item, tokens, mode, fields)
   );
 }
